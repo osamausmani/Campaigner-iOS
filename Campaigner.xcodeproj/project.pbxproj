@@ -7,18 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702927A2A1A37730057FB33 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070292792A1A37730057FB33 /* Colors.swift */; };
+		0702927D2A1A442B0057FB33 /* FilterCnic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702927C2A1A442B0057FB33 /* FilterCnic.swift */; };
+		0702927F2A1A44900057FB33 /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702927E2A1A44900057FB33 /* TextFieldContainer.swift */; };
+		070292812A1A5CEA0057FB33 /* CnicTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070292802A1A5CEA0057FB33 /* CnicTextInput.swift */; };
+		0710C4FC2A1B89690035021A /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FB2A1B89690035021A /* MainButton.swift */; };
+		0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FE2A1BB4F10035021A /* FormInput.swift */; };
+		0710C5032A1BC00E0035021A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C5022A1BC00E0035021A /* Loader.swift */; };
+		0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077053392A1C9B8C000E1327 /* DropDown.swift */; };
 		07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0B32A07E4110096C82D /* CampaignerApp.swift */; };
 		07ADF0B62A07E4110096C82D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0B52A07E4110096C82D /* ContentView.swift */; };
 		07ADF0B82A07E4120096C82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADF0B72A07E4120096C82D /* Assets.xcassets */; };
 		07ADF0BB2A07E4120096C82D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07ADF0BA2A07E4120096C82D /* Preview Assets.xcassets */; };
+		07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0CF2A07E5B20096C82D /* SplashScreenView.swift */; };
+		07ADF0D22A07E5BF0096C82D /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0D12A07E5BF0096C82D /* LoginScreenView.swift */; };
+		07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0D32A07E5CB0096C82D /* RegisterScreenView.swift */; };
+		07ADF0D62A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0D52A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift */; };
+		07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0D82A07E7730096C82D /* MainBGView.swift */; };
+		07ADF0DB2A07F7CA0096C82D /* CustomTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */; };
+		07ADF0DD2A07FFB70096C82D /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */; };
+		07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */; };
+		07DEE22E2A1CD37200D8B4B5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE22D2A1CD37200D8B4B5 /* AlertManager.swift */; };
+		07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */; };
+		07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2312A1CE38700D8B4B5 /* RegisterViewModel.swift */; };
+		07DEE2352A1CE4A900D8B4B5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 07DEE2342A1CE4A900D8B4B5 /* Alamofire */; };
+		07DEE2372A1CE50200D8B4B5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2362A1CE50200D8B4B5 /* NetworkManager.swift */; };
+		07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2392A1CE69100D8B4B5 /* BaseResponse.swift */; };
+		07DEE23C2A1CE96900D8B4B5 /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE23B2A1CE96900D8B4B5 /* ApiPaths.swift */; };
+		07DEE23E2A1CEB7300D8B4B5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE23D2A1CEB7300D8B4B5 /* LoginViewModel.swift */; };
+		07DEE2402A1CF41400D8B4B5 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE23F2A1CF41400D8B4B5 /* LoginResponse.swift */; };
+		07DEE2432A1CFB3700D8B4B5 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */; };
+		07DEE2452A1D094E00D8B4B5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2442A1D094E00D8B4B5 /* Global.swift */; };
+		07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2472A1D372900D8B4B5 /* BaseViewProtocol.swift */; };
+		07DEE24B2A1D3FC100D8B4B5 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 07DEE24A2A1D3FC100D8B4B5 /* AlertToast */; };
+		07DEE24E2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE24D2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift */; };
+		07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2502A1D50B500D8B4B5 /* HomeScreenView.swift */; };
+		07DEE2542A1DFE7D00D8B4B5 /* ProfileMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2532A1DFE7D00D8B4B5 /* ProfileMainScreen.swift */; };
+		07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2562A1DFEA900D8B4B5 /* ProfileSection.swift */; };
+		07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2582A1DFEBD00D8B4B5 /* ElectoralSection.swift */; };
+		07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */; };
+		07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */; };
+		07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */; };
+		07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2602A1E0BC500D8B4B5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070292792A1A37730057FB33 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0702927C2A1A442B0057FB33 /* FilterCnic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCnic.swift; sourceTree = "<group>"; };
+		0702927E2A1A44900057FB33 /* TextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
+		070292802A1A5CEA0057FB33 /* CnicTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CnicTextInput.swift; sourceTree = "<group>"; };
+		0710C4FB2A1B89690035021A /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		0710C4FE2A1BB4F10035021A /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
+		0710C5022A1BC00E0035021A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		077053392A1C9B8C000E1327 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		07ADF0B02A07E4110096C82D /* Campaigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campaigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADF0B32A07E4110096C82D /* CampaignerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignerApp.swift; sourceTree = "<group>"; };
 		07ADF0B52A07E4110096C82D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07ADF0B72A07E4120096C82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07ADF0BA2A07E4120096C82D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07ADF0CF2A07E5B20096C82D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		07ADF0D12A07E5BF0096C82D /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		07ADF0D32A07E5CB0096C82D /* RegisterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenView.swift; sourceTree = "<group>"; };
+		07ADF0D52A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordHomeScreenView.swift; sourceTree = "<group>"; };
+		07ADF0D82A07E7730096C82D /* MainBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBGView.swift; sourceTree = "<group>"; };
+		07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextInput.swift; sourceTree = "<group>"; };
+		07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
+		07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
+		07DEE22D2A1CD37200D8B4B5 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		07DEE2312A1CE38700D8B4B5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		07DEE2362A1CE50200D8B4B5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		07DEE2392A1CE69100D8B4B5 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		07DEE23B2A1CE96900D8B4B5 /* ApiPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
+		07DEE23D2A1CEB7300D8B4B5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		07DEE23F2A1CF41400D8B4B5 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		07DEE2442A1D094E00D8B4B5 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		07DEE2472A1D372900D8B4B5 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		07DEE24D2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewModel.swift; sourceTree = "<group>"; };
+		07DEE2502A1D50B500D8B4B5 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		07DEE2532A1DFE7D00D8B4B5 /* ProfileMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainScreen.swift; sourceTree = "<group>"; };
+		07DEE2562A1DFEA900D8B4B5 /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
+		07DEE2582A1DFEBD00D8B4B5 /* ElectoralSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectoralSection.swift; sourceTree = "<group>"; };
+		07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticalSection.swift; sourceTree = "<group>"; };
+		07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassPinScreenView.swift; sourceTree = "<group>"; };
+		07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSetPassScreenView.swift; sourceTree = "<group>"; };
+		07DEE2602A1E0BC500D8B4B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +99,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DEE2432A1CFB3700D8B4B5 /* SwiftyJSON in Frameworks */,
+				07DEE24B2A1D3FC100D8B4B5 /* AlertToast in Frameworks */,
+				07DEE2352A1CE4A900D8B4B5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070292782A1A375D0057FB33 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				070292792A1A37730057FB33 /* Colors.swift */,
+				07DEE23B2A1CE96900D8B4B5 /* ApiPaths.swift */,
+				07DEE2442A1D094E00D8B4B5 /* Global.swift */,
+				07DEE2602A1E0BC500D8B4B5 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		0702927B2A1A43DA0057FB33 /* Extensioin */ = {
+			isa = PBXGroup;
+			children = (
+				0702927C2A1A442B0057FB33 /* FilterCnic.swift */,
+				0702927E2A1A44900057FB33 /* TextFieldContainer.swift */,
+			);
+			path = Extensioin;
+			sourceTree = "<group>";
+		};
+		0710C4FA2A1B894D0035021A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0710C4FB2A1B89690035021A /* MainButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0710C4FD2A1BB4C40035021A /* TextInputs */ = {
+			isa = PBXGroup;
+			children = (
+				0710C4FE2A1BB4F10035021A /* FormInput.swift */,
+			);
+			path = TextInputs;
+			sourceTree = "<group>";
+		};
 		07ADF0A72A07E4110096C82D = {
 			isa = PBXGroup;
 			children = (
 				07ADF0B22A07E4110096C82D /* Campaigner */,
 				07ADF0B12A07E4110096C82D /* Products */,
+				FB077F843F2454FCA70B36FC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +164,14 @@
 		07ADF0B22A07E4110096C82D /* Campaigner */ = {
 			isa = PBXGroup;
 			children = (
+				07DEE2462A1D371900D8B4B5 /* Protocols */,
+				07ADF0C12A07E42F0096C82D /* Models */,
+				07ADF0C42A07E4590096C82D /* Views */,
+				07ADF0C22A07E43A0096C82D /* ViewModels */,
+				0702927B2A1A43DA0057FB33 /* Extensioin */,
+				07ADF0D72A07E7010096C82D /* Components */,
+				07ADF0C32A07E44C0096C82D /* Networking */,
+				070292782A1A375D0057FB33 /* Constants */,
 				07ADF0B32A07E4110096C82D /* CampaignerApp.swift */,
 				07ADF0B52A07E4110096C82D /* ContentView.swift */,
 				07ADF0B72A07E4120096C82D /* Assets.xcassets */,
@@ -65,6 +186,124 @@
 				07ADF0BA2A07E4120096C82D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07ADF0C12A07E42F0096C82D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2382A1CE68300D8B4B5 /* RespModels */,
+				07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07ADF0C22A07E43A0096C82D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2312A1CE38700D8B4B5 /* RegisterViewModel.swift */,
+				07DEE23D2A1CEB7300D8B4B5 /* LoginViewModel.swift */,
+				07DEE24D2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		07ADF0C32A07E44C0096C82D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2362A1CE50200D8B4B5 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		07ADF0C42A07E4590096C82D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2522A1DFE5300D8B4B5 /* Profile */,
+				07DEE24F2A1D509700D8B4B5 /* Home */,
+				07DEE24C2A1D4A7F00D8B4B5 /* ForgotPass */,
+				07ADF0CF2A07E5B20096C82D /* SplashScreenView.swift */,
+				07ADF0D12A07E5BF0096C82D /* LoginScreenView.swift */,
+				07ADF0D32A07E5CB0096C82D /* RegisterScreenView.swift */,
+				07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		07ADF0D72A07E7010096C82D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0710C4FD2A1BB4C40035021A /* TextInputs */,
+				0710C4FA2A1B894D0035021A /* Buttons */,
+				07ADF0D82A07E7730096C82D /* MainBGView.swift */,
+				07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */,
+				07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */,
+				070292802A1A5CEA0057FB33 /* CnicTextInput.swift */,
+				0710C5022A1BC00E0035021A /* Loader.swift */,
+				077053392A1C9B8C000E1327 /* DropDown.swift */,
+				07DEE22D2A1CD37200D8B4B5 /* AlertManager.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		07DEE2382A1CE68300D8B4B5 /* RespModels */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2392A1CE69100D8B4B5 /* BaseResponse.swift */,
+				07DEE23F2A1CF41400D8B4B5 /* LoginResponse.swift */,
+			);
+			path = RespModels;
+			sourceTree = "<group>";
+		};
+		07DEE2462A1D371900D8B4B5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2472A1D372900D8B4B5 /* BaseViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		07DEE24C2A1D4A7F00D8B4B5 /* ForgotPass */ = {
+			isa = PBXGroup;
+			children = (
+				07ADF0D52A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift */,
+				07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */,
+				07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */,
+			);
+			path = ForgotPass;
+			sourceTree = "<group>";
+		};
+		07DEE24F2A1D509700D8B4B5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2502A1D50B500D8B4B5 /* HomeScreenView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		07DEE2522A1DFE5300D8B4B5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2552A1DFE8F00D8B4B5 /* Sections */,
+				07DEE2532A1DFE7D00D8B4B5 /* ProfileMainScreen.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		07DEE2552A1DFE8F00D8B4B5 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2562A1DFEA900D8B4B5 /* ProfileSection.swift */,
+				07DEE2582A1DFEBD00D8B4B5 /* ElectoralSection.swift */,
+				07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		FB077F843F2454FCA70B36FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +322,11 @@
 			dependencies = (
 			);
 			name = Campaigner;
+			packageProductDependencies = (
+				07DEE2342A1CE4A900D8B4B5 /* Alamofire */,
+				07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */,
+				07DEE24A2A1D3FC100D8B4B5 /* AlertToast */,
+			);
 			productName = Campaigner;
 			productReference = 07ADF0B02A07E4110096C82D /* Campaigner.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +355,11 @@
 				Base,
 			);
 			mainGroup = 07ADF0A72A07E4110096C82D;
+			packageReferences = (
+				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = 07ADF0B12A07E4110096C82D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +386,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07ADF0DB2A07F7CA0096C82D /* CustomTextInput.swift in Sources */,
+				0702927A2A1A37730057FB33 /* Colors.swift in Sources */,
+				07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */,
+				0710C4FC2A1B89690035021A /* MainButton.swift in Sources */,
+				07ADF0D22A07E5BF0096C82D /* LoginScreenView.swift in Sources */,
+				07DEE2372A1CE50200D8B4B5 /* NetworkManager.swift in Sources */,
+				0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */,
+				07DEE2402A1CF41400D8B4B5 /* LoginResponse.swift in Sources */,
 				07ADF0B62A07E4110096C82D /* ContentView.swift in Sources */,
+				0702927D2A1A442B0057FB33 /* FilterCnic.swift in Sources */,
+				07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */,
+				07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */,
+				0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */,
+				070292812A1A5CEA0057FB33 /* CnicTextInput.swift in Sources */,
+				07DEE23C2A1CE96900D8B4B5 /* ApiPaths.swift in Sources */,
+				07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */,
+				07DEE23E2A1CEB7300D8B4B5 /* LoginViewModel.swift in Sources */,
+				07DEE2542A1DFE7D00D8B4B5 /* ProfileMainScreen.swift in Sources */,
 				07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */,
+				0702927F2A1A44900057FB33 /* TextFieldContainer.swift in Sources */,
+				07DEE22E2A1CD37200D8B4B5 /* AlertManager.swift in Sources */,
+				07DEE24E2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift in Sources */,
+				07ADF0DD2A07FFB70096C82D /* KeyboardGuardian.swift in Sources */,
+				07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */,
+				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
+				07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */,
+				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,
+				07ADF0D62A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift in Sources */,
+				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
+				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
+				07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */,
+				07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */,
+				07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */,
+				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
+				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
+				07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */,
+				07DEE2452A1D094E00D8B4B5 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,14 +551,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
-				DEVELOPMENT_TEAM = 38W3GXD597;
+				DEVELOPMENT_TEAM = 4G84LQM7R5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,14 +580,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
-				DEVELOPMENT_TEAM = 38W3GXD597;
+				DEVELOPMENT_TEAM = 4G84LQM7R5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +623,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07DEE2342A1CE4A900D8B4B5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			productName = Alamofire;
+		};
+		07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		07DEE24A2A1D3FC100D8B4B5 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07ADF0A82A07E4110096C82D /* Project object */;
 }

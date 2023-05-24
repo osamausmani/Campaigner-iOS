@@ -1,23 +1,31 @@
-//
-//  ContentView.swift
-//  Campaigner
-//
-//  Created by Osama Usmani on 07/05/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+
+    
+    @StateObject public var alertService = AlertService()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            GeometryReader { geometry in
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .foregroundColor(.blue)
+                        .frame(height: geometry.size.height / 2)
+                    
+                    Rectangle()
+                        .foregroundColor(.green)
+                        .frame(height: geometry.size.height / 2)
+                }
+            }
         }
-        .padding()
-    }
+        
+
+    
 }
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
