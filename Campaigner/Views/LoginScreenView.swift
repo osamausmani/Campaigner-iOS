@@ -16,13 +16,16 @@ struct LoginScreenView: View {
     
     @State private var isRegisterScreenActive = false
     @State private var isForgotScreenActive = false
-    
+    @State private var isHomeScreenActive = false
+
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     @StateObject var alertService = AlertService()
     @State private var showToast = false
     @State private var isShowingLoader = false
     
+    
+
     
     var body: some View {
         
@@ -68,6 +71,10 @@ struct LoginScreenView: View {
                             }.padding(.top,20)
                         }
                         
+                        
+                        NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
+                        }
+
                         
                     }
                     .padding(32)
@@ -149,7 +156,7 @@ struct LoginScreenView: View {
                         UserDefaults.standard.set(userData.userId, forKey: Constants.USER_ID)
                         UserDefaults.standard.set(userData.userImage, forKey: Constants.USER_IMAGE)
 
-                        
+                        isHomeScreenActive.toggle()
                         
                         
                         

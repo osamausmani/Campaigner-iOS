@@ -13,41 +13,31 @@ struct HomeScreenView: View {
     
     @State private var isShowingLoader = false
     @StateObject private var alertService = AlertService()
-    
-    
+
+    @Binding var presentSideMenu: Bool
+
     var body: some View {
         NavigationView {
+            
             VStack{
                 GeometryReader { geometry in
                     
                     VStack(spacing: 0) {
-                        Rectangle()
-                            .foregroundColor(.gray)
-                            .frame(height: geometry.size.height * 0.4)
                         
-                        
+                        ImageSlider()
+
                             VStack{
                                 Spacer()
-
                                 HStack{
-                                    Rectangle()
-                                        .foregroundColor(.gray)
-                                        .frame(width: 100, height: 100).background(.red)
-                                    
-                                    Rectangle()
-                                        .foregroundColor(.gray)
-                                        .frame(width: 100, height: 100).background(.red)
-                                    
-                                    Rectangle()
-                                        .foregroundColor(.gray)
-                                        .frame(width: 100, height: 100).background(.red)
-                                }.frame(width: geometry.size.width)
-                                
+                                    HomeMenuButtons()
+                                }
                                 Spacer()
-                                
+
                                 Text("Latest News").alignmentGuide(.leading) { _ in 0 }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor)
+                                
+                                
                                 Spacer()
                                 Spacer()
                                 Spacer()
@@ -67,6 +57,9 @@ struct HomeScreenView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .navigationBarItems(leading: Button(action: {
+                print("im pressed")
+                presentSideMenu.toggle()
+
             }) {
                 Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
             }, trailing: Button(action: {
@@ -81,13 +74,8 @@ struct HomeScreenView: View {
                         .padding()
                 }
             }
-        }.navigationBarHidden(false)
+        }.navigationBarHidden(true)
         
     }
 }
 
-struct HomeScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreenView()
-    }
-}

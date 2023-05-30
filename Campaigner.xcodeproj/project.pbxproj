@@ -14,6 +14,11 @@
 		0710C4FC2A1B89690035021A /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FB2A1B89690035021A /* MainButton.swift */; };
 		0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FE2A1BB4F10035021A /* FormInput.swift */; };
 		0710C5032A1BC00E0035021A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C5022A1BC00E0035021A /* Loader.swift */; };
+		074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C746B2A2535F9006812BD /* ImageSliderView.swift */; };
+		074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C746D2A25458E006812BD /* HomeMenuButtons.swift */; };
+		074C74712A25CC88006812BD /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C74702A25CC88006812BD /* SideMenu.swift */; };
+		074C74732A25CCB6006812BD /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C74722A25CCB6006812BD /* SideMenuView.swift */; };
+		074C74752A25D3A2006812BD /* HomeScreenTabedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074C74742A25D3A2006812BD /* HomeScreenTabedView.swift */; };
 		0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077053392A1C9B8C000E1327 /* DropDown.swift */; };
 		07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0B32A07E4110096C82D /* CampaignerApp.swift */; };
 		07ADF0B62A07E4110096C82D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0B52A07E4110096C82D /* ContentView.swift */; };
@@ -59,6 +64,11 @@
 		0710C4FB2A1B89690035021A /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		0710C4FE2A1BB4F10035021A /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
 		0710C5022A1BC00E0035021A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		074C746B2A2535F9006812BD /* ImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderView.swift; sourceTree = "<group>"; };
+		074C746D2A25458E006812BD /* HomeMenuButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuButtons.swift; sourceTree = "<group>"; };
+		074C74702A25CC88006812BD /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		074C74722A25CCB6006812BD /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		074C74742A25D3A2006812BD /* HomeScreenTabedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTabedView.swift; sourceTree = "<group>"; };
 		077053392A1C9B8C000E1327 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		07ADF0B02A07E4110096C82D /* Campaigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campaigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADF0B32A07E4110096C82D /* CampaignerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignerApp.swift; sourceTree = "<group>"; };
@@ -142,6 +152,15 @@
 				0710C4FE2A1BB4F10035021A /* FormInput.swift */,
 			);
 			path = TextInputs;
+			sourceTree = "<group>";
+		};
+		074C746F2A25CC79006812BD /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				074C74702A25CC88006812BD /* SideMenu.swift */,
+				074C74722A25CCB6006812BD /* SideMenuView.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		07ADF0A72A07E4110096C82D = {
@@ -232,6 +251,7 @@
 		07ADF0D72A07E7010096C82D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				074C746F2A25CC79006812BD /* SideMenu */,
 				0710C4FD2A1BB4C40035021A /* TextInputs */,
 				0710C4FA2A1B894D0035021A /* Buttons */,
 				07ADF0D82A07E7730096C82D /* MainBGView.swift */,
@@ -241,6 +261,7 @@
 				0710C5022A1BC00E0035021A /* Loader.swift */,
 				077053392A1C9B8C000E1327 /* DropDown.swift */,
 				07DEE22D2A1CD37200D8B4B5 /* AlertManager.swift */,
+				074C746B2A2535F9006812BD /* ImageSliderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				07DEE2502A1D50B500D8B4B5 /* HomeScreenView.swift */,
+				074C746D2A25458E006812BD /* HomeMenuButtons.swift */,
+				074C74742A25D3A2006812BD /* HomeScreenTabedView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -356,7 +379,7 @@
 			);
 			mainGroup = 07ADF0A72A07E4110096C82D;
 			packageReferences = (
-				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
@@ -413,15 +436,20 @@
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
 				07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */,
 				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,
+				074C74732A25CCB6006812BD /* SideMenuView.swift in Sources */,
+				074C74712A25CC88006812BD /* SideMenu.swift in Sources */,
 				07ADF0D62A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */,
 				07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */,
 				07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */,
+				074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */,
+				074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */,
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
 				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
 				07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */,
+				074C74752A25D3A2006812BD /* HomeScreenTabedView.swift in Sources */,
 				07DEE2452A1D094E00D8B4B5 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,7 +653,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -654,7 +682,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		07DEE2342A1CE4A900D8B4B5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */ = {
