@@ -9,6 +9,24 @@ import SwiftUI
 
 struct SideMenuView: View {
     
+  //  @State private var contestingScreenView = false
+    
+    @State private var inviteMemebersScreenView = false
+    
+    @State private var paymentsScreenView = false
+    
+    @State private var chnagePasswordScreenView = false
+    
+    @State private var termsOfUseScreenView = false
+    
+    @State private var contactUsScreenView = false
+    
+    //@State private var presentSideMenu = false
+    
+    @StateObject var alertService = AlertService()
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     
@@ -21,10 +39,11 @@ struct SideMenuView: View {
                 ForEach(SideMenuRowType.allCases, id: \.self){ row in
                     RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
                         selectedSideMenuTab = row.rawValue
-                        presentSideMenu.toggle()
+                        print(selectedSideMenuTab)
+                        presentSideMenu = true
+                        SideMenuBtnTapped(selectedSideMenuTab)
                     }
                 }
-                
                 Spacer()
                 
                     .background(
@@ -39,6 +58,21 @@ struct SideMenuView: View {
         }
         .background(.white).alignmentGuide(.leading) { _ in 0 }
         .frame(maxWidth: .infinity, alignment: .leading)
+        
+       
+
+//        NavigationLink(destination: AnyView(InviteMemberScreenView()), isActive: $inviteMemebersScreenView) {
+//
+//        }
+        
+        
+        NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView) {
+          
+        }
+        
+        NavigationLink(destination: InviteMemberScreenView(), isActive: $inviteMemebersScreenView) {
+           // InviteMemberScreenView()
+        }
         
     }
     
@@ -78,6 +112,7 @@ struct SideMenuView: View {
     func RowView(isSelected: Bool, imageName: String, title: String, hideDivider: Bool = false, action: @escaping (()->())) -> some View{
         Button{
             action()
+         
         } label: {
             VStack(alignment: .leading){
                 HStack(spacing: 20){
@@ -104,14 +139,116 @@ struct SideMenuView: View {
         .background(
             //            LinearGradient(colors: [isSelected ? .purple.opacity(0.5) : .white, .white], startPoint: .leading, endPoint: .trailing)
         )
+        
     }
+    
+    func SideMenuBtnTapped(_ number: Int) {
+         print("Button tapped: \(number)")
+         // Perform any other actions you need here
+    //    self.presentationMode.wrappedValue.dismiss()
+      //  presentSideMenu = false
+        
+        if number == 0
+        {
+           
+            print("Button tapped:0")
+           // contestingScreenView = true
+        } else if number == 1
+        {
+            
+                inviteMemebersScreenView = true
+            
+           // teamsScreenView = true
+            
+            print("Button tapped:1")
+        }
+        else if number == 2  {
+        
+            
+            print("Button tapped:2")
+            paymentsScreenView = true
+            
+           
+        }
+        else if number == 3  {
+            
+           // teamsScreenView = true
+            print("Button tapped:3")
+           
+        }
+        else if number == 4
+        {
+            print("Button tapped:4")
+        }
+        else if number == 5
+        {
+            print("Button tapped:5")
+        }
+        else if number == 6
+        {
+            print("Button tapped:6")
+            LoginOutAction()
+        }
+   
+        
+     }
+    
+    func LoginOutAction() {
+        
+        var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+
+        print(userID!)
+            
+            let parameters: [String:Any] = [
+                "plattype": Global.PlatType,
+                "user_id" : userID!
+            ]
+            
+            let logOutViewModel = LogoutViewModel()
+            
+        logOutViewModel.loginoutRequest(parameters: parameters ) { result in
+               // isShowingLoader.toggle()
+                
+                switch result {
+                    
+                case .success(let loginoutResponse):
+                    
+                    if loginoutResponse.rescode == 2 {
+                       // showToast.toggle()
+                        
+                     
+
+                       
+                        UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
+                        UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                        
+                        
+                        
+                        
+                    }else{
+                        alertService.show(title: "Alert", message: loginoutResponse.message!)
+                    }
+                    
+                case .failure(let error):
+                    alertService.show(title: "Alert", message: error.localizedDescription)
+                }
+            
+        }
+        
+        
+        
+        
+    }
+
 }
 
 struct SideMenuView_Previews: PreviewProvider {
-    @State static var selectedSideMenuTab = 10
-    @State static var presentSideMenu = false
+    @State static var selectedSideMenuTab = 0
+    @State static var presentSideMenu = true
     
     static var previews: some View {
-        SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu)
+        SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu )
     }
 }

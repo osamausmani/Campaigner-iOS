@@ -14,8 +14,10 @@ struct SplashScreenView: View {
     var isUserLogin = UserDefaults.standard.bool(forKey: Constants.IS_USER_LOGIN)
     
     
+    
     var body: some View {
         NavigationView {
+            
             ZStack {
                 MainBGView()
                 VStack{
@@ -31,18 +33,27 @@ struct SplashScreenView: View {
                         .frame(width:120, height: 100)
                 }
             }.background(
-                NavigationLink(destination: isUserLogin ? AnyView(HomeScreenTabedView(presentSideMenu:true)) : AnyView(LoginScreenView()), isActive: $isActive) {
-                    EmptyView()
-                }
+                
+//
+//                NavigationLink(destination: isUserLogin ? AnyView(HomeScreenTabedView(presentSideMenu:true)) : AnyView(LoginScreenView()), isActive: $isActive) {
+//
+     //           }
+                
+                                NavigationLink(destination: AnyView(LoginScreenView()), isActive: $isActive) {
+                
+                                }
+                
+                
             )
             
             
         }.navigationBarHidden(true)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.isActive = true
-            }
-        }.preferredColorScheme(.light)
+            .onAppear {
+                print(isUserLogin)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.isActive = true
+                }
+            }.preferredColorScheme(.light)
     }
     
     

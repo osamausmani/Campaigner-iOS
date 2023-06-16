@@ -11,13 +11,17 @@ import AlertToast
 
 struct LoginScreenView: View {
     
+    var isUserLogin = UserDefaults.standard.bool(forKey: Constants.IS_USER_LOGIN)
+    
+    @State private var isActive = false
+    
     @State private var username = ""
     @State private var password = ""
     
     @State private var isRegisterScreenActive = false
     @State private var isForgotScreenActive = false
     @State private var isHomeScreenActive = false
-
+    
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     @StateObject var alertService = AlertService()
@@ -25,7 +29,7 @@ struct LoginScreenView: View {
     @State private var isShowingLoader = false
     
     
-
+    
     
     var body: some View {
         
@@ -74,7 +78,7 @@ struct LoginScreenView: View {
                         
                         NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
                         }
-
+                        
                         
                     }
                     .padding(32)
@@ -101,10 +105,24 @@ struct LoginScreenView: View {
                 }
             
             
+            
         }.navigationBarHidden(true)
             .accentColor(.black)
+            .onAppear{
+                
+                if isUserLogin {
+                    isHomeScreenActive.toggle()
+                }
+                
+                
+                
+            }
         
     }
+    
+    
+    
+    
     
     func ForgotPassAction() {
         
@@ -114,8 +132,10 @@ struct LoginScreenView: View {
     func LoginAction() {
         
         
-        username = "82203-8631426-9"
-        password = "12345678"
+        //        username = "82203-8631426-9"
+        //        password = "12345678"
+        
+        
         
         if username.isEmpty {
             alertService.show(title: "Alert", message: "CNIC is required")
@@ -144,7 +164,7 @@ struct LoginScreenView: View {
                     
                     if loginResponse.rescode == 1 {
                         showToast.toggle()
-                        
+                        print(loginResponse.data![0])
                         let userData = loginResponse.data![0]
                         
                         UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
@@ -152,10 +172,10 @@ struct LoginScreenView: View {
                         UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
                         UserDefaults.standard.set(userData.phone, forKey: Constants.USER_PHONE)
                         UserDefaults.standard.set(userData.token, forKey: Constants.USER_SESSION_TOKEN)
-                        UserDefaults.standard.set(userData.userGender, forKey: Constants.USER_GENDER)
-                        UserDefaults.standard.set(userData.userId, forKey: Constants.USER_ID)
-                        UserDefaults.standard.set(userData.userImage, forKey: Constants.USER_IMAGE)
-
+                        UserDefaults.standard.set(userData.user_gender, forKey: Constants.USER_GENDER)
+                        UserDefaults.standard.set(userData.user_id, forKey: Constants.USER_ID)
+                        UserDefaults.standard.set(userData.user_image, forKey: Constants.USER_IMAGE)
+                        
                         isHomeScreenActive.toggle()
                         
                         

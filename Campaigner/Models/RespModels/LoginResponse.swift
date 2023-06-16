@@ -14,11 +14,11 @@ struct LoginResponse: Codable {
 }
 
 struct LoginResponseData: Codable {
-    var userId     : String?
-    var userGender : Int?
+    var user_id     : String?
+    var user_gender : Int?
     var token      : String?
     var cnic       : String?
     var phone      : String?
     var name       : String?
-    var userImage  : String?
+    var user_image  : String?
 }

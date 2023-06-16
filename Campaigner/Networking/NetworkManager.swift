@@ -11,6 +11,9 @@ import SwiftUI
 
 class NetworkManager {
     
+    
+  
+    
     static let shared = NetworkManager()
     
     private init() {}
@@ -24,6 +27,7 @@ class NetworkManager {
         AF.request(url, method: method, parameters: parameters, headers: headers)
             .validate()
             .responseDecodable(of: T.self) { response in
+                print(response)
                 switch response.result {
                 case .success(let decodedResponse):
                     completion(.success(decodedResponse))
@@ -32,4 +36,7 @@ class NetworkManager {
                 }
             }
     }
+    
+    
+
 }

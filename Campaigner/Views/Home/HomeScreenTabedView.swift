@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeScreenTabedView: View {
     
-    @State var presentSideMenu = true
+    @State var presentSideMenu = false
     @State var selectedSideMenuTab = 0
     
     var body: some View {
