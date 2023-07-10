@@ -61,11 +61,6 @@ struct LoginScreenView: View {
                                     isRegisterScreenActive = true
                                 }, label: "Register")
                             }
-                            
-                            
-                            //                            MainButton(action: {
-                            //                                RegisterAction()
-                            //                            }, label: "Register")
                         }.padding(.top,10)
                         
                         NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {

@@ -53,6 +53,30 @@
 		07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */; };
 		07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */; };
 		07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2602A1E0BC500D8B4B5 /* Constants.swift */; };
+		FA5B5BE02A3DE5E4005AD722 /* ImageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BDF2A3DE5E4005AD722 /* ImageSelectorView.swift */; };
+		FA5B5BE32A403462005AD722 /* NewsDetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */; };
+		FA5B5BE52A40590A005AD722 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE42A40590A005AD722 /* ImageView.swift */; };
+		FA5B5BE72A406350005AD722 /* NewsDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE62A406350005AD722 /* NewsDetailsModel.swift */; };
+		FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE82A41B6DB005AD722 /* CenterTitleModifier.swift */; };
+		FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */; };
+		FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */; };
+		FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */; };
+		FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB32A498A7200AFAE81 /* AlertView.swift */; };
+		FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */; };
+		FAC49CB82A51DE1200AFAE81 /* VerificationCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */; };
+		FAC49CC42A51FFC800AFAE81 /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CC32A51FFC800AFAE81 /* PasscodeField.swift */; };
+		FAC49CC82A52086100AFAE81 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CC72A52086100AFAE81 /* OTPFieldView.swift */; };
+		FAC49CCA2A52089800AFAE81 /* OTPInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CC92A52089800AFAE81 /* OTPInputView.swift */; };
+		FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CCB2A520DA900AFAE81 /* DesignTokenField.swift */; };
+		FAC49CCE2A52CB8E00AFAE81 /* SurveyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CCD2A52CB8E00AFAE81 /* SurveyViewModel.swift */; };
+		FAC49CD02A532D0500AFAE81 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CCF2A532D0500AFAE81 /* SurveyResponse.swift */; };
+		FAC49CD22A544B8000AFAE81 /* FillSurveyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CD12A544B8000AFAE81 /* FillSurveyScreenView.swift */; };
+		FAC49CD42A55490000AFAE81 /* CheckBoxOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CD32A55490000AFAE81 /* CheckBoxOptionView.swift */; };
+		FAC49CD62A5596BF00AFAE81 /* TeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CD52A5596BF00AFAE81 /* TeamsViewModel.swift */; };
+		FAC49CD82A5596EA00AFAE81 /* TeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CD72A5596EA00AFAE81 /* TeamsResponse.swift */; };
+		FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CD92A5823D500AFAE81 /* ConfirmationAlert.swift */; };
+		FAC49CDC2A5843AE00AFAE81 /* MultilineFormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CDB2A5843AE00AFAE81 /* MultilineFormInput.swift */; };
+		FAC49CDE2A5BF33100AFAE81 /* ReportingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CDD2A5BF33100AFAE81 /* ReportingViewModel.swift */; };
 		FAD8FF2F2A2E16F100466533 /* hoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF2E2A2E16F100466533 /* hoverButton.swift */; };
 		FAD8FF312A2E2E6600466533 /* AddReportScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF302A2E2E6500466533 /* AddReportScreenView.swift */; };
 		FAD8FF332A2E31B500466533 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF322A2E31B500466533 /* AddButton.swift */; };
@@ -86,6 +110,8 @@
 		FAD8FF7E2A3A512200466533 /* PayNowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7D2A3A512200466533 /* PayNowScreenView.swift */; };
 		FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */; };
 		FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */; };
+		FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */; };
+		FAEE762E2A3CE1070077731A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762D2A3CE1070077731A /* HomeResponse.swift */; };
 		FAF8E27D2A25F23B00149D29 /* ContestingElectionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E27C2A25F23B00149D29 /* ContestingElectionScreenView.swift */; };
 		FAF8E27F2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E27E2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift */; };
 		FAF8E2812A27599600149D29 /* ContestentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E2802A27599600149D29 /* ContestentViewModel.swift */; };
@@ -143,6 +169,30 @@
 		07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassPinScreenView.swift; sourceTree = "<group>"; };
 		07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSetPassScreenView.swift; sourceTree = "<group>"; };
 		07DEE2602A1E0BC500D8B4B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA5B5BDF2A3DE5E4005AD722 /* ImageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorView.swift; sourceTree = "<group>"; };
+		FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailScreenView.swift; sourceTree = "<group>"; };
+		FA5B5BE42A40590A005AD722 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		FA5B5BE62A406350005AD722 /* NewsDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsModel.swift; sourceTree = "<group>"; };
+		FA5B5BE82A41B6DB005AD722 /* CenterTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterTitleModifier.swift; sourceTree = "<group>"; };
+		FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
+		FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsResponse.swift; sourceTree = "<group>"; };
+		FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		FAC49CB32A498A7200AFAE81 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertView.swift; sourceTree = "<group>"; };
+		FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeInput.swift; sourceTree = "<group>"; };
+		FAC49CC32A51FFC800AFAE81 /* PasscodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
+		FAC49CC72A52086100AFAE81 /* OTPFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFieldView.swift; sourceTree = "<group>"; };
+		FAC49CC92A52089800AFAE81 /* OTPInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputView.swift; sourceTree = "<group>"; };
+		FAC49CCB2A520DA900AFAE81 /* DesignTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokenField.swift; sourceTree = "<group>"; };
+		FAC49CCD2A52CB8E00AFAE81 /* SurveyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewModel.swift; sourceTree = "<group>"; };
+		FAC49CCF2A532D0500AFAE81 /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		FAC49CD12A544B8000AFAE81 /* FillSurveyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillSurveyScreenView.swift; sourceTree = "<group>"; };
+		FAC49CD32A55490000AFAE81 /* CheckBoxOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxOptionView.swift; sourceTree = "<group>"; };
+		FAC49CD52A5596BF00AFAE81 /* TeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModel.swift; sourceTree = "<group>"; };
+		FAC49CD72A5596EA00AFAE81 /* TeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsResponse.swift; sourceTree = "<group>"; };
+		FAC49CD92A5823D500AFAE81 /* ConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAlert.swift; sourceTree = "<group>"; };
+		FAC49CDB2A5843AE00AFAE81 /* MultilineFormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineFormInput.swift; sourceTree = "<group>"; };
+		FAC49CDD2A5BF33100AFAE81 /* ReportingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingViewModel.swift; sourceTree = "<group>"; };
 		FAD8FF2E2A2E16F100466533 /* hoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hoverButton.swift; sourceTree = "<group>"; };
 		FAD8FF302A2E2E6500466533 /* AddReportScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF322A2E31B500466533 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -176,6 +226,8 @@
 		FAD8FF7D2A3A512200466533 /* PayNowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePopUpScreenView.swift; sourceTree = "<group>"; };
+		FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FAEE762D2A3CE1070077731A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		FAF8E27C2A25F23B00149D29 /* ContestingElectionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionScreenView.swift; sourceTree = "<group>"; };
 		FAF8E27E2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionPopUpScreenView.swift; sourceTree = "<group>"; };
 		FAF8E2802A27599600149D29 /* ContestentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestentViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +281,8 @@
 				FAF8E2872A29F7A100149D29 /* TabBarButton.swift */,
 				FAD8FF5D2A370DFB00466533 /* CustomButton.swift */,
 				FAD8FF7B2A3A4BAC00466533 /* SecondaryButton.swift */,
+				FA5B5BDF2A3DE5E4005AD722 /* ImageSelectorView.swift */,
+				FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -237,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				0710C4FE2A1BB4F10035021A /* FormInput.swift */,
+				FAC49CDB2A5843AE00AFAE81 /* MultilineFormInput.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -299,6 +354,7 @@
 			children = (
 				07DEE2382A1CE68300D8B4B5 /* RespModels */,
 				07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */,
+				FA5B5BE62A406350005AD722 /* NewsDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +368,11 @@
 				FAF8E2802A27599600149D29 /* ContestentViewModel.swift */,
 				FAD8FF3B2A2F36AF00466533 /* LogoutViewModel.swift */,
 				FAD8FF472A30691E00466533 /* LookupsViewModel.swift */,
+				FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */,
+				FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */,
+				FAC49CCD2A52CB8E00AFAE81 /* SurveyViewModel.swift */,
+				FAC49CD52A5596BF00AFAE81 /* TeamsViewModel.swift */,
+				FAC49CDD2A5BF33100AFAE81 /* ReportingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -327,6 +388,7 @@
 		07ADF0C42A07E4590096C82D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA5B5BE12A403446005AD722 /* News */,
 				FAD8FF772A39E72F00466533 /* Payments */,
 				FAD8FF732A39C64100466533 /* Member */,
 				FAD8FF632A385DAD00466533 /* ElectionResult */,
@@ -378,6 +440,17 @@
 				FAD8FF5F2A383E7C00466533 /* RadioButton.swift */,
 				FAD8FF662A386A3100466533 /* ToggleButtonView.swift */,
 				FAD8FF712A3904B200466533 /* headerView.swift */,
+				FA5B5BE42A40590A005AD722 /* ImageView.swift */,
+				FA5B5BE82A41B6DB005AD722 /* CenterTitleModifier.swift */,
+				FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */,
+				FAC49CB32A498A7200AFAE81 /* AlertView.swift */,
+				FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */,
+				FAC49CC32A51FFC800AFAE81 /* PasscodeField.swift */,
+				FAC49CC72A52086100AFAE81 /* OTPFieldView.swift */,
+				FAC49CC92A52089800AFAE81 /* OTPInputView.swift */,
+				FAC49CCB2A520DA900AFAE81 /* DesignTokenField.swift */,
+				FAC49CD32A55490000AFAE81 /* CheckBoxOptionView.swift */,
+				FAC49CD92A5823D500AFAE81 /* ConfirmationAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -389,6 +462,10 @@
 				07DEE23F2A1CF41400D8B4B5 /* LoginResponse.swift */,
 				FAD8FF4B2A308DE100466533 /* LookupsResponse.swift */,
 				FAD8FF4F2A31AF4B00466533 /* ContestingElectionsResponse.swift */,
+				FAEE762D2A3CE1070077731A /* HomeResponse.swift */,
+				FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */,
+				FAC49CCF2A532D0500AFAE81 /* SurveyResponse.swift */,
+				FAC49CD72A5596EA00AFAE81 /* TeamsResponse.swift */,
 			);
 			path = RespModels;
 			sourceTree = "<group>";
@@ -438,6 +515,14 @@
 				07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		FA5B5BE12A403446005AD722 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		FAD8FF382A2EFEB600466533 /* Notifications */ = {
@@ -515,6 +600,7 @@
 			children = (
 				FAF8E28F2A2C907B00149D29 /* SurveyScreenView.swift */,
 				FAD8FF3D2A2F3E9200466533 /* AddSurveyScreenView.swift */,
+				FAC49CD12A544B8000AFAE81 /* FillSurveyScreenView.swift */,
 			);
 			path = Survey;
 			sourceTree = "<group>";
@@ -639,24 +725,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5B5BE32A403462005AD722 /* NewsDetailScreenView.swift in Sources */,
 				FAD8FF4C2A308DE100466533 /* LookupsResponse.swift in Sources */,
 				FAD8FF6C2A38FBE000466533 /* AddResultsView.swift in Sources */,
 				FAD8FF6E2A38FC7E00466533 /* AddMemberView.swift in Sources */,
 				07ADF0DB2A07F7CA0096C82D /* CustomTextInput.swift in Sources */,
 				FAD8FF542A33588600466533 /* ProgressHUDView.swift in Sources */,
 				FAD8FF482A30691E00466533 /* LookupsViewModel.swift in Sources */,
+				FAC49CB82A51DE1200AFAE81 /* VerificationCodeInput.swift in Sources */,
 				0702927A2A1A37730057FB33 /* Colors.swift in Sources */,
 				FAD8FF372A2EFD8100466533 /* ComplaintsScreenView.swift in Sources */,
 				FAF8E28E2A2B8FA800149D29 /* HomeScreen.swift in Sources */,
 				07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */,
 				FAD8FF7E2A3A512200466533 /* PayNowScreenView.swift in Sources */,
+				FAC49CC82A52086100AFAE81 /* OTPFieldView.swift in Sources */,
 				0710C4FC2A1B89690035021A /* MainButton.swift in Sources */,
 				FAD8FF722A3904B200466533 /* headerView.swift in Sources */,
+				FAEE762E2A3CE1070077731A /* HomeResponse.swift in Sources */,
 				07ADF0D22A07E5BF0096C82D /* LoginScreenView.swift in Sources */,
 				FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */,
+				FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */,
 				FAD8FF5A2A36F63200466533 /* MultiLineTextField.swift in Sources */,
 				FAF8E2902A2C907B00149D29 /* SurveyScreenView.swift in Sources */,
+				FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */,
 				FAF8E2882A29F7A100149D29 /* TabBarButton.swift in Sources */,
+				FAC49CCE2A52CB8E00AFAE81 /* SurveyViewModel.swift in Sources */,
 				FAF8E2812A27599600149D29 /* ContestentViewModel.swift in Sources */,
 				FAD8FF3C2A2F36AF00466533 /* LogoutViewModel.swift in Sources */,
 				07DEE2372A1CE50200D8B4B5 /* NetworkManager.swift in Sources */,
@@ -664,8 +757,10 @@
 				FAD8FF5E2A370DFB00466533 /* CustomButton.swift in Sources */,
 				07DEE2402A1CF41400D8B4B5 /* LoginResponse.swift in Sources */,
 				FAF8E2842A29CABC00149D29 /* TeamsScreenView.swift in Sources */,
+				FAC49CC42A51FFC800AFAE81 /* PasscodeField.swift in Sources */,
 				FAD8FF312A2E2E6600466533 /* AddReportScreenView.swift in Sources */,
 				07ADF0B62A07E4110096C82D /* ContentView.swift in Sources */,
+				FA5B5BE72A406350005AD722 /* NewsDetailsModel.swift in Sources */,
 				0702927D2A1A442B0057FB33 /* FilterCnic.swift in Sources */,
 				07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */,
 				07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */,
@@ -678,6 +773,7 @@
 				07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */,
 				07DEE23E2A1CEB7300D8B4B5 /* LoginViewModel.swift in Sources */,
 				07DEE2542A1DFE7D00D8B4B5 /* ProfileMainScreen.swift in Sources */,
+				FA5B5BE52A40590A005AD722 /* ImageView.swift in Sources */,
 				07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */,
 				0702927F2A1A44900057FB33 /* TextFieldContainer.swift in Sources */,
 				FAD8FF332A2E31B500466533 /* AddButton.swift in Sources */,
@@ -685,11 +781,18 @@
 				07DEE24E2A1D4F1000D8B4B5 /* ForgotPassViewModel.swift in Sources */,
 				07ADF0DD2A07FFB70096C82D /* KeyboardGuardian.swift in Sources */,
 				07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */,
+				FAC49CD02A532D0500AFAE81 /* SurveyResponse.swift in Sources */,
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
+				FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */,
 				FAD8FF7C2A3A4BAC00466533 /* SecondaryButton.swift in Sources */,
+				FAC49CD42A55490000AFAE81 /* CheckBoxOptionView.swift in Sources */,
+				FAC49CD82A5596EA00AFAE81 /* TeamsResponse.swift in Sources */,
+				FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */,
 				07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */,
+				FAC49CDC2A5843AE00AFAE81 /* MultilineFormInput.swift in Sources */,
 				FAD8FF422A2F61B700466533 /* AlertManager.swift in Sources */,
 				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,
+				FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */,
 				FAD8FF462A2F642800466533 /* AlertControlled.swift in Sources */,
 				FAD8FF652A385DBD00466533 /* SearchElectionScreenView.swift in Sources */,
 				074C74732A25CCB6006812BD /* SideMenuView.swift in Sources */,
@@ -698,15 +801,22 @@
 				FAD8FF3A2A2EFECC00466533 /* NotificationScreenView.swift in Sources */,
 				FAD8FF502A31AF4B00466533 /* ContestingElectionsResponse.swift in Sources */,
 				07ADF0D62A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift in Sources */,
+				FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */,
 				FAD8FF622A385CB900466533 /* ReportingScreenView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
+				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
 				07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */,
 				07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */,
 				07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */,
 				FAD8FF4E2A30B2B400466533 /* CustomDropDown.swift in Sources */,
 				FAF8E27F2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift in Sources */,
+				FA5B5BE02A3DE5E4005AD722 /* ImageSelectorView.swift in Sources */,
+				FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */,
+				FAC49CD62A5596BF00AFAE81 /* TeamsViewModel.swift in Sources */,
 				FAD8FF752A39C65200466533 /* InviteMemberScreenView.swift in Sources */,
+				FAC49CD22A544B8000AFAE81 /* FillSurveyScreenView.swift in Sources */,
+				FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */,
 				FAD8FF672A386A3100466533 /* ToggleButtonView.swift in Sources */,
 				FAD8FF602A383E7C00466533 /* RadioButton.swift in Sources */,
 				074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */,
@@ -715,6 +825,8 @@
 				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
 				FAD8FF5C2A37065000466533 /* CheckboxFieldView.swift in Sources */,
 				FAD8FF582A36624800466533 /* ShareData.swift in Sources */,
+				FAC49CCA2A52089800AFAE81 /* OTPInputView.swift in Sources */,
+				FAC49CDE2A5BF33100AFAE81 /* ReportingViewModel.swift in Sources */,
 				FAF8E2862A29E88B00149D29 /* TabBarView.swift in Sources */,
 				FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */,
 				FAF8E2952A2DBA6C00149D29 /* SearchBarView.swift in Sources */,

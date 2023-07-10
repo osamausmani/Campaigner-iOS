@@ -56,13 +56,14 @@ struct ComplaintsScreenView: View {
                                     // Perform action for burger icon
                                     self.presentationMode.wrappedValue.dismiss()
                                 }) {
-                                    Image(systemName: "arrowshape.left")
-                                        .imageScale(.large)
+                                    Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                                    Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
                                     
                                 }
-                                Spacer()
+                                //Spacer()
                                 Text("Complaints")
                                     .font(.headline)
+                                    .frame(width: 250)
                                 
                                 Spacer()
 

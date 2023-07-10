@@ -70,7 +70,6 @@ struct ForgotPassSetPassScreenView: View {
                     }
                 }
                 
-                
             }
             .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
             .onTapGesture {
@@ -114,8 +113,8 @@ struct ForgotPassSetPassScreenView: View {
         
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
-            "user_cnic": cnic,
-            "verification_code": verificationCode,
+            "user_cnic": Global.userCNIC,
+            "verification_code": Global.Verification_Code,
             "password": password,
             "confirm_password": confirmPassword,
         ]

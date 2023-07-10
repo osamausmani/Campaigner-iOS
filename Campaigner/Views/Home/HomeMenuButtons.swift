@@ -9,6 +9,12 @@ import SwiftUI
 
 struct HomeMenuButtons: View {
     
+ var electionID = ""
+    
+     //@State private var value = ""
+    
+    
+    
     @State private var contestingScreenView = false
     @State private var surveyScreenView = false
     @State private var reportingScreenView = false
@@ -82,8 +88,9 @@ struct HomeMenuButtons: View {
                         PostResultsView()
                     }
                     .fullScreenCover(isPresented: $teamsScreenView) {
-                        TeamsScreenView()
+                        TeamsScreenView(value: electionID)
                     }
+                    
                  
                  
             }
@@ -129,7 +136,7 @@ struct HomeMenuButtons: View {
 
 struct HomeMenuButtons_Previews: PreviewProvider {
     static var previews: some View {
-        HomeMenuButtons()
+        HomeMenuButtons(electionID: "")
     }
 }
 

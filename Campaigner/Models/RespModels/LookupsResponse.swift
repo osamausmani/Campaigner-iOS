@@ -52,3 +52,41 @@ struct ConstituencyResponseModel: Codable
         var type : Int?
 
 }
+
+struct ListPollingStations : Codable
+{
+    
+        let bin : [String]?
+        let data : [PollingStations]?
+        let extra : [String]?
+        let message : String?
+        let more : [String]?
+        let rescode : Int?
+ 
+}
+
+struct PollingStations : Codable
+{
+    let pol_desc : String?
+    let pol_name : String?
+    let station_id : String?
+
+}
+
+struct ListReportingTypeResponse : Codable
+{
+    let bin : [String]?
+    let data : [ListReportingType]?
+    let extra : [String]?
+    let message : String?
+    let more : [String]?
+    let rescode : Int?
+}
+
+struct ListReportingType: Codable
+{
+    
+    let type_id : String?
+    let type_name : String?
+    
+}

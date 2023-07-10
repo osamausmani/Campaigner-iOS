@@ -44,7 +44,7 @@ class ContestentViewModel: ObservableObject {
     
     func listPollingStations(parameters: [String:Any]?, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void)
     {
-        let REQ_URL = ApiPaths.listElectionMembers
+        let REQ_URL = ApiPaths.listPollingStations
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     

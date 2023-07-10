@@ -35,14 +35,18 @@ struct PostResultsView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             // Image(systemName: "line.horizontal.3")
-                            Image(systemName: "arrowshape.left")
-                                .imageScale(.large)
+//                            Image(systemName: "arrowshape.left")
+//                                .imageScale(.large)
+                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
+                                
                         }
                         
-                        Spacer()
+                       // Spacer()
                         
                         Text("Post Results")
                             .font(.headline)
+                            .frame(width: 250)
                         
                         Spacer()
                         

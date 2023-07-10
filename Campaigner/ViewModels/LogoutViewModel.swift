@@ -11,9 +11,9 @@ import SwiftUI
 
 class LogoutViewModel: ObservableObject {
     
-    func loginoutRequest(parameters: Parameters?, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
+    func loginoutRequest(parameters: Parameters?, headers: HTTPHeaders? = nil , completion: @escaping (Result<LoginResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.LoginOut
-        NetworkManager.shared.Request(url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+        NetworkManager.shared.Request(url: REQ_URL, method: .post, parameters: parameters!, headers: headers, completion: completion)
     }
     
     

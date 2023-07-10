@@ -19,11 +19,13 @@ struct SecondaryButton : View{
             Text(label)
                 .frame(maxWidth: 100,maxHeight: 30)
                // .padding()
-                .background(.yellow)
+                .background(Color(red: 0.892, green: 0.578, blue: 0.052))
                 .foregroundColor(.white)
-                .font(.headline)
+               // .font(.headline)
                 .cornerRadius(10)
-        }.frame(maxWidth: 120,maxHeight: 120)
+        }//.frame(maxWidth: 120,maxHeight: 120,alignment: .top)
+        
+            
 //        .frame(height: 60)
 //        .padding(.horizontal, 80)
 //        .padding(.vertical, 40)

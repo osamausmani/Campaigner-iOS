@@ -59,8 +59,7 @@ struct AddMemberView: View {
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
                             
                             FormInput(label: "Mobile Number", placeholder: "Mobile Number", text: $fvMobileNumber, isNumberInput: true)
-//                            FormInput(label: "Password", placeholder: "Password", text: $fvPassword, isSecure: true)
-//                            FormInput(label: "Confirm password", placeholder: "Confirm Password", text: $fvConfirmPassword, isSecure: true)
+
                             
                             MainButton(action: {
                                 RegisterAction()

@@ -11,10 +11,13 @@ import SwiftUI
 struct ForgotPassPinScreenView: View {
     
     
-    @State private var username = ""
+    @State private var token = "----"
+    
     
     @State private var isForgotPassSetPassScreenView = false
 
+    //new
+    
     
     
     
@@ -50,7 +53,10 @@ struct ForgotPassPinScreenView: View {
                             Text("Verification Code").foregroundColor(CColors.MainThemeColor).font(.system(size:30, weight: .regular)).padding(.top,20)
                             
                             
-                            CustomTextInput(placeholder: "----", text: $username, imageName: "envelope")
+                          //  CustomTextInput(placeholder: "----", text: $username, imageName: "envelope")
+                          //  PasscodeField
+                          //  OTPInputView()
+                            DesignTokenField(size: 4, token: $token)
                             
                             HStack{
                                 Text("Didn't get verification code? ").foregroundColor(CColors.MainThemeColor).font(.system(size:16, weight: .regular)).padding(.top,20)
@@ -68,7 +74,8 @@ struct ForgotPassPinScreenView: View {
                             
                             NavigationLink(destination: ForgotPassSetPassScreenView(), isActive: $isForgotPassSetPassScreenView) {
                                 MainButton(action: {
-                                    isForgotPassSetPassScreenView.toggle()
+                                    isForgotPassSetPassScreenView = true
+                                    
                                 }, label: "Submit").frame(maxWidth: 200).padding(.top,20)
                             }
                             
@@ -110,7 +117,7 @@ struct ForgotPassPinScreenView: View {
         
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
-            "user_cnic": username,
+            "user_cnic": Global.userCNIC,
         ]
         
         let forgotPassViewModel = ForgotPassViewModel()

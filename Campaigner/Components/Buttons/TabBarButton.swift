@@ -16,8 +16,10 @@ struct TabBarButton: View {
     var body: some View {
         Button(action: action) {
             Text(text)
-                .font(.subheadline)
+                .font(.headline)
                 .foregroundColor(isSelected ? CColors.MainThemeColor : .black)
+                .fontWeight(.bold)
+                .lineLimit(nil)
                 .padding()
         }
     }

@@ -8,7 +8,6 @@
 import Foundation
 
 import SwiftUI
-import SwiftUI
 
 struct Loader: View {
     @Binding var isShowing: Bool

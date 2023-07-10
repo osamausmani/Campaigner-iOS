@@ -10,7 +10,7 @@ import Alamofire
 
 struct ContestingElectionPopUpScreenView: View {
     
-  
+   // @Binding var refreshFlag: Bool
   
     @State private var selectedOption = 0
     
@@ -151,8 +151,7 @@ struct ContestingElectionPopUpScreenView: View {
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_id": userID!,
-            //  "assembly": selectedOption + 1
-            // "na_id": cDistrict
+          
         ]
         
         let lookupsViewModel = LookupsViewModel()
@@ -204,6 +203,7 @@ struct ContestingElectionPopUpScreenView: View {
             //          "user_id": userID!,
             //           "assembly": selectedOption + 1
             // "na_id": cDistrict
+            
         ]
         
         let lookupsViewModel = LookupsViewModel()
@@ -231,6 +231,8 @@ struct ContestingElectionPopUpScreenView: View {
                     //districtName.append(contentsOf: newDropDownData)
                     districtName = newDropDownData
                     
+                    
+                    
                 }else{
                     alertService.show(title: "Alert", message: Response.message!)
                 }
@@ -246,12 +248,22 @@ struct ContestingElectionPopUpScreenView: View {
     func selectConstituency() {
         isLoading = true
         
+        var finDistrict = ""
+        for i in district{
+            if( i.district_name == cDistrict.value)
+            {
+                finDistrict = i.district_id!
+           }
+        }
+        
+        var districtID = district
         var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_id": userID!,
-            // "assembly": selectedOption + 1
+             "assembly": selectedOption + 1,
             // "na_id": cDistrict
+            "district_id": finDistrict
         ]
         
         let lookupsViewModel = LookupsViewModel()
@@ -388,8 +400,9 @@ struct ContestingElectionPopUpScreenView: View {
                 if addResponse.rescode == 1 {
                     
                  //   alertService.show(title: "Alert", message: addResponse.message!)
-                    
+                   
                     self.presentationMode.wrappedValue.dismiss()
+                    
                     
                   //  ContestingElectionScreenView.loadContestElection()
               

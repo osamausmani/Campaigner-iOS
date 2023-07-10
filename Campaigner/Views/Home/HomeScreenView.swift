@@ -1,135 +1,146 @@
-//
-//  HomeScreenView.swift
-//  Campaigner
-//
-//  Created by Osama Usmani on 07/05/2023.
-//
-
-
 import SwiftUI
+import Alamofire
 
 struct HomeScreenView: View {
     
+    @State  var value = ""
     
+    
+    @State private var isLoading = false
     @State private var isShowingLoader = false
     @State private var contestingScreenView = false
     @State private var presentNotificationMenu = false
+    
+    @State private var newsDetailsScreenView = false
     @StateObject private var alertService = AlertService()
-
+    
     @Binding var presentSideMenu: Bool
-    let images = ["reporting", "complaints", "reporting","complaints"]
+    
    
+    
+    @State  var selectedNews = [News]()
+    
+   // @State  var user = Data()
+    @State var slider = [Slider]()
+    @State var news = [News]()
+    @State  var images = [String]()
+    
+    
+    
+    @State var images2 = [String]()
+    @State var label2 = [String]()
+    
     var body: some View {
         NavigationView {
-            
-            VStack{
-                //   GeometryReader { geometry in
+           
+            VStack {
+                ZStack
+                {
+                    ImageSlider(images: images)
+                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
+                }.frame(width: 400, height: 320)
                 
-                VStack {
-                    ZStack
-                    {
-                        ImageSlider()
-                        hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection)
-                    }
-         
-                    
+                ScrollView{
                     VStack{
                         Spacer()
-                        HStack{
-                            HomeMenuButtons()
-                        }
+                        
+                        HomeMenuButtons(electionID: value )
+                        
                         Spacer()
                         
                         Text("Latest News").alignmentGuide(.leading) { _ in 0 }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor)
-                        
-                        
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        
-                        
+
                         // Image Selector with Labels and Horizontal Scroll Bar
-                               ScrollView(.horizontal, showsIndicators: true) {
-                                   HStack {
-                                       ForEach(0..<images.count) { index in
-                                           VStack {
-                                               Button(action: {
-                                                                      // Action when image is clicked
-                                               }){
-                                                   VStack{
-                                                       Image(images[index])
-                                                           .resizable()
-                                                           .scaledToFit()
-                                                       //  frame(width: 50, height: 50)
-                                                       // .padding()
-                                                       Text("Image \(index + 1)")
-                                                           .font(.caption)
-                                                           .foregroundColor(.gray)
-                                                   }
-                                               }
-                                           }
-                                       }.frame(width: 100, height: 100)
-                                   }
-                               }
-                             //  .padding(.horizontal)
-                           
+//                        ScrollView(.horizontal, showsIndicators: true) {
+//                            HStack {
+//                                ForEach(0..<images2.count) { index in
+//                                    VStack {
+//                                        Button(action: {
+//                                            // Action when image is clicked
+//                                        }){
+//                                            VStack{
+//                                                Image(images2[index] as! String)
+//                                                    .resizable()
+//                                                    .scaledToFit()
+//                                                //  frame(width: 50, height: 50)
+//                                                // .padding()
+//                                                Text("Image \(index + 1)")
+//                                                    .font(.caption)
+//                                                    .foregroundColor(.gray)
+//                                            }
+//                                        }
+//                                    }
+//                                }.frame(width: 120, height: 100)
+//                            }
+//                        }
                         
-                        
-                    }.background(Image("map_bg")
-                        .resizable()).padding(20)
+                        ImageSelectorView(imageUrls: images2, text: label2, action: {
+                          //  newsDetailsScreenView
+                            newsDetails()
+                        } )
+                    }
+                        .background(Image("map_bg")
+                            .resizable()).padding(20)
                         .foregroundColor(.black)
                     
-                    //  .frame(width: geometry.size.width, height: geometry.size.height * 0.6).background()
-                    
-                    
                 }
                 
-                // }
-                .ignoresSafeArea(edges: .bottom)
+                
+            }
                 .navigationBarTitleDisplayMode(.inline)
-            }
-            .navigationBarItems(leading: Button(action: {
-                print("im pressed")
-               // presentSideMenu.toggle()
-                presentSideMenu = true
+               
+                .navigationBarItems(leading: Button(action: {
+                    print("im pressed")
+                    presentSideMenu = true
                     
-                
-            }) {
-                Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
-            }, trailing: Button(action: {
-                print("im pressed")
-                notification()
-            }) {
-                Image(systemName: "bell").tint(CColors.MainThemeColor).font(.system(size: 20))
-            })
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("header_logo") // Add your image here
-                        .resizable()
-                        .frame(width: 120, height: 42)
-                        .padding()
+                    
+                }) {
+                    Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
+                }, trailing: Button(action: {
+                    print("im pressed")
+                    notification()
+                }) {
+                    Image(systemName: "bell").tint(CColors.MainThemeColor).font(.system(size: 20))
+                })
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Image("header_logo") // Add your image here
+                            .resizable()
+                            .frame(width: 120, height: 42)
+                         //   .padding()
+                    }
                 }
-            }
-        }.onDisappear{
             
+        }
+        .onDisappear{
+
             if(presentSideMenu == true)
             {
-                
-                  presentSideMenu = false
+
+                presentSideMenu = false
             }
         }
-        //.navigationBarTitle("New Title", displayMode: .inline)
-        .navigationBarHidden(true)
-            .fullScreenCover(isPresented: $contestingScreenView) {
-                ContestingElectionScreenView()
-                
-            }
-            .fullScreenCover(isPresented: $presentNotificationMenu) {
-                NotificationScreenView()
-                
-            }
+        .onAppear{
+            LoadDashBoard()
+        }
+       
+      
+        .fullScreenCover(isPresented: $contestingScreenView) {
+            ContestingElectionScreenView()
+            
+        }
+        .fullScreenCover(isPresented: $presentNotificationMenu) {
+            NotificationScreenView()
+            
+        }
+        
+        .fullScreenCover(isPresented: $newsDetailsScreenView)
+        {
+                NewsDetailScreenView(news: selectedNews )
+         
+        }
         
         
         
@@ -148,7 +159,83 @@ struct HomeScreenView: View {
     }
     
     
+    func newsDetails()
+    {
+        print("pressed Details")
+        newsDetailsScreenView = true
+    }
+    
+    
+    func LoadDashBoard()
+    {
+        
+        isLoading = true
+        let headers:HTTPHeaders = [
+             "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+        ]
+        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
+        
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!,
+            
+        ]
+        
+        
+        
+        let homeViewModel = HomeViewModel()
+        
+        
+        
+        homeViewModel.DashboardData(parameters: parameters ,headers: headers ) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(let dashboardDataResponse):
+                
+                if dashboardDataResponse.rescode == 1 {
+                    
+                    print(dashboardDataResponse)
+                    
+                    value = dashboardDataResponse.data?[0].election_id ?? "7"
+                    slider = dashboardDataResponse.data?[0].sliders ?? []
+                    news = dashboardDataResponse.data?[0].news ?? []
+                    for i in slider{
+                        images.append(i.image_path ?? "")
+                    }
+                    
+                    for i in news{
+                        images2.append(i.nw_media!)
+                        label2.append(i.nw_title ?? "")
+                        
+                        
+                        selectedNews.append(i)
+                      
+                       // selectedNews[0].nw_media =
+                    }
+                    
+                    //  self.presentationMode.wrappedValue.dismiss()
+                    
+                }else{
+                    alertService.show(title: "Alert", message: dashboardDataResponse.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+        
+        
+    }
+    
+    
 }
+
+
 
 
 struct HomeScreenView_Previews: PreviewProvider {

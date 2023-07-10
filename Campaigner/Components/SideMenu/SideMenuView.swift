@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Alamofire
+import AlertToast
 
 struct SideMenuView: View {
     
@@ -23,7 +25,9 @@ struct SideMenuView: View {
     
     //@State private var presentSideMenu = false
     
-    @StateObject var alertService = AlertService()
+    @StateObject  private var alertService = AlertService()
+   // @State  private var showToast = false
+    @State private var showSimpleAlert = false
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -51,11 +55,23 @@ struct SideMenuView: View {
                     )
             }
             .frame(maxWidth: 270, maxHeight: .infinity, alignment: .leading)
-            
+          
             
             
             Spacer()
         }
+        .alert(isPresented: $showSimpleAlert) {
+                    Alert(
+                        title: Text("Alert"),
+                        message: Text("Logging out"),
+                        dismissButton: .default(Text("Ok")) {
+                            // Optional completion block
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        }
+                    )
+                }
         .background(.white).alignmentGuide(.leading) { _ in 0 }
         .frame(maxWidth: .infinity, alignment: .leading)
         
@@ -66,16 +82,22 @@ struct SideMenuView: View {
 //        }
         
         
-        NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView) {
+        NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView)
+        {
           
         }
+       
+       
+        
+            
         
         NavigationLink(destination: InviteMemberScreenView(), isActive: $inviteMemebersScreenView) {
            // InviteMemberScreenView()
-        }
+            }
         
     }
     
+  
     func ProfileImageView() -> some View{
         VStack(alignment: .center){
             HStack{
@@ -187,6 +209,7 @@ struct SideMenuView: View {
         else if number == 6
         {
             print("Button tapped:6")
+            
             LoginOutAction()
         }
    
@@ -198,6 +221,9 @@ struct SideMenuView: View {
         var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
 
         print(userID!)
+                let headers:HTTPHeaders = [
+                    "x-access-token": UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+                ]
             
             let parameters: [String:Any] = [
                 "plattype": Global.PlatType,
@@ -206,22 +232,25 @@ struct SideMenuView: View {
             
             let logOutViewModel = LogoutViewModel()
             
-        logOutViewModel.loginoutRequest(parameters: parameters ) { result in
+        logOutViewModel.loginoutRequest(parameters: parameters ,headers: headers ) { result in
                // isShowingLoader.toggle()
                 
                 switch result {
                     
                 case .success(let loginoutResponse):
                     
-                    if loginoutResponse.rescode == 2 {
-                       // showToast.toggle()
-                        
-                     
+                    if loginoutResponse.rescode == 1 {
+                       // showToast = true
+                      
+                        showSimpleAlert = true
+                     //   alertService.show(title: "Alert", message: loginoutResponse.message!) {
+                          
+                     //   }
 
                        
                         UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                         UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
-                        self.presentationMode.wrappedValue.dismiss()
+                        
                         
                         
                         

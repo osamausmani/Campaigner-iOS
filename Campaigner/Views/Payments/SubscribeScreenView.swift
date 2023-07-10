@@ -12,21 +12,21 @@ import SwiftUI
 struct SubscribeScreenView: View {
     var body: some View {
         VStack(spacing: -20){
-            HStack(spacing: 2) {
+            HStack(spacing: -15) {
                 
                 // Box view with rounded corners
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_7")
+                        Image("box_1")
                             .resizable()
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Basic").fontWeight(.bold)
@@ -57,19 +57,19 @@ struct SubscribeScreenView: View {
                 
                 
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_7")
+                        Image("box_2")
                             .resizable()
-                            .scaleEffect(x: -1, y: 1)
+                          //  .scaleEffect(x: -1, y: 1)
                            
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Silver").fontWeight(.bold)
@@ -102,22 +102,22 @@ struct SubscribeScreenView: View {
             }
             .padding()
             
-            HStack(spacing: 2) {
+            HStack(spacing:  -15) {
                 // Box view with rounded corners
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_8")
+                        Image("box_3")
                             .resizable()
-                           
-                           
+                            .aspectRatio(contentMode: .fill)
+        
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Gold").fontWeight(.bold)
@@ -146,19 +146,19 @@ struct SubscribeScreenView: View {
                     .padding(8)
                 
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_8")
+                        Image("box_4")
                             .resizable()
-                            .scaleEffect(x: -1, y: 1)
+                           // .scaleEffect(x: -1, y: 1)
                            
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Platinum").fontWeight(.bold)
@@ -190,22 +190,22 @@ struct SubscribeScreenView: View {
             .padding()
             
             
-            HStack(spacing: 2) {
+            HStack(spacing:  -15) {
                 // Box view with rounded corners
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_6")
+                        Image("box_5")
                             .resizable()
-                            .scaleEffect(x: -1, y: 1)
+                           // .scaleEffect(x: -1, y: 1)
                             
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Diamond").fontWeight(.bold)
@@ -234,18 +234,18 @@ struct SubscribeScreenView: View {
                     .padding(8)
                 
                 Rectangle()
-                    .frame(width: 180, height: 170)
-                    .foregroundColor(.yellow)
+                    .frame(width: 210, height: 200)
+                    .foregroundColor(.clear)
                     .cornerRadius(15)
                     .overlay(
-                        Image("splash_6")
+                        Image("box_6")
                             .resizable()
                             
                     )
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
+//                    .overlay(
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                        )
                     .overlay(
                         VStack{
                             Text("Elite").fontWeight(.bold)

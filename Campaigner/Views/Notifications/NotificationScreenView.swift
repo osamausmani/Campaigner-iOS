@@ -36,9 +36,8 @@ struct NotificationScreenView: View {
             self.presentationMode.wrappedValue.dismiss()
             
         }) {
-            Image(systemName: "chevron.left")
-                .imageScale(.large)
-                .foregroundColor(.green)
+            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
         }
     }
     

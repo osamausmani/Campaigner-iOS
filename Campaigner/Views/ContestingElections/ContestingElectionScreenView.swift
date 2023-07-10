@@ -16,12 +16,9 @@ struct ContestingElectionScreenView: View {
    
     @State var showingContestingElectionPopup = false
     @State private var isLoading = false
-    
-    
-    
     @State var fin = [ContestingElection]()
-    
     @State private var selectedCellIndex: Int?
+   // @State private var refreshFlag = false
     
     @StateObject private var alertService = AlertService()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -43,20 +40,21 @@ struct ContestingElectionScreenView: View {
                             // Perform action for burger icon
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
-                            Image(systemName: "arrowshape.left")
-                                .imageScale(.large)
+                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
                             
                         }
-                        Spacer()
+                        //Spacer()
                         Text("Contesting Election")
                             .font(.headline)
+                            .frame(width: 260)
                         
                         Spacer()
                         Button(action: {
                             // Perform action for bell icon
                         }) {
-                            Image(systemName: "bell")
-                                .imageScale(.large)
+//                            Image(systemName: "bell")
+//                                .imageScale(.large)
                             
                         }
                     } .foregroundColor(CColors.MainThemeColor)
@@ -75,28 +73,43 @@ struct ContestingElectionScreenView: View {
                                 CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provencial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
                                     delete()
                                 }, update: update, action: action).onTapGesture {
-                                    
+
                                 }
                             }
+//                            CustomCell(Assembly: "National Assembly", DistrictName: "Bahawalnagaraaa", ConstituencyName: "NA - 12 Bahawalgnbar", ReferralsCount: "", ProvinceName: "Azad jummu kashmir") {
+//
+//                            } update: {
+//
+//                            } action: {
+//
+//                            }
+
+                            
+                            
                         }
                         AddButton(action: addContestent, label: "")
-                            .popover(isPresented: $showingContestingElectionPopup) {
-                                ContestingElectionPopUpScreenView()
-                            }
-                        
+                            .popover(isPresented: $showingContestingElectionPopup)
+                        {
+                                ContestingElectionPopUpScreenView().onDisappear{
+                                    listElection()
+                                }
+                        }
+                            .border(Color.gray, width: 1) // Add border with gray color and 1 point width
                       
                         
                     }
                 }
             }
             
-        }.onAppear
+        }
+        .onAppear
         {
            listElection()
         }
-        .onReceive(dataPublisher) { newData in
-            listElection()
-        }
+      //  .onReceive(Publisher, perform: <#T##(Publisher.Output) -> Void#>)
+//        .onReceive(dataPublisher) { newData in
+//            listElection()
+//        }
         
     }
     
@@ -135,7 +148,11 @@ struct ContestingElectionScreenView: View {
                     
                     alertService.show(title: "Alert", message: deleteResponse.message!)
                     print(deleteResponse)
-                    listElection()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.fin.remove(at: selectedCellIndex!)
+                        listElection()
+                    }
       
                 }else{
                     alertService.show(title: "Alert", message: deleteResponse.message!)
@@ -366,6 +383,8 @@ struct CustomCell: View {
                 VStack{
                     HStack{
                         Text(Assembly)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 10)
                     }
                     .font(.subheadline)
                     .foregroundColor(.white)
@@ -375,11 +394,8 @@ struct CustomCell: View {
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity,
                            alignment: .leading)
-                    .padding(.vertical, 15)
-                    .padding(.horizontal, 0)
+                
                     
-                    
-                    Spacer().frame(height: 0) // Adjust the height of the Spacer
                     HStack{
                         Text("District:")
                             .font(.footnote)
@@ -387,24 +403,28 @@ struct CustomCell: View {
                         Text(DistrictName)
                             .font(.footnote)
                             .font(.system(size: 10, weight: .medium))
-                        
                     }
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity,
                            alignment: .leading)
                     .foregroundColor(CColors.MainThemeColor)
                     
-                    Spacer().frame(height: 0) // Adjust the height of the Spacer
+                    
+                    
                     HStack{
                         Text("Constituency:")
-                        //  .font(.system(size: 9, weight: .bold))
                             .font(.footnote)
                         
                         Text(ConstituencyName)
-                            .font(.footnote)
-                        //  .font(.system(size: 9, weight: .medium))
+                            .font(.footnote).padding(-5)
+                            
+                          //  .multilineTextAlignment(.leading)
+                          //  .padding(.trailing)
+                            
+                        
                         
                     }
+                   
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity,
                            alignment: .leading)
@@ -438,7 +458,8 @@ struct CustomCell: View {
                             .fontWeight(.bold)
                         
                         Text(ProvinceName)
-                            .font(.footnote)
+                            .font(.footnote).padding(-5)
+                            
                     }
                     .foregroundColor(CColors.MainThemeColor)
                     .frame(maxWidth: .infinity,

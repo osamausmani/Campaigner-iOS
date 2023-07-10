@@ -34,14 +34,10 @@ struct SplashScreenView: View {
                 }
             }.background(
                 
-//
-//                NavigationLink(destination: isUserLogin ? AnyView(HomeScreenTabedView(presentSideMenu:true)) : AnyView(LoginScreenView()), isActive: $isActive) {
-//
-     //           }
                 
-                                NavigationLink(destination: AnyView(LoginScreenView()), isActive: $isActive) {
-                
-                                }
+                NavigationLink(destination: AnyView(LoginScreenView()), isActive: $isActive) {
+                    
+                }
                 
                 
             )

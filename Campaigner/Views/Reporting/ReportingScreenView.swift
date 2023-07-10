@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ReportingScreenView: View {
     
-    
+    @State private var selectedTab = 0
     @State var showingAddReportingView = false
     @State private var isLoading = false
-
+    
     @StateObject private var alertService = AlertService()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -22,11 +22,11 @@ struct ReportingScreenView: View {
         NavigationView {
             ZStack {
                 BaseView(alertService: alertService)
-             
-                    
-                    Image("splash_background")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
+                
+                
+                //                    Image("splash_background")
+                //                        .resizable()
+                //                        .edgesIgnoringSafeArea(.all)
                 VStack {
                     //
                     // Navigation Bar
@@ -36,44 +36,72 @@ struct ReportingScreenView: View {
                             // Perform action for burger icon
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
-                            Image(systemName: "arrowshape.left")
-                                .imageScale(.large)
+                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
                             
                         }
-                        Spacer()
+                        // Spacer()
                         Text("Reporting")
                             .font(.headline)
+                            .frame(width: 250)
                         
                         Spacer()
                         Button(action: {
                             // Perform action for bell icon
                         }) {
-                            Image(systemName: "bell")
-                                .imageScale(.large)
+                            //                            Image(systemName: "bell")
+                            //                                .imageScale(.large)
                             
                         }
                     } .foregroundColor(CColors.MainThemeColor)
                         .padding()
                         .navigationBarHidden(true)
                     
+                    Divider()
                     
-                    
-                    
-                    ZStack {
-                        // to test viww there is sample list uncommit it and commit the onLoad function
-                        List {
-                            //                                                        ForEach(0..<6) { index in
-                            //                                                            CustomCell(Assembly: "AAA", DistrictName: "Pujab", ConstituencyName: "Constitution", ReferralsCount: "222", ProvinceName: "Punjabiiii")
-                            //                                                        }
-                            
-                           
+                    HStack(spacing: 0)
+                    {
+                        Spacer()
+                        
+                        TabBarButton(text: "Own", isSelected: selectedTab == 0) {
+                            selectedTab = 0
+                            // listMembers()
                         }
                         
-                        AddButton(action: fin, label: "")
-                            .fullScreenCover(isPresented: $showingAddReportingView) {
-                                AddReportScreenView()
-                            }
+                        Spacer()
+                        
+                        TabBarButton(text: "Other(s)", isSelected: selectedTab == 1)
+                        {
+                            selectedTab = 1
+                            // listTeams()
+                        }
+                        
+                        Spacer()
+                    }.frame(height: 40)
+                        .foregroundColor(Color.black)
                     
+                    ZStack {
+                        Image("reportingNil")
+                            .resizable()
+                            .edgesIgnoringSafeArea(.all)
+                        // to test viww there is sample list uncommit it and commit the onLoad function
+                        List {
+                            
+                            
+                            
+                            
+                        }
+                        
+                        if selectedTab == 0 {
+                            
+                            AddButton(action: fin, label: "")
+                                .fullScreenCover(isPresented: $showingAddReportingView) {
+                                    AddReportScreenView()
+                                }
+                        }else
+                        {
+                            
+                        }
                         
                         
                         
@@ -85,6 +113,11 @@ struct ReportingScreenView: View {
     }
     
     func fin()
+    {
+        showingAddReportingView = true
+    }
+    
+    func listReporting()
     {
         showingAddReportingView = true
     }

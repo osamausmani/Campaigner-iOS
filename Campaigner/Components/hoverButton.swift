@@ -16,25 +16,24 @@ struct hoverButton: View {
             ZStack(alignment: .top){
                 Button(action: action) {
                     
-                    Image(systemName: img).tint(CColors.MainThemeColor).font(.system(size: 25))
+                    Image(systemName: img).tint(CColors.MainThemeColor).font(.system(size: 18))
                     
                     Text(btnText)
                     
                     //.cornerRadius(10)
                 }.foregroundColor(.white)
-                    .font(.headline)
+                    .font(.subheadline)
                     .padding()
                     .background(Color.yellow)
                     .cornerRadius(20)
                     .frame(height: 40)
-                    .padding()
+                  //  .padding()
                     
                 
             }.frame(width: p.size.width, height: p.size.height, alignment: .top)
             
-            //        }   .frame(maxWidth: .infinity, maxHeight: .infinity)
-            //            .background(Color.white)
-            //            .edgesIgnoringSafeArea(.all)
+        
+              
         }
     }
     

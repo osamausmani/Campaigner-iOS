@@ -8,6 +8,11 @@
 import SwiftUI
 import Alamofire
 
+//class DataStorePayments: ObservableObject {
+//    @Published var fee_id: String = ""
+//    @Published var amount: Int = 0
+//}
+
 struct PaymentsScreenView: View {
     @State private var selectedTab = 0
     
@@ -19,10 +24,13 @@ struct PaymentsScreenView: View {
     @State private var paymentHistoryView = false
     @State private var selectedCellIndex: Int?
     @State private var payNowView = false
+    @State private var selectedPayment = [ListPendingPayments]()
     
     
+    @State var pendingPayments = [ListPendingPayments]()
     
-    @State var fin = [ContestingElection]()
+   // @EnvironmentObject var dataStore: DataStorePayments
+    
     
     @StateObject private var alertService = AlertService()
     
@@ -37,52 +45,33 @@ struct PaymentsScreenView: View {
                 //                    .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    
-                    
-                    // Navigation bar
-//                    HStack {
-//                        Button(action: {
-//                            // Perform action for burger icon
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        }) {
-//                            Image(systemName: "arrowshape.left")
-//                                .imageScale(.large)
-//
-//                        }
-//                        Spacer()
-//                        Text("Teams")
-//                            .font(.headline)
-//
-//                        Spacer()
-//
-//                    }.foregroundColor(CColors.MainThemeColor)
-//                        .padding()
-//                        .navigationBarHidden(true)
-//
-//                    Divider()
-                    
+
                     HStack(spacing: 0) {
-                        Spacer()
+                   
                         
-                        TabBarButton(text: "Payment", isSelected: selectedTab == 0) {
+                        TabBarButton(text: "Payment", isSelected: selectedTab == 0)
+                        {
                             selectedTab = 0
+                            listPendingPayments()
                         }
                         
-                        Spacer()
+                        //Spacer()
                         
                         TabBarButton(text: "Subscription", isSelected: selectedTab == 1) {
                             selectedTab = 1
                         }
                         
-                        Spacer()
+                       // Spacer()
                         
                         TabBarButton(text: "Payment History", isSelected: selectedTab == 2) {
                             selectedTab = 2
+                            listPaymentHistory()
                         }
                         
-                        Spacer()
-                    }.frame(height: 40)
+            
+                    }//.frame(height: 60)
                         .foregroundColor(Color.black)
+                        .padding(20)
                     
                     
                     ZStack{
@@ -90,14 +79,20 @@ struct PaymentsScreenView: View {
                         VStack {
                             if selectedTab == 0 {
                                 // Table view
+
+                                
                                 List {
-                                    ForEach(0..<5) { index in
-                                        PaymentCell(paymentType: "Subscription", dueAmount: "Rs 50,000.00", dueDate: "12 April 2023", action: {
+                                    ForEach(pendingPayments.indices, id: \.self) { index in
+                                        let payment = pendingPayments[index]
+                                        PaymentCell(paymentType: payment.fee_type_text ?? "", dueAmount: String(payment.fee_value!) , dueDate: payment.pay_due_date ?? "", action: {
                                             selectedCellIndex = index
+//                                            dataStore.fee_id = payment.fee_id ?? ""
+//                                            dataStore.amount = payment.fee_value ?? 0
+                                            selectedPayment.append(payment)
                                             print(selectedCellIndex!)
                                             payNow()
                                         }).onTapGesture {
-                                            
+
                                         }
                                     }
                                 }
@@ -120,15 +115,15 @@ struct PaymentsScreenView: View {
                                         PaymentHistoryCell(paymentType: "Subscription", paidAmount:  "Rs 50,000.00", status: "Verified", paidOn: "10 April 2023", referenceNumber: "T23343546")
                                     }
                                 }
+                                
+      
+
+
                             }
                             
                             // Other views...
                         }
-                        
-                        
-                        
-                        
-                        
+
                         // Addition sign
                         // AddButton(action: add, label: "")
                         // .padding(.top)
@@ -140,11 +135,12 @@ struct PaymentsScreenView: View {
                 .fullScreenCover(isPresented: $paymentView) {
                     AddMemberView()
                 }
-                .fullScreenCover(isPresented: $paymentHistoryView) {
-                    AddTeamView()
-                }
+//                .fullScreenCover(isPresented: $paymentHistoryView)
+//                {
+//                    AddTeamView(title: .constant(""), description: .constant(""), message: .constant(""))
+//                }
                 .fullScreenCover(isPresented: $payNowView) {
-                    PayNowScreenView()
+                    PayNowScreenView(selectedPayment: $selectedPayment)
                 }
                 .overlay(
                     Group {
@@ -154,6 +150,21 @@ struct PaymentsScreenView: View {
                     }
                 )
             }
+        }.navigationBarTitle("Payment", displayMode: .inline )
+           // .navigationBarItems(leading: backButton, trailing: EmptyView())
+            .onAppear{
+              listPendingPayments()
+            }
+    }
+    
+    private var backButton: some View {
+        Button(action: {
+            // Handle back button action here
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
         }
     }
     
@@ -163,13 +174,13 @@ struct PaymentsScreenView: View {
         
     }
     
-    func listMembers(){
+    func listPaymentHistory(){
         // isShowingLoader.toggle()
         isLoading = true
         
         let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
         let headers:HTTPHeaders = [
-            // "Content-Type":"application/x-www-form-urlencoded",
+             "Content-Type":"application/x-www-form-urlencoded",
             "x-access-token": token!
         ]
         
@@ -188,28 +199,86 @@ struct PaymentsScreenView: View {
         //let registerViewModel = RegisterViewModel()
         
         
-        let contestentViewModel = ContestentViewModel()
+        let paymentsViewModel = PaymentsViewModel()
         
-        contestentViewModel.listElections(parameters: parameters,headers: headers ) { result in
+        paymentsViewModel.paymentHistoryRequest(parameters: parameters,headers: headers ) { result in
             // isShowingLoader.toggle()
             isLoading = false
             print(result)
             switch result {
                 
-            case .success(let loginResponse):
+            case .success(let paymentHistoryResponse):
                 
-                if loginResponse.rescode == 1 {
+                if paymentHistoryResponse.rescode == 1 {
                     
-                    print(loginResponse)
+                    print(paymentHistoryResponse)
                     
-                    fin = loginResponse.data!
+                //    fin = loginResponse.data!
                     
                     //  self.presentationMode.wrappedValue.dismiss()
                     
                     
                 }else{
-                    alertService.show(title: "Alert", message: loginResponse.message!)
+                    alertService.show(title: "Alert", message: paymentHistoryResponse.message!)
                 }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    
+     func listPendingPayments(){
+        // isShowingLoader.toggle()
+        isLoading = true
+        
+        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
+        let headers:HTTPHeaders = [
+             "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": token!
+        ]
+        
+        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        
+        
+        
+        print(token!)
+        
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!
+            
+        ]
+        
+        //let registerViewModel = RegisterViewModel()
+        
+        
+        let paymentsViewModel = PaymentsViewModel()
+        
+        paymentsViewModel.listPendingPayments(parameters: parameters,headers: headers ) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(let pendingPaymentResponse):
+                
+                if pendingPaymentResponse.rescode == 1 {
+                    
+                    print(pendingPaymentResponse)
+                    
+                //    fin = loginResponse.data!
+                    
+                    pendingPayments = pendingPaymentResponse.data!
+                    
+                    
+                    //  self.presentationMode.wrappedValue.dismiss()
+                    
+                    
+                }else{
+                    alertService.show(title: "Alert", message: pendingPaymentResponse.message!)
+                     }
                 
             case .failure(let error):
                 alertService.show(title: "Alert", message: error.localizedDescription)
@@ -242,13 +311,14 @@ struct PaymentsScreenView: View {
         
         
         var body: some View {
-            VStack {
+            VStack(spacing: -15) {
                 HStack {
                     Spacer()
                     VStack(alignment: .leading){
                         
                         Text("Payment Type")
                             .font(.subheadline)
+                         //   .lineLimit(nil)
                           
                         Spacer()
                         Text("Due Amount")
@@ -264,12 +334,12 @@ struct PaymentsScreenView: View {
               
 
                     .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .topLeading)
-                    Spacer()
-                    Spacer()
-                    Spacer()
+                    
+//                    .frame(maxWidth: .infinity,
+//                           maxHeight: .infinity,
+//                           alignment: .topLeading)
+                    .padding(20)
+
                     VStack(alignment: .leading){
 
                         Text(paymentType)
@@ -285,26 +355,34 @@ struct PaymentsScreenView: View {
                            
                         Spacer()
 
-                    }.fontWeight(.light)
+                    }.fontWeight(.medium)
                  
+                       
+                        .fontWeight(.semibold)
+                        .padding(20)
                         .frame(maxWidth: .infinity,
                                maxHeight: .infinity,
                                alignment: .topLeading)
-                        .fontWeight(.semibold)
                     
                 }
-//                SecondaryButton(action: {
-//                    print("selected")
-//                    payNow()
-//                }, label: "Pay now")
                 
-                SecondaryButton(action: action, label: "Pay Now").onTapGesture {
+                
+                SecondaryButton(action: {
+                    
+                }, label: "Pay Now").onTapGesture {
+                //    DataStorePayments.value = pendingPayments[selectedCellIndex].fee_id
                    action()
-                }
+                } .padding(10)//.padding(.top)
+                    //.frame(height: 40)
+                
                 
             }
-            .padding(.horizontal, 5)
-            .padding(.vertical, 20)
+            .border(Color.gray, width: 2)
+//            .padding(.horizontal, 10)
+//            .padding(.vertical, 20)
+            
+            .scaledToFit()
+            .background(.clear)
             
          
         }
@@ -400,12 +478,55 @@ struct PaymentsScreenView: View {
             }
             .padding(.horizontal, 5)
             .padding(.vertical, 20)
+            .border(Color.gray, width: 2)
             
          
         }
         
     
         
+    }
+    
+    func listBanks()
+    {
+       
+        isLoading = true
+//        let headers:HTTPHeaders = [
+//            "x-access-token": UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+//        ]
+        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+       // let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
+        
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!,
+         //   "election_id": String(fin[selectedCellIndex!].election_id!)
+            
+        ]
+        let paymentViewModel = PaymentsViewModel()
+
+        paymentViewModel.bankListRequest(parameters: parameters  ) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(let deleteResponse):
+                
+                if deleteResponse.rescode == 1 {
+                    
+                    alertService.show(title: "Alert", message: deleteResponse.message!)
+                    print(deleteResponse)
+                   // listElection()
+      
+                }else{
+                    alertService.show(title: "Alert", message: deleteResponse.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
     }
     
    
