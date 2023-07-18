@@ -53,6 +53,11 @@
 		07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */; };
 		07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */; };
 		07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2602A1E0BC500D8B4B5 /* Constants.swift */; };
+		FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */; };
+		FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3D2A5E820300E7C0AB /* HelperClass.swift */; };
+		FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E412A60273B00E7C0AB /* MapScreen.swift */; };
+		FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */; };
+		FA243E462A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E452A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift */; };
 		FA5B5BE02A3DE5E4005AD722 /* ImageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BDF2A3DE5E4005AD722 /* ImageSelectorView.swift */; };
 		FA5B5BE32A403462005AD722 /* NewsDetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */; };
 		FA5B5BE52A40590A005AD722 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BE42A40590A005AD722 /* ImageView.swift */; };
@@ -169,6 +174,11 @@
 		07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassPinScreenView.swift; sourceTree = "<group>"; };
 		07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassSetPassScreenView.swift; sourceTree = "<group>"; };
 		07DEE2602A1E0BC500D8B4B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingResponse.swift; sourceTree = "<group>"; };
+		FA243E3D2A5E820300E7C0AB /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
+		FA243E412A60273B00E7C0AB /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingLcoation.swift; sourceTree = "<group>"; };
+		FA243E452A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionUpdateScreenView.swift; sourceTree = "<group>"; };
 		FA5B5BDF2A3DE5E4005AD722 /* ImageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorView.swift; sourceTree = "<group>"; };
 		FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailScreenView.swift; sourceTree = "<group>"; };
 		FA5B5BE42A40590A005AD722 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -270,6 +280,7 @@
 			children = (
 				0702927C2A1A442B0057FB33 /* FilterCnic.swift */,
 				0702927E2A1A44900057FB33 /* TextFieldContainer.swift */,
+				FA243E3D2A5E820300E7C0AB /* HelperClass.swift */,
 			);
 			path = Extensioin;
 			sourceTree = "<group>";
@@ -451,6 +462,7 @@
 				FAC49CCB2A520DA900AFAE81 /* DesignTokenField.swift */,
 				FAC49CD32A55490000AFAE81 /* CheckBoxOptionView.swift */,
 				FAC49CD92A5823D500AFAE81 /* ConfirmationAlert.swift */,
+				FA243E412A60273B00E7C0AB /* MapScreen.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -466,6 +478,7 @@
 				FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */,
 				FAC49CCF2A532D0500AFAE81 /* SurveyResponse.swift */,
 				FAC49CD72A5596EA00AFAE81 /* TeamsResponse.swift */,
+				FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */,
 			);
 			path = RespModels;
 			sourceTree = "<group>";
@@ -581,6 +594,7 @@
 			children = (
 				FAF8E27C2A25F23B00149D29 /* ContestingElectionScreenView.swift */,
 				FAF8E27E2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift */,
+				FA243E452A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift */,
 			);
 			path = ContestingElections;
 			sourceTree = "<group>";
@@ -610,6 +624,7 @@
 			children = (
 				FAD8FF302A2E2E6500466533 /* AddReportScreenView.swift */,
 				FAD8FF612A385CB900466533 /* ReportingScreenView.swift */,
+				FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */,
 			);
 			path = Reporting;
 			sourceTree = "<group>";
@@ -745,8 +760,10 @@
 				07ADF0D22A07E5BF0096C82D /* LoginScreenView.swift in Sources */,
 				FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */,
 				FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */,
+				FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */,
 				FAD8FF5A2A36F63200466533 /* MultiLineTextField.swift in Sources */,
 				FAF8E2902A2C907B00149D29 /* SurveyScreenView.swift in Sources */,
+				FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */,
 				FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */,
 				FAF8E2882A29F7A100149D29 /* TabBarButton.swift in Sources */,
 				FAC49CCE2A52CB8E00AFAE81 /* SurveyViewModel.swift in Sources */,
@@ -774,6 +791,7 @@
 				07DEE23E2A1CEB7300D8B4B5 /* LoginViewModel.swift in Sources */,
 				07DEE2542A1DFE7D00D8B4B5 /* ProfileMainScreen.swift in Sources */,
 				FA5B5BE52A40590A005AD722 /* ImageView.swift in Sources */,
+				FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */,
 				07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */,
 				0702927F2A1A44900057FB33 /* TextFieldContainer.swift in Sources */,
 				FAD8FF332A2E31B500466533 /* AddButton.swift in Sources */,
@@ -785,6 +803,7 @@
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
 				FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */,
 				FAD8FF7C2A3A4BAC00466533 /* SecondaryButton.swift in Sources */,
+				FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */,
 				FAC49CD42A55490000AFAE81 /* CheckBoxOptionView.swift in Sources */,
 				FAC49CD82A5596EA00AFAE81 /* TeamsResponse.swift in Sources */,
 				FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */,
@@ -823,6 +842,7 @@
 				074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */,
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
 				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
+				FA243E462A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift in Sources */,
 				FAD8FF5C2A37065000466533 /* CheckboxFieldView.swift in Sources */,
 				FAD8FF582A36624800466533 /* ShareData.swift in Sources */,
 				FAC49CCA2A52089800AFAE81 /* OTPInputView.swift in Sources */,

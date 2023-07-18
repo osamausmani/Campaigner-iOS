@@ -13,7 +13,7 @@ struct InviteMemberScreenView: View {
     @State private var fvName = ""
     @State private var fvMobileNetwork = DropDownModel()
     @State private var fvMobileNumber = ""
-    @State private var fvPassword = ""
+   // @State private var fvPassword = ""
     @State private var fvConfirmPassword = ""
     
     @State private var showRegisterScreen = false
@@ -92,7 +92,8 @@ struct InviteMemberScreenView: View {
     }
     
     
-    func validateInputs(){
+    func validateInputs()
+    {
         if(fvCnic.isEmpty){
             alertService.show(title: "Alert", message: "CNIC is required")
         }
@@ -109,9 +110,7 @@ struct InviteMemberScreenView: View {
             alertService.show(title: "Alert", message: "Mobile Number is required")
         }
         
-        else if(fvPassword.isEmpty){
-            alertService.show(title: "Alert", message: "Password is required")
-        }
+     
         
 //        else if(fvConfirmPassword.isEmpty){
 //            alertService.show(title: "Alert", message: "Confirm Password is required")
@@ -120,9 +119,9 @@ struct InviteMemberScreenView: View {
 //        else if(fvPassword != fvConfirmPassword){
 //            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
 //        }
-        else{
+        else {
             doRegister()
-        }
+             }
     }
     
     
@@ -132,9 +131,9 @@ struct InviteMemberScreenView: View {
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_cnic": fvCnic,
-            "user_full_name": fvPassword,
+            "user_full_name": fvName,
             "user_msisdn": fvMobileNumber,
-            "user_pass": fvPassword,
+            "user_pass": "",
             "telco_op":fvMobileNetwork.id
 
         ]

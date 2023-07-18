@@ -85,8 +85,6 @@ struct ListReportingTypeResponse : Codable
 
 struct ListReportingType: Codable
 {
-    
     let type_id : String?
     let type_name : String?
-    
 }

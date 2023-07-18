@@ -38,7 +38,7 @@ class LookupsViewModel: ObservableObject {
     }
     
     
-    func listReportingTypes(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListPollingStations, Error>) -> Void) {
+    func listReportingTypes(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListReportingTypeResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.listReportingType
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }

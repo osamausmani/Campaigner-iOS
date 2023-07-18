@@ -114,7 +114,8 @@ struct PayNowScreenView: View {
                                             self.sourceType = 0
                                             self.showImagePicker = true
                                         },
-                                        .default(Text("Camera")) {
+                                        .default(Text("Camera"))
+                                        {
                                             // Handle selection from camera
                                             self.sourceType = 1
                                             self.showImagePicker = true

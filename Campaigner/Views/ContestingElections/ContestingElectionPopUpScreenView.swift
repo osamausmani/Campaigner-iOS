@@ -38,9 +38,7 @@ struct ContestingElectionPopUpScreenView: View {
     @State var district = [DistrictResponseModel]()
     @State var province = [ProvinceResponseModel]()
     
-    
-    
-    
+
     var networkOptions: [DropDownModel] = []
     
     var assemblyType: [DropDownModel] = [

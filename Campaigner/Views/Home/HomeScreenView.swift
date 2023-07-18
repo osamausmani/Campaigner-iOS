@@ -122,7 +122,8 @@ struct HomeScreenView: View {
                 presentSideMenu = false
             }
         }
-        .onAppear{
+        .onAppear
+        {
             LoadDashBoard()
         }
        
@@ -204,6 +205,19 @@ struct HomeScreenView: View {
                     value = dashboardDataResponse.data?[0].election_id ?? "7"
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
+                   
+                    
+                    if (!slider.isEmpty){
+                        images = []
+                        
+                    }
+                    
+                    if (!news.isEmpty)
+                    {
+                        images2 = []
+                        label2 = []
+                    }
+                    
                     for i in slider{
                         images.append(i.image_path ?? "")
                     }

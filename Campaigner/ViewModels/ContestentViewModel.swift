@@ -18,9 +18,9 @@ class ContestentViewModel: ObservableObject {
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, headers: headers, completion: completion)
     }
     
-    func updateContestentRequest(parameters: [String:Any]?, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void) {
+    func updateContestentRequest(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.updateElection
-        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, headers: headers, completion: completion)
     }
     
     func deleteContestentRequest(parameters: [String:Any]?, headers: HTTPHeaders? = nil, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void) {

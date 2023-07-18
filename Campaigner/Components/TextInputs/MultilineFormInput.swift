@@ -13,25 +13,28 @@ struct MultilineFormInput: View {
     @Binding var text: String
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(label)
-                .font(.system(size: 15))
-            
-            TextEditor(text: $text)
-                .frame(height: 100)
-                .border(Color.black)
-                .padding(.horizontal, 10)
-                .font(.system(size: 16))
-                .foregroundColor(.black)
-                .keyboardType(.default)
-                .disableAutocorrection(true)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-        }
+      
+            VStack(alignment: .leading) {
+                
+                Text(label)
+                    .font(.system(size: 15))
+                
+                TextEditor(text: $text)
+                    .frame(height: 100)
+                   // .border(Color.black)
+                    .padding(.horizontal, 10)
+                    .font(.system(size: 16))
+                    .foregroundColor(.black)
+                    .keyboardType(.default)
+                    .disableAutocorrection(true)
+                    .background(Color.clear)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+            }
+        
     }
-
 }
 
 struct MultilineFormInput_Previews: PreviewProvider {

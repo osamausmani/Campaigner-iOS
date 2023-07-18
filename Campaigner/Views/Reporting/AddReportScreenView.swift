@@ -14,9 +14,16 @@ struct AddReportScreenView: View {
     
     @State private var isLoading = false
     @State private var cProvince = DropDownModel()
-    @State private var isOn1 = true
+   // @State private var isOn1 = true
+    @State private var isChecked = false
+    @State private var fvDescription = ""
+    @State var selectedImage: UIImage?
+    @State var reportingType = [ListReportingType]()
+    @State private var sourceType = 0
+    @State private var showImagePicker = false
+    @State private var showActionSheet = false
     
-    @State  var provinceName : [DropDownModel] = []
+    @State  var reportingTypeName : [DropDownModel] = []
     var body: some View {
         NavigationView {
             
@@ -67,37 +74,81 @@ struct AddReportScreenView: View {
                         
                         
                         
-                        DropDown(label: "Type", placeholder: "Select type", selectedObj:  $cProvince, menuOptions: provinceName).padding(16)
+                        DropDown(label: "Type", placeholder: "Select type", selectedObj:  $cProvince, menuOptions: reportingTypeName).padding(16)
                         
                         
                         
-                        MultiLineTextField( title: "Description").padding(16)
+                       // MultiLineTextField( title: "Description").padding(16)
+                        MultilineFormInput(label: "Description", placeholder: "Enter Description", text: $fvDescription).padding(10)
                         
                         
                         Spacer()
                         HStack{
-                            CheckboxFieldView(label: "Mark as complaint")
+                            CheckboxFieldView(isChecked: $isChecked, label: "Mark as complaint")
                             
-                            CustomButton(text: "Attachments", image: "paperclip").frame(width: 200, height: 40)
+                            //CustomButton(text: "Attachments", image: "paperclip").frame(width: 200, height: 40)
+                            
+                            MainButton(action: {
+                              //
+                                showActionSheet = true
+                               // promptForImageSelection()
+                                
+                            }, label: "Attachment").frame(maxWidth: 180,maxHeight: 60,alignment: .topTrailing).actionSheet(isPresented: $showActionSheet) {
+                                ActionSheet(title: Text("Select Image"), message: nil, buttons: [
+                                    .default(Text("Photo Library")) {
+                                        // Handle selection from photo library
+                                        self.sourceType = 0
+                                        self.showImagePicker = true
+                                    },
+                                    .default(Text("Camera"))
+                                    {
+                                        // Handle selection from camera
+                                        self.sourceType = 1
+                                        self.showImagePicker = true
+                                    },
+                                    .cancel()
+                                ])
+                            }
+                        
                             
                         }.padding(5)
-                        Spacer()
+                       // Spacer()
+                        
+                        if let image = selectedImage {
+                                       Image(uiImage: image)
+                                           .resizable()
+                                           .aspectRatio(contentMode: .fit)
+                                           .frame(width: 150, height: 150)
+                                   } else {
+                                       Text("No image selected")
+                                   }
                         
                         Divider()
                         Spacer()
-                        CustomButton(text: "Submit" , image: "")
+                   //     CustomButton(text: "Submit" , image: "")
+                        
+                        MainButton(action: {
+                            addReport()
+                        }, label: "Submit").frame(maxWidth: 180,maxHeight: 40,alignment: .center) .frame(maxWidth: .infinity,
+                                                                                                         maxHeight: .infinity,
+                                                                                                        alignment: .top)
                         
                     }
                     
                 }
-            }
+            }.sheet(isPresented: $showImagePicker)
+            {
+             ImageUploader(selectedImage: $selectedImage, sourceTypeNo: sourceType)
+             }
             //  }
+        }.onAppear{
+            listReportingType()
         }
         
     }
     
     
-    func listPaymentHistory(){
+    func listReportingType(){
         // isShowingLoader.toggle()
         isLoading = true
         
@@ -120,7 +171,7 @@ struct AddReportScreenView: View {
         ]
         
         //let registerViewModel = RegisterViewModel()
-        
+        var newDropDownData : [DropDownModel] = []
         
         let lookupViewModel = LookupsViewModel()
         
@@ -130,19 +181,33 @@ struct AddReportScreenView: View {
             print(result)
             switch result {
                 
-            case .success(let paymentHistoryResponse):
+            case .success(let Response):
                 
-                if paymentHistoryResponse.rescode == 1 {
+                if Response.rescode == 1 {
                     
-                    print(paymentHistoryResponse)
+                    print(Response)
                     
-                //    fin = loginResponse.data!
+//                    fin = loginResponse.data!
+//
+//                    provinceName
+                    
+                    reportingType = Response.data!
+                    
+                    for i in reportingType
+                    {
+                        let dropDownModel = DropDownModel(id: i.type_id!, value: i.type_name!)
+                        newDropDownData.append(dropDownModel)
+                    }
+                    //  provinceName = []
+                    //   provinceName.append(contentsOf: newDropDownData)
+                    
+                    reportingTypeName = newDropDownData
                     
                     //  self.presentationMode.wrappedValue.dismiss()
                     
                     
                 }else{
-                    alertService.show(title: "Alert", message: paymentHistoryResponse.message!)
+                    alertService.show(title: "Alert", message: Response.message!)
                 }
                 
             case .failure(let error):
@@ -155,6 +220,13 @@ struct AddReportScreenView: View {
    
                 isLoading = true
         
+        var finReportType = ""
+               for i in reportingType{
+                   if( i.type_name == cProvince.value)
+                   {
+                       finReportType = i.type_id ?? ""
+                  }
+               }
 
         
                 let token = UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
@@ -164,18 +236,20 @@ struct AddReportScreenView: View {
                     // "Content-Type":"application/x-www-form-urlencoded",
                     "x-access-token": token
                 ]
-              //  isShowingLoader.toggle()
-        
-        
-//                for lan in constituency where lan.constituency! ==  cConstituency.value
-//                {
-//                    print(lan.id_text!)
-//                    cConstituency.id = lan.id_text!
-//                }
+
                 var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
                 let parameters: [String:Any] = [
                     "plattype": Global.PlatType,
                     "user_id": userID!,
+                    "report_type": finReportType,
+                    "report_desc": fvDescription,
+                    "is_complaint": isChecked == true ? "1":"0",
+                    "loc_lat": "0",
+                    "loc_lng": "0",
+                    "loc_text": "",
+                    "file": ""
+                
+                    
                    
                 ]
         

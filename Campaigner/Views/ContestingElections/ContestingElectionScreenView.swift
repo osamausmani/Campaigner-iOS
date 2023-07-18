@@ -9,12 +9,12 @@ import SwiftUI
 import Alamofire
 
 
-
-
 struct ContestingElectionScreenView: View {
     
    
+    @State var isUpdate = false
     @State var showingContestingElectionPopup = false
+    @State var showingContestingElectionUpdatePopup = false
     @State private var isLoading = false
     @State var fin = [ContestingElection]()
     @State private var selectedCellIndex: Int?
@@ -72,11 +72,18 @@ struct ContestingElectionScreenView: View {
                             ForEach(fin.indices, id: \.self) { index in
                                 CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provencial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
                                     delete()
-                                }, update: update, action: action).onTapGesture {
+                                }, update: {
+                                    selectedCellIndex = index
+                                    update()
+                                    
+                                }, action: {
+                                    action()
+                                    selectedCellIndex = index
+                                }).onTapGesture {
 
                                 }
                             }
-//                            CustomCell(Assembly: "National Assembly", DistrictName: "Bahawalnagaraaa", ConstituencyName: "NA - 12 Bahawalgnbar", ReferralsCount: "", ProvinceName: "Azad jummu kashmir") {
+//                            CustomCell(Assembly: "National Assembly", DistrictName: "Bahawalnagaraaa", ConstituencyName: "NA - 12 Bahawalgnbar", ReferralsCount: "123", ProvinceName: "Azad jummu kashmir") {
 //
 //                            } update: {
 //
@@ -90,7 +97,8 @@ struct ContestingElectionScreenView: View {
                         AddButton(action: addContestent, label: "")
                             .popover(isPresented: $showingContestingElectionPopup)
                         {
-                                ContestingElectionPopUpScreenView().onDisappear{
+                                ContestingElectionPopUpScreenView().onDisappear
+                             {
                                     listElection()
                                 }
                         }
@@ -102,10 +110,15 @@ struct ContestingElectionScreenView: View {
             }
             
         }
+        .fullScreenCover(isPresented: $showingContestingElectionUpdatePopup) {
+            ContestingElectionUpdateScreenView(oAssembly: "",oProvince: "" , oDistrict: "" , oConstituency: "")
+            
+        }
         .onAppear
         {
-           listElection()
+          listElection()
         }
+       
       //  .onReceive(Publisher, perform: <#T##(Publisher.Output) -> Void#>)
 //        .onReceive(dataPublisher) { newData in
 //            listElection()
@@ -165,7 +178,7 @@ struct ContestingElectionScreenView: View {
     }
     func update()
     {
-        
+        showingContestingElectionUpdatePopup = true
     }
     
     func action()
@@ -383,8 +396,8 @@ struct CustomCell: View {
                 VStack{
                     HStack{
                         Text(Assembly)
-                        .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
                     }
                     .font(.subheadline)
                     .foregroundColor(.white)
@@ -394,7 +407,7 @@ struct CustomCell: View {
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity,
                            alignment: .leading)
-                
+                    
                     
                     HStack{
                         Text("District:")
@@ -417,14 +430,14 @@ struct CustomCell: View {
                         
                         Text(ConstituencyName)
                             .font(.footnote).padding(-5)
-                            
-                          //  .multilineTextAlignment(.leading)
-                          //  .padding(.trailing)
-                            
+                        
+                        //  .multilineTextAlignment(.leading)
+                        //  .padding(.trailing)
+                        
                         
                         
                     }
-                   
+                    
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity,
                            alignment: .leading)
@@ -459,7 +472,7 @@ struct CustomCell: View {
                         
                         Text(ProvinceName)
                             .font(.footnote).padding(-5)
-                            
+                        
                     }
                     .foregroundColor(CColors.MainThemeColor)
                     .frame(maxWidth: .infinity,
@@ -469,52 +482,51 @@ struct CustomCell: View {
                     
                     
                     HStack(spacing: 30){
-                        Button(action: {
-                            // Perform action for Icon Button 1
-                            //Update record
-                           
-                        }) {
+                        
+                        Button(action: action) {
                             Image(systemName: "person.circle")
                                 .imageScale(.medium)
-                                .foregroundColor(.blue)
-                        }.onTapGesture {
+                             //   .foregroundColor(.orange)
+                        }.frame(maxWidth: .infinity,
+                                maxHeight: .infinity,
+                                alignment: .topTrailing)
+                        .onTapGesture {
+                            action()
                             
                         }
-                        
-                        Button(action: {
-                            // Perform action for Icon Button 2
-                            // Edit Record
-                          
-                            
-                        }) {
+                        Button(action: update) {
                             Image(systemName: "paperclip")
                                 .imageScale(.medium)
-                                .foregroundColor(.green)
-                        }.onTapGesture {
+                              //  .foregroundColor(.orange)
+                        }.frame(maxWidth: .infinity,
+                                maxHeight: .infinity,
+                                alignment: .topTrailing)
+                        .onTapGesture {
+                            update()
                             
                         }
                         
                         Button(action: delete) {
                             Image(systemName: "trash")
                                 .imageScale(.medium)
-                                .foregroundColor(.orange)
-                        }}.frame(maxWidth: .infinity,
-                                 maxHeight: .infinity,
-                                 alignment: .topTrailing)
+                             //   .foregroundColor(.orange)
+                        }.frame(maxWidth: .infinity,
+                                maxHeight: .infinity,
+                                alignment: .topTrailing)
                         .onTapGesture {
                             delete()
-                           
+                            
                         }
+                        
+                        
+                    }
+                    //                .padding(.horizontal, 0)
+                    //                .padding(.vertical, 20)
                     
                     
                 }
-                //                .padding(.horizontal, 0)
-                //                .padding(.vertical, 20)
-                
-                
-            }
-        }.listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)) // Adjust the values to set the desired spacing
-        
+            }.listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)) // Adjust the values to set the desired spacing
+        }
         
     }
     
