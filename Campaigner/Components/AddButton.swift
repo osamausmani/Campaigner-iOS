@@ -14,7 +14,7 @@ struct AddButton : View{
     
     var body: some View {
         // Additional Sign
-        VStack {
+        ZStack {
             Spacer()
             HStack {
                 Spacer()
@@ -27,7 +27,6 @@ struct AddButton : View{
                 }
                
                 .frame(width: 50, height: 50)
-                .padding()
                 .background(Color.clear)
                 
                 

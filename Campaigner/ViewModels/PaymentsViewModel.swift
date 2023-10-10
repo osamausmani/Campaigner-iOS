@@ -10,6 +10,7 @@ import Alamofire
 
 
 class PaymentsViewModel: ObservableObject {
+    
     func payFeeRequest(parameters: [String:Any]?, completion: @escaping (Result<ListBanksResponse, Error>) -> Void)
     {
         let REQ_URL = ApiPaths.payFee

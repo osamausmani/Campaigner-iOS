@@ -10,23 +10,22 @@ import SwiftUI
 struct ImageSelectorView: View {
     var imageUrls: [String]
     var text: [String]
-    var action: () -> Void
-
+    var action: (Int) -> Void
+    
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: true) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(imageUrls.indices, id: \.self) { index in
                     VStack {
                         Button(action: {
-                            // Action when image is clicked
-                            action()
+                            action(index)
                         }) {
                             VStack {
                                 if let url = URL(string: imageUrls[index]) {
                                     AsyncImage(url: url) { image in
                                         image
                                             .resizable()
-                                            .scaledToFit()
+                                            .scaledToFill()
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -37,21 +36,21 @@ struct ImageSelectorView: View {
                                 }
                                 Text(text[index])
                                     .font(.caption)
-                                    .foregroundColor(.gray)
-                            }
+                                    .foregroundColor(.black).lineLimit(1)
+                            }.padding(4)
                         }
                     }
-                    .frame(width: 120, height: 100)
+                    .frame(width: 120, height: 100).padding(4)
                 }
             }
         }
     }
 }
 
-struct ImageSelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageSelectorView(imageUrls: [], text: []) {
-            
-        }
-    }
-}
+//struct ImageSelectorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageSelectorView(imageUrls: [], text: []) {
+//            
+//        }
+//    }
+//}

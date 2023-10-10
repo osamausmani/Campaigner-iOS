@@ -21,16 +21,15 @@ struct MultilineFormInput: View {
                 
                 TextEditor(text: $text)
                     .frame(height: 100)
-                   // .border(Color.black)
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 0)
                     .font(.system(size: 16))
                     .foregroundColor(.black)
                     .keyboardType(.default)
                     .disableAutocorrection(true)
                     .background(Color.clear)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray, lineWidth: 1)
+                        RoundedRectangle(cornerRadius: 0)
+                            .stroke(Color.black, lineWidth: 1)
                     )
             }
         

@@ -13,6 +13,8 @@ struct MainButton : View{
     var action: () -> Void
     var label: String
     
+    var customHeight:CGFloat?
+    
     var body: some View {
         Button(action: action) {
             Text(label)
@@ -22,7 +24,8 @@ struct MainButton : View{
                 .foregroundColor(.white)
                 .font(.headline)
                 .cornerRadius(10)
+                .frame(maxHeight: customHeight)
+
         }
-        .frame(height: 50)
     }
 }

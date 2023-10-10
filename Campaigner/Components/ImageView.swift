@@ -16,62 +16,118 @@ struct ImageView: View {
     var date : String
     var details: String
     
+    @State private var showFullText = false
+    let maxWords = 200 // Set your desired maximum length
+    
     
     var formattedDate: String {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-           
-           if let date = dateFormatter.date(from: date) {
-               dateFormatter.dateFormat = "dd MMMM yyyy"
-               return "On " + (dateFormatter.string(from: date))
-           } else {
-               return ""
-           }
-       }
-   
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let date = dateFormatter.date(from: date) {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            return "On " + (dateFormatter.string(from: date))
+        } else {
+            return ""
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            if let url = URL(string: image) {
-                AsyncImage(url: url) { image in
-                    image
+            HStack{
+                Spacer()
+                if let url = URL(string: image) {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                } else {
+                    Image(systemName: "1")
                         .resizable()
                         .scaledToFit()
-                } placeholder: {
-                    ProgressView()
                 }
-            } else {
-                Image(systemName: "1")
-                    .resizable()
-                    .scaledToFit()
-            }
-               
-               Text(title)
-                   .font(.title)
-                   .padding(.leading)
-
-            
-            HStack(spacing: 10){
-                Image(profileImage) // Replace "imageName" with the name of your image asset
-                    .resizable()
-                   // .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40)
-               
-                Text(profileName)
-                    .font(.subheadline)
+                Spacer()
                 
-                Spacer(minLength: 5)
+            }
+            Text(title).font(.system(size: 20)).padding(.leading)
+            
+            
+            HStack(){
+                HStack{
+                    AsyncImage(url: URL(string: profileImage)) { image in
+                        image
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        
+                    } placeholder: {
+                        Image("default_large_image") // Replace "imageName" with the name of your image asset
+                            .resizable()
+                            .frame(width: 20, height: 20).cornerRadius(10).padding(0)
+                        
+                    }
+                    
+                    Text("By " + profileName)
+                        .font(.subheadline).padding(0)
+                    
+                    Spacer()
+                }
+                
+                Spacer()
                 
                 Text(formattedDate)
                     .font(.subheadline)
                 
-                    
-            }.padding(40)
-            Text(details)
-                .font(.subheadline)
-                .padding()
+                
+            }.padding()
             
-           }
-       }
+//            Text(details)
+//                .font(.subheadline)
+//                .padding()
+            
+            VStack {
+                
+
+                if showFullText {
+                    Text(details)
+                } else {
+                    VStack{
+                        Text(getTruncatedText())
+                        Button(action: {
+                            showFullText.toggle()
+                        }) {
+                            Text("See More")
+                                .foregroundColor(CColors.MainThemeColor)
+                                .font(.footnote)
+                        }
+                    }
+                }
+            }.padding().onAppear{
+                if (details.count > maxWords){
+                    showFullText = false
+                }
+                else{
+                    showFullText = true
+                }
+            }
+            
+            
+            
+        }
+    }
+    
+    private func getTruncatedText() -> String {
+        let words = details.split(separator: " ")
+        if words.count > maxWords {
+            return words.prefix(maxWords).joined(separator: " ") + "..."
+        } else {
+            return details
+        }
+    }
+    
+    
 }
 
 struct ImageView_Previews: PreviewProvider {

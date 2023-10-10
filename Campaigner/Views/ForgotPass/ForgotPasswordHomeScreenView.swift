@@ -9,19 +9,12 @@ import SwiftUI
 
 struct ForgotPasswordHomeScreenView: View {
     
-    
     @State private var username = ""
-
-  
-    
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
-    
     @State private var ForgotPassPinScreen = false
 
-    
     var body: some View {
         
         NavigationView {

@@ -47,10 +47,19 @@ struct Slider : Codable {
 
 }
 
+
+struct NewsResponse: Codable {
+    var rescode: Int!
+    var message: String!
+    var data: [NewsDetails]!
+   
+}
+
+
 struct News : Codable {
 
     let news_id : String?
-    let nw_added_By : NwAddedBy?
+    let nw_added_by : NwAddedBy?
     let nw_desc : String?
     let nw_id : String?
     let nw_media : String?
@@ -58,11 +67,35 @@ struct News : Codable {
     let nw_source : String?
     let nw_tags : String?
     let nw_title : String?
+    
+    let like_count : Int?
+    let is_liked : Int?
+    let nw_comments_count : Int?
+    let nw_comments : [CommentsDatum]?
 
 }
 
-struct NwAddedBy : Codable {
 
+struct NewsDetails : Codable {
+
+    let news_id : String?
+    let nw_added_by : NwAddedBy?
+    let nw_desc : String?
+    let nw_id : String?
+    let nw_sdt : String?
+    let nw_source : String?
+    let nw_tags : String?
+    let nw_title : String?
+    
+    let like_count : Int?
+    let is_liked : Int?
+    let nw_comments_count : Int?
+    let nw_comments : [CommentsDatum]?
+
+}
+
+
+struct NwAddedBy : Codable {
     let ar_value : String?
     let id_text : String?
     let is_admin : Int?
@@ -71,6 +104,15 @@ struct NwAddedBy : Codable {
     let user_image : String?
     let user_name : String?
     let user_status : Int?
+}
 
-
+public struct CommentsDatum : Codable, Hashable {
+    let comment_id : String?
+    let comment_text : String?
+    let sdt : String?
+    let user_full_name : String?
+    let info_image : String?
+    let user_id : String?
+    let is_liked : Int?
+    let like_count : Int?
 }

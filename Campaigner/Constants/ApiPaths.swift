@@ -8,15 +8,30 @@
 import Foundation
 public class ApiPaths {
     
-    public static var BasePath = "https://campaigner.syntracx.com/api"
+    //    public static var BasePath = "https://campaigner.syntracx.com/api"
+    public static var BasePath = "https://staging.halka.pk/api"
+    
     public static var Login = BasePath + "/login"
     public static var LoginOut = BasePath + "/logout"
     public static var Register = BasePath + "/signup"
-
+    
     public static var ForgotPassword = BasePath + "/account/forget/password"
     public static var SendVerifitcationCode = BasePath + "/account/send/verifycode"
     public static var ForgotPasswordChange = BasePath + "/account/verify/code"
+    
+    
+    //Profile
+    public static var UserProfileBasicInfo = BasePath + "/view/user/basic/info"
+    
+    
+    //News
+    public static var NewsDetails = BasePath + "/detail/news"
+    public static var NewsLike = BasePath + "/like/news"
+    public static var NewsDislike = BasePath + "/dislike/news"
+    public static var NewsAddComment = BasePath + "/add/news/comment"
 
+    
+    
     // Lookups
     public static var listProvinces = BasePath + "/list/dynamic/province"
     public static var listDistrict = BasePath + "/list/dynamic/district"
@@ -43,7 +58,7 @@ public class ApiPaths {
     
     
     
-   
+    
     
     
     
@@ -62,10 +77,9 @@ public class ApiPaths {
     public static var payFee = BasePath + "/pay/fee"
     
     public static var bankList = BasePath + "/list/banks"
-
+    
     //Name mistake
     public static var paymentHistory = BasePath + "/list/payment/history"
-    
     public static var pendingPayments = BasePath + "/check/membership/fee"
     
     
@@ -117,7 +131,7 @@ public class ApiPaths {
     
     public static var listMemebers = BasePath + "/list/elections/members"
     
-    public static var listPollingStation = BasePath + "/list/pollstation" 
+    public static var listPollingStation = BasePath + "/list/pollstation"
     
     
     
@@ -138,9 +152,9 @@ public class ApiPaths {
     
     
     
-   
-  
     
-
-
+    
+    
+    
+    
 }

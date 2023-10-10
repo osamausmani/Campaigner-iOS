@@ -31,9 +31,9 @@ struct HomeMenuButtons: View {
         1: ["title": "Surveys", "symbol": "surveys"],
         2: ["title": "Reporting", "symbol": "reporting"],
         3: ["title": "Complaints", "symbol": "complaints"],
-        4: ["title": "Election Results", "symbol": "post-result"],
-        5: ["title": "Post Results", "symbol": "post-result"],
-        6: ["title": "Teams", "symbol": "teams"]
+//        4: ["title": "Election Results", "symbol": "post-result"],
+//        5: ["title": "Post Results", "symbol": "post-result"],
+//        6: ["title": "Teams", "symbol": "teams"]
     ]
     
     var layout = [
@@ -44,56 +44,55 @@ struct HomeMenuButtons: View {
     ]
     
     var body: some View {
-                LazyVGrid(columns: layout, spacing: 20) {
+                LazyVGrid(columns: layout, spacing: 0) {
                     ForEach(symbols.keys.sorted(), id: \.self) { id in
                         if let symbolData = symbols[id],
                            let title = symbolData["title"],
                            let symbolName = symbolData["symbol"] {
                             VStack {
-
-                                
-                                Button(action: {
-                                // Perform action for burger icon
-                                    buttonTapped(id)
-                                            }) {
                                 Image(symbolName)
                                 .resizable()
                                 .padding()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(15)
-                   
-                                            }.id(symbols.keys.sorted())
-                                Text(title).foregroundColor(.black).fontWeight(.bold)
+                                .frame(width: 90, height: 90)
+                                                               
+                                Text(title).foregroundColor(.black).fontWeight(.bold).padding(-15)
 
+                                Spacer()
                                
+                            }.onTapGesture {
+                                buttonTapped(id)
                             }
                         }
-                    }.fullScreenCover(isPresented: $contestingScreenView) {
-                        ContestingElectionScreenView()
                     }
-                    .fullScreenCover(isPresented: $surveyScreenView) {
-                        SurveyScreenView()
-                    }
-                    .fullScreenCover(isPresented: $reportingScreenView) {
-                        ReportingScreenView()
-                    }
+//                    .fullScreenCover(isPresented: $contestingScreenView) {
+//                        ContestingElectionScreenView()
+//                    }
+//                    .fullScreenCover(isPresented: $surveyScreenView) {
+//                        SurveyScreenView()
+//                    }
+//                    .fullScreenCover(isPresented: $reportingScreenView) {
+//                        ReportingScreenView()
+//                    }
+//
+//                    .fullScreenCover(isPresented: $complaintsScreenView) {
+//                        ComplaintsScreenView()
+//                    }
+//                    .fullScreenCover(isPresented: $electionResultsScreenView) {
+//                        SearchElectionScreenView()
+//                    }
+//                    .fullScreenCover(isPresented: $postResultsScreenView) {
+//                        PostResultsView()
+//                    }
+//                    .fullScreenCover(isPresented: $teamsScreenView) {
+//                        TeamsScreenView(value: electionID)
+//                    }
                     
-                    .fullScreenCover(isPresented: $complaintsScreenView) {
-                        ComplaintsScreenView()
-                    }
-                    .fullScreenCover(isPresented: $electionResultsScreenView) {
-                        SearchElectionScreenView()
-                    }
-                    .fullScreenCover(isPresented: $postResultsScreenView) {
-                        PostResultsView()
-                    }
-                    .fullScreenCover(isPresented: $teamsScreenView) {
-                        TeamsScreenView(value: electionID)
-                    }
                     
-                 
                  
             }
+        NavigationLink(destination: ComplaintsScreenView(), isActive: $complaintsScreenView) {
+            
+        }
         }
     
     func buttonTapped(_ number: Int) {

@@ -15,12 +15,20 @@ struct TabBarButton: View {
     
     var body: some View {
         Button(action: action) {
-            Text(text)
-                .font(.headline)
-                .foregroundColor(isSelected ? CColors.MainThemeColor : .black)
-                .fontWeight(.bold)
-                .lineLimit(nil)
-                .padding()
+            VStack{
+                Text(text)
+                    .font(isSelected ? .system(size: 14).bold() : .system(size: 14)) 
+                    .lineLimit(1)
+                    .foregroundColor(isSelected ? CColors.MainThemeColor : .black)
+                    .padding(0)
+                
+                HStack{
+                    HStack{}.frame(maxWidth: .infinity).padding(1).background(isSelected ? CColors.MainThemeColor : .white)
+                }.padding(2).padding(.leading,4).padding(.trailing,4).padding(.bottom,0)
+               
+            }
         }
     }
 }
+
+

@@ -36,13 +36,18 @@ struct SideMenu: View {
 
 
 enum SideMenuRowType: Int, CaseIterable{
+    
     case profile = 0
-    case inviteMembers = 1
-    case payments = 2
-    case changepassword = 3
-    case termsofuse = 4
-    case contactus = 5
-    case logout = 6
+    case wallet = 1
+    case inviteMembers = 2
+    case payments = 3
+    case upgradeAccunt = 4
+    case manageConstituencey = 5
+    case degradeAccount = 6
+    case changepassword = 7
+    case termsofuse = 8
+    case contactus = 9
+    case logout = 10
     
     var title: String{
         switch self {
@@ -60,17 +65,25 @@ enum SideMenuRowType: Int, CaseIterable{
             return "Constact Us"
         case .logout:
             return "Logout"
+        case .wallet:
+            return "Wallet"
+        case .upgradeAccunt:
+            return "Upgrade Account"
+        case .manageConstituencey:
+            return "Manage Constituencey"
+        case .degradeAccount:
+            return "Degrade Account"
         }
     }
     
     var iconName: String{
         switch self {
         case .profile:
-            return "profile"
+            return "proifile_side"
         case .inviteMembers:
-            return "member_add"
+            return "invite_member_side"
         case .payments:
-            return "wallet_side"
+            return "payment_side"
         case .changepassword:
             return "change-password"
         case .termsofuse:
@@ -78,7 +91,15 @@ enum SideMenuRowType: Int, CaseIterable{
         case .contactus:
             return "contact_us_siden"
         case .logout:
-            return "logout"
+            return "logout_side"
+        case .wallet:
+            return "wallet_side"
+        case .upgradeAccunt:
+            return "down_account_side"
+        case .manageConstituencey:
+            return "manage_cons_side"
+        case .degradeAccount:
+            return "down_account_side"
         }
     }
 }

@@ -29,16 +29,12 @@ struct LoginScreenView: View {
     @State private var isShowingLoader = false
     
     
-    
-    
     var body: some View {
         
         NavigationView {
             ZStack {
                 BaseView(alertService: alertService)
-                
                 MainBGView()
-                
                 VStack {
                     Spacer()
                     Image("logo")
@@ -126,10 +122,10 @@ struct LoginScreenView: View {
     
     func LoginAction() {
         
-        
-        //        username = "82203-8631426-9"
-        //        password = "12345678"
-        
+//        
+//                username = "82203-8631426-9"
+//                password = "12345678"
+//        
         
         
         if username.isEmpty {
@@ -143,9 +139,11 @@ struct LoginScreenView: View {
             isShowingLoader.toggle()
             
             let parameters: [String:Any] = [
-                "plattype": Global.PlatType,
+                "plattype": Constants.PLAT_TYPE,
                 "user_name": username,
-                "user_pass": password
+                "user_pass": password,
+                "os_type": Constants.OS_TYPE,
+                "ios_version": Double((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
             ]
             
             let loginViewModel = LoginViewModel()
@@ -174,7 +172,7 @@ struct LoginScreenView: View {
                         isHomeScreenActive.toggle()
                         
                         
-                        
+
                         
                     }else{
                         alertService.show(title: "Alert", message: loginResponse.message!)

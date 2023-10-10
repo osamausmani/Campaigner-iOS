@@ -15,12 +15,9 @@ struct HomeScreenView: View {
     @StateObject private var alertService = AlertService()
     
     @Binding var presentSideMenu: Bool
-    
-   
-    
     @State  var selectedNews = [News]()
     
-   // @State  var user = Data()
+    // @State  var user = Data()
     @State var slider = [Slider]()
     @State var news = [News]()
     @State  var images = [String]()
@@ -29,10 +26,11 @@ struct HomeScreenView: View {
     
     @State var images2 = [String]()
     @State var label2 = [String]()
-    
+    @State private var selectedNewsIndex: Int = 0
+
     var body: some View {
         NavigationView {
-           
+//            BaseView(alertService: alertService)
             VStack {
                 ZStack
                 {
@@ -42,7 +40,6 @@ struct HomeScreenView: View {
                 
                 ScrollView{
                     VStack{
-                        Spacer()
                         
                         HomeMenuButtons(electionID: value )
                         
@@ -50,75 +47,73 @@ struct HomeScreenView: View {
                         
                         Text("Latest News").alignmentGuide(.leading) { _ in 0 }
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor)
-
-                        // Image Selector with Labels and Horizontal Scroll Bar
-//                        ScrollView(.horizontal, showsIndicators: true) {
-//                            HStack {
-//                                ForEach(0..<images2.count) { index in
-//                                    VStack {
-//                                        Button(action: {
-//                                            // Action when image is clicked
-//                                        }){
-//                                            VStack{
-//                                                Image(images2[index] as! String)
-//                                                    .resizable()
-//                                                    .scaledToFit()
-//                                                //  frame(width: 50, height: 50)
-//                                                // .padding()
-//                                                Text("Image \(index + 1)")
-//                                                    .font(.caption)
-//                                                    .foregroundColor(.gray)
-//                                            }
-//                                        }
-//                                    }
-//                                }.frame(width: 120, height: 100)
-//                            }
-//                        }
+                            .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor).padding(.top,10)
                         
-                        ImageSelectorView(imageUrls: images2, text: label2, action: {
-                          //  newsDetailsScreenView
+                        // Image Selector with Labels and Horizontal Scroll Bar
+                        //                        ScrollView(.horizontal, showsIndicators: true) {
+                        //                            HStack {
+                        //                                ForEach(0..<images2.count) { index in
+                        //                                    VStack {
+                        //                                        Button(action: {
+                        //                                            // Action when image is clicked
+                        //                                        }){
+                        //                                            VStack{
+                        //                                                Image(images2[index] as! String)
+                        //                                                    .resizable()
+                        //                                                    .scaledToFit()
+                        //                                                //  frame(width: 50, height: 50)
+                        //                                                // .padding()
+                        //                                                Text("Image \(index + 1)")
+                        //                                                    .font(.caption)
+                        //                                                    .foregroundColor(.gray)
+                        //                                            }
+                        //                                        }
+                        //                                    }
+                        //                                }.frame(width: 120, height: 100)
+                        //                            }
+                        //                        }
+                        
+                        ImageSelectorView(imageUrls: images2, text: label2, action: { index in
+                            
+                            selectedNewsIndex = index
+                            print("SelectedIndex ", selectedNewsIndex)
                             newsDetails()
                         } )
                     }
-                        .background(Image("map_bg")
-                            .resizable()).padding(20)
+                    .background(Image("map_bg")
+                        .resizable()).padding(10)
                         .foregroundColor(.black)
-                    
                 }
-                
-                
             }
-                .navigationBarTitleDisplayMode(.inline)
-               
-                .navigationBarItems(leading: Button(action: {
-                    print("im pressed")
-                    presentSideMenu = true
-                    
-                    
-                }) {
-                    Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
-                }, trailing: Button(action: {
-                    print("im pressed")
-                    notification()
-                }) {
-                    Image(systemName: "bell").tint(CColors.MainThemeColor).font(.system(size: 20))
-                })
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Image("header_logo") // Add your image here
-                            .resizable()
-                            .frame(width: 120, height: 42)
-                         //   .padding()
-                    }
+            .navigationBarTitleDisplayMode(.inline)
+            
+            .navigationBarItems(leading: Button(action: {
+                print("im pressed")
+                presentSideMenu = true
+
+            }) {
+                Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
+            }, trailing: Button(action: {
+                print("im pressed")
+                notification()
+            }) {
+                Image(systemName: "bell").tint(CColors.MainThemeColor).font(.system(size: 20))
+            })
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Image("header_logo") // Add your image here
+                        .resizable()
+                        .frame(width: 120, height: 42)
+                    //   .padding()
                 }
+            }
             
         }
         .onDisappear{
-
+            
             if(presentSideMenu == true)
             {
-
+                
                 presentSideMenu = false
             }
         }
@@ -126,8 +121,8 @@ struct HomeScreenView: View {
         {
             LoadDashBoard()
         }
-       
-      
+        
+        
         .fullScreenCover(isPresented: $contestingScreenView) {
             ContestingElectionScreenView()
             
@@ -139,12 +134,8 @@ struct HomeScreenView: View {
         
         .fullScreenCover(isPresented: $newsDetailsScreenView)
         {
-                NewsDetailScreenView(news: selectedNews )
-         
+            NewsDetailScreenView(news: selectedNews, selectedIndex: $selectedNewsIndex )
         }
-        
-        
-        
     }
     
     func contestElection()
@@ -172,7 +163,7 @@ struct HomeScreenView: View {
         
         isLoading = true
         let headers:HTTPHeaders = [
-             "Content-Type":"application/x-www-form-urlencoded",
+            "Content-Type":"application/x-www-form-urlencoded",
             "x-access-token": UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
         ]
         let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
@@ -180,7 +171,7 @@ struct HomeScreenView: View {
         
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
-            "user_id": userID!,
+            "user_id": userID ?? "",
             
         ]
         
@@ -200,12 +191,11 @@ struct HomeScreenView: View {
                 
                 if dashboardDataResponse.rescode == 1 {
                     
-                    print(dashboardDataResponse)
                     
                     value = dashboardDataResponse.data?[0].election_id ?? "7"
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
-                   
+                    
                     
                     if (!slider.isEmpty){
                         images = []
@@ -223,13 +213,14 @@ struct HomeScreenView: View {
                     }
                     
                     for i in news{
+                        print("newsX", i)
                         images2.append(i.nw_media!)
                         label2.append(i.nw_title ?? "")
                         
                         
                         selectedNews.append(i)
-                      
-                       // selectedNews[0].nw_media =
+                        
+                        // selectedNews[0].nw_media =
                     }
                     
                     //  self.presentationMode.wrappedValue.dismiss()
