@@ -9,17 +9,12 @@ import SwiftUI
 
 struct ForgotPasswordHomeScreenView: View {
     
-    
     @State private var username = ""
-
-    
-    
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
+    @State private var ForgotPassPinScreen = false
 
-    
     var body: some View {
         
         NavigationView {
@@ -49,6 +44,8 @@ struct ForgotPasswordHomeScreenView: View {
                             
                             CnicTextInput(placeholder: "xxxxx-xxxxxxx-x", text: $username, imageName: "envelope")
                             
+                          
+                            
                             MainButton(action: {
                                 ForgotAction()
                             }, label: "Submit").padding(.top,20).frame(width: 200)
@@ -73,6 +70,9 @@ struct ForgotPasswordHomeScreenView: View {
             
         }.navigationBarHidden(false)
             .navigationTitle("")
+        NavigationLink(destination: ForgotPassPinScreenView(), isActive: $ForgotPassPinScreen) {
+          
+        }
     }
     
     
@@ -115,6 +115,11 @@ struct ForgotPasswordHomeScreenView: View {
                     
                     alertService.show(title: "Alert", message: loginResponse.message!)
                     
+                    Global.userCNIC = username
+                    
+                    ForgotPassPinScreen = true
+                    
+                  
                     
                 }else{
                     alertService.show(title: "Alert", message: loginResponse.message!)

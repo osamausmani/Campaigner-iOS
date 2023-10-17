@@ -1,0 +1,411 @@
+//
+//  ReportingScreenView.swift
+//  Campaigner
+//
+//  Created by Macbook  on 13/06/2023.
+//
+
+import SwiftUI
+import Alamofire
+
+
+
+
+struct ReportingScreenView: View {
+    
+    @State private var selectedTab = 0
+    @State var showingAddReportingView = false
+    @State private var isLoading = false
+    @State private var showSearchBar = false
+    @State private var searchText = ""
+    
+    @State var reportingType = [Reporting]()
+    @State var finalDate = ""
+    
+    @StateObject private var alertService = AlertService()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var body: some View {
+        
+        
+        NavigationView {
+            ZStack {
+                BaseView(alertService: alertService)
+                
+                
+                //                    Image("splash_background")
+                //                        .resizable()
+                //                        .edgesIgnoringSafeArea(.all)
+                VStack {
+                    //
+                    // Navigation Bar
+                    
+                    HStack {
+                        Button(action: {
+                            // Perform action for burger icon
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            
+                        }
+                        // Spacer()
+                        Text("Reporting")
+                            .font(.headline)
+                            .frame(width: 250)
+                        
+                        Spacer()
+                        Button(action: {
+                            // Perform action for searchbar icon
+                            showSearchBar.toggle()
+                        }) {
+                            Image(systemName: "magnifyingglass")
+                                .imageScale(.large)
+                        }
+                        
+                    } .foregroundColor(CColors.MainThemeColor)
+                        .padding()
+                        .navigationBarHidden(true)
+                    
+                    Divider()
+                    
+                    HStack(spacing: 0)
+                    {
+                        Spacer()
+                        
+                        TabBarButton(text: "Own", isSelected: selectedTab == 0) {
+                            selectedTab = 0
+                            // listMembers()
+                        }
+                        
+                        Spacer()
+                        
+                        TabBarButton(text: "Other(s)", isSelected: selectedTab == 1)
+                        {
+                            selectedTab = 1
+                            // listTeams()
+                        }
+                        
+                        
+                        Spacer()
+                    }.frame(height: 30)
+                        .foregroundColor(Color.black)
+                    VStack{
+                        if showSearchBar {
+                            SearchBar(text: $searchText).onChange(of: searchText, perform: handleTextChange).frame(alignment: .top)
+                        }
+                        ZStack {
+                            
+                            Image("reportingNil")
+                                .resizable()
+                                .edgesIgnoringSafeArea(.all)
+                            
+                            List {
+                                //                                ReportingCell(Status: "Pending", ReportingType: "Minor news", Description: "This is the description", Date: "12/3/1992", Name: "Asad Irfan", mapAction: {}, delete: deleteRecord, update: updateRecord, attachment: showAttachment)
+                                if showSearchBar == false {
+                                    ForEach(reportingType.indices, id: \.self) { index in
+                                        let formattedDate = convertDate(inputDate: reportingType[index].sdt ?? "", inputFormat: "yyyy-MM-dd HH:mm:ss", outputFormat: "dd MMM yyyy")
+                                        var statusType = reportingType[index].status ?? 0
+                                        
+                                        var fin = getStatusString(for: statusType)
+                                        
+                                        
+                                        ReportingCell(Status: fin,
+                                                      ReportingType: reportingType[index].type_name ?? "",
+                                                      Description: reportingType[index].loc_desc ?? "",
+                                                      Date: formattedDate ?? "",
+                                                      Name: reportingType[index].added_by?.user_full_name ?? "") {
+                                            // Action closure
+                                        } delete: {
+                                            // Delete closure
+                                        } update: {
+                                            // Update closure
+                                        } attachment: {
+                                            // Action closure
+                                        }
+                                    }
+                                } else {
+                                    ForEach(reportingType.indices, id: \.self) { index in
+                                        if searchText.isEmpty || reportingType[index].type_name?.contains(searchText) ?? false {
+                                            let formattedDate = convertDate(inputDate: reportingType[index].sdt ?? "", inputFormat: "yyyy-MM-dd HH:mm:ss", outputFormat: "dd MMM yyyy")
+                                            
+                                            var statusType = reportingType[index].status ?? 0
+                                            
+                                            var fin = getStatusString(for: statusType)
+                                            
+                                            ReportingCell(Status: fin,
+                                                          ReportingType: reportingType[index].type_name ?? "",
+                                                          Description: reportingType[index].loc_desc ?? "",
+                                                          Date: formattedDate ?? "",
+                                                          Name: reportingType[index].added_by?.user_full_name ?? "") {
+                                                // Action closure
+                                              //  addRecord()
+                                            } delete: {
+                                                // Delete closure
+                                                
+                                            } update: {
+                                                // Update closure
+                                            } attachment: {
+                                                // Action closure
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if selectedTab == 0 {
+                                
+                                AddButton(action: fin, label: "")
+                                    .fullScreenCover(isPresented: $showingAddReportingView) {
+                                        AddReportScreenView()
+                                    }
+                            }else
+                            {
+                                
+                            }
+                            
+                            
+                            
+                            
+                        }
+                    }
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity,
+                           alignment: .topLeading)
+                    .padding()
+                }
+            }
+            
+        }.onAppear{
+            ListReport()
+        }
+    }
+    
+    func fin()
+    {
+        showingAddReportingView = true
+    }
+    
+    func listReporting()
+    {
+        showingAddReportingView = true
+    }
+    
+    func showAttachment()
+    {
+        print("attachment")
+    }
+    
+    func updateRecord()
+    {
+        print("update")
+    }
+    
+    func deleteRecord()
+    {
+        print("delete")
+    }
+    
+    func handleTextChange(_ newText: String) {
+        // Perform any actions based on the new text
+        print("New text: \(newText)")
+    }
+    
+    func ListReport()
+    {
+        
+        isLoading = true
+        let token = UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+        
+        print(token)
+        let headers:HTTPHeaders = [
+            // "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": token
+        ]
+        var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!,
+            
+            
+        ]
+        
+        let reportingModel = ReportingViewModel()
+        
+        reportingModel.ListReport(parameters: parameters , headers: headers) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            switch result {
+                
+            case .success(let Response):
+                
+                if Response.rescode == 1 {
+                    
+                    alertService.show(title: "Alert", message: Response.message!)
+                    
+                    reportingType = Response.data!
+                    //  self.presentationMode.wrappedValue.dismiss()
+                    //  ContestingElectionScreenView.loadContestElection()
+                    
+                }else{
+                    alertService.show(title: "Alert", message: Response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    struct ReportingCell: View {
+        var Status: String
+        var ReportingType: String
+        var Description: String
+        var Date: String
+        var Name: String
+        
+        
+        var mapAction: () -> Void
+        
+        var delete: () -> Void
+        var update: () -> Void
+        var attachment: () -> Void
+        
+        
+        
+        
+        var body: some View {
+            HStack {
+                
+                VStack{
+                    HStack{
+                        Text(Status)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
+                            .font(.subheadline)
+                            .foregroundColor(.blue)
+                        // .background(CColors.MainThemeColor)
+                            .underline()
+                            .fontWeight(.bold)
+                            .cornerRadius(10)
+                            .frame(maxWidth: .infinity,
+                                   maxHeight: .infinity,
+                                   alignment: .leading)
+                        
+                        
+                        
+                        Text(Date)
+                            .font(.footnote)
+                        
+                        Text(Name)
+                            .font(.footnote).padding(-5)
+                        
+                    }
+                    
+                    
+                    
+                    
+                    HStack{
+                        Text("Type:")
+                            .font(.footnote)
+                            .font(.system(size: 10, weight: .heavy))
+                        Text(ReportingType)
+                            .font(.footnote)
+                            .font(.system(size: 10, weight: .medium))
+                    }
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity,
+                           alignment: .leading)
+                    
+                    
+                    
+                    
+                    HStack{
+                        Text("Description:")
+                            .font(.footnote)
+                        
+                        Text(Description)
+                            .font(.footnote).padding(-5)
+                        
+                        //  .multilineTextAlignment(.leading)
+                        //  .padding(.trailing)
+                        
+                        
+                        
+                    }
+                    
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity,
+                           alignment: .leading)
+                    
+                    HStack(spacing: 10){
+                        
+                        Button(action: attachment) {
+                            Image(systemName: "paperclip")
+                                .imageScale(.large)
+                                .foregroundColor(.black)
+                        }
+                        .onTapGesture {
+                            attachment()
+                            
+                        }
+                        
+                        Button(action: update) {
+                            Image(systemName: "pencil")
+                                .imageScale(.large)
+                                .foregroundColor(.black)
+                        }
+                        .onTapGesture {
+                            update()
+                            
+                        }
+                        
+                        Button(action: delete) {
+                            Image(systemName: "trash")
+                                .imageScale(.large)
+                                .foregroundColor(.black)
+                        }
+                        .onTapGesture {
+                            delete()
+                            
+                        }
+                        
+                        //Spacer()
+                        
+                        Button(action: mapAction) {
+                            Image(systemName: "mappin.and.ellipse")
+                                .imageScale(.large)
+                                .foregroundColor(.black)
+                        }
+                        .frame(maxWidth: .infinity,
+                               maxHeight: .infinity,
+                               alignment: .trailing)
+                        
+                        .onTapGesture {
+                            mapAction()
+                            
+                        }
+                        
+                        
+                    } .frame(maxWidth: .infinity,
+                             maxHeight: .infinity,
+                             alignment: .leading)
+                    
+                }
+                //.frame(width: 300, height: 100)
+                
+            }.listRowInsets(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)) // Adjust the values to set the desired spacing
+            
+            
+        }
+    }
+}
+
+
+
+struct ReportingScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReportingScreenView()
+    }
+}

@@ -10,13 +10,15 @@ import SwiftUI
 
 struct HomeScreenTabedView: View {
     
-    @State var presentSideMenu = true
+    @State var presentSideMenu = false
     @State var selectedSideMenuTab = 0
     
     var body: some View {
+        
         ZStack{
             
-            TabView(selection: $selectedSideMenuTab) {
+            TabView(selection: $selectedSideMenuTab)
+            {
                 HomeScreenView(presentSideMenu: $presentSideMenu)
                     .tag(0)
                 HomeScreenView(presentSideMenu: $presentSideMenu)
@@ -26,9 +28,14 @@ struct HomeScreenTabedView: View {
                 HomeScreenView(presentSideMenu: $presentSideMenu)
                     .tag(3)
             }
+           
+            
             
             SideMenu(isShowing: $presentSideMenu, content: AnyView(SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu)))
         }
+        .frame(maxHeight: .infinity)
+        .padding(.bottom, -90) // Adjust frame to fill the entire screen
+        .navigationBarHidden(true)
     }
 }
 

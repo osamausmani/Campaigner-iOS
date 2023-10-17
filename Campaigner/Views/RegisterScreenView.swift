@@ -25,7 +25,7 @@ struct RegisterScreenView: View {
     @StateObject private var alertService = AlertService()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     
     private let networkOptions: [DropDownModel] = [
         DropDownModel(id: "1", value: "Ufone"),
@@ -141,7 +141,7 @@ struct RegisterScreenView: View {
             "user_msisdn": fvMobileNumber,
             "user_pass": fvPassword,
             "telco_op":fvMobileNetwork.id
-
+            
         ]
         
         let registerViewModel = RegisterViewModel()

@@ -12,5 +12,6 @@ import SwiftUI
 public class CColors {
     public static var TextInputBgColor : Color = Color("TextInputBgColor")
     public static var MainThemeColor : Color = Color("MainThemeColor")
+    public static var SecondaryColor : Color = Color("SecondaryColor")
 
 }
