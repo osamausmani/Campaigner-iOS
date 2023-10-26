@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DropDownModel: Identifiable {
+struct DropDownModel: Identifiable,Hashable {
     var id: String = ""
     var value: String = ""
 }

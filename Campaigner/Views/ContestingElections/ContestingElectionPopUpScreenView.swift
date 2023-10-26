@@ -16,7 +16,7 @@ struct ContestingElectionPopUpScreenView: View {
     
     @State private var cAssembly = DropDownModel()
     @State private var cProvince = DropDownModel()
-    @State private var cDistrict = DropDownModel()
+
     @State private var cConstituency = DropDownModel()
     @State private var fvPassword = ""
     @State private var fvConfirmPassword = ""
@@ -24,6 +24,7 @@ struct ContestingElectionPopUpScreenView: View {
     @State private var showRegisterScreen = false
     @State private var isShowingLoader = false
     @State private var isLoading = false
+    @State private var isPresent = false
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @State var showStoreDropDown: Bool = false
@@ -57,60 +58,62 @@ struct ContestingElectionPopUpScreenView: View {
             
             ZStack {
                 BaseView(alertService: alertService)
-                
-                ZStack{
-                    ScrollView{
-                        headerView( heading: "Add Contesting Election", action: dismissView)
-                        VStack {
-
-                            CustomDropDown(label: "Assembly", placeholder: "Select Assembly", selectedObj:  $cAssembly, menuOptions: assemblyType, onChange:{_ in
-                                dropdownAsselblyChanged()
-                            }  )
-                            
-                            
-                            
-                            DropDown(label: "Province", placeholder: "Select Province", selectedObj:  $cProvince, menuOptions: provinceName )
-                            
-                            CustomDropDown(label: "District", placeholder: "Select District", selectedObj:  $cDistrict, menuOptions: districtName, onChange: {_ in
-                                selectConstituency()
-                            }
-                            )
-                            
-                            DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj:  $cConstituency, menuOptions: constituencyName )
-                            
-                            
-                            Spacer()
-                            Divider()
-                            
-                            
-                            MainButton(action: {
-                                AddAction()
-                            }, label: "Add").padding(.top,5)
-                            
-                            
-                        }.padding(16)
-                        
-                        
-                    }
-            
-                }
+                Image("logo")
+                .resizable()
+                .frame(maxHeight: 400,alignment: .center)
+                    .opacity(0.1)
+                VStack{
+                    CustomNavBar(title: "Constituency Election", destinationView: ContestingElectionScreenView(), isActive: $isPresent)
+                        .edgesIgnoringSafeArea(.top)
+                  
                 
                 
+                VStack {
+                    
+                    CustomDropDown(label: "Assembly", placeholder: "Select Assembly", selectedObj:  $cAssembly, menuOptions: assemblyType, onChange:{_ in
+                        dropdownAsselblyChanged()
+                    }  )
+                    
+                    
+                    
+                    
+                    DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj:  $cConstituency, menuOptions: constituencyName )
+                    
+                    DropDown(label: "Party", placeholder: "Select Party", selectedObj:  $cProvince, menuOptions: provinceName )
+                    
+                    
+                    Divider()
+                    
+                    
+                    MainButton(action: {
+                        AddAction()
+                    }, label: "Submit").padding(10)
+                    
+                        .padding(.horizontal,70)
+                    
+                    
+                }   .background(Color.white)
+                    .cornerRadius(15)
+                    .padding(.horizontal)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                Spacer()
+                
+            }
             }
             .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
-        }.navigationBarHidden(false)
-            .navigationTitle("Sign Up")
-            .overlay(
-                        Group {
-                            if isLoading {
-                                ProgressHUDView()
-                            }
-                        }
-                    )
+        }.navigationBarHidden(true)
+//            
+//            .overlay(
+//                        Group {
+//                            if isLoading {
+//                                ProgressHUDView()
+//                            }
+//                        }
+//                    )
         
     }
     
@@ -246,22 +249,15 @@ struct ContestingElectionPopUpScreenView: View {
     func selectConstituency() {
         isLoading = true
         
-        var finDistrict = ""
-        for i in district{
-            if( i.district_name == cDistrict.value)
-            {
-                finDistrict = i.district_id!
-           }
-        }
+       
         
-        var districtID = district
+       
         var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_id": userID!,
              "assembly": selectedOption + 1,
-            // "na_id": cDistrict
-            "district_id": finDistrict
+           
         ]
         
         let lookupsViewModel = LookupsViewModel()
@@ -324,9 +320,7 @@ struct ContestingElectionPopUpScreenView: View {
             alertService.show(title: "Alert", message: "Province is required")
         }
         
-        else if(cDistrict.value.isEmpty){
-            alertService.show(title: "Alert", message: "District is required")
-        }
+       
         
         else if(cConstituency.value.isEmpty){
             alertService.show(title: "Alert", message: "Constituency is required")
@@ -351,13 +345,7 @@ struct ContestingElectionPopUpScreenView: View {
         }
         
         
-        var finDistrict = ""
-        for i in district{
-            if( i.district_name == cDistrict.value)
-            {
-                finDistrict = i.district_id!
-           }
-        }
+       
         
         
         
@@ -381,7 +369,6 @@ struct ContestingElectionPopUpScreenView: View {
             "plattype": Global.PlatType,
             "user_id": userID!,
             "election_province": finProvince,
-            "election_district": finDistrict,
             "election_type": cAssembly.id,
             "constituency_id":cConstituency.id
         ]

@@ -5,15 +5,20 @@ struct HomeScreenView: View {
     
     @State  var value = ""
     
-    
+    @State private var SurveyScreenView = false
     @State private var isLoading = false
     @State private var isShowingLoader = false
     @State private var contestingScreenView = false
     @State private var presentNotificationMenu = false
-    
+    @State private var showReportsView: Bool = false
+    @State private var showTeamsView: Bool = false
+    @State private var viewNotification: Bool = false
     @State private var newsDetailsScreenView = false
+    @State private var showAlert = false
+    @State private var showUpgradeAccount=false
     @StateObject private var alertService = AlertService()
-    
+    @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
+
     @Binding var presentSideMenu: Bool
     @State  var selectedNews = [News]()
     
@@ -27,121 +32,191 @@ struct HomeScreenView: View {
     @State var images2 = [String]()
     @State var label2 = [String]()
     @State private var selectedNewsIndex: Int = 0
-
+    @State private var isProAccount:Bool=false
     var body: some View {
         NavigationView {
-//            BaseView(alertService: alertService)
-            VStack {
-                ZStack
-                {
-                    ImageSlider(images: images)
-                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
-                }.frame(width: 400, height: 320)
-                
-                ScrollView{
-                    VStack{
-                        
-                        HomeMenuButtons(electionID: value )
-                        
-                        Spacer()
-                        
-                        Text("Latest News").alignmentGuide(.leading) { _ in 0 }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor).padding(.top,10)
-                        
-                        // Image Selector with Labels and Horizontal Scroll Bar
-                        //                        ScrollView(.horizontal, showsIndicators: true) {
-                        //                            HStack {
-                        //                                ForEach(0..<images2.count) { index in
-                        //                                    VStack {
-                        //                                        Button(action: {
-                        //                                            // Action when image is clicked
-                        //                                        }){
-                        //                                            VStack{
-                        //                                                Image(images2[index] as! String)
-                        //                                                    .resizable()
-                        //                                                    .scaledToFit()
-                        //                                                //  frame(width: 50, height: 50)
-                        //                                                // .padding()
-                        //                                                Text("Image \(index + 1)")
-                        //                                                    .font(.caption)
-                        //                                                    .foregroundColor(.gray)
-                        //                                            }
-                        //                                        }
-                        //                                    }
-                        //                                }.frame(width: 120, height: 100)
-                        //                            }
-                        //                        }
-                        
-                        ImageSelectorView(imageUrls: images2, text: label2, action: { index in
-                            
-                            selectedNewsIndex = index
-                            print("SelectedIndex ", selectedNewsIndex)
-                            newsDetails()
-                        } )
-                    }
-                    .background(Image("map_bg")
-                        .resizable()).padding(10)
-                        .foregroundColor(.black)
+            ZStack {
+                VStack {
+                    headerView
+                    mainScrollView
                 }
+
+                if showAlert {
+                    Color.black.opacity(0.3) // optional dimmed background
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            withAnimation {
+                                alertOffset = UIScreen.main.bounds.height
+                                showAlert = false
+                            }
+                        }
+
+                    GeometryReader { geometry in
+                        CustomAlertView(
+                            message: "Kindly Upgrade your halka account",
+                            buttonTitle: "UPGRADE",
+                            CalcelbuttonAction: {
+                                withAnimation {
+                                    alertOffset = UIScreen.main.bounds.height
+                                }
+                                showAlert = false
+                               
+                            }, UpgradebuttonAction: {
+                                showUpgradeAccount = true
+                            }
+                            
+                        )
+                        .padding(.bottom)
+                        .background(
+                            GeometryReader { alertGeometry in
+                                Color.clear.onAppear {
+                                    alertOffset = geometry.size.height - alertGeometry.size.height
+                                }
+                            }
+                        )
+                        .offset(y: alertOffset)
+                        .animation(.spring(response: 0.6, dampingFraction: 0.8))
+                    }
+                }
+
+                NavigationLink(
+                    "",
+                    destination: Campaigner.UpgradeAccountView().navigationBarHidden(true).onAppear {
+                        showAlert = false
+                    },
+                    isActive: $showUpgradeAccount
+                ).hidden()
+
+
             }
             .navigationBarTitleDisplayMode(.inline)
-            
-            .navigationBarItems(leading: Button(action: {
-                print("im pressed")
-                presentSideMenu = true
+            .navigationBarItems(leading: leadingNavBarItem, trailing: trailingNavBarItem)
+            .toolbar { toolbarContent }
+        }
+        .navigationBarBackButtonHidden(true)
+        .onDisappear { if presentSideMenu { presentSideMenu = false } }
+        .onAppear { LoadDashBoard() }
+    }
 
-            }) {
-                Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
-            }, trailing: Button(action: {
-                print("im pressed")
-                notification()
-            }) {
-                Image(systemName: "bell").tint(CColors.MainThemeColor).font(.system(size: 20))
-            })
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("header_logo") // Add your image here
-                        .resizable()
-                        .frame(width: 120, height: 42)
-                    //   .padding()
-                }
-            }
-            
+
+    
+}
+
+extension HomeScreenView {
+    var headerView: some View {
+        ZStack {
+            Spacer()
+            ImageSlider(images: images)
+            hoverButton(btnText: "Upgrade to halka Pro ", img: "update_account_side", action: upgradeHalkaPro)
+                .padding(30)
         }
-        .onDisappear{
+        .frame(width: 400, height: 320)
+    }
+
+    var mainScrollView: some View {
+        ScrollView {
+            VStack {
+                HomeMenuButtons(electionID: value )
             
-            if(presentSideMenu == true)
-            {
+                    .padding(2)
                 
-                presentSideMenu = false
+                proButtonsSection
+                
+                latestNews
+                
+                ImageSelectorView(imageUrls: images2, text: label2, action: newsDetailAction)
             }
+            .background(Image("map_bg").resizable())
+            .padding(10)
+            .foregroundColor(.black)
+//            .alertOverlay(showAlert: $showAlert, showUpgradeAccount: $showUpgradeAccount)
         }
-        .onAppear
-        {
-            LoadDashBoard()
+    }
+
+    var proButtonsSection: some View {
+        ZStack {
+            RoundedRectangleLabelView(text: "halka Pro")
+            HomeProButtons(
+                onReportsTapped: { showReportsView = true },
+                onNotificationTapped: notificationTapped,
+                onTeamsTapped: { showTeamsView = true }
+            )
         }
-        
-        
-        .fullScreenCover(isPresented: $contestingScreenView) {
-            ContestingElectionScreenView()
-            
+        .padding()
+    }
+    
+    var latestNews: some View {
+        Text("Latest News")
+            .alignmentGuide(.leading) { _ in 0 }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.system(size: 20)).fontWeight(.bold)
+            .foregroundColor(CColors.MainThemeColor)
+            .padding(.top,10)
+            .padding(.leading,10)
+    }
+    
+    var leadingNavBarItem: some View {
+        Button(action: sideMenuAction) {
+            Image(systemName: "line.3.horizontal")
+                .tint(CColors.MainThemeColor)
+                .font(.system(size: 24))
         }
-        .fullScreenCover(isPresented: $presentNotificationMenu) {
-            NotificationScreenView()
-            
+    }
+    
+    var trailingNavBarItem: some View {
+        Button(action: notification) {
+            Image(systemName: "bell")
+                .tint(CColors.MainThemeColor)
+                .font(.system(size: 20))
         }
-        
-        .fullScreenCover(isPresented: $newsDetailsScreenView)
-        {
+    }
+
+    var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Image("header_logo")
+                .resizable()
+                .frame(width: 120, height: 42)
+        }
+    }
+
+    
+    func fullScreenCovers() -> some View {
+        self
+        .fullScreenCover(isPresented: $contestingScreenView) { ContestingElectionScreenView() }
+        .fullScreenCover(isPresented: $presentNotificationMenu) { ShowNotificationView() }
+        .fullScreenCover(isPresented: $newsDetailsScreenView) {
             NewsDetailScreenView(news: selectedNews, selectedIndex: $selectedNewsIndex )
         }
     }
     
-    func contestElection()
+    // MARK: - Actions
+
+    func sideMenuAction() {
+        presentSideMenu = true
+    }
+    
+    func notificationTapped() {
+        if isProAccount {
+            viewNotification = true
+        } else {
+            showAlert.toggle()
+        }
+    }
+    
+    func newsDetailAction(index: Int) {
+        selectedNewsIndex = index
+        newsDetailsScreenView = true
+    }
+
+    func upgradeAction() {
+        showAlert = false
+        showUpgradeAccount = true
+    }
+
+    func upgradeHalkaPro()
     {
-        print("contextElectionprinted")
-        contestingScreenView = true
+       
+        showUpgradeAccount=true
     }
     
     func notification()
@@ -236,16 +311,13 @@ struct HomeScreenView: View {
         
         
     }
-    
-    
 }
-
-
-
 
 struct HomeScreenView_Previews: PreviewProvider {
+    @State static var presentSideMenu: Bool = false
+
     static var previews: some View {
-        HomeScreenView(presentSideMenu: .constant(false))
-            .tag(0)
+        HomeScreenView(presentSideMenu: $presentSideMenu)
     }
 }
+

@@ -19,7 +19,6 @@ struct HomeMenuButtons: View {
     @State private var surveyScreenView = false
     @State private var reportingScreenView = false
     @State private var complaintsScreenView = false
-    
     @State private var electionResultsScreenView = false
     @State private var postResultsScreenView = false
     
@@ -93,6 +92,11 @@ struct HomeMenuButtons: View {
         NavigationLink(destination: ComplaintsScreenView(), isActive: $complaintsScreenView) {
             
         }
+      
+        NavigationLink(destination: SurveyScreenView(), isActive: $surveyScreenView) {
+            
+        }
+        
         }
     
     func buttonTapped(_ number: Int) {

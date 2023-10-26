@@ -25,7 +25,7 @@ struct hoverButton: View {
                     .font(.subheadline)
                     .padding()
                     .background(Color.yellow)
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                     .frame(height: 40)
                   //  .padding()
                     

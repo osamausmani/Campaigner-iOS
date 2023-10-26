@@ -11,31 +11,27 @@ struct CustomButton: View {
     
     var text : String
     var image : String
+    var action: () -> Void
+    
     var body: some View {
-            Button(action: {
-                // Handle button action
-            }) {
-                HStack(spacing: 5) {
-                    Image(systemName: image)
-                        .foregroundColor(.white)
-                        .font(.system(size: 24))
-                   
-                    Text(text)
-                        .foregroundColor(.white)
-                        .font(.headline)
-                }
-                .padding()
-                .background(CColors.MainThemeColor)
-                .cornerRadius(10)
+        Button(action: action) { // Use the passed-in action here
+            HStack(spacing: 15) {
+                Image(systemName: image)
+                    .foregroundColor(.white)
+                    .font(.system(size: 24))
+               
+                Text(text)
+                    .foregroundColor(.white)
+                    .font(.headline)
             }
-            .frame(maxWidth: .infinity,
-                    maxHeight: .infinity,
-                   alignment: .top)
+            .padding()
+            .background(CColors.MainThemeColor)  
+            .cornerRadius(10)
         }
-}
-
-struct CustomButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomButton(text: "Testing", image: "paperclip")
+        .frame(maxWidth: .infinity,
+               maxHeight: .infinity,
+               alignment: .top)
     }
 }
+
+

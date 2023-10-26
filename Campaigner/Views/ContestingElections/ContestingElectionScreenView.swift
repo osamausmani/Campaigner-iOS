@@ -19,7 +19,8 @@ struct ContestingElectionScreenView: View {
     @State var fin = [ContestingElection]()
     @State private var selectedCellIndex: Int?
    // @State private var refreshFlag = false
-    
+    @State private var isPresentHome:Bool=false
+    @State private var isPresentMode:Bool=false
     @StateObject private var alertService = AlertService()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -30,44 +31,25 @@ struct ContestingElectionScreenView: View {
         
         NavigationView {
             ZStack {
-                BaseView(alertService: alertService)
+//                BaseView(alertService: alertService)
+                    Image("logo")
+                    .resizable()
+                    .frame(maxHeight: 400,alignment: .center)
+                        .opacity(0.1)
+                
                 VStack {
-                    //
-                    // Navigation Bar
-                    
-                    HStack {
-                        Button(action: {
-                            // Perform action for burger icon
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            
-                        }
-                        //Spacer()
-                        Text("Contesting Election")
-                            .font(.headline)
-                            .frame(width: 260)
-                        
-                        Spacer()
-                        Button(action: {
-                            // Perform action for bell icon
-                        }) {
-//                            Image(systemName: "bell")
-//                                .imageScale(.large)
-                            
-                        }
-                    } .foregroundColor(CColors.MainThemeColor)
-                        .padding()
-                        .navigationBarHidden(true)
+                   
+                    CustomNavBar(title: "Manage Constituency", destinationView: HomeScreenView( presentSideMenu: $isPresentMode), isActive: $isPresentHome)
+                        .edgesIgnoringSafeArea(.top)
+                    Spacer()
                     
                     
                     
                     
                     ZStack {
-
+                        
                         List {
-
+                            
                             
                             ForEach(fin.indices, id: \.self) { index in
                                 CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provencial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
@@ -80,38 +62,46 @@ struct ContestingElectionScreenView: View {
                                     action()
                                     selectedCellIndex = index
                                 }).onTapGesture {
-
+                                    
                                 }
                             }
-//                            CustomCell(Assembly: "National Assembly", DistrictName: "Bahawalnagaraaa", ConstituencyName: "NA - 12 Bahawalgnbar", ReferralsCount: "123", ProvinceName: "Azad jummu kashmir") {
-//
-//                            } update: {
-//
-//                            } action: {
-//
-//                            }
-
+                            //                            CustomCell(Assembly: "National Assembly", DistrictName: "Bahawalnagaraaa", ConstituencyName: "NA - 12 Bahawalgnbar", ReferralsCount: "123", ProvinceName: "Azad jummu kashmir") {
+                            //
+                            //                            } update: {
+                            //
+                            //                            } action: {
+                            //
+                            //                            }
+                            
                             
                             
                         }
-                        AddButton(action: addContestent, label: "")
-                            .popover(isPresented: $showingContestingElectionPopup)
-                        {
+                        
+                        VStack{
+                            Spacer()
+                        HStack{
+                            Spacer()
+                            AddButton(action: addContestent, label: "")
+                                .padding(.trailing,10)
+                                .popover(isPresented: $showingContestingElectionPopup)
+                            {
                                 ContestingElectionPopUpScreenView().onDisappear
-                             {
+                                {
                                     listElection()
                                 }
+                            }
+                            
                         }
-                            .border(Color.gray, width: 1) // Add border with gray color and 1 point width
-                      
-                        
+                    }
                     }
                 }
             }
             
         }
+        .navigationBarHidden(true)
         .fullScreenCover(isPresented: $showingContestingElectionUpdatePopup) {
             ContestingElectionUpdateScreenView(oAssembly: "",oProvince: "" , oDistrict: "" , oConstituency: "")
+            
             
         }
         .onAppear
@@ -376,165 +366,7 @@ struct ContestingElectionScreenView: View {
 
 
 
-struct CustomCell: View {
-    var Assembly: String
-    var DistrictName: String
-    var ConstituencyName: String
-    var ReferralsCount: String
-    var ProvinceName: String
-    
-    var delete: () -> Void
-    var update: () -> Void
-    var action: () -> Void
-    
-    
-    
-    
-    var body: some View {
-        HStack {
-            HStack {
-                VStack{
-                    HStack{
-                        Text(Assembly)
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 10)
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                    .background(CColors.MainThemeColor)
-                    .fontWeight(.bold)
-                    .cornerRadius(10)
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .leading)
-                    
-                    
-                    HStack{
-                        Text("District:")
-                            .font(.footnote)
-                            .font(.system(size: 10, weight: .heavy))
-                        Text(DistrictName)
-                            .font(.footnote)
-                            .font(.system(size: 10, weight: .medium))
-                    }
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .leading)
-                    .foregroundColor(CColors.MainThemeColor)
-                    
-                    
-                    
-                    HStack{
-                        Text("Constituency:")
-                            .font(.footnote)
-                        
-                        Text(ConstituencyName)
-                            .font(.footnote).padding(-5)
-                        
-                        //  .multilineTextAlignment(.leading)
-                        //  .padding(.trailing)
-                        
-                        
-                        
-                    }
-                    
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .leading)
-                    
-                    
-                    .foregroundColor(CColors.MainThemeColor)
-                    
-                }
-                .frame(width: 200, height: 100)
-                
-                //  Spacer()
-                VStack{
-                    HStack{
-                        Text("Referrals:")
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                        Text(ReferralsCount)
-                            .font(.footnote)
-                    }
-                    .foregroundColor(CColors.MainThemeColor)
-                    .padding(.horizontal, 0)
-                    .padding(.vertical, 10)
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .topTrailing)
-                    // Spacer().frame(height: 0) // Adjust the height of the Spacer
-                    
-                    HStack{
-                        Text("Province:")
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                        
-                        Text(ProvinceName)
-                            .font(.footnote).padding(-5)
-                        
-                    }
-                    .foregroundColor(CColors.MainThemeColor)
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .topTrailing)
-                    // Spacer().frame(height: 0) // Adjust the height of the Spacer
-                    
-                    
-                    HStack(spacing: 30){
-                        
-                        Button(action: action) {
-                            Image(systemName: "person.circle")
-                                .imageScale(.medium)
-                             //   .foregroundColor(.orange)
-                        }.frame(maxWidth: .infinity,
-                                maxHeight: .infinity,
-                                alignment: .topTrailing)
-                        .onTapGesture {
-                            action()
-                            
-                        }
-                        Button(action: update) {
-                            Image(systemName: "paperclip")
-                                .imageScale(.medium)
-                              //  .foregroundColor(.orange)
-                        }.frame(maxWidth: .infinity,
-                                maxHeight: .infinity,
-                                alignment: .topTrailing)
-                        .onTapGesture {
-                            update()
-                            
-                        }
-                        
-                        Button(action: delete) {
-                            Image(systemName: "trash")
-                                .imageScale(.medium)
-                             //   .foregroundColor(.orange)
-                        }.frame(maxWidth: .infinity,
-                                maxHeight: .infinity,
-                                alignment: .topTrailing)
-                        .onTapGesture {
-                            delete()
-                            
-                        }
-                        
-                        
-                    }
-                    //                .padding(.horizontal, 0)
-                    //                .padding(.vertical, 20)
-                    
-                    
-                }
-            }.listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)) // Adjust the values to set the desired spacing
-        }
-        
-    }
-    
-    
-    
-    
-    
-}
+
 struct ContestingElectionScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ContestingElectionScreenView( )

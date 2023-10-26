@@ -49,7 +49,7 @@ public struct DropDown: View {
                 Image(systemName: "chevron.down").padding(.trailing,10)
                   
                 
-            }.frame(height: 40)
+            }.frame(height: 50)
                 .padding(.leading,10)
             
                 .border(Color.black).alignmentGuide(.leading) { _ in 0 }

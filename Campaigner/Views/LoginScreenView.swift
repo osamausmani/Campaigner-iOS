@@ -39,32 +39,68 @@ struct LoginScreenView: View {
                     Spacer()
                     Image("logo")
                         .resizable()
+                        .padding(.top,20)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 250)
-                        .padding(.top,10)
+                        .frame(minWidth: 200, idealWidth: 250, maxWidth: 300, minHeight: 200, idealHeight: 225, maxHeight: 250)
                     VStack {
-                        CnicTextInput(placeholder: "CNIC", text: $username, imageName: "envelope")
+                        
+                        CnicTextInput(placeholder: "CNIC or Mobile Numebr", text: $username, imageName: "person")
+                        
                         CustomTextInput(placeholder: "Password", text: $password, imageName: "lock", isPasswordField: true)
-                        
                         HStack{
-                            
-                            MainButton(action: {
-                                LoginAction()
-                            }, label: "Login")
-                            
-                            NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
-                                MainButton(action: {
-                                    isRegisterScreenActive = true
-                                }, label: "Register")
+                            Spacer()
+                            NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
+                                Button(action:{isForgotScreenActive.toggle()}){
+                                    Text("Forgot Password?")
+                                        .foregroundColor(.black)
+                                }.padding(.top,20)
+                                
                             }
-                        }.padding(.top,10)
-                        
-                        NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
-                            Button(action:{isForgotScreenActive.toggle()}){
-                                Text("Forgot Password?")
-                                    .foregroundColor(.black)
-                            }.padding(.top,20)
+                            
                         }
+                        
+                        MainButton(action: {
+                            LoginAction()
+                        }, label: "Login")
+                        .padding(.horizontal,70)
+                        .padding(3)
+                        
+                        LoginCustomDivider(labelText:"or connect using")
+                            .padding(5)
+                        HStack(spacing: 70){
+                            Button(action: {
+                                // Action for Google
+                                print("Google tapped!")
+                            }) {
+                                Image("google")
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
+                            }
+                            
+                            Button(action: {
+                                // Action for Facebook
+                                print("Facebook tapped!")
+                            }) {
+                                Image("facebook")
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
+                            }
+                        }
+                        .padding()
+                        HStack{
+                            Text("Don't have an account?")
+                            NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
+                                Text("Sign Up Now")
+                                    .bold()
+                                    .underline(pattern:.solid)
+                            }
+                        }
+                        
+                      
+                        
+                        
+                        
+                        
                         
                         
                         NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
@@ -76,7 +112,7 @@ struct LoginScreenView: View {
                     Spacer()
                     Spacer()
                     
-                    Image("menu-powered-by")
+                    Image("poweredby")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width:120, height: 100)
@@ -119,17 +155,34 @@ struct LoginScreenView: View {
         
     }
     
+    func validateUsername() -> Bool {
+        if username.hasPrefix("0") {
+            if username.count != 12 {
+                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
+                return false
+            }
+        } else {
+            if username.count != 15 {
+                alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
+                return false
+            }
+        }
+        return true
+    }
+    
     
     func LoginAction() {
         
-//        
-//                username = "82203-8631426-9"
-//                password = "12345678"
-//        
-        
+        //
+        //                username = "82203-8631426-9"
+        //                password = "12345678"
+        //
+        if !validateUsername() {
+            return
+        }
         
         if username.isEmpty {
-            alertService.show(title: "Alert", message: "CNIC is required")
+            alertService.show(title: "Alert", message: "CNIC/PHONE NO is required")
         }
         else if password.isEmpty {
             alertService.show(title: "Alert", message: "Password is required")
@@ -172,7 +225,7 @@ struct LoginScreenView: View {
                         isHomeScreenActive.toggle()
                         
                         
-
+                        
                         
                     }else{
                         alertService.show(title: "Alert", message: loginResponse.message!)

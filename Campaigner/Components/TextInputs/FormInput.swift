@@ -13,59 +13,74 @@ struct FormInput: View {
     var placeholder: String
     @Binding var text: String
     
-    
     var isNumberInput = false
-    
     var isCnic = false
     let maskCNIC = "XXXXX-XXXXXXX-X"
     var isSecure = false
+    @State private var isPasswordVisible = false
     
     var body: some View {
-        VStack {
-            
-            Text(label).alignmentGuide(.leading) { _ in 0 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading) {
+            Text(label)
                 .font(.system(size: 15))
+                .padding(.bottom, 5)
             
-            HStack{
+            HStack {
+                // For now, no icon is added but you can include it just like in CustomTextInput
                 
-                if (isCnic){
+                // Input Field
+                if isCnic {
                     let textChangedBinding = Binding<String>(
-                        get: {
-                            FilterCnic.format(with: self.maskCNIC, phone: self.text)},
-                        
-                        set: { self.text = $0
-                        })
+                        get: { FilterCnic.format(with: self.maskCNIC, phone: self.text) },
+                        set: { self.text = $0 }
+                    )
                     TextField(placeholder, text: textChangedBinding)
-                        .frame(maxHeight: 30)
-                        .padding(10)
-                        .foregroundColor(.black).keyboardType(.numberPad).foregroundColor(.black)
-                }
-                else if (isSecure){
-                    SecureField(placeholder, text: $text)
-                        .foregroundColor(.black).frame(maxHeight: 30)
-                        .padding(10)
-                        .font(.system(size: 16))
-                        .keyboardType(isNumberInput ? .numberPad : .default)
-                }
-                else{
+                        .foregroundColor(.black)
+                        .keyboardType(.numberPad)
+                        .padding()
+                } else if isSecure {
+                    if isPasswordVisible {
+                        TextField(placeholder, text: $text)
+                            .foregroundColor(.black)
+                            .keyboardType(isNumberInput ? .numberPad : .default)
+                            .padding()
+                    } else {
+                        SecureField(placeholder, text: $text)
+                            .foregroundColor(.black)
+                            .keyboardType(isNumberInput ? .numberPad : .default)
+                            .padding()
+                    }
+                } else {
                     TextField(placeholder, text: $text)
-                        .foregroundColor(.black).frame(maxHeight: 30)
-                        .padding(10)
-                        .font(.system(size: 16))
+                        .foregroundColor(.black)
                         .keyboardType(isNumberInput ? .numberPad : .default)
+                        .padding()
                 }
                 
-                
-                
-            }.border(Color.black)
-            
-            
-            
-            
+                // Eye icon for password visibility
+                if isSecure {
+                    Button(action: {
+                        isPasswordVisible.toggle()
+                    }) {
+                        Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.trailing, 20)
+                }
+            }
+            .background(Color.white)
+            .border(Color.black, width: 1)
+            .cornerRadius(5)
         }
-        //        .padding(.horizontal, 16)
-        //        .padding(.vertical, 12)
-        //        .cornerRadius(8)
+        .padding(.vertical, 5)
+    }
+}
+
+struct FormInput_Previews: PreviewProvider {
+    static var sample = Binding<String>.constant("")
+    
+    static var previews: some View {
+        FormInput(label: "Password", placeholder: "Enter Password", text: sample, isSecure: true)
+            .padding()
     }
 }

@@ -13,12 +13,11 @@ struct MultilineFormInput: View {
     @Binding var text: String
     
     var body: some View {
-      
-            VStack(alignment: .leading) {
-                
-                Text(label)
-                    .font(.system(size: 15))
-                
+        VStack(alignment: .leading) {
+            Text(label)
+                .font(.system(size: 15))
+            
+            ZStack(alignment: .topLeading) {
                 TextEditor(text: $text)
                     .frame(height: 100)
                     .padding(.horizontal, 0)
@@ -31,8 +30,15 @@ struct MultilineFormInput: View {
                         RoundedRectangle(cornerRadius: 0)
                             .stroke(Color.black, lineWidth: 1)
                     )
+                
+                if text.isEmpty {
+                    Text(placeholder)
+                        .foregroundColor(.gray)
+                        .font(.system(size: 16))
+                        .padding(.all, 8) // Adjust the padding if necessary
+                }
             }
-        
+        }
     }
 }
 

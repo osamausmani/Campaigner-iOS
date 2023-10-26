@@ -23,9 +23,14 @@ struct MainButton : View{
                 .background(CColors.MainThemeColor)
                 .foregroundColor(.white)
                 .font(.headline)
-                .cornerRadius(10)
+                .cornerRadius(5)
                 .frame(maxHeight: customHeight)
 
         }
+    }
+}
+struct MainButton_Previews: PreviewProvider {
+    static var previews: some View {
+        MainButton(action: {}, label: "Pay now")
     }
 }

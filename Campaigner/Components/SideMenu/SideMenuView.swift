@@ -15,6 +15,8 @@ struct SideMenuView: View {
     @StateObject var alertService = AlertService()
 
     @State private var inviteMemebersScreenView = false
+    @State private var upgradeAccountView = false
+    @State private var degradeAccountView = false
     
     @State private var paymentsScreenView = false
     
@@ -24,7 +26,7 @@ struct SideMenuView: View {
     
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
-
+    @State private var manageConstituency:Bool=false
     
     
     //@State private var presentSideMenu = false
@@ -83,6 +85,12 @@ struct SideMenuView: View {
         }
         
         NavigationLink(destination: ProfileMainScreenView(), isActive: $profileMainScreenView) {
+        }
+        NavigationLink(destination: UpgradeAccountView(), isActive: $upgradeAccountView) {
+        }
+        NavigationLink(destination: DowngradeAccountView(), isActive: $degradeAccountView) {
+        }
+        NavigationLink(destination: ContestingElectionScreenView(), isActive: $manageConstituency) {
         }
         
     }
@@ -180,9 +188,15 @@ struct SideMenuView: View {
         }
         else if number == 4
         {
+            upgradeAccountView = true
+            
         }
         else if number == 5
         {
+           manageConstituency=true
+        }
+        else if number == 6{
+            degradeAccountView = true
         }
         else if number == 10
         {
