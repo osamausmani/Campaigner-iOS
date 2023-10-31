@@ -146,8 +146,6 @@ struct NewsDetailScreenView: View {
                 alertService.show(title: "Alert", message: error.localizedDescription)
             }
         }
-        
-        
     }
     
     

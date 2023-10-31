@@ -8,19 +8,32 @@
 import Foundation
 
 
-//struct DateFormatterHelper {
-//    static func format(date: Date, inputFormat: String, outputFormat: String) -> String? {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = inputFormat
-//
-//        guard let formattedDate = formatter.date(from: formatter.string(from: date)) else {
-//            return nil
-//        }
-//
-//        formatter.dateFormat = outputFormat
-//        return formatter.string(from: formattedDate)
-//    }
-//}
+struct DateFormatterHelper {
+    public func formatDateString(_ inputDate: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        if let date = dateFormatter.date(from: inputDate) {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
+    }
+    
+    
+    public func formatDateStringYMD(_ inputDate: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        if let date = dateFormatter.date(from: inputDate) {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
+    }
+}
 
 
 //struct DateFormatterHelper {

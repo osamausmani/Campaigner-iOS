@@ -111,22 +111,13 @@ struct LoginScreenView: View {
         
     }
     
-    
-    
-    
-    
     func ForgotPassAction() {
-        
     }
-    
     
     func LoginAction() {
         
-//        
-//                username = "82203-8631426-9"
-//                password = "12345678"
-//        
-        
+//        username = "82203-8631426-9"
+//        password = "12345678"
         
         if username.isEmpty {
             alertService.show(title: "Alert", message: "CNIC is required")
@@ -172,7 +163,7 @@ struct LoginScreenView: View {
                         isHomeScreenActive.toggle()
                         
                         
-
+                        
                         
                     }else{
                         alertService.show(title: "Alert", message: loginResponse.message!)

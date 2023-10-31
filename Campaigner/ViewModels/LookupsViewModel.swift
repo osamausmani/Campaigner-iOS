@@ -11,35 +11,56 @@ import Alamofire
 class LookupsViewModel: ObservableObject {
     
     
-    func listProvinces(parameters: [String:Any]?, completion: @escaping (Result<ListProvinceResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listProvinces
+    func ListProvinces(parameters: [String:Any]?, completion: @escaping (Result<ListProvinceResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListProvinces
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func ListDistricts(parameters: [String:Any]?, completion: @escaping (Result<ListDistrictResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListDistrict
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func ListConstituency(parameters: [String:Any]?, completion: @escaping (Result<ListConstituencyResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListConstituency
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
-    func listDistricts(parameters: [String:Any]?, completion: @escaping (Result<ListDistrictResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listDistrict
+    func ListVoterConstituency(parameters: [String:Any]?, completion: @escaping (Result<ConstituencyVoterList, Error>) -> Void) {
+        let REQ_URL = ApiPaths.VoterBasePath
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
-    func listConstituency(parameters: [String:Any]?, completion: @escaping (Result<ListConstituencyResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listConstituency
+    func ListVoterCandidates(parameters: [String:Any]?, completion: @escaping (Result<PoliticianListResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.VoterBasePath
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func ListVoterElectionConstituenciesResult(parameters: [String:Any]?, completion: @escaping (Result<ElectionConstituenciesListResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.VoterBasePath
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func ListVoterElectionCandidateResult(parameters: [String:Any]?, completion: @escaping (Result<ElectionCandidateResultResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.VoterBasePath
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     
-    func listPollingStations(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListPollingStations, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listPollingStations
+    
+    func ListPollingStations(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListPollingStations, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListPollingStations
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
     
-    func listPollingStation(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListPollingStations, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listPollingStation
+    func ListPollingStation(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListPollingStations, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListPollingStation
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
     
     
-    func listReportingTypes(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListReportingTypeResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listReportingType
+    func ListReportingTypes(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ListReportingTypeResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListReportingType
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
     

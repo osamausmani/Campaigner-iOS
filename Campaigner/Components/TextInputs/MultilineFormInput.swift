@@ -28,7 +28,7 @@ struct MultilineFormInput: View {
                     .disableAutocorrection(true)
                     .background(Color.clear)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 0)
+                        RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.black, lineWidth: 1)
                     )
             }
