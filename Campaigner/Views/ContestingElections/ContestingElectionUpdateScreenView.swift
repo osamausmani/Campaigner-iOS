@@ -167,7 +167,7 @@ struct ContestingElectionUpdateScreenView: View {
          
          var newDropDownData : [DropDownModel] = []
          
-         lookupsViewModel.listProvinces(parameters: parameters ) { result in
+         lookupsViewModel.ListProvinces(parameters: parameters ) { result in
              isLoading = false
              print(result)
              searchDistrict()
@@ -219,7 +219,7 @@ struct ContestingElectionUpdateScreenView: View {
          
          var newDropDownData : [DropDownModel] = []
          
-         lookupsViewModel.listDistricts(parameters: parameters ) { result in
+         lookupsViewModel.ListDistricts(parameters: parameters ) { result in
              isLoading = false
              print(result)
              switch result {
@@ -279,7 +279,7 @@ struct ContestingElectionUpdateScreenView: View {
          
          var newDropDownData : [DropDownModel] = []
          
-         lookupsViewModel.listConstituency(parameters: parameters ) { result in
+         lookupsViewModel.ListConstituency(parameters: parameters ) { result in
              isLoading = false
              print(result)
              switch result {

@@ -23,11 +23,9 @@ public struct DropDown: View {
     
     public var body: some View {
         VStack {
-            
             Text(label).alignmentGuide(.leading) { _ in 0 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 15))
-            
             HStack{
                 Menu {
                     ForEach(menuOptions) { option in
@@ -44,24 +42,20 @@ public struct DropDown: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.system(size: 15)).foregroundColor( selectedOption == "" ? .gray : .black)
                 }
-                
-                
                 Image(systemName: "chevron.down").padding(.trailing,10)
-                  
-                
             }.frame(height: 40)
-                .padding(.leading,10)
-            
-                .border(Color.black).alignmentGuide(.leading) { _ in 0 }
+                .padding(.leading, 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8) // Creates a rounded rectangle with a corner radius of 8
+                        .stroke(Color.black, lineWidth: 1) // Adds a border with black color and 1 point width
+                )
+                .alignmentGuide(.leading) { _ in 0 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
-            
-            
-            
-            
+        }.onAppear{
+
+            selectedOption = selectedObj.value
+
         }
-        //        .padding(.horizontal, 16)
-        //        .padding(.vertical, 12)
-        //        .cornerRadius(8)
+
     }
 }

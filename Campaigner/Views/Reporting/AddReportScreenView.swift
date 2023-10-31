@@ -175,7 +175,7 @@ struct AddReportScreenView: View {
         
         let lookupViewModel = LookupsViewModel()
         
-        lookupViewModel.listReportingTypes(parameters: parameters,headers: headers ) { result in
+        lookupViewModel.ListReportingTypes(parameters: parameters,headers: headers ) { result in
             // isShowingLoader.toggle()
             isLoading = false
             print(result)

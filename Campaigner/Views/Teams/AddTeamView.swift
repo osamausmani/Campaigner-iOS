@@ -214,7 +214,7 @@ struct AddTeamView: View {
         
         var newDropDownData : [DropDownModel] = []
         
-        lookupsViewModel.listPollingStation(parameters: parameters,headers:headers ) { result in
+        lookupsViewModel.ListPollingStation(parameters: parameters,headers:headers ) { result in
             isLoading = false
             print(result)
             switch result {

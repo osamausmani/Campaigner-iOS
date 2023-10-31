@@ -30,35 +30,35 @@ class ContestentViewModel: ObservableObject {
     
     
     func listElections(parameters: [String:Any]?, headers: HTTPHeaders? = nil ,completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.listElection
+        let REQ_URL = ApiPaths.ListElection
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, headers: headers, completion: completion)
     }
     
     
     func listElectionsMembers(parameters: [String:Any]?,headers: HTTPHeaders? = nil, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void)
     {
-        let REQ_URL = ApiPaths.listElectionMembers
+        let REQ_URL = ApiPaths.ListElectionMembers
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     
     func listPollingStations(parameters: [String:Any]?, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void)
     {
-        let REQ_URL = ApiPaths.listPollingStations
+        let REQ_URL = ApiPaths.ListPollingStations
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     
     func listMyPollingStations(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void)
     {
-        let REQ_URL = ApiPaths.listElectionMembers
+        let REQ_URL = ApiPaths.ListElectionMembers
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     
     func postElectionResult(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void)
     {
-        let REQ_URL = ApiPaths.listElectionMembers
+        let REQ_URL = ApiPaths.ListElectionMembers
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     

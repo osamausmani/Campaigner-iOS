@@ -4,8 +4,6 @@ import Alamofire
 struct HomeScreenView: View {
     
     @State  var value = ""
-    
-    
     @State private var isLoading = false
     @State private var isShowingLoader = false
     @State private var contestingScreenView = false
@@ -35,7 +33,7 @@ struct HomeScreenView: View {
                 ZStack
                 {
                     ImageSlider(images: images)
-                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
+//                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
                 }.frame(width: 400, height: 320)
                 
                 ScrollView{
@@ -175,12 +173,8 @@ struct HomeScreenView: View {
             
         ]
         
-        
-        
         let homeViewModel = HomeViewModel()
-        
-        
-        
+
         homeViewModel.DashboardData(parameters: parameters ,headers: headers ) { result in
             // isShowingLoader.toggle()
             isLoading = false
@@ -249,3 +243,4 @@ struct HomeScreenView_Previews: PreviewProvider {
             .tag(0)
     }
 }
+

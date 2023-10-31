@@ -68,5 +68,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C4D132A-9054-4AB2-8AC9-B204ECCA1636"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Campaigner/Views/Complaints/AddNewComplaintView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "AddNewComplaintView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "1C4D132A-9054-4AB2-8AC9-B204ECCA1636 - 131ad36405a702dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.AddNewComplaintView.init() -&gt; Campaigner.AddNewComplaintView"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamausmani/Desktop/Campaigner/Campaigner/Views/Complaints/AddNewComplaintView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "1C4D132A-9054-4AB2-8AC9-B204ECCA1636 - ecdafb4927f304"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.AddNewComplaintView.init(selectedImage: Swift.Optional&lt;__C.UIImage&gt;) -&gt; Campaigner.AddNewComplaintView"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/osamausmani/Desktop/Campaigner/Campaigner/Views/Complaints/AddNewComplaintView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
