@@ -25,8 +25,8 @@ struct SideMenuView: View {
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
 
-    
-    
+    @State private var showLogoutConfirmation = false
+    @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
     //@State private var presentSideMenu = false
     
     @State var alertMsg = "Alert"
@@ -37,7 +37,7 @@ struct SideMenuView: View {
     
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
-    
+    @StateObject var userData: UserData = UserData()
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -74,6 +74,25 @@ struct SideMenuView: View {
         .background(.white).alignmentGuide(.leading) { _ in 0 }
         .frame(maxWidth: .infinity, alignment: .leading)
         
+        if showLogoutConfirmation {
+            // Step 3: Show the custom alert
+            GeometryReader { geometry in
+            CustomAlertView(
+                message: "Are you sure you want to logout?",
+                buttonTitle: "Logout",
+                CancelButtonAction: {
+                    showLogoutConfirmation = false
+                },
+                UpgradeButtonAction: {
+                    // Handle logout action
+                    LoginOutAction()
+                }
+            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        
+        }
+
         
         NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView)
         {
@@ -186,14 +205,17 @@ struct SideMenuView: View {
         }
         else if number == 10
         {
-            LoginOutAction()
+            
+            if !showLogoutConfirmation {
+                         showLogoutConfirmation = true
+                     }
         }
         
         
     }
     
     func LoginOutAction() {
-        
+       
         var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
         
         let headers:HTTPHeaders = [
@@ -218,12 +240,18 @@ struct SideMenuView: View {
                     showSimpleAlert = true
                     UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
+                    userData.username = ""
+                    userData.password = ""
+
                 }
                 else if loginoutResponse.rescode == 2 {
                     alertMsg = loginoutResponse.message!
                     showSimpleAlert = true
                     UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
+                    userData.username = ""
+                    userData.password = ""
+
                 }
                 else{
                     alertMsg = loginoutResponse.message!
@@ -246,11 +274,11 @@ struct SideMenuView: View {
     
 }
 
-struct SideMenuView_Previews: PreviewProvider {
-    @State static var selectedSideMenuTab = 0
-    @State static var presentSideMenu = true
-    
-    static var previews: some View {
-        SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu )
-    }
-}
+//struct SideMenuView_Previews: PreviewProvider {
+//    @State static var selectedSideMenuTab = 0
+//    @State static var presentSideMenu = true
+//    
+//    static var previews: some View {
+//        SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu )
+//    }
+//}

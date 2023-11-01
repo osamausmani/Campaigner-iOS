@@ -53,7 +53,7 @@ struct AddMemberView: View {
                         VStack {
                             
                             
-                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic, isCnic: true)
+                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
                             FormInput(label: "Name", placeholder: "Enter Name", text: $fvName)
                             
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )

@@ -118,6 +118,7 @@ struct ForgotPassPinScreenView: View {
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_cnic": Global.userCNIC,
+            
         ]
         
         let forgotPassViewModel = ForgotPassViewModel()

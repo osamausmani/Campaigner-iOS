@@ -27,7 +27,7 @@ struct LoginScreenView: View {
     @StateObject var alertService = AlertService()
     @State private var showToast = false
     @State private var isShowingLoader = false
-    
+    @StateObject var userData: UserData = UserData()
     
     var body: some View {
         
@@ -35,36 +35,86 @@ struct LoginScreenView: View {
             ZStack {
                 BaseView(alertService: alertService)
                 MainBGView()
+                GeometryReader { geometry in
                 VStack {
                     Spacer()
                     Image("logo")
                         .resizable()
+                        .padding(.top,20)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 250)
-                        .padding(.top,10)
+                        .frame(
+                              width: geometry.size.width * 0.6,
+                              height: geometry.size.width * 0.6 * 0.75
+                          )
                     VStack {
-                        CnicTextInput(placeholder: "CNIC", text: $username, imageName: "envelope")
-                        CustomTextInput(placeholder: "Password", text: $password, imageName: "lock", isPasswordField: true)
+                        
+                        
+                        
+                        CnicTextInput(placeholder: "CNIC or Mobile Number", text: $userData.username, imageName: "person")
+                            .padding(.bottom,12)
+                        
+                        CustomTextInput(placeholder: "Password", text: $userData.password, imageName: "lock", isPasswordField: true)
                         
                         HStack{
-                            
-                            MainButton(action: {
-                                LoginAction()
-                            }, label: "Login")
-                            
-                            NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
-                                MainButton(action: {
-                                    isRegisterScreenActive = true
-                                }, label: "Register")
+                            Spacer()
+                            NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
+                                Button(action:{isForgotScreenActive.toggle()}){
+                                    Text("Forgot Password?")
+                                        .foregroundColor(.black)
+                                }.padding(.top,20)
+                                
                             }
-                        }.padding(.top,10)
-                        
-                        NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
-                            Button(action:{isForgotScreenActive.toggle()}){
-                                Text("Forgot Password?")
-                                    .foregroundColor(.black)
-                            }.padding(.top,20)
+                            
                         }
+                        
+                        MainButton(action: {
+                            LoginAction()
+                        }, label: "Login")
+                        .padding(.horizontal,70)
+                        .padding(3)
+                        
+                        LoginCustomDivider(labelText:"or connect using")
+                            .padding(5)
+                        HStack(spacing: 70){
+                            Button(action: {
+                                // Action for Google
+                                print("Google tapped!")
+                            }) {
+                                Image("google")
+                                    .resizable()
+                                    .frame(
+                                          width: geometry.size.width * 0.18,
+                                          height: geometry.size.width * 0.18
+                                      )
+                            }
+                            
+                            Button(action: {
+                                // Action for Facebook
+                                print("Facebook tapped!")
+                            }) {
+                                Image("facebook")
+                                    .resizable()
+                                    .frame(
+                                          width: geometry.size.width * 0.18,
+                                          height: geometry.size.width * 0.18
+                                      )
+                            }
+                        }
+                        .padding()
+                        HStack{
+                            Text("Don't have an account?")
+                            NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
+                                Text("Sign Up Now")
+                                    .bold()
+                                    .underline(pattern:.solid)
+                            }
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
@@ -75,13 +125,14 @@ struct LoginScreenView: View {
                     .padding(32)
                     Spacer()
                     Spacer()
-                    
-                    Image("menu-powered-by")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width:120, height: 100)
+//                    
+//                    Image("poweredby")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width:120, height: 100)
                 }
-                
+//                .padding(.horizontal, geometry.size.width * 0.1)
+            }
                 
                 if isShowingLoader {
                     Loader(isShowing: $isShowingLoader)
@@ -111,18 +162,45 @@ struct LoginScreenView: View {
         
     }
     
+    
+    
+    
+    
     func ForgotPassAction() {
+        
     }
+    
+    func validateUsername() -> Bool {
+        if userData.username.hasPrefix("0") {
+            if userData.username.count != 12 {
+                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
+                return false
+            } else {
+                if userData.username.count != 15 {
+                    alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
     
     func LoginAction() {
         
-//        username = "82203-8631426-9"
-//        password = "12345678"
-        
-        if username.isEmpty {
-            alertService.show(title: "Alert", message: "CNIC is required")
+        //
+        //                username = "82203-8631426-9"
+        //                password = "12345678"
+        //
+     
+        if !validateUsername() {
+            return
         }
-        else if password.isEmpty {
+        
+        if userData.username.isEmpty {
+            alertService.show(title: "Alert", message: "CNIC/PHONE NO is required")
+        }
+        else if userData.password.isEmpty {
             alertService.show(title: "Alert", message: "Password is required")
         }
         
@@ -131,8 +209,8 @@ struct LoginScreenView: View {
             
             let parameters: [String:Any] = [
                 "plattype": Constants.PLAT_TYPE,
-                "user_name": username,
-                "user_pass": password,
+                "user_name": userData.username,
+                "user_pass": userData.password,
                 "os_type": Constants.OS_TYPE,
                 "ios_version": Double((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
             ]

@@ -25,6 +25,7 @@ public class ApiPaths {
     public static var ForgotPasswordChange = BasePath + "/account/verify/code"
     
     
+    
     //Profile
     public static var UserProfileBasicInfo = BasePath + "/view/user/basic/info"
     

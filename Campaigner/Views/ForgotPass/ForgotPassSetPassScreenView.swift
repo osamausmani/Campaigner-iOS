@@ -76,7 +76,7 @@ struct ForgotPassSetPassScreenView: View {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
-        }.navigationBarHidden(false)
+        }.navigationBarHidden(true)
             .navigationTitle("")
     }
     
