@@ -99,7 +99,7 @@ struct NewsDetailScreenView: View {
                 })
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("Detail")
+                        Text("Full article")
                             .fontWeight(.semibold)
                             .tint(CColors.MainThemeColor).font(.system(size: 20))
                         

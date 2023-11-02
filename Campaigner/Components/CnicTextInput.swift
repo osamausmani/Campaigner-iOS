@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-
 struct CnicTextInput: View {
     var placeholder: String
     @Binding var text: String
@@ -15,30 +14,51 @@ struct CnicTextInput: View {
     var foregroundColor: Color = .black
     var imageName: String?
     
-    let maskPhone  = "XXXXX-XXXXXXX-X"
-    
     var body: some View {
-        HStack {
+        let mask: String
+        if text.hasPrefix("0") {
+            mask = "XXXXXXXXXXX"
+        } else {
+            mask = "XXXXX-XXXXXXX-X"
+        }
+        
+        let formattedText = formatCnicPhone(text, with: mask)
+        
+        return HStack {
             if let imageName = imageName {
                 Image(systemName: imageName)
                     .foregroundColor(foregroundColor)
                     .frame(width: 24, height: 24)
             }
             
-            let textChangedBinding = Binding<String>(
-                get: {
-                    FilterCnic.format(with: self.maskPhone, phone: self.text)},
-                
-                set: { self.text = $0
-                })
-            
-            TextField(placeholder, text: textChangedBinding)
-                .foregroundColor(foregroundColor).keyboardType(.numberPad)
+            TextField(placeholder, text: $text)
+                .foregroundColor(foregroundColor)
+                .keyboardType(.numberPad)
+                .onAppear {
+                    self.text = formattedText
+                }
+                .onChange(of: text) { newValue in
+                    text = formatCnicPhone(newValue, with: mask)
+                }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .frame(maxHeight: 40)
+        .frame(minHeight: 30)
+        .padding(10)
         .background(backgroundColor)
+        .border(Color.black, width: 1)
+        .cornerRadius(5)
+    }
+    struct CnicTextInput_Previews: PreviewProvider {
+        static var previews: some View {
+            PreviewWrapper()
+        }
         
-        .cornerRadius(8)
+        struct PreviewWrapper: View {
+            @State private var sampleText: String = ""
+            
+            var body: some View {
+                CnicTextInput(placeholder: "xxx-xx-xxx", text: $sampleText)
+            }
+        }
     }
 }

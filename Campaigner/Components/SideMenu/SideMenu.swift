@@ -38,12 +38,12 @@ struct SideMenu: View {
 enum SideMenuRowType: Int, CaseIterable{
     
     case profile = 0
-    case wallet = 1
+//    case wallet = 1
     case inviteMembers = 2
     case payments = 3
-    case upgradeAccunt = 4
-    case manageConstituencey = 5
-    case degradeAccount = 6
+//    case upgradeAccunt = 4
+//    case manageConstituencey = 5
+//    case degradeAccount = 6
     case changepassword = 7
     case termsofuse = 8
     case contactus = 9
@@ -62,17 +62,17 @@ enum SideMenuRowType: Int, CaseIterable{
         case .termsofuse:
             return "Term of use"
         case .contactus:
-            return "Constact Us"
+            return "Contact Us"
         case .logout:
             return "Logout"
-        case .wallet:
-            return "Wallet"
-        case .upgradeAccunt:
-            return "Upgrade Account"
-        case .manageConstituencey:
-            return "Manage Constituencey"
-        case .degradeAccount:
-            return "Degrade Account"
+//        case .wallet:
+//            return "Wallet"
+//        case .upgradeAccunt:
+//            return "Upgrade Account"
+//        case .manageConstituencey:
+//            return "Manage Constituencey"
+//        case .degradeAccount:
+//            return "Degrade Account"
         }
     }
     
@@ -92,14 +92,14 @@ enum SideMenuRowType: Int, CaseIterable{
             return "contact_us_siden"
         case .logout:
             return "logout_side"
-        case .wallet:
-            return "wallet_side"
-        case .upgradeAccunt:
-            return "down_account_side"
-        case .manageConstituencey:
-            return "manage_cons_side"
-        case .degradeAccount:
-            return "down_account_side"
+//        case .wallet:
+//            return "wallet_side"
+//        case .upgradeAccunt:
+//            return "down_account_side"
+//        case .manageConstituencey:
+//            return "manage_cons_side"
+//        case .degradeAccount:
+//            return "down_account_side"
         }
     }
 }

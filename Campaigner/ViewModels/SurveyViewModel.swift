@@ -20,8 +20,17 @@ class SurveyViewModel: ObservableObject {
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
+    func GetSurveyDetails(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<SurveyDetailsResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.SurveyDetails
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
 
-    
+    func SubmitSurveyAnswers(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.SurveySubmitAnswers
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
     
   
     

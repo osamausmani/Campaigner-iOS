@@ -62,7 +62,11 @@ struct SearchElectionScreenView: View {
             NavigationLink(destination: ElectionHistoryListScreenView(selectedOption: selectedOption.id, selectedConstituenceyID: selectedConstituency.id, selectedCandidateID: selectedCandidate.id), isActive: $isElectionHistoryListScreenViewActive) {
             }
             ZStack{
-                
+                ZStack{
+                    Image("splash_background")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+                }
                 ScrollView{
                     VStack {
                         
