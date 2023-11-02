@@ -7,6 +7,7 @@ target 'Campaigner' do
 
   # Pods for Campaigner
   pod 'GoogleMaps'
+  pod 'SwiftAlertView', '~> 2.2.1'
 
 
 end

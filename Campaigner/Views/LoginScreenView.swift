@@ -116,8 +116,8 @@ struct LoginScreenView: View {
     
     func LoginAction() {
         
-//        username = "82203-8631426-9"
-//        password = "12345678"
+        username = "82203-8631426-9"
+        password = "12345678"
         
         if username.isEmpty {
             alertService.show(title: "Alert", message: "CNIC is required")

@@ -10,29 +10,23 @@ import SwiftUI
 
 struct SurveyHomeScreenView: View {
     
-    
-    
     @StateObject private var alertService = AlertService()
-    
-    
-    
     @State private var addNewComplaintScreenViewActive = false
     @State private var isEditNavigationActive = false
     @State private var isCommentsScreenViewActive = false
-    
-    
     @State var surveyListArray = [SurveyListData]()
-    
     @State var selectedItem : SurveyListData?
     @State private var selectedTab = 1
-    
-    
+    @State private var surveyAttemptScreenView = false
+    @State private var surveyID: String? = ""
+
+ 
     var body: some View {
         
         ZStack {
             BaseView(alertService: alertService)
-            //            NavigationLink(destination: AddNewComplaintView(), isActive: $addNewComplaintScreenViewActive) {
-            //            }
+            NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
+                        }
             //
             //            NavigationLink(destination: ComplaintCommentScreenView(selectedItemID: selectedItem?.complaint_id), isActive: $isCommentsScreenViewActive) {
             //            }
@@ -67,7 +61,10 @@ struct SurveyHomeScreenView: View {
                         else{
                             ScrollView{
                                 ForEach(surveyListArray.indices, id: \.self) { index in
-                                    SurveyCustomCardView(selectedTab: $selectedTab, item: $surveyListArray[index])
+                                    SurveyCustomCardView(selectedTab: $selectedTab, item: $surveyListArray[index]).onTapGesture {
+                                        surveyID = surveyListArray[index].survey_id_text
+                                        surveyAttemptScreenView.toggle()
+                                    }
                                 }
                             }
                         }
@@ -111,13 +108,6 @@ struct SurveyHomeScreenView: View {
                         surveyListArray.removeAll()
                         surveyListArray = filteredSurveys
                     }
-
-                    
-
-
-                    
-                    
-                    
                 }else{
                     surveyListArray.removeAll()
                 }
@@ -188,6 +178,7 @@ struct SurveyCustomCardView: View {
             
             
         }.padding(.bottom,0).padding(.leading,8).padding(.trailing,8)
+        
         
         
         
