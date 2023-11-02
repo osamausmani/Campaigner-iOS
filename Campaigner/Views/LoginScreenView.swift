@@ -73,34 +73,34 @@ struct LoginScreenView: View {
                             .padding(.horizontal,70)
                             .padding(3)
                             
-//                            LoginCustomDivider(labelText:"or connect using")
-//                                .padding(5)
-//                            HStack(spacing: 70){
-//                                Button(action: {
-//                                    // Action for Google
-//                                    print("Google tapped!")
-//                                }) {
-//                                    Image("google")
-//                                        .resizable()
-//                                        .frame(
-//                                            width: geometry.size.width * 0.18,
-//                                            height: geometry.size.width * 0.18
-//                                        )
-//                                }
-//
-//                                Button(action: {
-//                                    // Action for Facebook
-//                                    print("Facebook tapped!")
-//                                }) {
-//                                    Image("facebook")
-//                                        .resizable()
-//                                        .frame(
-//                                            width: geometry.size.width * 0.18,
-//                                            height: geometry.size.width * 0.18
-//                                        )
-//                                }
-//                            }
-//                            .padding()
+                            //                            LoginCustomDivider(labelText:"or connect using")
+                            //                                .padding(5)
+                            //                            HStack(spacing: 70){
+                            //                                Button(action: {
+                            //                                    // Action for Google
+                            //                                    print("Google tapped!")
+                            //                                }) {
+                            //                                    Image("google")
+                            //                                        .resizable()
+                            //                                        .frame(
+                            //                                            width: geometry.size.width * 0.18,
+                            //                                            height: geometry.size.width * 0.18
+                            //                                        )
+                            //                                }
+                            //
+                            //                                Button(action: {
+                            //                                    // Action for Facebook
+                            //                                    print("Facebook tapped!")
+                            //                                }) {
+                            //                                    Image("facebook")
+                            //                                        .resizable()
+                            //                                        .frame(
+                            //                                            width: geometry.size.width * 0.18,
+                            //                                            height: geometry.size.width * 0.18
+                            //                                        )
+                            //                                }
+                            //                            }
+                            //                            .padding()
                             HStack{}.padding()
                             HStack{
                                 Text("Don't have an account?")
@@ -156,36 +156,28 @@ struct LoginScreenView: View {
                 if isUserLogin {
                     isHomeScreenActive.toggle()
                 }
-                
-                
-                
             }
-        
     }
-    
-    
-    
-    
     
     func ForgotPassAction() {
         
     }
-//
-//    func validateUsername() -> Bool {
-//        if userData.username.hasPrefix("0") {
-//            if userData.username.count != 12 {
-//                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
-//                return false
-//            } else {
-//                if userData.username.count != 13 {
-//                    alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
-//                    return false
-//                }
-//            }
-//        }
-//        return true
-//    }
-//
+    //
+    //    func validateUsername() -> Bool {
+    //        if userData.username.hasPrefix("0") {
+    //            if userData.username.count != 12 {
+    //                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
+    //                return false
+    //            } else {
+    //                if userData.username.count != 13 {
+    //                    alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
+    //                    return false
+    //                }
+    //            }
+    //        }
+    //        return true
+    //    }
+    //
     
     func LoginAction() {
         
@@ -194,15 +186,15 @@ struct LoginScreenView: View {
         //                password = "12345678"
         //
         
-//        if !validateUsername() {
-//            return
-//        }
-//        if userData.username.hasPrefix("0"){
-//            loginType="2"
-//        }
-//        else{
-//            loginType="1"
-//        }
+        //        if !validateUsername() {
+        //            return
+        //        }
+        //        if userData.username.hasPrefix("0"){
+        //            loginType="2"
+        //        }
+        //        else{
+        //            loginType="1"
+        //        }
         
         if userData.username.isEmpty {
             alertService.show(title: "Alert", message: "CNIC/PHONE NO is required")
@@ -220,7 +212,7 @@ struct LoginScreenView: View {
                 "user_pass": userData.password,
                 "os_type": Constants.OS_TYPE,
                 "ios_version": Double((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!),
-//                "signup_type" : loginType
+                //                "signup_type" : loginType
             ]
             
             let loginViewModel = LoginViewModel()
@@ -234,6 +226,8 @@ struct LoginScreenView: View {
                     
                     if loginResponse.rescode == 1 {
                         showToast.toggle()
+                        userData.username = ""
+                        userData.password = ""
                         print(loginResponse.data![0])
                         let userData = loginResponse.data![0]
                         
