@@ -80,13 +80,13 @@ struct RegisterScreenView: View {
                             if selectedOption == RadioOption.CNIC.rawValue {
                                 FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
                             }
-                            FormInput(label: "Name", placeholder: "Name", text: $fvName)
-                            
+                            TextFields(label: "Name", placeholder: "Name", text: $fvName)
+                          
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
                             
-                            FormInput(label: "Mobile Number", placeholder: "03xx3xxxxxx", text: $fvMobileNumber, isNumberInput: true)
-                            FormInput(label: "Password", placeholder: "********", text: $fvPassword, isSecure: true)
-                            FormInput(label: "Confirm password", placeholder: "********", text: $fvConfirmPassword, isSecure: true)
+                            MobileNoTextField(label: "Mobile Number", placeholder: "03xx3xxxxxx", text: $fvMobileNumber, isNumberInput: true)
+                            TextFields(label: "Password", placeholder: "********", text: $fvPassword, isSecure: true)
+                            TextFields(label: "Confirm password", placeholder: "********", text: $fvConfirmPassword, isSecure: true)
                             
                             MainButton(action: {
                                 RegisterAction()

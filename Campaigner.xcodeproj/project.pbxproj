@@ -75,6 +75,8 @@
 		07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25C2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift */; };
 		07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE25E2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift */; };
 		07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2602A1E0BC500D8B4B5 /* Constants.swift */; };
+		FA145A6B2AF3733700053160 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6A2AF3733700053160 /* TextFields.swift */; };
+		FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */; };
 		FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */; };
 		FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3D2A5E820300E7C0AB /* HelperClass.swift */; };
 		FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E412A60273B00E7C0AB /* MapScreen.swift */; };
@@ -221,6 +223,8 @@
 		2B19C5D66E19E0962A8703B4 /* Pods-Campaigner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Campaigner.debug.xcconfig"; path = "Target Support Files/Pods-Campaigner/Pods-Campaigner.debug.xcconfig"; sourceTree = "<group>"; };
 		68EC90A6D613D7F00E958129 /* Pods_Campaigner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Campaigner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9B4EFB1EFFF03E943E1D9C /* Pods-Campaigner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Campaigner.release.xcconfig"; path = "Target Support Files/Pods-Campaigner/Pods-Campaigner.release.xcconfig"; sourceTree = "<group>"; };
+		FA145A6A2AF3733700053160 /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
+		FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoTextField.swift; sourceTree = "<group>"; };
 		FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingResponse.swift; sourceTree = "<group>"; };
 		FA243E3D2A5E820300E7C0AB /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		FA243E412A60273B00E7C0AB /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
@@ -352,6 +356,8 @@
 			children = (
 				0710C4FE2A1BB4F10035021A /* FormInput.swift */,
 				FAC49CDB2A5843AE00AFAE81 /* MultilineFormInput.swift */,
+				FA145A6A2AF3733700053160 /* TextFields.swift */,
+				FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -993,6 +999,7 @@
 				07ADF0DD2A07FFB70096C82D /* KeyboardGuardian.swift in Sources */,
 				07DEE25D2A1DFF2400D8B4B5 /* ForgotPassPinScreenView.swift in Sources */,
 				FA461D752AF11F86009A3FCE /* LoginCustomDivider.swift in Sources */,
+				FA145A6B2AF3733700053160 /* TextFields.swift in Sources */,
 				FAC49CD02A532D0500AFAE81 /* SurveyResponse.swift in Sources */,
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
 				FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */,
@@ -1035,6 +1042,7 @@
 				FA5B5BE02A3DE5E4005AD722 /* ImageSelectorView.swift in Sources */,
 				FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */,
 				FAC49CD62A5596BF00AFAE81 /* TeamsViewModel.swift in Sources */,
+				FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */,
 				FAD8FF752A39C65200466533 /* InviteMemberScreenView.swift in Sources */,
 				FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */,
 				077823532AD0584900A6F2E3 /* TestContent.swift in Sources */,
