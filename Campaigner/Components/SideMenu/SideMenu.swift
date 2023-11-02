@@ -62,7 +62,7 @@ enum SideMenuRowType: Int, CaseIterable{
         case .termsofuse:
             return "Term of use"
         case .contactus:
-            return "Constact Us"
+            return "Contact Us"
         case .logout:
             return "Logout"
 //        case .wallet:
