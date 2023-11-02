@@ -78,6 +78,7 @@
 		FA145A6B2AF3733700053160 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6A2AF3733700053160 /* TextFields.swift */; };
 		FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */; };
 		FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6E2AF39D3D00053160 /* FormInputField.swift */; };
+		FA145A712AF3C5F500053160 /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A702AF3C5F500053160 /* InviteViewModel.swift */; };
 		FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */; };
 		FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3D2A5E820300E7C0AB /* HelperClass.swift */; };
 		FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E412A60273B00E7C0AB /* MapScreen.swift */; };
@@ -227,6 +228,7 @@
 		FA145A6A2AF3733700053160 /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoTextField.swift; sourceTree = "<group>"; };
 		FA145A6E2AF39D3D00053160 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
+		FA145A702AF3C5F500053160 /* InviteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewModel.swift; sourceTree = "<group>"; };
 		FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingResponse.swift; sourceTree = "<group>"; };
 		FA243E3D2A5E820300E7C0AB /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		FA243E412A60273B00E7C0AB /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				0778234B2ACFFD9A00A6F2E3 /* ProfileViewModel.swift */,
 				07488D352AD1039D0075CFAA /* NewsViewModel.swift */,
 				075AF35D2AEA7F2C00D33416 /* ComplaintsViewModel.swift */,
+				FA145A702AF3C5F500053160 /* InviteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
 				077823512AD0546800A6F2E3 /* SearchableInput.swift in Sources */,
 				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
+				FA145A712AF3C5F500053160 /* InviteViewModel.swift in Sources */,
 				FA243E462A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift in Sources */,
 				FAD8FF5C2A37065000466533 /* CheckboxFieldView.swift in Sources */,
 				FAD8FF582A36624800466533 /* ShareData.swift in Sources */,

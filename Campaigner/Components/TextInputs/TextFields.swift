@@ -31,6 +31,7 @@ struct TextFields: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
+                   
                         
                 } else {
                     TextField(placeholder, text: $text)
@@ -39,10 +40,16 @@ struct TextFields: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
+                    
                      
                 }
             }
-            .border(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+            .alignmentGuide(.leading) { _ in 0 }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

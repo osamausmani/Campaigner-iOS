@@ -29,6 +29,8 @@ struct FormInputField: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
+                      
+                        
                 }
                 else{
                     TextField(placeholder, text: $text)
@@ -37,11 +39,16 @@ struct FormInputField: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
+                     
+                        
                 }
                 
                 
                 
-            }.border(Color.black)
+            }  .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.black, lineWidth: 1)
+            ).border(Color.black)
             
             
             

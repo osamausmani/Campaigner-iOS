@@ -43,13 +43,13 @@ struct ViewTabBars: View {
                 BaseView(alertService: alertService)
                 
                 ZStack{
-//                    Image("splash_background")
-//                        .resizable()
-//                        .edgesIgnoringSafeArea(.all)
+                    //                    Image("splash_background")
+                    //                        .resizable()
+                    //                        .edgesIgnoringSafeArea(.all)
                     
                     
                     VStack {
-
+                        
                         HStack(spacing: 0) {
                             TabBarButton(text: "Own", isSelected: selectedTab == 0)
                             {
@@ -59,7 +59,7 @@ struct ViewTabBars: View {
                             
                             //Spacer()
                             
-                   
+                            
                             // Spacer()
                             
                             TabBarButton(text: "Public", isSelected: selectedTab == 1) {
@@ -71,7 +71,7 @@ struct ViewTabBars: View {
                         }
                         Spacer()
                         HStack{
-//                            Text("label")
+                            //                            Text("label")
                             
                         }.frame(maxWidth: .infinity, maxHeight:.infinity).background(CColors.TextInputBgColor)
                         

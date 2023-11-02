@@ -20,7 +20,7 @@ struct MobileNoTextField: View {
     var body: some View {
         let mask: String
         if text.hasPrefix("0") {
-            mask = "XXXX-XXXXXXX"
+            mask = "XXXXXXXXXXX"
         } else {
             mask = "X"
             isInvalidInput = true
@@ -52,8 +52,14 @@ struct MobileNoTextField: View {
                         }
                         text = formatCnicPhone(newValue, with: mask)
                     }
+                
             }
-            .border(isInvalidInput ? Color.red : Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(isInvalidInput ? Color.red : Color.black, lineWidth: 1)
+            )
+            .alignmentGuide(.leading) { _ in 0 }
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             if isInvalidInput {
                 Text("Please enter phone number in a valid format")
