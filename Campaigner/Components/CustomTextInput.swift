@@ -51,7 +51,7 @@ struct CustomTextInput: View {
                 }
             }
         }
-        .frame(maxHeight: 50)
+        .frame(maxHeight: 40)
         .frame(minHeight: 30)
         .padding(10)
         .background(CColors.TextInputBgColor)

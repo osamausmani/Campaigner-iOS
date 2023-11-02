@@ -11,31 +11,30 @@ struct CustomNavBar<Destination: View>: View {
     var destinationView: Destination
     @Binding var isActive: Bool
     var trailingView: AnyView? = nil
-
+    
     var body: some View {
-        HStack {
-            NavigationLink("", destination: destinationView, isActive: $isActive)
-                .hidden() // Hide the default NavigationLink
+        ZStack {
+            HStack{
+                NavigationLink("", destination: destinationView, isActive: $isActive)
+                    .hidden() // Hide the default NavigationLink
                 
-            Button(action: {
-                self.isActive = true
-            }) {
-                Image("back_arrow")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-            }
-            .padding(.leading)
-            
-            Spacer()
-            
-            Text(title)
-                .font(.headline)
-            
-            Spacer()
-            
-            if let trailing = trailingView {
-                trailing
-            }
+                Button(action: {
+                    self.isActive = true
+                }) {
+                    Image("back_arrow")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+                .padding(.leading)
+                if let trailing = trailingView {
+                    trailing
+                }
+                Spacer()
+            }.frame(maxWidth: .infinity, alignment: .center)
+            ZStack{
+                Text(title)
+                    .font(.headline)
+            }.frame(maxWidth: .infinity, alignment: .center)
         }
         .padding(.top, 40)
         .frame(height: 100)

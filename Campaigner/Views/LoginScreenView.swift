@@ -36,103 +36,103 @@ struct LoginScreenView: View {
                 BaseView(alertService: alertService)
                 MainBGView()
                 GeometryReader { geometry in
-                VStack {
-                    Spacer()
-                    Image("logo")
-                        .resizable()
-                        .padding(.top,20)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(
-                              width: geometry.size.width * 0.6,
-                              height: geometry.size.width * 0.6 * 0.75
-                          )
                     VStack {
-                        
-                        
-                        
-                        CnicTextInput(placeholder: "CNIC or Mobile Number", text: $userData.username, imageName: "person")
-                            .padding(.bottom,12)
-                        
-                        CustomTextInput(placeholder: "Password", text: $userData.password, imageName: "lock", isPasswordField: true)
-                        
-                        HStack{
-                            Spacer()
-                            NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
-                                Button(action:{isForgotScreenActive.toggle()}){
-                                    Text("Forgot Password?")
-                                        .foregroundColor(.black)
-                                }.padding(.top,20)
+                        Spacer()
+                        Image("logo")
+                            .resizable()
+                            .padding(.top,20)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(
+                                width: geometry.size.width * 0.6,
+                                height: geometry.size.width * 0.6 * 0.75
+                            )
+                        VStack {
+                            
+                            
+                            
+                            CnicTextInput(placeholder: "CNIC or Mobile Number", text: $userData.username, imageName: "person")
+                                .padding(.bottom,12)
+                            
+                            CustomTextInput(placeholder: "Password", text: $userData.password, imageName: "lock", isPasswordField: true)
+                            
+                            HStack{
+                                Spacer()
+                                NavigationLink(destination: ForgotPasswordHomeScreenView(), isActive: $isForgotScreenActive) {
+                                    Button(action:{isForgotScreenActive.toggle()}){
+                                        Text("Forgot Password?")
+                                            .foregroundColor(.black)
+                                    }.padding(.top,20)
+                                    
+                                }
                                 
                             }
                             
-                        }
-                        
-                        MainButton(action: {
-                            LoginAction()
-                        }, label: "Login")
-                        .padding(.horizontal,70)
-                        .padding(3)
-                        
-                        LoginCustomDivider(labelText:"or connect using")
-                            .padding(5)
-                        HStack(spacing: 70){
-                            Button(action: {
-                                // Action for Google
-                                print("Google tapped!")
-                            }) {
-                                Image("google")
-                                    .resizable()
-                                    .frame(
-                                          width: geometry.size.width * 0.18,
-                                          height: geometry.size.width * 0.18
-                                      )
+                            MainButton(action: {
+                                LoginAction()
+                            }, label: "Login")
+                            .padding(.horizontal,70)
+                            .padding(3)
+                            
+                            LoginCustomDivider(labelText:"or connect using")
+                                .padding(5)
+                            HStack(spacing: 70){
+                                Button(action: {
+                                    // Action for Google
+                                    print("Google tapped!")
+                                }) {
+                                    Image("google")
+                                        .resizable()
+                                        .frame(
+                                            width: geometry.size.width * 0.18,
+                                            height: geometry.size.width * 0.18
+                                        )
+                                }
+                                
+                                Button(action: {
+                                    // Action for Facebook
+                                    print("Facebook tapped!")
+                                }) {
+                                    Image("facebook")
+                                        .resizable()
+                                        .frame(
+                                            width: geometry.size.width * 0.18,
+                                            height: geometry.size.width * 0.18
+                                        )
+                                }
+                            }
+                            .padding()
+                            HStack{
+                                Text("Don't have an account?")
+                                NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
+                                    Text("Sign Up Now")
+                                        .bold()
+                                        .underline(pattern:.solid)
+                                }
                             }
                             
-                            Button(action: {
-                                // Action for Facebook
-                                print("Facebook tapped!")
-                            }) {
-                                Image("facebook")
-                                    .resizable()
-                                    .frame(
-                                          width: geometry.size.width * 0.18,
-                                          height: geometry.size.width * 0.18
-                                      )
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
                             }
+                            
+                            
                         }
-                        .padding()
-                        HStack{
-                            Text("Don't have an account?")
-                            NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {
-                                Text("Sign Up Now")
-                                    .bold()
-                                    .underline(pattern:.solid)
-                            }
-                        }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        NavigationLink(destination: HomeScreenTabedView(presentSideMenu: false), isActive: $isHomeScreenActive) {
-                        }
-                        
-                        
+                        .padding(32)
+                        Spacer()
+                        Spacer()
+                        //
+                        //                    Image("poweredby")
+                        //                        .resizable()
+                        //                        .aspectRatio(contentMode: .fit)
+                        //                        .frame(width:120, height: 100)
                     }
-                    .padding(32)
-                    Spacer()
-                    Spacer()
-//                    
-//                    Image("poweredby")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width:120, height: 100)
+                    //                .padding(.horizontal, geometry.size.width * 0.1)
                 }
-//                .padding(.horizontal, geometry.size.width * 0.1)
-            }
                 
                 if isShowingLoader {
                     Loader(isShowing: $isShowingLoader)
@@ -184,7 +184,7 @@ struct LoginScreenView: View {
         }
         return true
     }
-
+    
     
     func LoginAction() {
         
@@ -192,7 +192,7 @@ struct LoginScreenView: View {
         //                username = "82203-8631426-9"
         //                password = "12345678"
         //
-     
+        
         if !validateUsername() {
             return
         }
