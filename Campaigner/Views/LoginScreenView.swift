@@ -73,34 +73,35 @@ struct LoginScreenView: View {
                             .padding(.horizontal,70)
                             .padding(3)
                             
-                            LoginCustomDivider(labelText:"or connect using")
-                                .padding(5)
-                            HStack(spacing: 70){
-                                Button(action: {
-                                    // Action for Google
-                                    print("Google tapped!")
-                                }) {
-                                    Image("google")
-                                        .resizable()
-                                        .frame(
-                                            width: geometry.size.width * 0.18,
-                                            height: geometry.size.width * 0.18
-                                        )
-                                }
-                                
-                                Button(action: {
-                                    // Action for Facebook
-                                    print("Facebook tapped!")
-                                }) {
-                                    Image("facebook")
-                                        .resizable()
-                                        .frame(
-                                            width: geometry.size.width * 0.18,
-                                            height: geometry.size.width * 0.18
-                                        )
-                                }
-                            }
-                            .padding()
+//                            LoginCustomDivider(labelText:"or connect using")
+//                                .padding(5)
+//                            HStack(spacing: 70){
+//                                Button(action: {
+//                                    // Action for Google
+//                                    print("Google tapped!")
+//                                }) {
+//                                    Image("google")
+//                                        .resizable()
+//                                        .frame(
+//                                            width: geometry.size.width * 0.18,
+//                                            height: geometry.size.width * 0.18
+//                                        )
+//                                }
+//
+//                                Button(action: {
+//                                    // Action for Facebook
+//                                    print("Facebook tapped!")
+//                                }) {
+//                                    Image("facebook")
+//                                        .resizable()
+//                                        .frame(
+//                                            width: geometry.size.width * 0.18,
+//                                            height: geometry.size.width * 0.18
+//                                        )
+//                                }
+//                            }
+//                            .padding()
+                            HStack{}.padding()
                             HStack{
                                 Text("Don't have an account?")
                                 NavigationLink(destination: RegisterScreenView(), isActive: $isRegisterScreenActive) {

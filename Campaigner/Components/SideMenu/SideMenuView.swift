@@ -13,7 +13,7 @@ struct SideMenuView: View {
     
     //@State private var contestingScreenView = false
     @StateObject var alertService = AlertService()
-
+    
     @State private var inviteMemebersScreenView = false
     
     @State private var paymentsScreenView = false
@@ -24,14 +24,12 @@ struct SideMenuView: View {
     
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
-
+    
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
-    //@State private var presentSideMenu = false
     
     @State var alertMsg = "Alert"
     
-    // @State  private var showToast = false
     @State private var showSimpleAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -77,22 +75,22 @@ struct SideMenuView: View {
         if showLogoutConfirmation {
             // Step 3: Show the custom alert
             GeometryReader { geometry in
-            CustomAlertView(
-                message: "Are you sure you want to logout?",
-                buttonTitle: "Logout",
-                CancelButtonAction: {
-                    showLogoutConfirmation = false
-                },
-                UpgradeButtonAction: {
-                    // Handle logout action
-                    LoginOutAction()
-                }
-            )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                CustomAlertView(
+                    message: "Are you sure you want to logout?",
+                    buttonTitle: "Logout",
+                    CancelButtonAction: {
+                        showLogoutConfirmation = false
+                    },
+                    UpgradeButtonAction: {
+                        // Handle logout action
+                        LoginOutAction()
+                    }
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            
         }
         
-        }
-
         
         NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView)
         {
@@ -193,9 +191,11 @@ struct SideMenuView: View {
             inviteMemebersScreenView = true
         }
         else if number == 2  {
-            paymentsScreenView = true
+            inviteMemebersScreenView = true
         }
         else if number == 3  {
+            paymentsScreenView = true
+
         }
         else if number == 4
         {
@@ -207,15 +207,15 @@ struct SideMenuView: View {
         {
             
             if !showLogoutConfirmation {
-                         showLogoutConfirmation = true
-                     }
+                showLogoutConfirmation = true
+            }
         }
         
         
     }
     
     func LoginOutAction() {
-       
+        
         var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
         
         let headers:HTTPHeaders = [
@@ -242,7 +242,7 @@ struct SideMenuView: View {
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""
                     userData.password = ""
-
+                    
                 }
                 else if loginoutResponse.rescode == 2 {
                     alertMsg = loginoutResponse.message!
@@ -251,7 +251,7 @@ struct SideMenuView: View {
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""
                     userData.password = ""
-
+                    
                 }
                 else{
                     alertMsg = loginoutResponse.message!
@@ -260,9 +260,9 @@ struct SideMenuView: View {
                 
             case .failure(let error):
                 alertMsg = error.localizedDescription
-
+                
                 showSimpleAlert = true
-
+                
             }
             
         }

@@ -356,13 +356,6 @@
 			path = TextInputs;
 			sourceTree = "<group>";
 		};
-		07488D3E2AD191640075CFAA /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
 		07488D412AD1A0360075CFAA /* BoilerPlates */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,10 +496,8 @@
 				07DEE2522A1DFE5300D8B4B5 /* Profile */,
 				07DEE24F2A1D509700D8B4B5 /* Home */,
 				07DEE24C2A1D4A7F00D8B4B5 /* ForgotPass */,
-				FAD8FF762A39CDAD00466533 /* ChangePassword */,
 				07ADF0CF2A07E5B20096C82D /* SplashScreenView.swift */,
 				07ADF0D12A07E5BF0096C82D /* LoginScreenView.swift */,
-				FA461D742AF11F86009A3FCE /* LoginCustomDivider.swift */,
 				07ADF0D32A07E5CB0096C82D /* RegisterScreenView.swift */,
 				07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */,
 				077823522AD0584900A6F2E3 /* TestContent.swift */,
@@ -519,9 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				FA461D762AF128FE009A3FCE /* NavigationBar */,
-				FA461D732AF11F70009A3FCE /* CustomDivider */,
 				FA461D702AF11C8F009A3FCE /* CustomAlert */,
-				07488D3E2AD191640075CFAA /* TabBar */,
 				0778234F2AD0531200A6F2E3 /* SearchableInput */,
 				FAF8E2932A2DBA5900149D29 /* SearchBar */,
 				FAF8E28C2A2B8F2200149D29 /* MainMenu */,
@@ -531,6 +520,7 @@
 				07ADF0D82A07E7730096C82D /* MainBGView.swift */,
 				FAD8FF592A36F63200466533 /* MultiLineTextField.swift */,
 				07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */,
+				FA461D742AF11F86009A3FCE /* LoginCustomDivider.swift */,
 				07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */,
 				070292802A1A5CEA0057FB33 /* CnicTextInput.swift */,
 				07513CC12AEE858200AB0290 /* SearchableDropDown.swift */,
@@ -649,13 +639,6 @@
 			path = CustomAlert;
 			sourceTree = "<group>";
 		};
-		FA461D732AF11F70009A3FCE /* CustomDivider */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomDivider;
-			sourceTree = "<group>";
-		};
 		FA461D762AF128FE009A3FCE /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,13 +687,6 @@
 				FAD8FF742A39C65200466533 /* InviteMemberScreenView.swift */,
 			);
 			path = Member;
-			sourceTree = "<group>";
-		};
-		FAD8FF762A39CDAD00466533 /* ChangePassword */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		FAD8FF772A39E72F00466533 /* Payments */ = {
@@ -859,7 +835,7 @@
 			);
 			mainGroup = 07ADF0A72A07E4110096C82D;
 			packageReferences = (
-				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
@@ -1217,6 +1193,7 @@
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = halka;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1247,6 +1224,7 @@
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = halka;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1289,7 +1267,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1318,7 +1296,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		07DEE2342A1CE4A900D8B4B5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */ = {

@@ -18,7 +18,7 @@ struct RegisterScreenView: View {
     @State private var fvConfirmPassword = ""
     
     @State private var selectedOption: String = RadioOption.CNIC.rawValue
-
+    
     @State private var showRegisterScreen = false
     @State private var isShowingLoader = false
     
@@ -32,9 +32,9 @@ struct RegisterScreenView: View {
         case CNIC = "CNIC"
         case MobileNumber = "Mobile Number"
     }
-
     
-
+    
+    
     private let networkOptions: [DropDownModel] = [
         DropDownModel(id: "1", value: "Ufone"),
         DropDownModel(id: "2", value: "Telenor"),
@@ -45,27 +45,27 @@ struct RegisterScreenView: View {
     
     var body: some View {
         NavigationView {
-           
+            
             ZStack {
                 BaseView(alertService: alertService)
-               
-                    
-                  
+                
+                
+                
                 
                 ZStack{
                     
                     Image("splash_background")
                         .resizable()
                         .edgesIgnoringSafeArea(.all)
-                  
+                    
                     ScrollView{
                         
                         CustomNavBar(title: "Sign Up", destinationView: LoginScreenView(), isActive: $isNavBarLinkActive)
                             .ignoresSafeArea()
-                            
                         
-
-
+                        
+                        
+                        
                         HStack {
                             Spacer()
                             RadioButton(option: RadioOption.CNIC.rawValue, selectedOption: $selectedOption)
@@ -73,15 +73,15 @@ struct RegisterScreenView: View {
                             RadioButton(option: RadioOption.MobileNumber.rawValue, selectedOption: $selectedOption)
                             Spacer()
                         }.padding(.top,30)
-
-
+                        
+                        
                         VStack {
                             
                             if selectedOption == RadioOption.CNIC.rawValue {
                                 FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
                             }
                             FormInput(label: "Name", placeholder: "Name", text: $fvName)
-                          
+                            
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
                             
                             FormInput(label: "Mobile Number", placeholder: "03xx3xxxxxx", text: $fvMobileNumber, isNumberInput: true)
@@ -127,8 +127,8 @@ struct RegisterScreenView: View {
     
     func validateInputs(){
         if selectedOption == RadioOption.CNIC.rawValue && fvCnic.isEmpty && fvCnic.count == 15  {
-               alertService.show(title: "Alert", message: "CNIC is required")
-           }
+            alertService.show(title: "Alert", message: "CNIC is required")
+        }
         if(fvCnic.isEmpty){
             alertService.show(title: "Alert", message: "CNIC is required")
         }
@@ -159,33 +159,33 @@ struct RegisterScreenView: View {
         else{
             doRegister()
         }
-//        if selectedOption == RadioOption.MobileNumber.rawValue && fvMobileNumber.isEmpty && fvCnic.count == 12  {
-//            alertService.show(title: "Alert", message: "Mobile Network is required")
-//           }
-//
-//        else if(fvName.isEmpty){
-//            alertService.show(title: "Alert", message: "Name is required")
-//        }
-//
-//        else if(fvMobileNetwork.value.isEmpty){
-//            alertService.show(title: "Alert", message: "Mobile Network is required")
-//        }
-//
-//
-//        else if(fvPassword.isEmpty){
-//            alertService.show(title: "Alert", message: "Password is required")
-//        }
-//
-//        else if(fvConfirmPassword.isEmpty){
-//            alertService.show(title: "Alert", message: "Confirm Password is required")
-//        }
-//
-//        else if(fvPassword != fvConfirmPassword){
-//            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
-//        }
-//        else{
-//            doRegister()
-//        }
+        //        if selectedOption == RadioOption.MobileNumber.rawValue && fvMobileNumber.isEmpty && fvCnic.count == 12  {
+        //            alertService.show(title: "Alert", message: "Mobile Network is required")
+        //           }
+        //
+        //        else if(fvName.isEmpty){
+        //            alertService.show(title: "Alert", message: "Name is required")
+        //        }
+        //
+        //        else if(fvMobileNetwork.value.isEmpty){
+        //            alertService.show(title: "Alert", message: "Mobile Network is required")
+        //        }
+        //
+        //
+        //        else if(fvPassword.isEmpty){
+        //            alertService.show(title: "Alert", message: "Password is required")
+        //        }
+        //
+        //        else if(fvConfirmPassword.isEmpty){
+        //            alertService.show(title: "Alert", message: "Confirm Password is required")
+        //        }
+        //
+        //        else if(fvPassword != fvConfirmPassword){
+        //            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
+        //        }
+        //        else{
+        //            doRegister()
+        //        }
     }
     
     
