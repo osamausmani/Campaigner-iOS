@@ -34,6 +34,7 @@
 		07513CC02AEE1F6500AB0290 /* ElectionHistoryListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07513CBF2AEE1F6500AB0290 /* ElectionHistoryListScreenView.swift */; };
 		07513CC22AEE858200AB0290 /* SearchableDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07513CC12AEE858200AB0290 /* SearchableDropDown.swift */; };
 		07513CC42AEEAABB00AB0290 /* SurveyHomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07513CC32AEEAABB00AB0290 /* SurveyHomeScreenView.swift */; };
+		07513CC62AF237CA00AB0290 /* SurveyAttemptScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07513CC52AF237CA00AB0290 /* SurveyAttemptScreenView.swift */; };
 		075AF35E2AEA7F2C00D33416 /* ComplaintsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AF35D2AEA7F2C00D33416 /* ComplaintsViewModel.swift */; };
 		075AF3602AEA81CE00D33416 /* ComplaintsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075AF35F2AEA81CE00D33416 /* ComplaintsResponse.swift */; };
 		0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077053392A1C9B8C000E1327 /* DropDown.swift */; };
@@ -178,6 +179,7 @@
 		07513CBF2AEE1F6500AB0290 /* ElectionHistoryListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionHistoryListScreenView.swift; sourceTree = "<group>"; };
 		07513CC12AEE858200AB0290 /* SearchableDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableDropDown.swift; sourceTree = "<group>"; };
 		07513CC32AEEAABB00AB0290 /* SurveyHomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyHomeScreenView.swift; sourceTree = "<group>"; };
+		07513CC52AF237CA00AB0290 /* SurveyAttemptScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAttemptScreenView.swift; sourceTree = "<group>"; };
 		075AF35D2AEA7F2C00D33416 /* ComplaintsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsViewModel.swift; sourceTree = "<group>"; };
 		075AF35F2AEA81CE00D33416 /* ComplaintsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsResponse.swift; sourceTree = "<group>"; };
 		077053392A1C9B8C000E1327 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 			isa = PBXGroup;
 			children = (
 				07513CC32AEEAABB00AB0290 /* SurveyHomeScreenView.swift */,
+				07513CC52AF237CA00AB0290 /* SurveyAttemptScreenView.swift */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				07ADF0AD2A07E4110096C82D /* Frameworks */,
 				07ADF0AE2A07E4110096C82D /* Resources */,
 				ADE2F08C3489F036FBE7108B /* [CP] Copy Pods Resources */,
+				FED5E9013DA76001A84AC9E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -855,7 +859,7 @@
 			);
 			mainGroup = 07ADF0A72A07E4110096C82D;
 			packageReferences = (
-				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 				07DEE2412A1CFB3700D8B4B5 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				07DEE2492A1D3FC100D8B4B5 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
@@ -918,6 +922,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Campaigner/Pods-Campaigner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FED5E9013DA76001A84AC9E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Campaigner/Pods-Campaigner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Campaigner/Pods-Campaigner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Campaigner/Pods-Campaigner-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1057,6 +1078,7 @@
 				FAC49CDE2A5BF33100AFAE81 /* ReportingViewModel.swift in Sources */,
 				FAF8E2862A29E88B00149D29 /* TabBarView.swift in Sources */,
 				FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */,
+				07513CC62AF237CA00AB0290 /* SurveyAttemptScreenView.swift in Sources */,
 				0778234E2AD0090100A6F2E3 /* BasicProfileInfoResponse.swift in Sources */,
 				FAF8E2952A2DBA6C00149D29 /* SearchBarView.swift in Sources */,
 				FAD8FF702A38FC8800466533 /* AddTeamView.swift in Sources */,
@@ -1267,7 +1289,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1296,7 +1318,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		07DEE2342A1CE4A900D8B4B5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 07DEE2332A1CE4A900D8B4B5 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 		07DEE2422A1CFB3700D8B4B5 /* SwiftyJSON */ = {

@@ -129,6 +129,8 @@ public class ApiPaths {
 
     // Surveys
     public static var ListSurveyByUserID = BasePath + "/list/survey/userid"
+    public static var SurveyDetails = BasePath + "/detail/survey"
+    public static var SurveySubmitAnswers = BasePath + "/add/door/answer"
 
     
 }
