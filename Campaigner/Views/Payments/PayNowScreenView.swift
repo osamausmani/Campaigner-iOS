@@ -93,12 +93,12 @@ struct PayNowScreenView: View {
                             
                             DropDown(label: "Bank", placeholder: "Select Bank", selectedObj:  $fvBank, menuOptions: bankOptions )
                             
-                            FormInput(label: "Account Title", placeholder: "Enter Account Title", text: $fvAccountTitle)
+                            FormInputField(label: "Account Title", placeholder: "Enter Account Title", text: $fvAccountTitle)
                             
-                            FormInput(label: "Account Number", placeholder: "Enter Account Number", text: $fvAccountNumber)
+                            FormInputField(label: "Account Number", placeholder: "Enter Account Number", text: $fvAccountNumber)
 
-                            FormInput(label: "Amount", placeholder: "Enter Amount", text: $fvAmount)
-                            FormInput(label: "Reference Number", placeholder: "Enter Reference Number", text: $fvReferenceNumber)
+                            FormInputField(label: "Amount", placeholder: "Enter Amount", text: $fvAmount)
+                            FormInputField(label: "Reference Number", placeholder: "Enter Reference Number", text: $fvReferenceNumber)
                             
                             HStack{
                                 Text("File upload:")

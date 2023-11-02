@@ -17,7 +17,7 @@ struct CnicTextInput: View {
     var body: some View {
         let mask: String
         if text.hasPrefix("0") {
-            mask = "XXXX-XXXXXXX"
+            mask = "XXXXXXXXXXX"
         } else {
             mask = "XXXXX-XXXXXXX-X"
         }

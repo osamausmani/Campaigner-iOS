@@ -21,7 +21,7 @@ struct LoginScreenView: View {
     @State private var isRegisterScreenActive = false
     @State private var isForgotScreenActive = false
     @State private var isHomeScreenActive = false
-    
+    @State private var loginType =  "1"
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     @StateObject var alertService = AlertService()
@@ -169,22 +169,22 @@ struct LoginScreenView: View {
     func ForgotPassAction() {
         
     }
-    
-    func validateUsername() -> Bool {
-        if userData.username.hasPrefix("0") {
-            if userData.username.count != 12 {
-                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
-                return false
-            } else {
-                if userData.username.count != 15 {
-                    alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    
+//
+//    func validateUsername() -> Bool {
+//        if userData.username.hasPrefix("0") {
+//            if userData.username.count != 12 {
+//                alertService.show(title: "Alert", message: "Phone number should be 11 digits.")
+//                return false
+//            } else {
+//                if userData.username.count != 13 {
+//                    alertService.show(title: "Alert", message: "CNIC should be 13 digits.")
+//                    return false
+//                }
+//            }
+//        }
+//        return true
+//    }
+//
     
     func LoginAction() {
         
@@ -193,9 +193,15 @@ struct LoginScreenView: View {
         //                password = "12345678"
         //
         
-        if !validateUsername() {
-            return
-        }
+//        if !validateUsername() {
+//            return
+//        }
+//        if userData.username.hasPrefix("0"){
+//            loginType="2"
+//        }
+//        else{
+//            loginType="1"
+//        }
         
         if userData.username.isEmpty {
             alertService.show(title: "Alert", message: "CNIC/PHONE NO is required")
@@ -212,7 +218,8 @@ struct LoginScreenView: View {
                 "user_name": userData.username,
                 "user_pass": userData.password,
                 "os_type": Constants.OS_TYPE,
-                "ios_version": Double((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!)
+                "ios_version": Double((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!),
+//                "signup_type" : loginType
             ]
             
             let loginViewModel = LoginViewModel()

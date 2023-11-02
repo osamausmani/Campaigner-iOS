@@ -54,11 +54,11 @@ struct AddMemberView: View {
                             
                             
                             FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
-                            FormInput(label: "Name", placeholder: "Enter Name", text: $fvName)
+                            FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
                             
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
                             
-                            FormInput(label: "Mobile Number", placeholder: "Mobile Number", text: $fvMobileNumber, isNumberInput: true)
+                            MobileNoTextField(label: "Mobile Number", placeholder: "Mobile Number", text: $fvMobileNumber, isNumberInput: true)
 
                             
                             MainButton(action: {

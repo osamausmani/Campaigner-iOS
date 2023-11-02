@@ -82,7 +82,7 @@ struct AddTeamView: View {
                         if (isUpdate == false)
                         {
                             VStack {
-                                FormInput(label: "Team Name", placeholder: "Enter Name", text: $fvTeamName)
+                                FormInputField(label: "Team Name", placeholder: "Enter Name", text: $fvTeamName)
                                 DropDown(label: "Polling Station", placeholder: "Select Polling Station", selectedObj:  $fvPollingStations, menuOptions: pollingStationsOptions)
                                 MultilineFormInput(label: "Description", placeholder: "Enter Description", text: $fvDescription)
                                 Spacer()

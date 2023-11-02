@@ -14,25 +14,32 @@ struct ForgotPasswordHomeScreenView: View {
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
     @State private var ForgotPassPinScreen = false
-
+    @State private var isNavBarLinkActive = false
     var body: some View {
         
         NavigationView {
             
             ZStack {
-                BaseView(alertService: alertService)
-                
-                ZStack{
+             
                     
                     Image("splash_background")
                         .resizable()
                         .edgesIgnoringSafeArea(.all)
-                    
+//
+//                VStack{
+//                    CustomNavBar(title: "Sign Up", destinationView: ForgotPassPinScreenView(), isActive: $isNavBarLinkActive)
+//                        .edgesIgnoringSafeArea(.top)
+//                    BaseView(alertService: alertService)
+//                    Spacer()
+//                }
                     ScrollView{
+                       
+                        
                         
                         VStack {
                             
-                            
+                         
+                       
                             Image("logo")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -59,7 +66,7 @@ struct ForgotPasswordHomeScreenView: View {
                         Loader(isShowing: $isShowingLoader)
                             .edgesIgnoringSafeArea(.all)
                     }
-                }
+                
                 
                 
             }

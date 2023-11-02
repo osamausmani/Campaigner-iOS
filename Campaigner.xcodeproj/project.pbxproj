@@ -76,6 +76,7 @@
 		07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2602A1E0BC500D8B4B5 /* Constants.swift */; };
 		FA145A6B2AF3733700053160 /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6A2AF3733700053160 /* TextFields.swift */; };
 		FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */; };
+		FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6E2AF39D3D00053160 /* FormInputField.swift */; };
 		FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */; };
 		FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3D2A5E820300E7C0AB /* HelperClass.swift */; };
 		FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E412A60273B00E7C0AB /* MapScreen.swift */; };
@@ -223,6 +224,7 @@
 		6F9B4EFB1EFFF03E943E1D9C /* Pods-Campaigner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Campaigner.release.xcconfig"; path = "Target Support Files/Pods-Campaigner/Pods-Campaigner.release.xcconfig"; sourceTree = "<group>"; };
 		FA145A6A2AF3733700053160 /* TextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFields.swift; sourceTree = "<group>"; };
 		FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoTextField.swift; sourceTree = "<group>"; };
+		FA145A6E2AF39D3D00053160 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
 		FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingResponse.swift; sourceTree = "<group>"; };
 		FA243E3D2A5E820300E7C0AB /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		FA243E412A60273B00E7C0AB /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				FAC49CDB2A5843AE00AFAE81 /* MultilineFormInput.swift */,
 				FA145A6A2AF3733700053160 /* TextFields.swift */,
 				FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */,
+				FA145A6E2AF39D3D00053160 /* FormInputField.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -1014,6 +1017,7 @@
 				07513CC42AEEAABB00AB0290 /* SurveyHomeScreenView.swift in Sources */,
 				FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */,
 				07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */,
+				FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */,
 				FAC49CDC2A5843AE00AFAE81 /* MultilineFormInput.swift in Sources */,
 				FAD8FF422A2F61B700466533 /* AlertManager.swift in Sources */,
 				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,

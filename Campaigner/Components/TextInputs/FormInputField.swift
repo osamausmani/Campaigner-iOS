@@ -1,60 +1,51 @@
 //
-//  FormInput.swift
+//  FormInputField.swift
 //  Campaigner
 //
-//  Created by Osama Usmani on 22/05/2023.
+//  Created by Macbook  on 02/11/2023.
 //
 
 import SwiftUI
 
-struct FormInput: View {
+struct FormInputField: View {
     var label: String
     var placeholder: String
     @Binding var text: String
-
+    
     var isNumberInput = false
     var isSecure = false
-    
     var body: some View {
-        let mask: String
-        if text.hasPrefix("0") {
-            mask = "XXXX-XXXXXXX"
-        } else {
-            mask = "XXXXX-XXXXXXX-X"
-        }
-        
-        return VStack {
+        VStack {
+            
             Text(label).alignmentGuide(.leading) { _ in 0 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 15))
             
-            HStack {
-                let formattedText = formatCnicPhone(text, with: mask)
-                
-                if isSecure {
+            HStack{
+                if (isSecure){
                     SecureField(placeholder, text: $text)
                         .foregroundColor(.black)
                         .frame(maxHeight: 30)
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
-                      
-                } else {
+                }
+                else{
                     TextField(placeholder, text: $text)
                         .foregroundColor(.black)
                         .frame(maxHeight: 30)
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
-                        .onAppear {
-                            self.text = formattedText
-                        }
-                        .onChange(of: text) { newValue in
-                            text = formatCnicPhone(newValue, with: mask)
-                        }
                 }
-            }
-            .border(Color.black)
+                
+                
+                
+            }.border(Color.black)
+            
+            
+            
+            
         }
     }
 }
