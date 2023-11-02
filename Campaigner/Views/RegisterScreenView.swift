@@ -15,6 +15,7 @@ struct RegisterScreenView: View {
     @State private var fvMobileNetwork = DropDownModel()
     @State private var fvMobileNumber = ""
     @State private var fvPassword = ""
+    @State private var signupType =  "1"
     @State private var fvConfirmPassword = ""
     
     @State private var selectedOption: String = RadioOption.CNIC.rawValue
@@ -78,8 +79,11 @@ struct RegisterScreenView: View {
                         VStack {
                             
                             if selectedOption == RadioOption.CNIC.rawValue {
+                                
                                 FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
+                                
                             }
+                          
                             TextFields(label: "Name", placeholder: "Name", text: $fvName)
                           
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
@@ -126,13 +130,11 @@ struct RegisterScreenView: View {
     
     
     func validateInputs(){
-        if selectedOption == RadioOption.CNIC.rawValue && fvCnic.isEmpty && fvCnic.count == 15  {
-            alertService.show(title: "Alert", message: "CNIC is required")
-        }
-        if(fvCnic.isEmpty){
-            alertService.show(title: "Alert", message: "CNIC is required")
-        }
-        
+        if selectedOption == RadioOption.CNIC.rawValue && fvCnic.isEmpty  {
+            
+               alertService.show(title: "Alert", message: "CNIC is required")
+           }
+      
         else if(fvName.isEmpty){
             alertService.show(title: "Alert", message: "Name is required")
         }
@@ -191,15 +193,21 @@ struct RegisterScreenView: View {
     
     func doRegister(){
         isShowingLoader.toggle()
-        
+        if selectedOption == RadioOption.CNIC.rawValue {
+            signupType="1"
+        }
+        else{
+            signupType="2"
+        }
         let parameters: [String:Any] = [
+           
             "plattype": Global.PlatType,
             "user_cnic": fvCnic,
             "user_full_name": fvPassword,
             "user_msisdn": fvMobileNumber,
             "user_pass": fvPassword,
-            "telco_op":fvMobileNetwork.id
-            
+            "telco_op":fvMobileNetwork.id,
+            "signup_type" : signupType
         ]
         
         let registerViewModel = RegisterViewModel()
