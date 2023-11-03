@@ -30,10 +30,11 @@ struct CustomTextInput: View {
             if isPasswordField {
                 if isPasswordVisible {
                     TextField(placeholder, text: $text)
-                    
                         .foregroundColor(.black)
+                        
                 } else {
                     SecureField(placeholder, text: $text)
+                        
                 }
             } else {
                 TextField(placeholder, text: $text)
@@ -50,12 +51,18 @@ struct CustomTextInput: View {
                         .padding(.leading, 5)
                 }
             }
+            
         }
         .frame(maxHeight: 40)
         .frame(minHeight: 30)
         .padding(10)
         .background(CColors.TextInputBgColor)
-        .border(Color.black, width: 1)
-        .cornerRadius(5)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.black, lineWidth: 1)
+        )
+        .alignmentGuide(.leading) { _ in 0 }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
     }
 }

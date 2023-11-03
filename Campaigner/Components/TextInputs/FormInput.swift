@@ -52,9 +52,16 @@ struct FormInput: View {
                         .onChange(of: text) { newValue in
                             text = formatCnicPhone(newValue, with: mask)
                         }
+                       
                 }
             }
-            .border(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+            .alignmentGuide(.leading) { _ in 0 }
+            .frame(maxWidth: .infinity, alignment: .leading)
+          
         }
     }
 }

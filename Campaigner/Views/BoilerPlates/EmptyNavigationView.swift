@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EmptyNavigationView: View {
     @StateObject private var alertService = AlertService()
-
+    
     var body: some View {
         NavigationView {
             ZStack {

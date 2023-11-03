@@ -15,7 +15,7 @@ struct NewsDetailScreenView: View {
     @State var news = [News]()
     @State var newsID = ""
     @Binding var selectedIndex:Int
-
+    
     @State var likeCount = 0
     @State var commentsCount = 0
     @State var isLiked = 0
@@ -284,7 +284,7 @@ public struct CommentView: View {
                     // Add your action here
                     if newComment.count>3{
                         AddComment()
-
+                        
                     }
                 }) {
                     Circle()

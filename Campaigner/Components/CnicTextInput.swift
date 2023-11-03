@@ -45,8 +45,12 @@ struct CnicTextInput: View {
         .frame(minHeight: 30)
         .padding(10)
         .background(backgroundColor)
-        .border(Color.black, width: 1)
-        .cornerRadius(5)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.black, lineWidth: 1)
+        )
+        .alignmentGuide(.leading) { _ in 0 }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     struct CnicTextInput_Previews: PreviewProvider {
         static var previews: some View {

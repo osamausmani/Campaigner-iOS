@@ -21,11 +21,11 @@ struct InviteMemberScreenView: View {
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @State var showStoreDropDown: Bool = false
-    
+    @State private var isActiveView = false
     @StateObject private var alertService = AlertService()
-    
+    @State private var isPresentMenu=false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+   
     
     private let networkOptions: [DropDownModel] = [
         DropDownModel(id: "1", value: "Ufone"),
@@ -34,6 +34,7 @@ struct InviteMemberScreenView: View {
         DropDownModel(id: "4", value: "Zong"),
         DropDownModel(id: "5", value: "Scom"),
     ]
+  
     var body: some View {
         
         NavigationView {
@@ -41,6 +42,7 @@ struct InviteMemberScreenView: View {
             ZStack {
                 BaseView(alertService: alertService)
                 
+            
                 ZStack{
                     
                     Image("splash_background")
@@ -51,9 +53,7 @@ struct InviteMemberScreenView: View {
                        // headerView(heading: "Add Member")
                         VStack {
                             
-                            
-                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
-                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
+
                             FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
                             
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
@@ -86,6 +86,7 @@ struct InviteMemberScreenView: View {
             
         }.navigationBarHidden(false)
             .navigationTitle("Invite Member")
+            .background(CColors.MainThemeColor )
     }
     
     func RegisterAction(){
@@ -95,11 +96,9 @@ struct InviteMemberScreenView: View {
     
     func validateInputs()
     {
-        if(fvCnic.isEmpty){
-            alertService.show(title: "Alert", message: "CNIC is required")
-        }
+      
         
-        else if(fvName.isEmpty){
+      if(fvName.isEmpty){
             alertService.show(title: "Alert", message: "Name is required")
         }
         
@@ -121,41 +120,41 @@ struct InviteMemberScreenView: View {
 //            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
 //        }
         else {
-            doRegister()
+            doInvite()
              }
     }
     
     
-    func doRegister(){
+    func doInvite(){
         isShowingLoader.toggle()
         
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
-            "user_cnic": fvCnic,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
             "user_full_name": fvName,
             "user_msisdn": fvMobileNumber,
-            "user_pass": "",
-            "telco_op":fvMobileNetwork.id
+
+//            "telco_op":fvMobileNetwork.id
 
         ]
         
-        let registerViewModel = RegisterViewModel()
+        let inviteViewModel = InviteViewModel()
         
-        registerViewModel.registerNewAccountRequest(parameters: parameters ) { result in
+        inviteViewModel.inviteMemberRequest(parameters: parameters ) { result in
             isShowingLoader.toggle()
             
             switch result {
                 
-            case .success(let loginResponse):
+            case .success(let inviteResponse):
                 
-                if loginResponse.rescode == 1 {
+                if inviteResponse.rescode == 1 {
                     
-                    alertService.show(title: "Alert", message: loginResponse.message!)
+                    alertService.show(title: "Alert", message: inviteResponse.message!)
                     
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }else{
-                    alertService.show(title: "Alert", message: loginResponse.message!)
+                    alertService.show(title: "Alert", message: inviteResponse.message!)
                 }
                 
             case .failure(let error):

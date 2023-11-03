@@ -27,7 +27,12 @@ struct SurveyAttemptScreenView: View {
     
     var body: some View {
         
+
 //        VStack{ VStack(alignment: .leading, spacing: 20) {
+
+//        VStack{
+//            VStack(alignment: .leading, spacing: 20) {
+
 //            ScrollView{
 //
 //                ForEach(surveyQuestionsArray.indices, id: \.self) { index in
@@ -146,18 +151,29 @@ struct SurveyAttemptScreenView: View {
 //    func updateTFOption(qIndex: Int, question: SurveyQuestion, value:Bool) {
 //        Answers.indices.forEach { index in
 //            if index == qIndex {
+
+//
 //
 //                Answers[index] = value ? "True" : "False"
 //                QuestionIDs[index] = question.question_id_text!
 //            }
 //        }
 //    }
+
 //
 //    func bindingForTFOption(qIndex: Int, value: String) -> Bool {
 //        return Answers[qIndex] == value
 //    }
 //
 //
+
+//    
+//    func bindingForTFOption(qIndex: Int, value: String) -> Bool {
+//        return Answers[qIndex] == value
+//    }
+//    
+//    
+
 //    func bindingForOption(option: SurveyQuestionOption, qIndex: Int)  -> Bool {
 //        if AnswerOptions[qIndex] == option.question_option!{
 //            return true
@@ -166,7 +182,11 @@ struct SurveyAttemptScreenView: View {
 //            return false
 //        }
 //    }
+
 //
+
+//    
+
 //    func updateAnswerOption(option: String, qIndex: Int, question: SurveyQuestion) {
 //        AnswerOptions.indices.forEach { index in
 //            if index == qIndex {
@@ -175,7 +195,11 @@ struct SurveyAttemptScreenView: View {
 //            }
 //        }
 //    }
+
 //
+
+//    
+
 //    func SubmitSurvey(){
 //        let parameters: [String:Any] = [
 //            "plattype": Global.PlatType,
@@ -191,24 +215,40 @@ struct SurveyAttemptScreenView: View {
 //            switch result {
 //            case .success(let response ):
 //                if response.rescode == 1 {
+
 //
+
+//                    
+
 //                    SwiftAlertView.show(title: "Alert",
 //                                        message: response.message,
 //                                        buttonTitles: "OK")
 //                    .onButtonClicked { _, buttonIndex in
 //                        self.presentationMode.wrappedValue.dismiss()
 //                    }
+
 //
+
+//                    
+
 //                }else{
 //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
 //                }
 //            case .failure(let error):
 //                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
+
 //
 //            }
 //        }
 //    }
 //
+
+//                
+//            }
+//        }
+//    }
+//    
+
 //    func GetSurveysData(){
 //        let parameters: [String:Any] = [
 //            "plattype": Global.PlatType,
@@ -220,7 +260,11 @@ struct SurveyAttemptScreenView: View {
 //            switch result {
 //            case .success(let response ):
 //                if response.rescode == 1 {
+
 //
+
+//                    
+
 //                    surveyQuestionsArray = response.data![0].question_data!
 //                    surveyData = response.data![0]
 //                    for _ in surveyQuestionsArray{
@@ -228,10 +272,16 @@ struct SurveyAttemptScreenView: View {
 //                        Answers.append("")
 //                        AnswerOptions.append("")
 //                    }
+
 //
 //                }else{
 //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
 //
+
+//                    
+//                }else{
+//                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
+
 //                }
 //            case .failure(let error):
 //                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
@@ -244,7 +294,11 @@ struct SurveyAttemptScreenView: View {
 //    let label: String
 //    let isChecked: Bool
 //    var checkboxChanged: ((Bool) -> Void)?
+
 //
+
+//    
+
 //    var body: some View {
 //        Button(action: {
 //            checkboxChanged?(!isChecked)
@@ -265,7 +319,11 @@ struct SurveyAttemptScreenView: View {
 //    let label: String
 //    let isChecked: Bool
 //    var checkboxChanged: ((Bool) -> Void)?
+
 //
+
+//    
+
 //    var body: some View {
 //        HStack {
 //            Button(action: {
@@ -288,7 +346,11 @@ struct SurveyAttemptScreenView: View {
 //    let option: SurveyQuestionOption
 //    let isChecked: Bool
 //    var checkboxChanged: ((Bool) -> Void)?
+
 //
+
+//    
+
 //    var body: some View {
 //        HStack {
 //            Button(action: {
@@ -306,15 +368,25 @@ struct SurveyAttemptScreenView: View {
 //struct QuestionCardView<Content: View>: View {
 //    let title: String
 //    let content: () -> Content
+
 //
+
+//    
+
 //    var body: some View {
 //        VStack(alignment: .leading, spacing: 8) {
 //            Text(title)
 //                .font(.headline)
 //                .padding(.leading, 0)
+
 //
 //            content()
 //
+
+//            
+//            content()
+//            
+
 //        }.frame(maxWidth: .infinity)
 //            .padding(8)
 //            .background(Color.white)
@@ -322,9 +394,18 @@ struct SurveyAttemptScreenView: View {
 //            .shadow(color: Color.gray.opacity(0.5), radius: 4, x: 0, y: 2)
 //    }
 //}
+
 //
 //struct SurveyAttemptScreenView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        SurveyAttemptScreenView()
 //    }
 //}
+
+
+struct SurveyAttemptScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        SurveyAttemptScreenView()
+    }
+}
+

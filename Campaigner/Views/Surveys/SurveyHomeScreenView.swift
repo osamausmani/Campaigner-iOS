@@ -25,8 +25,8 @@ struct SurveyHomeScreenView: View {
         
         ZStack {
             BaseView(alertService: alertService)
-            NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
-                        }
+//            NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
+//                        }
             //
             //            NavigationLink(destination: ComplaintCommentScreenView(selectedItemID: selectedItem?.complaint_id), isActive: $isCommentsScreenViewActive) {
             //            }
