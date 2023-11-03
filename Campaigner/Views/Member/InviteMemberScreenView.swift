@@ -53,6 +53,7 @@ struct InviteMemberScreenView: View {
                             
                             
                             FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
+                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
                             FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
                             
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )

@@ -94,6 +94,8 @@
 		FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */; };
 		FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */; };
 		FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */; };
+		FA730C0F2AF4C9B100A69B5C /* changePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */; };
+		FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C122AF4D0E500A69B5C /* MandatoryField.swift */; };
 		FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB32A498A7200AFAE81 /* AlertView.swift */; };
 		FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */; };
 		FAC49CB82A51DE1200AFAE81 /* VerificationCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */; };
@@ -243,6 +245,8 @@
 		FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsResponse.swift; sourceTree = "<group>"; };
 		FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordView.swift; sourceTree = "<group>"; };
+		FA730C122AF4D0E500A69B5C /* MandatoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryField.swift; sourceTree = "<group>"; };
 		FAC49CB32A498A7200AFAE81 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertView.swift; sourceTree = "<group>"; };
 		FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeInput.swift; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 				FA145A6A2AF3733700053160 /* TextFields.swift */,
 				FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */,
 				FA145A6E2AF39D3D00053160 /* FormInputField.swift */,
+				FA730C122AF4D0E500A69B5C /* MandatoryField.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 		07ADF0C42A07E4590096C82D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA730C0D2AF4C96E00A69B5C /* ChangePassword */,
 				07488D412AD1A0360075CFAA /* BoilerPlates */,
 				FA5B5BE12A403446005AD722 /* News */,
 				FAD8FF772A39E72F00466533 /* Payments */,
@@ -662,6 +668,14 @@
 				FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		FA730C0D2AF4C96E00A69B5C /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */,
+			);
+			path = ChangePassword;
 			sourceTree = "<group>";
 		};
 		FAD8FF382A2EFEB600466533 /* Notifications */ = {
@@ -1034,6 +1048,7 @@
 				FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */,
 				FAD8FF622A385CB900466533 /* ReportingScreenView.swift in Sources */,
 				FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */,
+				FA730C0F2AF4C9B100A69B5C /* changePasswordView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
@@ -1054,6 +1069,7 @@
 				FAD8FF672A386A3100466533 /* ToggleButtonView.swift in Sources */,
 				FAD8FF602A383E7C00466533 /* RadioButton.swift in Sources */,
 				074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */,
+				FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */,
 				074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */,
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
 				077823512AD0546800A6F2E3 /* SearchableInput.swift in Sources */,
