@@ -85,8 +85,8 @@ public struct SearchableDropDown: View {
             HStack {
                 Button(action: { isPickerVisible.toggle() }) {
                     HStack {
-                        Text(selectedOption.isEmpty ? placeholder : selectedOption)
-                            .foregroundColor(selectedOption.isEmpty ? .gray : .black)
+                        Text(!selectedObj.id.isEmpty ? selectedObj.value : placeholder )
+                            .foregroundColor(!selectedObj.id.isEmpty ? .black : .gray)
                         Spacer()
                         Image(systemName: "chevron.down").padding(.trailing,10).foregroundColor(.black)
                     } .frame(height: 40)

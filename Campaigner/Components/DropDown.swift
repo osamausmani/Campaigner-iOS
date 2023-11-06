@@ -38,9 +38,9 @@ public struct DropDown: View {
                         })
                     }
                 } label: {
-                    Text( selectedOption == "" ? placeholder : selectedOption ).alignmentGuide(.leading) { _ in 0 }
+                    Text(!selectedObj.value.isEmpty ? selectedObj.value : placeholder ).alignmentGuide(.leading) { _ in 0 }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.system(size: 15)).foregroundColor( selectedOption == "" ? .gray : .black)
+                        .font(.system(size: 15)).foregroundColor( !selectedObj.value.isEmpty ? .black : .gray)
                 }
                 Image(systemName: "chevron.down").padding(.trailing,10)
             }.frame(height: 40)
