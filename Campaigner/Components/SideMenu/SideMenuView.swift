@@ -19,8 +19,6 @@ struct SideMenuView: View {
     
     @State private var paymentsScreenView = false
     
-    @State private var chnagePasswordScreenView = false
-    
     @State private var termsOfUseScreenView = false
     
     @State private var contactUsScreenView = false
@@ -28,6 +26,7 @@ struct SideMenuView: View {
     
     @State private var ChangePasswordScreenView = false
     @State private var TermOfUseScreenView = false
+    @State private var contactUsView = false
     
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
@@ -90,6 +89,9 @@ struct SideMenuView: View {
         NavigationLink(destination: changePasswordView(), isActive: $ChangePasswordScreenView) {
         }
         NavigationLink(destination: TermOfUseView(), isActive: $TermOfUseScreenView) {
+        }
+        
+        NavigationLink(destination: ContactUsView(), isActive: $contactUsView) {
         }
         
         
@@ -209,6 +211,11 @@ struct SideMenuView: View {
         else if number == 8{
             TermOfUseScreenView = true
         }
+        else if number == 9
+        {
+            contactUsView=true
+            
+        }
         
         else if number == 10
         {
@@ -293,7 +300,7 @@ struct SideMenuView: View {
 //struct SideMenuView_Previews: PreviewProvider {
 //    @State static var selectedSideMenuTab = 0
 //    @State static var presentSideMenu = true
-//    
+//
 //    static var previews: some View {
 //        SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu )
 //    }
