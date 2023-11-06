@@ -76,5 +76,9 @@ class LookupsViewModel: ObservableObject {
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
+    func ContactUs(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ContactUsResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ContactUs
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
+    }
     
 }

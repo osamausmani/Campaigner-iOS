@@ -247,3 +247,14 @@ struct PartiesResponseModel: Codable
     var id_text : String?
     var party_name : String?
 }
+
+struct ContactUsResponse: Decodable {
+    let rescode: Int
+    let message: String
+    let data: [ContacUsValue]
+}
+
+struct ContacUsValue: Decodable {
+    let type: Int
+    let value: String
+}

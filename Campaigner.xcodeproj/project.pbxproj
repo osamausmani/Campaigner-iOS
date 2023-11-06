@@ -22,6 +22,7 @@
 		0711DE2A2AF6AC2B00CB3FB5 /* DataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE292AF6AC2B00CB3FB5 /* DataPicker.swift */; };
 		0711DE2D2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE2C2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift */; };
 		0711DE2F2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE2E2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift */; };
+		0711DE342AF9208A00CB3FB5 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE332AF9208A00CB3FB5 /* ContactUsView.swift */; };
 		07488D362AD1039D0075CFAA /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D352AD1039D0075CFAA /* NewsViewModel.swift */; };
 		07488D432AD1A04B0075CFAA /* ViewTabBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D422AD1A04B0075CFAA /* ViewTabBars.swift */; };
 		07488D452AD1A1530075CFAA /* NoRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D442AD1A1530075CFAA /* NoRecordView.swift */; };
@@ -183,6 +184,7 @@
 		0711DE292AF6AC2B00CB3FB5 /* DataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicker.swift; sourceTree = "<group>"; };
 		0711DE2C2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePoliticalResponse.swift; sourceTree = "<group>"; };
 		0711DE2E2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileElectoralExpResponse.swift; sourceTree = "<group>"; };
+		0711DE332AF9208A00CB3FB5 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		07488D352AD1039D0075CFAA /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		07488D422AD1A04B0075CFAA /* ViewTabBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTabBars.swift; sourceTree = "<group>"; };
 		07488D442AD1A1530075CFAA /* NoRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecordView.swift; sourceTree = "<group>"; };
@@ -436,6 +438,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		0711DE302AF9205000CB3FB5 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				0711DE332AF9208A00CB3FB5 /* ContactUsView.swift */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
 		07488D412AD1A0360075CFAA /* BoilerPlates */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +573,7 @@
 		07ADF0C42A07E4590096C82D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0711DE302AF9205000CB3FB5 /* ContactUs */,
 				FA730C162AF4FE8C00A69B5C /* TermOfUse */,
 				FA730C0D2AF4C96E00A69B5C /* ChangePassword */,
 				07488D412AD1A0360075CFAA /* BoilerPlates */,
@@ -1141,6 +1152,7 @@
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
+				0711DE342AF9208A00CB3FB5 /* ContactUsView.swift in Sources */,
 				07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */,
 				07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */,
 				07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */,

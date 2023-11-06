@@ -36,16 +36,12 @@ public class ApiPaths {
     public static var ElectoralExpDelete = BasePath + "/delete/user/electoral/info"
     public static var ElectoralExpList = BasePath + "/view/user/electoral/info"
 
-    
-    
     //News
     public static var NewsDetails = BasePath + "/detail/news"
     public static var NewsLike = BasePath + "/like/news"
     public static var NewsDislike = BasePath + "/dislike/news"
     public static var NewsAddComment = BasePath + "/add/news/comment"
 
-    
-    
     // Lookups
     public static var ListProvinces = BasePath + "/list/dynamic/province"
     public static var ListDistrict = BasePath + "/list/dynamic/district"
@@ -53,13 +49,14 @@ public class ApiPaths {
     public static var ListConstituency = BasePath + "/list/profile/constituency"
     public static var ListReportingType = BasePath + "/list/reporting/type"
     public static var TermandCondition = BasePath + "/list/terms"
-    
+    public static var ContactUs = BasePath + "/list/contacts"
+    public static var ListParties = BasePath + "/list/parties"
+
     
     //Contesting Elections
     public static var addElection = BasePath + "/add/elections"
     public static var updateElection = BasePath + "/update/elections"
     public static var deleteElection = BasePath + "/delete/elections"
-    
     
     public static var ListElection = BasePath + "/list/elections"
     public static var ListElectionMembers = BasePath + "/list/elections/members"
@@ -73,22 +70,11 @@ public class ApiPaths {
     public static var changePassword = BasePath + "/account/change/password"
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     //DashBoard
     public static var mobileDashboard = BasePath + "/list/dashboard/data"
     
-    
     //Payments
-    
     public static var payFee = BasePath + "/pay/fee"
-    
     public static var bankList = BasePath + "/list/banks"
     
     //Name mistake
@@ -97,14 +83,7 @@ public class ApiPaths {
     public static var listUserSubscription = BasePath + "/list/user/subscriptions"
     public static var addSubscriptionRequest = BasePath + "/add/user/subscription"
     public static var unSubSubscriptiont = BasePath + "/delete/user/subscription"
-    
-    
-    
-    
-    
-    
 
-    
     //Team
     public static var addTeam = BasePath + "/add/team"
     public static var updateTeam = BasePath + "/update/team"
@@ -118,15 +97,13 @@ public class ApiPaths {
     public static var listMemebers = BasePath + "/list/elections/members"
     public static var ListPollingStation = BasePath + "/list/pollstation"
     
-    
     //Reporting
     public static var addReport = BasePath + "/add/reporting"
     public static var updateReport = BasePath + "/update/reporting"
     public static var deleteReport = BasePath + "/delete/reporting"
     public static var listReport = BasePath + "/list/reporting"
     public static var changeStatusReport = BasePath + "/change/reporting/status"
-    
-    
+
     //Complaints
     public static var ListComplaintTypes = BasePath + "/list/complaint/type"
     public static var AddComplaint = BasePath + "/add/complaint"
@@ -144,7 +121,6 @@ public class ApiPaths {
     public static var ListSurveyByUserID = BasePath + "/list/survey/userid"
     public static var SurveyDetails = BasePath + "/detail/survey"
     public static var SurveySubmitAnswers = BasePath + "/add/door/answer"
-
-    public static var ListParties = BasePath + "/list/parties"
+    
 
 }
