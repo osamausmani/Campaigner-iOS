@@ -10,9 +10,6 @@ public class ApiPaths {
     
     
     public static var VoterBasePath = "https://voter.syntracx.com/mini-process.php"
-
-    
-    
     //    public static var BasePath = "https://campaigner.syntracx.com/api"
     public static var BasePath = "https://staging.halka.pk/api"
     
