@@ -234,8 +234,6 @@ struct AddNewComplaintView: View {
     }
     
     func GetDistricts(){
-
-
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,

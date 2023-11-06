@@ -34,6 +34,17 @@ struct DistrictResponseModel: Codable
     var district_name : String?
 }
 
+struct ListTehsilResponse: Codable {
+    let rescode: Int?
+    let message: String?
+    var data: [TehsilResponseModel]?
+}
+
+struct TehsilResponseModel: Codable
+{
+    var tehsil_id : String?
+    var tehsil_name : String?
+}
 
 struct ListConstituencyResponse: Codable {
     let rescode: Int?

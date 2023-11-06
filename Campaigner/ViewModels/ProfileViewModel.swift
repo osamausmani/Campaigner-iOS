@@ -15,6 +15,11 @@ class ProfileViewModel: ObservableObject {
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
+    func ProfileBasicInfoUpdate(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.UserProfileInfoUpdate
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
     func PoliticalCareerAdd(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.PoliticalCareerAdd
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)

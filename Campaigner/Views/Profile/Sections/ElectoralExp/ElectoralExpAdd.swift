@@ -105,9 +105,14 @@ struct ElectoralExpAdd: View {
                 selectedParty = DropDownModel(id: (recordItem?.elect_party)!, value: (recordItem?.party_name)!)
                 selectedYear = DropDownModel(id: (recordItem?.elect_year)!, value: (recordItem?.elect_year)!)
                 
+                if let assemType = recordItem?.elect_assembly {
+                    let electTypeString = String(assemType)
+                    selectedAssemblyType = assemblyOptions.first { $0.id == electTypeString }!
+                }
+                
                 if let electType = recordItem?.elect_type {
                     let electTypeString = String(electType)
-                    selectedAssemblyType = assemblyOptions.first { $0.id == electTypeString }!
+                    selectedElectionType = electionTypeOptions.first { $0.id == electTypeString }!
                 }
                 
                 
