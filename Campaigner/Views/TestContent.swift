@@ -1,43 +1,85 @@
-import SwiftUI
-
 
 import SwiftUI
 
-struct TestContent: View {
+import SwiftUI
+
+struct CardView2: View {
     var body: some View {
-        NavigationView {
-            TabView {
-                // Tab 1
-                Text("Tab 1")
-                    .tabItem {
-                        Image(systemName: "1.circle")
-                        Text("Tab 1")
-                    }
+        HStack {
+            // Data Column
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    Text("Name")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    Text("Pakistan Tehreek-e-Insaf (PTI)")
+                        .font(.body)
+                }
                 
-                // Tab 2
-                Text("Tab 2")
-                    .tabItem {
-                        Image(systemName: "2.circle")
-                        Text("Tab 2")
-                    }
+                HStack {
+                    Text("From")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    Text("05 July 2023")
+                        .font(.body)
+                }
                 
-                // Tab 3
-                Text("Tab 3")
-                    .tabItem {
-                        Image(systemName: "3.circle")
-                        Text("Tab 3")
-                    }
+                HStack {
+                    Text("To")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    Text("05 November 2023")
+                        .font(.body)
+                }
             }
-            .navigationBarTitle("Tabs at Top", displayMode: .inline)
+            .padding()
+            
+            Spacer()
+            
+            // Action Buttons Column
+            VStack(spacing: 4) {
+                
+                Button(action: {
+                }) {
+                    HStack {
+                        Image(systemName: "pencil")
+                            .foregroundColor(.white)
+                            .frame(width: 24, height: 24)
+                        Spacer()
+                        Text("Edit")
+                            .foregroundColor(.white).padding(.trailing,8)
+                    }
+                }.frame(width: 90).background(Color.green)
+                    .cornerRadius(8)
+                
+                Button(action: {
+                    // Delete action
+                }) {
+                    HStack {
+                        Image(systemName: "trash")
+                            .foregroundColor(.white)
+                            .frame(width: 24, height: 24)
+                        Spacer()
+                        Text("Delete")
+                            .foregroundColor(.white).padding(.trailing,8)
+                    }
+                }.frame(width: 90).background(Color.red)
+                    .cornerRadius(8)
+            }
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // This positions the tabs at the top
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+        .shadow(radius: 1)
     }
 }
 
-
-
-struct TestContent_Previews: PreviewProvider {
+struct CardView2_Previews: PreviewProvider {
     static var previews: some View {
-        TestContent()
+        CardView2()
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }

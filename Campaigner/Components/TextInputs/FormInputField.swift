@@ -10,17 +10,20 @@ import SwiftUI
 struct FormInputField: View {
     var label: String
     var placeholder: String
+    var isMandatory = false
+    
     @Binding var text: String
     
     var isNumberInput = false
     var isSecure = false
     var body: some View {
         VStack {
-            
-            Text(label).alignmentGuide(.leading) { _ in 0 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(size: 15))
-            
+            HStack{
+                Text(label).alignmentGuide(.leading) { _ in 0 }
+                    .font(.system(size: 15))
+                isMandatory ? Text("*").foregroundColor(.red) :nil
+                Spacer()
+            }
             HStack{
                 if (isSecure){
                     SecureField(placeholder, text: $text)
@@ -29,8 +32,8 @@ struct FormInputField: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
-                      
-                        
+                    
+                    
                 }
                 else{
                     TextField(placeholder, text: $text)
@@ -39,8 +42,8 @@ struct FormInputField: View {
                         .padding(10)
                         .font(.system(size: 16))
                         .keyboardType(isNumberInput ? .numberPad : .default)
-                     
-                        
+                    
+                    
                 }
                 
                 
@@ -48,11 +51,7 @@ struct FormInputField: View {
             }  .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.black, lineWidth: 1)
-            ).border(Color.black)
-            
-            
-            
-            
+            )
         }
     }
 }

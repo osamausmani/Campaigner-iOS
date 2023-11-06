@@ -19,14 +19,13 @@ struct SurveyHomeScreenView: View {
     @State private var selectedTab = 1
     @State private var surveyAttemptScreenView = false
     @State private var surveyID: String? = ""
-
- 
+    
     var body: some View {
         
         ZStack {
             BaseView(alertService: alertService)
-//            NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
-//                        }
+            NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
+            }
             //
             //            NavigationLink(destination: ComplaintCommentScreenView(selectedItemID: selectedItem?.complaint_id), isActive: $isCommentsScreenViewActive) {
             //            }
@@ -96,7 +95,7 @@ struct SurveyHomeScreenView: View {
                     
                     var sArr = [SurveyListData]()
                     sArr = response.data ?? []
-    
+                    
                     if selectedTab == 1 {
                         let filteredSurveys = sArr.filter { $0.survey_submitted == "0" }
                         surveyListArray.removeAll()
@@ -117,7 +116,7 @@ struct SurveyHomeScreenView: View {
         }
     }
     
- 
+    
     
 }
 
@@ -157,7 +156,7 @@ struct SurveyCustomCardView: View {
                 HStack{
                     Text(item.survey_description ?? "Description")
                         .font(.body)
-                    .foregroundColor(Color.black)
+                        .foregroundColor(Color.black)
                     Spacer()
                 }
                 if item.survey_multi_attempt! > 0 {
