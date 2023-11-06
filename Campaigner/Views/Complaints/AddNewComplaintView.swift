@@ -44,8 +44,7 @@ struct AddNewComplaintView: View {
             ZStack {
                 
                 BaseView(alertService: alertService)
-                
-                
+
                 VStack{
                     HStack{
                         

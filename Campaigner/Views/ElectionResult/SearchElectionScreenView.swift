@@ -189,6 +189,7 @@ struct SearchElectionScreenView: View {
     
     
     
+    
 }
 
 struct Election_Previews: PreviewProvider {

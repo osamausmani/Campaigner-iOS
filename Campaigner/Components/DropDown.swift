@@ -11,21 +11,21 @@ public struct DropDown: View {
     
     var label: String
     var placeholder: String
-    
-    
+    var isMandatory = false
     @State private var isPickerVisible = false
     @State private var selectedOption = ""
-    
     @Binding var selectedObj: DropDownModel
-    
     let menuOptions: [DropDownModel]
     
     
     public var body: some View {
         VStack {
-            Text(label).alignmentGuide(.leading) { _ in 0 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(size: 15))
+            HStack{
+                Text(label).alignmentGuide(.leading) { _ in 0 }
+                    .font(.system(size: 15))
+                isMandatory ? Text("*").foregroundColor(.red) :nil
+                Spacer()
+            }
             HStack{
                 Menu {
                     ForEach(menuOptions) { option in

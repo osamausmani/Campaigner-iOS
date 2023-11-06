@@ -23,7 +23,7 @@ class LookupsViewModel: ObservableObject {
     
     func ListConstituency(parameters: [String:Any]?, completion: @escaping (Result<ListConstituencyResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.ListConstituency
-        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     func ListVoterConstituency(parameters: [String:Any]?, completion: @escaping (Result<ConstituencyVoterList, Error>) -> Void) {
@@ -63,5 +63,11 @@ class LookupsViewModel: ObservableObject {
         let REQ_URL = ApiPaths.ListReportingType
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
+    
+    func ListParties(parameters: [String:Any]?, completion: @escaping (Result<ListPartiesResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListParties
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
     
 }
