@@ -18,23 +18,21 @@ struct TermOfUseView: View {
     @State  var tosData = ""
     
     var body: some View {
-        ZStack{
-            VStack{
-                CustomNavBar(title: "Term of Conditions", destinationView: HomeScreenView(presentSideMenu: $isPresentHome), isActive: $isActiveScreen)
-                    .edgesIgnoringSafeArea(.all)
+        VStack{
+            CustomNavBarBack(title: "Term of Conditions")
+            VStack {
+                HTMLTextView(htmlString: $tosData)
+                    .padding(4)
                 
-                VStack{
-                                    HTMLTextView(htmlString: $tosData)
-                }.background(.red).frame(maxHeight: .infinity).padding(4)
-                
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading).padding(.top,-60)
+
             
-        }
+ 
+        }.navigationBarHidden(true)
         
-        
-        .onAppear {
-            getTermOfUse()
-        }
+            .onAppear {
+                getTermOfUse()
+            }
         
     }
     

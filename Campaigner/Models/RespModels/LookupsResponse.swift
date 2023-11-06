@@ -224,3 +224,15 @@ struct TermOfUseData: Decodable {
     let terms: String
 }
 
+struct ListPartiesResponse: Codable {
+    let rescode: Int?
+    let message: String?
+    var data: [PartiesResponseModel]?
+    
+}
+
+struct PartiesResponseModel: Codable
+{
+    var id_text : String?
+    var party_name : String?
+}

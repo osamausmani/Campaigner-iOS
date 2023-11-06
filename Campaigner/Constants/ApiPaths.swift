@@ -143,5 +143,6 @@ public class ApiPaths {
     public static var SurveyDetails = BasePath + "/detail/survey"
     public static var SurveySubmitAnswers = BasePath + "/add/door/answer"
 
-    
+    public static var ListParties = BasePath + "/list/parties"
+
 }

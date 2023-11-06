@@ -102,7 +102,7 @@
 		FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */; };
 		FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */; };
 		FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */; };
-		FA730C0F2AF4C9B100A69B5C /* changePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */; };
+		FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */; };
 		FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C122AF4D0E500A69B5C /* MandatoryField.swift */; };
 		FA730C152AF4E91800A69B5C /* ChangePaaswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */; };
 		FA730C182AF50D5A00A69B5C /* TermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */; };
@@ -264,7 +264,7 @@
 		FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsResponse.swift; sourceTree = "<group>"; };
 		FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
-		FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordView.swift; sourceTree = "<group>"; };
+		FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		FA730C122AF4D0E500A69B5C /* MandatoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryField.swift; sourceTree = "<group>"; };
 		FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaaswordViewModel.swift; sourceTree = "<group>"; };
 		FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseView.swift; sourceTree = "<group>"; };
@@ -745,7 +745,7 @@
 		FA730C0D2AF4C96E00A69B5C /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
-				FA730C0E2AF4C9B100A69B5C /* changePasswordView.swift */,
+				FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */,
 			);
 			path = ChangePassword;
 			sourceTree = "<group>";
@@ -1137,7 +1137,7 @@
 				FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */,
 				FAD8FF622A385CB900466533 /* ReportingScreenView.swift in Sources */,
 				FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */,
-				FA730C0F2AF4C9B100A69B5C /* changePasswordView.swift in Sources */,
+				FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
