@@ -212,3 +212,15 @@ struct ElectionCandidateResultDetails: Codable {
     let assembly_id: String?
     let image: String?
 }
+
+struct TermOfUseResponse: Decodable {
+    let rescode: Int
+    let message: String
+    let data: [TermOfUseData]
+}
+
+struct TermOfUseData: Decodable {
+    let type: Int
+    let terms: String
+}
+

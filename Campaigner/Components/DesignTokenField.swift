@@ -96,6 +96,9 @@ public struct DesignTokenField: View {
     private func onUpdate(_ value: String, index: Int) {
         current = (index + 1) % size
         token = token.insertOrReplace(index, value.first!)
+        if token.count == 4 {
+              Global.Verification_Code = token
+          }
     }
 }
 

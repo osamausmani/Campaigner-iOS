@@ -167,12 +167,12 @@ struct SurveyAttemptScreenView: View {
 //
 //
 
-//    
+//
 //    func bindingForTFOption(qIndex: Int, value: String) -> Bool {
 //        return Answers[qIndex] == value
 //    }
-//    
-//    
+//
+//
 
 //    func bindingForOption(option: SurveyQuestionOption, qIndex: Int)  -> Bool {
 //        if AnswerOptions[qIndex] == option.question_option!{
@@ -185,7 +185,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    func updateAnswerOption(option: String, qIndex: Int, question: SurveyQuestion) {
 //        AnswerOptions.indices.forEach { index in
@@ -198,7 +198,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    func SubmitSurvey(){
 //        let parameters: [String:Any] = [
@@ -218,7 +218,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//                    
+//
 
 //                    SwiftAlertView.show(title: "Alert",
 //                                        message: response.message,
@@ -229,7 +229,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//                    
+//
 
 //                }else{
 //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
@@ -243,11 +243,11 @@ struct SurveyAttemptScreenView: View {
 //    }
 //
 
-//                
+//
 //            }
 //        }
 //    }
-//    
+//
 
 //    func GetSurveysData(){
 //        let parameters: [String:Any] = [
@@ -263,7 +263,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//                    
+//
 
 //                    surveyQuestionsArray = response.data![0].question_data!
 //                    surveyData = response.data![0]
@@ -278,7 +278,7 @@ struct SurveyAttemptScreenView: View {
 //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
 //
 
-//                    
+//
 //                }else{
 //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
 
@@ -297,7 +297,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    var body: some View {
 //        Button(action: {
@@ -322,7 +322,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    var body: some View {
 //        HStack {
@@ -349,7 +349,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    var body: some View {
 //        HStack {
@@ -371,7 +371,7 @@ struct SurveyAttemptScreenView: View {
 
 //
 
-//    
+//
 
 //    var body: some View {
 //        VStack(alignment: .leading, spacing: 8) {
@@ -383,9 +383,9 @@ struct SurveyAttemptScreenView: View {
 //            content()
 //
 
-//            
+//
 //            content()
-//            
+//
 
 //        }.frame(maxWidth: .infinity)
 //            .padding(8)

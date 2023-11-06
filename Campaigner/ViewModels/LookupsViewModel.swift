@@ -63,5 +63,9 @@ class LookupsViewModel: ObservableObject {
         let REQ_URL = ApiPaths.ListReportingType
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
+    func TermOfUse(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<TermOfUseResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.TermandCondition
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
+    }
     
 }

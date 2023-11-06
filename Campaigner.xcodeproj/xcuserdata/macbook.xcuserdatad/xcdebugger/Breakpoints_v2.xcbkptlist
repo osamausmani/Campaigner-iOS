@@ -1191,22 +1191,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0F4BDC36-BFCC-4757-B6C8-6FD597C3E847"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "SideMenuBtnTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F4D6B501-29BB-4AA7-A44D-98A801EA27E2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1214,8 +1198,8 @@
             filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1230,8 +1214,8 @@
             filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1278,8 +1262,8 @@
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "contestElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1288,7 +1272,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "50DA59E4-D0E5-454A-A98C-DC3AEB3672A9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Payments/PaymentsScreenView.swift"
@@ -1304,7 +1288,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "419ABFCF-F5CA-4146-8230-64E9B43B2346"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Payments/PaymentsScreenView.swift"
@@ -2014,10 +1998,42 @@
             filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "SideMenuView"
-            landmarkType = "14">
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "3F2A8005-95C2-4A96-AEC6-77CB2683F182 - a67d2083e3d780df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.SideMenuView.LoginOutAction() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Components/SideMenu/SideMenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "567">
+               </Location>
+               <Location
+                  uuid = "3F2A8005-95C2-4A96-AEC6-77CB2683F182 - a67d2083e3d780df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.SideMenuView.LoginOutAction() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Components/SideMenu/SideMenuView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "883">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2446,8 +2462,8 @@
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
