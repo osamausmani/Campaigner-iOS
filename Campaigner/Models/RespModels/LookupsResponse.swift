@@ -213,13 +213,23 @@ struct ElectionCandidateResultDetails: Codable {
     let image: String?
 }
 
+struct TermOfUseResponse: Decodable {
+    let rescode: Int
+    let message: String
+    let data: [TermOfUseData]
+}
+
+struct TermOfUseData: Decodable {
+    let type: Int
+    let terms: String
+}
+
 struct ListPartiesResponse: Codable {
     let rescode: Int?
     let message: String?
     var data: [PartiesResponseModel]?
     
 }
-
 
 struct PartiesResponseModel: Codable
 {

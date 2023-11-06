@@ -119,7 +119,7 @@ struct ForgotPasswordHomeScreenView: View {
             case .success(let loginResponse):
                 
                 if loginResponse.rescode == 1 {
-                    
+                    username=""
                     alertService.show(title: "Alert", message: loginResponse.message!)
                     
                     Global.userCNIC = username

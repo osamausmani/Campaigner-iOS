@@ -320,8 +320,17 @@ struct QuestionCardView<Content: View>: View {
     }
 }
 
+//
+//struct SurveyAttemptScreenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SurveyAttemptScreenView()
+//    }
+//}
+
+
 struct SurveyAttemptScreenView_Previews: PreviewProvider {
     static var previews: some View {
         SurveyAttemptScreenView()
     }
 }
+

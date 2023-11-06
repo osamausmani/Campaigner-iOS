@@ -53,7 +53,7 @@ struct InviteMemberScreenView: View {
                        // headerView(heading: "Add Member")
                         VStack {
                             
-                    
+
                             FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
                             
                             DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )

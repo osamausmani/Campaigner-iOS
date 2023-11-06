@@ -102,6 +102,10 @@
 		FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */; };
 		FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */; };
 		FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */; };
+		FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */; };
+		FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C122AF4D0E500A69B5C /* MandatoryField.swift */; };
+		FA730C152AF4E91800A69B5C /* ChangePaaswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */; };
+		FA730C182AF50D5A00A69B5C /* TermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */; };
 		FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB32A498A7200AFAE81 /* AlertView.swift */; };
 		FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */; };
 		FAC49CB82A51DE1200AFAE81 /* VerificationCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */; };
@@ -149,6 +153,7 @@
 		FAD8FF7E2A3A512200466533 /* PayNowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7D2A3A512200466533 /* PayNowScreenView.swift */; };
 		FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */; };
 		FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */; };
+		FAE114952AF8B9C000E24CE1 /* HTMLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */; };
 		FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */; };
 		FAEE762E2A3CE1070077731A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762D2A3CE1070077731A /* HomeResponse.swift */; };
 		FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5B42C2AF251C10036D37B /* UserData.swift */; };
@@ -259,6 +264,10 @@
 		FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsResponse.swift; sourceTree = "<group>"; };
 		FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		FA730C122AF4D0E500A69B5C /* MandatoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryField.swift; sourceTree = "<group>"; };
+		FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaaswordViewModel.swift; sourceTree = "<group>"; };
+		FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseView.swift; sourceTree = "<group>"; };
 		FAC49CB32A498A7200AFAE81 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertView.swift; sourceTree = "<group>"; };
 		FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeInput.swift; sourceTree = "<group>"; };
@@ -306,6 +315,7 @@
 		FAD8FF7D2A3A512200466533 /* PayNowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePopUpScreenView.swift; sourceTree = "<group>"; };
+		FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTextView.swift; sourceTree = "<group>"; };
 		FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAEE762D2A3CE1070077731A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		FAF5B42C2AF251C10036D37B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -377,6 +387,7 @@
 				FA145A6A2AF3733700053160 /* TextFields.swift */,
 				FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */,
 				FA145A6E2AF39D3D00053160 /* FormInputField.swift */,
+				FA730C122AF4D0E500A69B5C /* MandatoryField.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -536,6 +547,7 @@
 				07488D352AD1039D0075CFAA /* NewsViewModel.swift */,
 				075AF35D2AEA7F2C00D33416 /* ComplaintsViewModel.swift */,
 				FA145A702AF3C5F500053160 /* InviteViewModel.swift */,
+				FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -551,6 +563,8 @@
 		07ADF0C42A07E4590096C82D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA730C162AF4FE8C00A69B5C /* TermOfUse */,
+				FA730C0D2AF4C96E00A69B5C /* ChangePassword */,
 				07488D412AD1A0360075CFAA /* BoilerPlates */,
 				FA5B5BE12A403446005AD722 /* News */,
 				FAD8FF772A39E72F00466533 /* Payments */,
@@ -726,6 +740,23 @@
 				FA5B5BE22A403462005AD722 /* NewsDetailScreenView.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		FA730C0D2AF4C96E00A69B5C /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		FA730C162AF4FE8C00A69B5C /* TermOfUse */ = {
+			isa = PBXGroup;
+			children = (
+				FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */,
+				FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */,
+			);
+			path = TermOfUse;
 			sourceTree = "<group>";
 		};
 		FAD8FF382A2EFEB600466533 /* Notifications */ = {
@@ -1003,6 +1034,7 @@
 				07488D472AD1A97A0075CFAA /* AddNewComplaintView.swift in Sources */,
 				FAD8FF6C2A38FBE000466533 /* AddResultsView.swift in Sources */,
 				FAD8FF6E2A38FC7E00466533 /* AddMemberView.swift in Sources */,
+				FA730C182AF50D5A00A69B5C /* TermOfUseView.swift in Sources */,
 				07ADF0DB2A07F7CA0096C82D /* CustomTextInput.swift in Sources */,
 				FAD8FF542A33588600466533 /* ProgressHUDView.swift in Sources */,
 				07513CB62AECE3E400AB0290 /* ComplaintListResponse.swift in Sources */,
@@ -1075,6 +1107,7 @@
 				FA461D722AF11CAF009A3FCE /* CustomAlertView.swift in Sources */,
 				FAD8FF7C2A3A4BAC00466533 /* SecondaryButton.swift in Sources */,
 				FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */,
+				FAE114952AF8B9C000E24CE1 /* HTMLTextView.swift in Sources */,
 				FAC49CD42A55490000AFAE81 /* CheckBoxOptionView.swift in Sources */,
 				0711DE2A2AF6AC2B00CB3FB5 /* DataPicker.swift in Sources */,
 				0711DE2F2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift in Sources */,
@@ -1093,6 +1126,7 @@
 				FAD8FF462A2F642800466533 /* AlertControlled.swift in Sources */,
 				07513CC22AEE858200AB0290 /* SearchableDropDown.swift in Sources */,
 				FAD8FF652A385DBD00466533 /* SearchElectionScreenView.swift in Sources */,
+				FA730C152AF4E91800A69B5C /* ChangePaaswordViewModel.swift in Sources */,
 				074C74732A25CCB6006812BD /* SideMenuView.swift in Sources */,
 				FAF8E2922A2C96AC00149D29 /* CounterTabView.swift in Sources */,
 				074C74712A25CC88006812BD /* SideMenu.swift in Sources */,
@@ -1103,6 +1137,7 @@
 				FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */,
 				FAD8FF622A385CB900466533 /* ReportingScreenView.swift in Sources */,
 				FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */,
+				FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
@@ -1124,6 +1159,7 @@
 				FAD8FF672A386A3100466533 /* ToggleButtonView.swift in Sources */,
 				FAD8FF602A383E7C00466533 /* RadioButton.swift in Sources */,
 				074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */,
+				FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */,
 				074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */,
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,
 				077823512AD0546800A6F2E3 /* SearchableInput.swift in Sources */,

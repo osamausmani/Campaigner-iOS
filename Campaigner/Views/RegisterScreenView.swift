@@ -81,6 +81,7 @@ struct RegisterScreenView: View {
                             if selectedOption == RadioOption.CNIC.rawValue {
                                 
                                 FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
+                                   
                                 
                             }
                           
@@ -107,6 +108,16 @@ struct RegisterScreenView: View {
                             .edgesIgnoringSafeArea(.all)
                     }
                 }
+                .onChange(of: selectedOption) { newValue in
+                             fvCnic = ""
+                             fvName = ""
+                             fvMobileNetwork = DropDownModel()
+                             fvMobileNumber = ""
+                             fvPassword = ""
+                             fvConfirmPassword = ""
+                   
+                 
+                         }
                 
                 
             }

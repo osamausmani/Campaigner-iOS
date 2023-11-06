@@ -129,6 +129,8 @@ struct ForgotPassSetPassScreenView: View {
             case .success(let loginResponse):
                 
                 if loginResponse.rescode == 1 {
+                    password=""
+                    confirmPassword=""
                     
                     alertService.show(title: "Alert", message: loginResponse.message!)
                     

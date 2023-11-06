@@ -107,6 +107,7 @@ struct HomeScreenView: View {
             }
             
         }
+        .navigationBarBackButtonHidden(true)
         .onDisappear{
             
             if(presentSideMenu == true)

@@ -50,8 +50,9 @@ public class ApiPaths {
     public static var ListDistrict = BasePath + "/list/dynamic/district"
     public static var ListConstituency = BasePath + "/list/profile/constituency"
     public static var ListReportingType = BasePath + "/list/reporting/type"
-    public static var ListParties = BasePath + "/list/parties"
-
+    public static var TermandCondition = BasePath + "/list/terms"
+    
+    
     //Contesting Elections
     public static var addElection = BasePath + "/add/elections"
     public static var updateElection = BasePath + "/update/elections"
@@ -66,7 +67,8 @@ public class ApiPaths {
     
     //Invite Member Via Sms
     public static var inviteMember = BasePath + "/add/election/member"
-    
+    //Change Password
+    public static var changePassword = BasePath + "/account/change/password"
     
     
     
@@ -141,5 +143,6 @@ public class ApiPaths {
     public static var SurveyDetails = BasePath + "/detail/survey"
     public static var SurveySubmitAnswers = BasePath + "/add/door/answer"
 
-    
+    public static var ListParties = BasePath + "/list/parties"
+
 }

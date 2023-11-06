@@ -8,6 +8,7 @@
 import SwiftUI
 import Alamofire
 import AlertToast
+import SwiftAlertView
 
 struct SideMenuView: View {
     
@@ -24,6 +25,9 @@ struct SideMenuView: View {
     
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
+    
+    @State private var ChangePasswordScreenView = false
+    @State private var TermOfUseScreenView = false
     
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
@@ -72,24 +76,6 @@ struct SideMenuView: View {
         .background(.white).alignmentGuide(.leading) { _ in 0 }
         .frame(maxWidth: .infinity, alignment: .leading)
         
-        if showLogoutConfirmation {
-            // Step 3: Show the custom alert
-            GeometryReader { geometry in
-                CustomAlertView(
-                    message: "Are you sure you want to logout?",
-                    buttonTitle: "Logout",
-                    CancelButtonAction: {
-                        showLogoutConfirmation = false
-                    },
-                    UpgradeButtonAction: {
-                        // Handle logout action
-                        LoginOutAction()
-                    }
-                )
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
-        }
         
         
         NavigationLink(destination: AnyView(PaymentsScreenView()), isActive: $paymentsScreenView)
@@ -101,6 +87,12 @@ struct SideMenuView: View {
         
         NavigationLink(destination: ProfileMainScreenView(), isActive: $profileMainScreenView) {
         }
+        NavigationLink(destination: changePasswordView(), isActive: $ChangePasswordScreenView) {
+        }
+        NavigationLink(destination: TermOfUseView(), isActive: $TermOfUseScreenView) {
+        }
+        
+        
         
     }
     
@@ -195,24 +187,46 @@ struct SideMenuView: View {
         }
         else if number == 3  {
             paymentsScreenView = true
-
+            
         }
         else if number == 4
         {
+            
+            
         }
         else if number == 5
         {
+            
         }
+        else if number == 6
+        {
+            
+        }
+        else if number == 7
+        {
+            ChangePasswordScreenView = true
+        }
+        else if number == 8{
+            TermOfUseScreenView = true
+        }
+        
         else if number == 10
         {
             
-            if !showLogoutConfirmation {
-                showLogoutConfirmation = true
-            }
+            SwiftAlertView.show(title: "Logout Confirmation", message: "Are you sure you want to logout?", buttonTitles: ["Cancel", "Logout"])
+                .onButtonClicked { _, buttonIndex in
+                    if buttonIndex == 1 {
+                        
+                        LoginOutAction()
+                    }
+                    showLogoutConfirmation = false
+                }
+            
         }
         
         
     }
+    
     
     func LoginOutAction() {
         
@@ -272,7 +286,9 @@ struct SideMenuView: View {
         
     }
     
+    
 }
+
 
 //struct SideMenuView_Previews: PreviewProvider {
 //    @State static var selectedSideMenuTab = 0
