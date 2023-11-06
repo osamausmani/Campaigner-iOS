@@ -72,12 +72,16 @@ public struct SearchableDropDown: View {
     @State private var isPickerVisible = false
     @State private var selectedOption = ""
     @State private var searchText = ""
-    
+    var isMandatory = false
+
     public var body: some View {
         VStack {
-            Text(label).alignmentGuide(.leading) { _ in 0 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(size: 15))
+            HStack{
+                Text(label).alignmentGuide(.leading) { _ in 0 }
+                    .font(.system(size: 15))
+                isMandatory ? Text("*").foregroundColor(.red) :nil
+                Spacer()
+            }
             HStack {
                 Button(action: { isPickerVisible.toggle() }) {
                     HStack {

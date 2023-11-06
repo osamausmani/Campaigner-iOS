@@ -38,7 +38,6 @@ struct ComplaintsScreenView: View {
     
     
     @State var complaintsList = [ComplaintListDataItem]()
-    
     @State var selectedItem : ComplaintListDataItem?
     
     

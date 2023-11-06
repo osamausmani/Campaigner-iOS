@@ -19,8 +19,13 @@ struct ProfileSection: View {
     @State  var userCity = ""
     @State  var userNA = ""
     @State  var userPA = ""
+    @State  var isEditProfileScreenActive = false
+
+    
     
     var body: some View {
+        NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
+        }
         VStack {
             BaseView(alertService: alertService)
             
@@ -42,6 +47,9 @@ struct ProfileSection: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }.padding(4)
+                            .onTapGesture {
+                                isEditProfileScreenActive.toggle()
+                            }
                     }.background(CColors.MainThemeColor)
                     
                         .cornerRadius(4)

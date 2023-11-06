@@ -8,13 +8,9 @@
 import Foundation
 public class ApiPaths {
     
-    
-    public static var VoterBasePath = "https://voter.syntracx.com/mini-process.php"
-
-    
-    
-    //    public static var BasePath = "https://campaigner.syntracx.com/api"
     public static var BasePath = "https://staging.halka.pk/api"
+
+    public static var VoterBasePath = "https://voter.syntracx.com/mini-process.php"
     
     public static var Login = BasePath + "/login"
     public static var LoginOut = BasePath + "/logout"
@@ -28,6 +24,17 @@ public class ApiPaths {
     
     //Profile
     public static var UserProfileBasicInfo = BasePath + "/view/user/basic/info"
+    
+    public static var PoliticalCareerAdd = BasePath + "/insert/user/political/info"
+    public static var PoliticalCareerUpdate = BasePath + "/update/user/political/info"
+    public static var PoliticalCareerDelete = BasePath + "/delete/user/political/info"
+    public static var PoliticalCareerList = BasePath + "/view/user/political/info"
+
+    public static var ElectoralExpAdd = BasePath + "/insert/user/electoral/info"
+    public static var ElectoralExpUpdate = BasePath + "/update/user/electoral/info"
+    public static var ElectoralExpDelete = BasePath + "/delete/user/electoral/info"
+    public static var ElectoralExpList = BasePath + "/view/user/electoral/info"
+
     
     
     //News
@@ -43,7 +50,8 @@ public class ApiPaths {
     public static var ListDistrict = BasePath + "/list/dynamic/district"
     public static var ListConstituency = BasePath + "/list/profile/constituency"
     public static var ListReportingType = BasePath + "/list/reporting/type"
-    
+    public static var ListParties = BasePath + "/list/parties"
+
     //Contesting Elections
     public static var addElection = BasePath + "/add/elections"
     public static var updateElection = BasePath + "/update/elections"

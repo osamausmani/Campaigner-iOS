@@ -40,7 +40,7 @@ enum SideMenuRowType: Int, CaseIterable{
     case profile = 0
 //    case wallet = 1
     case inviteMembers = 2
-    case payments = 3
+//    case payments = 3
 //    case upgradeAccunt = 4
 //    case manageConstituencey = 5
 //    case degradeAccount = 6
@@ -55,8 +55,8 @@ enum SideMenuRowType: Int, CaseIterable{
             return "Profile"
         case .inviteMembers:
             return "Invite Members"
-        case .payments:
-            return "Payments"
+//        case .payments:
+//            return "Payments"
         case .changepassword:
             return "Change Password"
         case .termsofuse:
@@ -82,8 +82,8 @@ enum SideMenuRowType: Int, CaseIterable{
             return "proifile_side"
         case .inviteMembers:
             return "invite_member_side"
-        case .payments:
-            return "payment_side"
+//        case .payments:
+//            return "payment_side"
         case .changepassword:
             return "change-password"
         case .termsofuse:

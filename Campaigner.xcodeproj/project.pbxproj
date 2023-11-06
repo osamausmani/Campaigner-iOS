@@ -15,6 +15,13 @@
 		0710C4FC2A1B89690035021A /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FB2A1B89690035021A /* MainButton.swift */; };
 		0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C4FE2A1BB4F10035021A /* FormInput.swift */; };
 		0710C5032A1BC00E0035021A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710C5022A1BC00E0035021A /* Loader.swift */; };
+		0711DE1E2AF6425A00CB3FB5 /* EditProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE1D2AF6425A00CB3FB5 /* EditProfileScreenView.swift */; };
+		0711DE202AF64FAB00CB3FB5 /* CustomNavBarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE1F2AF64FAB00CB3FB5 /* CustomNavBarBack.swift */; };
+		0711DE252AF69E3700CB3FB5 /* ElectoralExpAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE242AF69E3700CB3FB5 /* ElectoralExpAdd.swift */; };
+		0711DE272AF6A98000CB3FB5 /* PoliticalPartyAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE262AF6A98000CB3FB5 /* PoliticalPartyAdd.swift */; };
+		0711DE2A2AF6AC2B00CB3FB5 /* DataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE292AF6AC2B00CB3FB5 /* DataPicker.swift */; };
+		0711DE2D2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE2C2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift */; };
+		0711DE2F2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711DE2E2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift */; };
 		07488D362AD1039D0075CFAA /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D352AD1039D0075CFAA /* NewsViewModel.swift */; };
 		07488D432AD1A04B0075CFAA /* ViewTabBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D422AD1A04B0075CFAA /* ViewTabBars.swift */; };
 		07488D452AD1A1530075CFAA /* NoRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07488D442AD1A1530075CFAA /* NoRecordView.swift */; };
@@ -164,6 +171,13 @@
 		0710C4FB2A1B89690035021A /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		0710C4FE2A1BB4F10035021A /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
 		0710C5022A1BC00E0035021A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		0711DE1D2AF6425A00CB3FB5 /* EditProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreenView.swift; sourceTree = "<group>"; };
+		0711DE1F2AF64FAB00CB3FB5 /* CustomNavBarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarBack.swift; sourceTree = "<group>"; };
+		0711DE242AF69E3700CB3FB5 /* ElectoralExpAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectoralExpAdd.swift; sourceTree = "<group>"; };
+		0711DE262AF6A98000CB3FB5 /* PoliticalPartyAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticalPartyAdd.swift; sourceTree = "<group>"; };
+		0711DE292AF6AC2B00CB3FB5 /* DataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicker.swift; sourceTree = "<group>"; };
+		0711DE2C2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePoliticalResponse.swift; sourceTree = "<group>"; };
+		0711DE2E2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileElectoralExpResponse.swift; sourceTree = "<group>"; };
 		07488D352AD1039D0075CFAA /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		07488D422AD1A04B0075CFAA /* ViewTabBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTabBars.swift; sourceTree = "<group>"; };
 		07488D442AD1A1530075CFAA /* NoRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecordView.swift; sourceTree = "<group>"; };
@@ -367,6 +381,50 @@
 			path = TextInputs;
 			sourceTree = "<group>";
 		};
+		0711DE212AF69DFC00CB3FB5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2562A1DFEA900D8B4B5 /* ProfileSection.swift */,
+				0711DE1D2AF6425A00CB3FB5 /* EditProfileScreenView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0711DE222AF69E0300CB3FB5 /* ElectoralExp */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE2582A1DFEBD00D8B4B5 /* ElectoralSection.swift */,
+				0711DE242AF69E3700CB3FB5 /* ElectoralExpAdd.swift */,
+			);
+			path = ElectoralExp;
+			sourceTree = "<group>";
+		};
+		0711DE232AF69E0D00CB3FB5 /* Political Exp */ = {
+			isa = PBXGroup;
+			children = (
+				07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */,
+				0711DE262AF6A98000CB3FB5 /* PoliticalPartyAdd.swift */,
+			);
+			path = "Political Exp";
+			sourceTree = "<group>";
+		};
+		0711DE282AF6AC1500CB3FB5 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0711DE292AF6AC2B00CB3FB5 /* DataPicker.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		0711DE2B2AF7854E00CB3FB5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0711DE2C2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift */,
+				0711DE2E2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		07488D412AD1A0360075CFAA /* BoilerPlates */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +579,7 @@
 		07ADF0D72A07E7010096C82D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0711DE282AF6AC1500CB3FB5 /* DatePicker */,
 				FA461D762AF128FE009A3FCE /* NavigationBar */,
 				FA461D702AF11C8F009A3FCE /* CustomAlert */,
 				0778234F2AD0531200A6F2E3 /* SearchableInput */,
@@ -573,6 +632,7 @@
 		07DEE2382A1CE68300D8B4B5 /* RespModels */ = {
 			isa = PBXGroup;
 			children = (
+				0711DE2B2AF7854E00CB3FB5 /* Profile */,
 				07513CB42AECE3D000AB0290 /* Complaints */,
 				07DEE2392A1CE69100D8B4B5 /* BaseResponse.swift */,
 				07DEE23F2A1CF41400D8B4B5 /* LoginResponse.swift */,
@@ -628,9 +688,9 @@
 		07DEE2552A1DFE8F00D8B4B5 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				07DEE2562A1DFEA900D8B4B5 /* ProfileSection.swift */,
-				07DEE2582A1DFEBD00D8B4B5 /* ElectoralSection.swift */,
-				07DEE25A2A1DFED100D8B4B5 /* PoliticalSection.swift */,
+				0711DE232AF69E0D00CB3FB5 /* Political Exp */,
+				0711DE222AF69E0300CB3FB5 /* ElectoralExp */,
+				0711DE212AF69DFC00CB3FB5 /* Profile */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -655,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				FA461D772AF12919009A3FCE /* CustomNavBar.swift */,
+				0711DE1F2AF64FAB00CB3FB5 /* CustomNavBarBack.swift */,
 			);
 			path = NavigationBar;
 			sourceTree = "<group>";
@@ -969,6 +1030,7 @@
 				FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */,
 				FAF8E2882A29F7A100149D29 /* TabBarButton.swift in Sources */,
 				FAC49CCE2A52CB8E00AFAE81 /* SurveyViewModel.swift in Sources */,
+				0711DE252AF69E3700CB3FB5 /* ElectoralExpAdd.swift in Sources */,
 				FAF8E2812A27599600149D29 /* ContestentViewModel.swift in Sources */,
 				FAD8FF3C2A2F36AF00466533 /* LogoutViewModel.swift in Sources */,
 				07DEE2372A1CE50200D8B4B5 /* NetworkManager.swift in Sources */,
@@ -986,6 +1048,7 @@
 				07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */,
 				07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */,
 				FAD8FF2F2A2E16F100466533 /* hoverButton.swift in Sources */,
+				0711DE1E2AF6425A00CB3FB5 /* EditProfileScreenView.swift in Sources */,
 				0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */,
 				FAD8FF6A2A38A63900466533 /* PostResultsView.swift in Sources */,
 				FAD8FF792A39E74800466533 /* PaymentsScreenView.swift in Sources */,
@@ -1013,6 +1076,8 @@
 				FAD8FF7C2A3A4BAC00466533 /* SecondaryButton.swift in Sources */,
 				FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */,
 				FAC49CD42A55490000AFAE81 /* CheckBoxOptionView.swift in Sources */,
+				0711DE2A2AF6AC2B00CB3FB5 /* DataPicker.swift in Sources */,
+				0711DE2F2AF820F200CB3FB5 /* ProfileElectoralExpResponse.swift in Sources */,
 				FAC49CD82A5596EA00AFAE81 /* TeamsResponse.swift in Sources */,
 				07513CC42AEEAABB00AB0290 /* SurveyHomeScreenView.swift in Sources */,
 				FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */,
@@ -1020,6 +1085,7 @@
 				FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */,
 				FAC49CDC2A5843AE00AFAE81 /* MultilineFormInput.swift in Sources */,
 				FAD8FF422A2F61B700466533 /* AlertManager.swift in Sources */,
+				0711DE2D2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift in Sources */,
 				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,
 				FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */,
 				FA461D782AF12919009A3FCE /* CustomNavBar.swift in Sources */,
@@ -1052,6 +1118,7 @@
 				FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */,
 				FAD8FF752A39C65200466533 /* InviteMemberScreenView.swift in Sources */,
 				FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */,
+				0711DE272AF6A98000CB3FB5 /* PoliticalPartyAdd.swift in Sources */,
 				077823532AD0584900A6F2E3 /* TestContent.swift in Sources */,
 				075AF35E2AEA7F2C00D33416 /* ComplaintsViewModel.swift in Sources */,
 				FAD8FF672A386A3100466533 /* ToggleButtonView.swift in Sources */,
@@ -1075,6 +1142,7 @@
 				FAF8E2952A2DBA6C00149D29 /* SearchBarView.swift in Sources */,
 				FAD8FF702A38FC8800466533 /* AddTeamView.swift in Sources */,
 				07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */,
+				0711DE202AF64FAB00CB3FB5 /* CustomNavBarBack.swift in Sources */,
 				074C74752A25D3A2006812BD /* HomeScreenTabedView.swift in Sources */,
 				07DEE2452A1D094E00D8B4B5 /* Global.swift in Sources */,
 			);

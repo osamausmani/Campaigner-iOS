@@ -12,6 +12,7 @@ struct BaseView: View {
     
     
     @StateObject public var alertService:AlertService
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View
     {
