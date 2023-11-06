@@ -24,7 +24,8 @@ public class ApiPaths {
     
     //Profile
     public static var UserProfileBasicInfo = BasePath + "/view/user/basic/info"
-    
+    public static var UserProfileInfoUpdate = BasePath + "/update/user/basic/info"
+
     public static var PoliticalCareerAdd = BasePath + "/insert/user/political/info"
     public static var PoliticalCareerUpdate = BasePath + "/update/user/political/info"
     public static var PoliticalCareerDelete = BasePath + "/delete/user/political/info"
@@ -48,6 +49,7 @@ public class ApiPaths {
     // Lookups
     public static var ListProvinces = BasePath + "/list/dynamic/province"
     public static var ListDistrict = BasePath + "/list/dynamic/district"
+    public static var ListTehsils = BasePath + "/list/dynamic/tehsil"
     public static var ListConstituency = BasePath + "/list/profile/constituency"
     public static var ListReportingType = BasePath + "/list/reporting/type"
     public static var TermandCondition = BasePath + "/list/terms"

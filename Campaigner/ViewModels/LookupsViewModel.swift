@@ -20,7 +20,10 @@ class LookupsViewModel: ObservableObject {
         let REQ_URL = ApiPaths.ListDistrict
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
-    
+    func ListTehsils(parameters: [String:Any]?, completion: @escaping (Result<ListTehsilResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.ListTehsils
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
     func ListConstituency(parameters: [String:Any]?, completion: @escaping (Result<ListConstituencyResponse, Error>) -> Void) {
         let REQ_URL = ApiPaths.ListConstituency
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)

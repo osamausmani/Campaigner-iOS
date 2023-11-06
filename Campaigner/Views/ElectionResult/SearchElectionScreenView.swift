@@ -17,21 +17,17 @@ struct SearchElectionScreenView: View {
     @State private var selectedAssembly = DropDownModel()
     @State private var selectedConstituency = DropDownModel()
     @State private var selectedCandidate = DropDownModel()
-    
     @State private var isShowingLoader = false
     @State private var isLoading = false
-    
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @StateObject private var alertService = AlertService()
     
     var optionList: [DropDownModel] = [
         DropDownModel(id: "0", value: "By Constituency"),
         DropDownModel(id: "1", value: "By Candidate"),
     ]
-    
-    
+
     var assemblyList: [DropDownModel] = [
         DropDownModel(id: "1", value: "National Assembly"),
         DropDownModel(id: "2", value: "Punjab"),
@@ -39,13 +35,11 @@ struct SearchElectionScreenView: View {
         DropDownModel(id: "4", value: "Balochistan"),
         DropDownModel(id: "5", value: "Khyber Pakhtunkhwa"),
     ]
-    
-    //    @State  var electionYearList : [DropDownModel] = []
-    
+        
     var electionYearList: [DropDownModel] = [
         DropDownModel(id: "1", value: "2018"),
     ]
-    
+
     
     @State var constituencyList = [DropDownModel]()
     @State var candidateList = [DropDownModel]()
