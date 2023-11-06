@@ -11,7 +11,8 @@ struct FormInputField: View {
     var label: String
     var placeholder: String
     var isMandatory = false
-    
+    var isDisabled = false
+
     @Binding var text: String
     
     var isNumberInput = false
@@ -41,7 +42,7 @@ struct FormInputField: View {
                         .frame(maxHeight: 30)
                         .padding(10)
                         .font(.system(size: 16))
-                        .keyboardType(isNumberInput ? .numberPad : .default)
+                        .keyboardType(isNumberInput ? .numberPad : .default).disabled(isDisabled)
                     
                     
                 }
