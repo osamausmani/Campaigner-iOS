@@ -20,7 +20,7 @@ struct ElectionHistoryListScreenView: View {
     
     @State var constituenciesResults = [ElectionConstituenciesListDetails]()
     @State var candidateResults = [ElectionCandidateResultDetails]()
-
+    var title: String
     
     var body: some View {
         VStack(spacing: 20) {
@@ -45,6 +45,7 @@ struct ElectionHistoryListScreenView: View {
                 GetCandidatesResults()
             }
         }
+        .navigationTitle(title)
     }
     
     func GetConstituenciesResults(){
@@ -294,7 +295,7 @@ struct ElectionHistoryCandidateRowCandidate: View {
 
 struct ElectionHistoryListScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ElectionHistoryListScreenView()
+        ElectionHistoryListScreenView( title: "")
             .preferredColorScheme(.light)
     }
 }

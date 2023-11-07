@@ -58,7 +58,7 @@ struct ComplaintsScreenView: View {
             ZStack{
                 VStack {
                     HStack(spacing: 0) {
-                        TabBarButton(text: "Own", isSelected: selectedTab == 0)
+                        TabBarButton(text: "My Complaint", isSelected: selectedTab == 0)
                         {
                             selectedTab = 0
                             GetOwnedComplaints()
@@ -112,6 +112,7 @@ struct ComplaintsScreenView: View {
         
         .navigationBarHidden(false)
         .navigationTitle("Complaints")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     
@@ -241,12 +242,12 @@ struct ComplaintCustomCardView: View {
                             }.padding(0.1)
                         }
                         
-                        if selectedTab == 0 {
-                            Text("External")
-                                .font(.headline)
-                                .foregroundColor(Color.blue)
-                                .padding(.top, 0.5)
-                        }
+//                        if selectedTab == 0 {
+//                            Text("External")
+//                                .font(.headline)
+//                                .foregroundColor(Color.blue)
+//                                .padding(.top, 0.5)
+//                        }
                         Text(item.details ?? "Description").frame(maxWidth: .infinity, alignment: .leading)
                             .lineLimit(item.details!.count > 200 ? 1 : 0)
                             .font(.body)

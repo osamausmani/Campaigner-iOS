@@ -19,6 +19,10 @@ struct SearchElectionScreenView: View {
     @State private var selectedCandidate = DropDownModel()
     @State private var isShowingLoader = false
     @State private var isLoading = false
+    @State private var selectedOptionTitle = "Election History"
+    @State private var isCandidateSelected = false
+    @State private var isConstituencySelected = false
+
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var alertService = AlertService()
@@ -53,7 +57,7 @@ struct SearchElectionScreenView: View {
         
         
         ZStack {
-            NavigationLink(destination: ElectionHistoryListScreenView(selectedOption: selectedOption.id, selectedConstituenceyID: selectedConstituency.id, selectedCandidateID: selectedCandidate.id), isActive: $isElectionHistoryListScreenViewActive) {
+            NavigationLink(destination: ElectionHistoryListScreenView(selectedOption: selectedOption.id, selectedConstituenceyID: selectedConstituency.id, selectedCandidateID: selectedCandidate.id, title: selectedOptionTitle), isActive: $isElectionHistoryListScreenViewActive) {
             }
             ZStack{
                 ZStack{
@@ -86,6 +90,7 @@ struct SearchElectionScreenView: View {
                         
                         if selectedOption.id == "0" || selectedOption.id == "1"  {
                             MainButton(action: {
+                                clearStates()
                                 SearchAction()
                             }, label: "Search").padding(.top,5)
                         }
@@ -175,11 +180,32 @@ struct SearchElectionScreenView: View {
     
     
     
-    func SearchAction(){
+    func SearchAction() {
+        if selectedOption.id == "0" {
+            isCandidateSelected = false
+            isConstituencySelected = true
+            selectedOptionTitle = "Election History - Constituency"
+        } else if selectedOption.id == "1" {
+            isCandidateSelected = true
+            isConstituencySelected = false
+            selectedOptionTitle = "Election History - Candidate"
+        }
         isElectionHistoryListScreenViewActive.toggle()
     }
+
     
-    
+    func clearStates() {
+        selectedOption = DropDownModel()
+        selectedYear = DropDownModel()
+        selectedAssembly = DropDownModel()
+        selectedConstituency = DropDownModel()
+        selectedCandidate = DropDownModel()
+        isShowingLoader = false
+        isLoading = false
+        constituencyList.removeAll()
+        candidateList.removeAll()
+    }
+
     
     
     

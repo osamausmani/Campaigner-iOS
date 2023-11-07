@@ -26,20 +26,30 @@ struct MandatoryField: View {
             
             if isSecure {
                 ZStack(alignment: .trailing) {
-                    SecureField(placeholder, text: $text)
-                        .foregroundColor(.black)
-                        .frame(maxHeight: 30)
-                        .padding(10)
-                        .font(.system(size: 16))
-                        .keyboardType(isNumberInput ? .numberPad : .default)
-                        .border(Color.black, width: 1)
+                    if isPasswordVisible {
+                        TextField(placeholder, text: $text)
+                            .foregroundColor(.black)
+                            .frame(maxHeight: 30)
+                            .padding(10)
+                            .font(.system(size: 16))
+                            .keyboardType(isNumberInput ? .numberPad : .default)
+                            .border(Color.black, width: 1)
+                    } else {
+                        SecureField(placeholder, text: $text)
+                            .foregroundColor(.black)
+                            .frame(maxHeight: 30)
+                            .padding(10)
+                            .font(.system(size: 16))
+                            .keyboardType(isNumberInput ? .numberPad : .default)
+                            .border(Color.black, width: 1)
+                    }
 
                     Button(action: {
                         isPasswordVisible.toggle()
                     }) {
                         Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
                             .foregroundColor(.black)
-                            .padding(.trailing, 10) // Adjust the padding as needed
+                            .padding(.trailing, 10)
                     }
                 }
             } else {
@@ -52,6 +62,7 @@ struct MandatoryField: View {
         }
     }
 }
+
 
 struct MandatoryField_Previews: PreviewProvider {
     static var sample = Binding<String>.constant("")

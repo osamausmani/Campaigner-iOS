@@ -1992,7 +1992,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3F2A8005-95C2-4A96-AEC6-77CB2683F182"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
@@ -2000,40 +2000,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "291"
             endingLineNumber = "291"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "3F2A8005-95C2-4A96-AEC6-77CB2683F182 - a67d2083e3d780df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Campaigner.SideMenuView.LoginOutAction() -&gt; ()"
-                  moduleName = "Campaigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Components/SideMenu/SideMenuView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "235"
-                  endingLineNumber = "235"
-                  offsetFromSymbolStart = "567">
-               </Location>
-               <Location
-                  uuid = "3F2A8005-95C2-4A96-AEC6-77CB2683F182 - a67d2083e3d780df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Campaigner.SideMenuView.LoginOutAction() -&gt; ()"
-                  moduleName = "Campaigner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Components/SideMenu/SideMenuView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "235"
-                  endingLineNumber = "235"
-                  offsetFromSymbolStart = "883">
-               </Location>
-            </Locations>
+            landmarkName = "LoginOutAction()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

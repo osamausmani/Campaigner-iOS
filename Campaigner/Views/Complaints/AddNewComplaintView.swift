@@ -156,6 +156,11 @@ struct AddNewComplaintView: View {
             
             
         }
+        .navigationBarHidden(false)
+        .navigationTitle("Post a Complaint")
+        .navigationBarTitleDisplayMode(.inline)
+        
+       
     }
     
     
