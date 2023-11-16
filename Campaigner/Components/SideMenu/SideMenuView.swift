@@ -9,6 +9,7 @@ import SwiftUI
 import Alamofire
 import AlertToast
 import SwiftAlertView
+import SwiftAlertView
 
 struct SideMenuView: View {
     
@@ -257,26 +258,39 @@ struct SideMenuView: View {
                 
             case .success(let loginoutResponse):
                 if loginoutResponse.rescode == 1 {
-                    alertMsg = loginoutResponse.message!
-                    showSimpleAlert = true
+
                     UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""
                     userData.password = ""
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                    SwiftAlertView.show(title: "Alert", message: loginoutResponse.message!, buttonTitles: "OK")
+
                     
                 }
                 else if loginoutResponse.rescode == 2 {
-                    alertMsg = loginoutResponse.message!
-                    showSimpleAlert = true
+
                     UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""
                     userData.password = ""
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                    SwiftAlertView.show(title: "Alert", message: loginoutResponse.message!, buttonTitles: "OK")
+                    
                 }
                 else{
-                    alertMsg = loginoutResponse.message!
-                    showSimpleAlert = true
+                    
+                    
+                    SwiftAlertView.show(title: "Alert", message: loginoutResponse.message!, buttonTitles: "OK")
+
                 }
                 
             case .failure(let error):

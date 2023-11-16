@@ -43,6 +43,7 @@ struct ComplaintListDataItem: Codable {
     let total_endorsed: Int?
     let url: String?
     let media: [String]?
+    
 }
 
 struct ComplaintListAddedBy: Codable {

@@ -9,13 +9,17 @@ import SwiftUI
 import GoogleMaps
 
 struct GoogleMapView: UIViewRepresentable {
+    var latitude:String
+    var longitude :String
     func makeUIView(context: Context) -> GMSMapView {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0, zoom: 16.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        print(latitude)
+        print(longitude)
 
         // Create a marker and set its position
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker.position = CLLocationCoordinate2D(latitude: Double(latitude) ?? 0.0, longitude: Double(longitude) ?? 0.0)
         marker.title = "Complaint"
         marker.map = mapView // Add marker to the map view
 
