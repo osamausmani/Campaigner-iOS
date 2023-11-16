@@ -17,12 +17,19 @@ struct ProfileMainScreenView: View {
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
     @State private var ForgotPassPinScreen = false
+    @State  var isEditProfileScreenActive = false
     
     @State var tabIndex = 0
     
     
     var body: some View {
+        
+        
+        
+        
         ZStack {
+            NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
+            }
             BaseView(alertService: alertService)
             ZStack{
                 Image("splash_background")
@@ -31,6 +38,7 @@ struct ProfileMainScreenView: View {
                 
                 VStack{
                     VStack{
+                        
                         HStack {
                             // Left Subview with Image
                             Image("default_large_image")
@@ -49,6 +57,20 @@ struct ProfileMainScreenView: View {
                             }
                             .padding(.leading, 10)
                             Spacer()
+                            HStack {
+                                HStack{
+                                    Image(systemName: "pencil")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                    Text("Edit")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                }.padding(4)
+                                    .onTapGesture {
+                                        isEditProfileScreenActive.toggle()
+                                    }
+                            }.background(CColors.MainThemeColor).cornerRadius(4)
+                            
                         }
                         
                         HStack{
@@ -67,7 +89,7 @@ struct ProfileMainScreenView: View {
                             Spacer()
                         }.padding(.top,2)
                         
-                    }.padding(.leading,30).padding(.trailing,30).padding(.bottom,16)
+                    }.padding(.leading,30).padding(.trailing,18).padding(.bottom,16)
                     
                     HStack(spacing: 4) {
                         Button(action: { tabIndex = 0 }) {

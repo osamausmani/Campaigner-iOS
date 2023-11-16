@@ -24,8 +24,8 @@ struct ProfileSection: View {
     
     
     var body: some View {
-        NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
-        }
+//        NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
+//        }
         VStack {
             BaseView(alertService: alertService)
             
@@ -35,30 +35,31 @@ struct ProfileSection: View {
                 
                 
                 Spacer()
-                Button(action: {
-                    // Add your button action here
-                }) {
-                    HStack {
-                        HStack{
-                            Image(systemName: "pencil")
-                                .font(.system(size: 16))
-                                .foregroundColor(.white)
-                            Text("Edit")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }.padding(4)
-                            .onTapGesture {
-                                isEditProfileScreenActive.toggle()
-                            }
-                    }.background(CColors.MainThemeColor)
-                    
-                        .cornerRadius(4)
-                    
-                    
-                }
+//                Button(action: {
+//                    // Add your button action here
+//                }) {
+//                    HStack {
+//                        HStack{
+//                            Image(systemName: "pencil")
+//                                .font(.system(size: 16))
+//                                .foregroundColor(.white)
+//                            Text("Edit")
+//                                .font(.headline)
+//                                .foregroundColor(.white)
+//                        }.padding(4)
+//                            .onTapGesture {
+//                                isEditProfileScreenActive.toggle()
+//                            }
+//                    }.background(CColors.MainThemeColor)
+//                    
+//                        .cornerRadius(4)
+//                    
+//                    
+//                }
             }.padding(.bottom,10)
             Divider()
             HStack() {
+                userDistrict != "" ?
                 VStack(alignment: .leading) {
                     Text("District")
                         .font(.headline)
@@ -66,7 +67,9 @@ struct ProfileSection: View {
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading) // Align content to the left
+                : nil
                 
+                userCity != "" ?
                 VStack(alignment: .leading) {
                     Text("Tehsil/City/Town")
                         .font(.headline)
@@ -74,10 +77,12 @@ struct ProfileSection: View {
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading) // Align content to the left
+                : nil
             }
             Divider()
             
             HStack() {
+                userNA != "" ?
                 VStack(alignment: .leading) {
                     Text("National Assembly")
                         .font(.headline)
@@ -85,15 +90,17 @@ struct ProfileSection: View {
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading) // Align content to the left
+                : nil
                 
+                userPA != "" ?
                 VStack(alignment: .leading) {
                     Text("Provincial Assembly")
                         .font(.headline)
-                    
                     Text(userPA)
                         .font(.subheadline)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading) // Align content to the left
+                : nil
             }.padding(.top,10)
             
         }.padding(10)

@@ -214,7 +214,7 @@ struct RegisterScreenView: View {
            
             "plattype": Global.PlatType,
             "user_cnic": fvCnic,
-            "user_full_name": fvPassword,
+            "user_full_name": fvName,
             "user_msisdn": fvMobileNumber,
             "user_pass": fvPassword,
             "telco_op":fvMobileNetwork.id,
