@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Alamofire
+import SwiftAlertView
 
 
 
@@ -14,34 +15,21 @@ struct AddTeamView: View {
     
     @State private var selectedTeamId = ""
     
-    
-      var isUpdate = false
-    
-    
-    @Binding var title : String
-    @Binding var description : String
-    @Binding var message : String
-    @Binding var selected_team_id : String
-    
-    
+    var isUpdate = false
+    @State private var title = ""
+    @State private var description  = ""
+    @State private var message = ""
+    @State private var selected_team_id = ""
     
     @State private var isLoading = false
     @State private var fvTeamName = ""
     @State private var fvPollingStations = DropDownModel()
     @State private var fvDescription = ""
-    
-   
-   
-    
-    
     @State private var showRegisterScreen = false
     @State private var isShowingLoader = false
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @State var showStoreDropDown: Bool = false
-    
-    @StateObject private var alertService = AlertService()
-    
     @State var polling = [PollingStations]()
     
     
@@ -58,55 +46,30 @@ struct AddTeamView: View {
     
     var body: some View {
         
-        NavigationView {
-            
-            ZStack {
-                BaseView(alertService: alertService)
-                
-                ZStack{
-                    
-                    Image("splash_background")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
-                    
+        ZStack {
+            ZStack{
+                VStack{
+                    if(isUpdate == false)
+                    {
+                        CustomNavBarBack(title: "Add Team")
+                    }else
+                    {
+                        CustomNavBarBack(title: "Update Team")
+                    }
                     ScrollView{
-                        if(isUpdate == false)
-                        {
-                            headerView(heading: "Add Team", action: dismissView)
-                        }else
-                        {
-                            headerView(heading: "Update Team", action: dismissView)
-                            
-                        }
                         
-                        if (isUpdate == false)
-                        {
-                            VStack {
-                                FormInputField(label: "Team Name", placeholder: "Enter Name", text: $fvTeamName)
-                                DropDown(label: "Polling Station", placeholder: "Select Polling Station", selectedObj:  $fvPollingStations, menuOptions: pollingStationsOptions)
-                                MultilineFormInput(label: "Description", placeholder: "Enter Description", text: $fvDescription)
-                                Spacer()
-                                Spacer()
-                                Divider()
-                                MainButton(action: {
-                                    RegisterAction()
-                                }, label: "Invite").padding(.top,20)
-                            }.padding(16)
-                        }else
-                        {
- 
-                            VStack {
-                                FormInput(label: "Team Name", placeholder: "Enter Name", text: $fvTeamName)
-                                DropDown(label: "Polling Station", placeholder: "Select Polling Station", selectedObj:  $fvPollingStations, menuOptions: pollingStationsOptions)
-                                MultilineFormInput(label: "Description", placeholder: "Enter Description", text: $fvDescription)
-                                Spacer()
-                                Spacer()
-                                Divider()
-                                MainButton(action: {
-                                    RegisterAction()
-                                }, label: "Update").padding(.top,20)
-                            }.padding(16)
-                        }
+                        VStack {
+                            FormInputField(label: "Team Name", placeholder: "Enter Name", text: $fvTeamName)
+                            SearchableDropDown(label: "Polling Station", placeholder: "Select Polling Station", selectedObj:  $fvPollingStations, menuOptions: pollingStationsOptions)
+                            MultilineFormInput(label: "Description", placeholder: "Enter Description", text: $fvDescription)
+                            Spacer()
+                            Spacer()
+                            Divider()
+                            MainButton(action: {
+                                RegisterAction()
+                            }, label: isUpdate ? "Update" : "Add").padding(.top,20)
+                        }.padding(16)
+                        
                         
                     }
                     
@@ -116,15 +79,12 @@ struct AddTeamView: View {
                     }
                 }
                 
-                
             }
-            .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-            }
-            
-        }.navigationBarHidden(false)
-            .navigationTitle("Sign Up")
+        }
+        .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
+        .onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }.navigationBarHidden(true).edgesIgnoringSafeArea(.top)
             .onAppear{
                 listPollingStations()
                 
@@ -133,13 +93,7 @@ struct AddTeamView: View {
                     fvTeamName = title
                     fvDescription = description
                     fvPollingStations.value = message
-                    
                 }
-
-                
-             
-                
-                
             }
     }
     
@@ -160,28 +114,17 @@ struct AddTeamView: View {
         
         if(fvTeamName.isEmpty)
         {
-            alertService.show(title: "Alert", message: "Team Name is required")
+            SwiftAlertView.show(title: "Alert", message: "Team Name is required", buttonTitles: "OK")
         }
         
         else if(fvPollingStations.value.isEmpty)
         {
-            alertService.show(title: "Alert", message: "Polling Station is required")
+            SwiftAlertView.show(title: "Alert", message: "Polling Station is required", buttonTitles: "OK")
         }
         
         else if(fvDescription.isEmpty)
         {
-            alertService.show(title: "Alert", message: "Description is required")
-        }
-        
-        
-        
-        //        else if(fvConfirmPassword.isEmpty){
-        //            alertService.show(title: "Alert", message: "Confirm Password is required")
-        //        }
-        //
-        //        else if(fvPassword != fvConfirmPassword){
-        //            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
-        //        }
+            SwiftAlertView.show(title: "Alert", message: "Description is required", buttonTitles: "OK")        }
         else{
             if(isUpdate == false)
             {
@@ -206,7 +149,7 @@ struct AddTeamView: View {
         
         let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
         let headers:HTTPHeaders = [
-         //   "Content-Type":"application/x-www-form-urlencoded",
+            //   "Content-Type":"application/x-www-form-urlencoded",
             "x-access-token": token!
         ]
         
@@ -246,11 +189,12 @@ struct AddTeamView: View {
                     
                     
                 }else{
-                    alertService.show(title: "Alert", message: Response.message!)
+                    SwiftAlertView.show(title: "Alert", message: Response.message, buttonTitles: "OK")
+                    
                 }
                 
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
             }
         }
     }
@@ -260,7 +204,7 @@ struct AddTeamView: View {
     {
         
         isShowingLoader.toggle()
-
+        
         let token = UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
         
         print(token)
@@ -286,7 +230,7 @@ struct AddTeamView: View {
             "team_desc" : fvDescription,
             "poll_station_id" : fin
             
-           
+            
             
         ]
         
@@ -297,21 +241,22 @@ struct AddTeamView: View {
             
             switch result {
                 
-            case .success(let loginResponse):
+            case .success(let response):
                 
-                if loginResponse.rescode == 1 {
+                if response.rescode == 1 {
                     
-                //    alertService.show(title: "Alert", message: loginResponse.message!)
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
                     
-                   
+                    
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }else{
-                    alertService.show(title: "Alert", message: loginResponse.message!)
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
                 }
                 
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
+                
             }
         }
     }
@@ -338,7 +283,7 @@ struct AddTeamView: View {
         ]
         
         let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
- 
+        
         print(token!)
         
         let parameters: [String:Any] = [
@@ -363,27 +308,26 @@ struct AddTeamView: View {
             print(result)
             switch result {
                 
-            case .success(let Response):
+            case .success(let response):
                 
-                if Response.rescode == 1 {
+                if response.rescode == 1 {
                     
-                    print(Response)
                     
-                  //  fin = Response.data!
-                   // alertService.show(title: "Alert", message: Response.message!)
-                  
-                  
                     
-                      self.presentationMode.wrappedValue.dismiss()
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
+                    
+                    
+                    self.presentationMode.wrappedValue.dismiss()
                     
                     
                 }else{
-                   
-                    alertService.show(title: "Alert", message: Response.message!)
+                    
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
                 }
                 
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
+                
             }
         }
         
@@ -396,6 +340,6 @@ struct AddTeamView: View {
 
 struct AddTeamView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTeamView(isUpdate: true, title: .constant(""), description: .constant(""), message: .constant(""), selected_team_id: .constant(""))
+        AddTeamView()
     }
 }

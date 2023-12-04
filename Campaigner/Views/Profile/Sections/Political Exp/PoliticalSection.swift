@@ -20,9 +20,6 @@ struct PoliticalSection: View {
     
     var body: some View {
         
-        
-        
-        
         VStack {
             
             NavigationLink(destination: PoliticalPartyAdd(), isActive: $isPoliticalPartyAddActive) {
@@ -126,33 +123,36 @@ struct PoliticalSection: View {
                                 .foregroundColor(.white)
                                 .frame(width: 24, height: 24)
                             Spacer()
-                            Text("Edit")
-                                .foregroundColor(.white).padding(.trailing,8)
+                            Text("Edit").font(.system(size: 13))
+                                .foregroundColor(.white).padding(.trailing,4)
                         }
-                    }.frame(width: 90).background(Color.green)
+                    }.frame(width:80).background(Color.green)
                         .cornerRadius(8)
                     
                     Button(action: {
                         SwiftAlertView.show(title: "Alert",
-                                            message: "Are you sure to delete this record?",
+                                            message: "Are you sure you want to delete this record?",
                                             buttonTitles: "Cancel", "OK")
                         .onButtonClicked { _, buttonIndex in
                             if buttonIndex == 1 {
-                                DeleteCareerItem(careerID: item.record_id!)
+                                DeleteCareerItem(careerID: item.party_id!)
                             }
                         }
                     }) {
                         HStack {
                             Image(systemName: "trash")
                                 .foregroundColor(.white)
-                                .frame(width: 24, height: 24)
+                                .frame(width:24, height: 24)
                             Spacer()
-                            Text("Delete")
-                                .foregroundColor(.white).padding(.trailing,8)
+                            Text("Delete").font(.system(size: 13))
+                                .foregroundColor(.white).padding(.trailing,4)
                         }
-                    }.frame(width: 90).background(Color.red)
+                    }.frame(width: 80).background(Color.red)
                         .cornerRadius(8)
-                }
+                    
+                    Spacer()
+                }.padding(.top,4).padding(.trailing,4)
+
             }
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))

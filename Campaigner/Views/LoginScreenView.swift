@@ -29,6 +29,9 @@ struct LoginScreenView: View {
     @State private var isShowingLoader = false
     @StateObject var userData: UserData = UserData()
     
+    @EnvironmentObject var socialSignUpVM : SocialSignViewModel
+    
+    
     var body: some View {
         
         NavigationView {
@@ -73,34 +76,37 @@ struct LoginScreenView: View {
                             .padding(.horizontal,70)
                             .padding(3)
                             
-                            //                            LoginCustomDivider(labelText:"or connect using")
-                            //                                .padding(5)
-                            //                            HStack(spacing: 70){
-                            //                                Button(action: {
-                            //                                    // Action for Google
-                            //                                    print("Google tapped!")
-                            //                                }) {
-                            //                                    Image("google")
-                            //                                        .resizable()
-                            //                                        .frame(
-                            //                                            width: geometry.size.width * 0.18,
-                            //                                            height: geometry.size.width * 0.18
-                            //                                        )
-                            //                                }
-                            //
-                            //                                Button(action: {
-                            //                                    // Action for Facebook
-                            //                                    print("Facebook tapped!")
-                            //                                }) {
-                            //                                    Image("facebook")
-                            //                                        .resizable()
-                            //                                        .frame(
-                            //                                            width: geometry.size.width * 0.18,
-                            //                                            height: geometry.size.width * 0.18
-                            //                                        )
-                            //                                }
-                            //                            }
-                            //                            .padding()
+                            LoginCustomDivider(labelText:"or connect using")
+                                .padding(5)
+                            HStack(spacing: 50){
+                                Button(action: {
+                                    // Action for Google
+                                    print("Google tapped!")
+                                    signInGoogle()
+                                    
+                                }) {
+                                    Image("google")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+                                
+                                Button(action: {
+                                    // Action for Facebook
+                                    print("Facebook tapped!")
+                                    signInFacebook()
+                                }) {
+                                    Image("facebook")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+                            }
+                            .padding()
                             HStack{}.padding()
                             HStack{
                                 Text("Don't have an account?")
@@ -230,7 +236,8 @@ struct LoginScreenView: View {
                         userData.password = ""
                         print(loginResponse.data![0])
                         let userData = loginResponse.data![0]
-                        
+                        UserDefaults.standard.set(1, forKey: Constants.USER_TYPE)
+
                         UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
                         UserDefaults.standard.set(userData.cnic, forKey: Constants.USER_CNIC)
                         UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
@@ -265,6 +272,99 @@ struct LoginScreenView: View {
         print("Im clicked register.")
         
     }
+    
+    func signInGoogle(){
+        isShowingLoader.toggle()
+        socialSignUpVM.signUpWithGoogle { result in
+            isShowingLoader.toggle()
+            
+            switch result {
+            case .success(let userData):
+                print("User successfully signed in. Email: \(userData.email)")
+                print("User successfully signed in. Email: \(userData.accessToken)")
+                SocialLoginAction(type: 4, accessToken: userData.accessToken)
+                UserDefaults.standard.set(userData.email, forKey: Constants.USER_EMAIL)
+
+            case .failure(let error):
+                isShowingLoader = false
+
+                print("Error signing in: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func signInFacebook(){
+        isShowingLoader.toggle()
+        socialSignUpVM.signInWithFacebook { result in
+            switch result {
+            case .success(let data):
+                print("Facebook login successful. Email: \(data.email), Access Token: \(data.accessToken.tokenString)")
+                SocialLoginAction(type: 3, accessToken: data.accessToken.tokenString)
+                UserDefaults.standard.set(data.email, forKey: Constants.USER_EMAIL)
+
+            case .failure(let error):
+                isShowingLoader = false
+
+                print("Error signing in with Facebook: \(error.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    
+    
+    func SocialLoginAction(type:Int, accessToken:String) {
+        
+        
+        isShowingLoader.toggle()
+        
+        let parameters: [String:Any] = [
+            "plattype": Constants.PLAT_TYPE,
+            "signup_type" : type,
+            "access_token" : accessToken
+        ]
+        
+        let viewModel = LoginViewModel()
+        
+        viewModel.loginSocialRequest(parameters: parameters ) { result in
+            isShowingLoader = false
+
+            switch result {
+                
+            case .success(let response):
+                
+                if response.rescode == 1 {
+                    showToast.toggle()
+                    userData.username = ""
+                    userData.password = ""
+                    print(response)
+                    let userData = response.data![0]
+
+                    UserDefaults.standard.set(2, forKey: Constants.USER_TYPE)
+
+                    UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
+                    UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
+
+                    UserDefaults.standard.set(userData.cnic, forKey: Constants.USER_CNIC)
+                    UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
+                    UserDefaults.standard.set(userData.phone, forKey: Constants.USER_PHONE)
+                    UserDefaults.standard.set(userData.token, forKey: Constants.USER_SESSION_TOKEN)
+                    UserDefaults.standard.set(userData.user_gender, forKey: Constants.USER_GENDER)
+                    UserDefaults.standard.set(userData.user_id, forKey: Constants.USER_ID)
+                    UserDefaults.standard.set(userData.user_image, forKey: Constants.USER_IMAGE)
+                    isShowingLoader = false
+                    isHomeScreenActive.toggle()
+//
+                }else{
+                    alertService.show(title: "Alert", message: response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+    }
+    
     
 }
 

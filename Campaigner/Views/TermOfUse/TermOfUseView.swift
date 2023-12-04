@@ -13,8 +13,7 @@ struct TermOfUseView: View {
     @StateObject private var alertService = AlertService()
     
     @State private var termOfUseResponse: TermOfUseResponse?
-    @State private var isActiveScreen = false
-    @State private var isPresentHome = false
+
     @State  var tosData = ""
     
     var body: some View {

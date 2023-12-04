@@ -21,9 +21,17 @@ struct ElectoralExpAdd: View {
     
     
     @State private var partyOptions: [DropDownModel] = []
-    private let yearsOption: [DropDownModel] = [
-        DropDownModel(id: "1990", value: "1990"),
-    ]
+    private let yearsOption: [DropDownModel] = {
+        var yearsArray: [DropDownModel] = []
+        
+        for year in 1996...2023 {
+            let yearString = String(year)
+            let dropDownModel = DropDownModel(id: yearString, value: yearString)
+            yearsArray.append(dropDownModel)
+        }
+        
+        return yearsArray
+    }()
     private let electionTypeOptions: [DropDownModel] = [
         DropDownModel(id: "1", value: "General Election"),
         DropDownModel(id: "2", value: "By Election"),

@@ -10,8 +10,8 @@ import Alamofire
 
 class InviteViewModel: ObservableObject {
     
-    func inviteMemberRequest(parameters: [String:Any]?, completion:  @escaping (Result<BaseResponse, Error>) -> Void) {
-        let REQ_URL = ApiPaths.inviteMember
+    func InviteMemberRequest(parameters: [String:Any]?, completion:  @escaping (Result<BaseResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.InviteMember
         NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     

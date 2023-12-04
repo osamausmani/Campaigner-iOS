@@ -18,14 +18,18 @@ struct HomeMenuButtons: View {
     @State private var electionResultsScreenView = false
     @State private var postResultsScreenView = false
     @State private var teamsScreenView = false
-
+    
     var symbols = [
         1: ["title": "Surveys", "symbol": "surveys"],
         2: ["title": "Election History", "symbol": "election_result"],
         //        2: ["title": "Reporting", "symbol": "reporting"],
         3: ["title": "Complaints", "symbol": "complaints"],
+        
+        
+        
+        
         //        5: ["title": "Post Results", "symbol": "post-result"],
-        //        6: ["title": "Teams", "symbol": "teams"]
+        6: ["title": "Teams", "symbol": "teams"]
     ]
     
     var layout = [
@@ -69,9 +73,9 @@ struct HomeMenuButtons: View {
             //                    .fullScreenCover(isPresented: $complaintsScreenView) {
             //                        ComplaintsScreenView()
             //                    }
-//            .fullScreenCover(isPresented: $electionResultsScreenView) {
-//                SearchElectionScreenView()
-//            }
+            //            .fullScreenCover(isPresented: $electionResultsScreenView) {
+            //                SearchElectionScreenView()
+            //            }
             //                    .fullScreenCover(isPresented: $postResultsScreenView) {
             //                        PostResultsView()
             //                    }
@@ -85,7 +89,10 @@ struct HomeMenuButtons: View {
         NavigationLink(destination: ComplaintsScreenView(), isActive: $complaintsScreenView) {}
         NavigationLink(destination: SearchElectionScreenView(), isActive: $electionResultsScreenView) {}
         NavigationLink(destination: SurveyHomeScreenView(), isActive: $surveyScreenView) {}
-
+        
+        NavigationLink(destination: TeamsScreenView(), isActive: $teamsScreenView) {}
+        
+        
     }
     
     func buttonTapped(_ number: Int) {

@@ -76,11 +76,11 @@ struct ElectoralSection: View {
             HStack {
                 NavigationLink(destination: ElectoralExpAdd(isEdit: true, recordItem: item),  isActive: $isEditActive) {
                 }
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 2) {
                     HStack {
                         Text("Party")
                             .font(.headline)
-                            .foregroundColor(.black).frame(maxWidth: 50,  alignment: .leading) .multilineTextAlignment(.leading)
+                            .foregroundColor(.black).frame(maxWidth: 100,  alignment: .leading) .multilineTextAlignment(.leading)
                         Spacer()
                         Text(item.party_name!)
                             .font(.body).frame(maxWidth: .infinity,  alignment: .leading)
@@ -89,7 +89,7 @@ struct ElectoralSection: View {
                     HStack {
                         Text("Constituencey")
                             .font(.headline)
-                            .foregroundColor(.black).frame(maxWidth: 50,  alignment: .leading) .multilineTextAlignment(.leading)
+                            .foregroundColor(.black).frame(maxWidth: 100,  alignment: .leading) .multilineTextAlignment(.leading)
                         Spacer()
                         Text(item.constituency!)
                             .font(.body).frame(maxWidth: .infinity,  alignment: .leading)
@@ -98,14 +98,14 @@ struct ElectoralSection: View {
                     HStack {
                         Text("Year")
                             .font(.headline)
-                            .foregroundColor(.black).frame(maxWidth: 50,  alignment: .leading) .multilineTextAlignment(.leading)
+                            .foregroundColor(.black).frame(maxWidth: 100,  alignment: .leading) .multilineTextAlignment(.leading)
                         Text(item.elect_year!)
                             .font(.body).frame(maxWidth: .infinity,  alignment: .leading)
                     }
                     HStack {
                         Text("Positions")
                             .font(.headline)
-                            .foregroundColor(.black).frame(maxWidth: 50,  alignment: .leading) .multilineTextAlignment(.leading)
+                            .foregroundColor(.black).frame(maxWidth: 100,  alignment: .leading) .multilineTextAlignment(.leading)
                         Text(String(item.elect_position!))
                             .font(.body).frame(maxWidth: .infinity,  alignment: .leading)
                     }
@@ -113,7 +113,7 @@ struct ElectoralSection: View {
                     HStack {
                         Text("Votes")
                             .font(.headline)
-                            .foregroundColor(.black).frame(maxWidth: 50,  alignment: .leading) .multilineTextAlignment(.leading)
+                            .foregroundColor(.black).frame(maxWidth: 100,  alignment: .leading) .multilineTextAlignment(.leading)
                         Text(String(item.elect_vote!))
                             .font(.body).frame(maxWidth: .infinity,  alignment: .leading)
                     }
@@ -133,15 +133,15 @@ struct ElectoralSection: View {
                                 .foregroundColor(.white)
                                 .frame(width: 24, height: 24)
                             Spacer()
-                            Text("Edit")
-                                .foregroundColor(.white).padding(.trailing,8)
+                            Text("Edit").font(.system(size: 13))
+                                .foregroundColor(.white).padding(.trailing,4)
                         }
-                    }.frame(width: 90).background(Color.green)
+                    }.frame(width:80).background(Color.green)
                         .cornerRadius(8)
                     
                     Button(action: {
                         SwiftAlertView.show(title: "Alert",
-                                            message: "Are you sure to delete this record?",
+                                            message: "Are you sure you want to delete this record?",
                                             buttonTitles: "Cancel", "OK")
                         .onButtonClicked { _, buttonIndex in
                             if buttonIndex == 1 {
@@ -152,14 +152,16 @@ struct ElectoralSection: View {
                         HStack {
                             Image(systemName: "trash")
                                 .foregroundColor(.white)
-                                .frame(width: 24, height: 24)
+                                .frame(width:24, height: 24)
                             Spacer()
-                            Text("Delete")
-                                .foregroundColor(.white).padding(.trailing,8)
+                            Text("Delete").font(.system(size: 13))
+                                .foregroundColor(.white).padding(.trailing,4)
                         }
-                    }.frame(width: 90).background(Color.red)
+                    }.frame(width: 80).background(Color.red)
                         .cornerRadius(8)
-                }
+                    
+                    Spacer()
+                }.padding(.top,4).padding(.trailing,4)
             }
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
