@@ -33,7 +33,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject  {
         
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyCojkH-SLSkXaZgy_mywsy9AgbHqTEi-a4")
-        print("1077346733630579")
         return true
     }
     

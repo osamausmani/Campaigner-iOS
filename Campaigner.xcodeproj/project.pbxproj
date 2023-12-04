@@ -61,6 +61,15 @@
 		07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0D82A07E7730096C82D /* MainBGView.swift */; };
 		07ADF0DB2A07F7CA0096C82D /* CustomTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */; };
 		07ADF0DD2A07FFB70096C82D /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */; };
+		07BE80E42B1DD2A70064A77D /* TeamDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80E32B1DD2A70064A77D /* TeamDetailsScreenView.swift */; };
+		07BE80EA2B1DD2BA0064A77D /* AddMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80E52B1DD2BA0064A77D /* AddMemberView.swift */; };
+		07BE80EC2B1DD2BA0064A77D /* AddTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80E72B1DD2BA0064A77D /* AddTeamView.swift */; };
+		07BE80ED2B1DD2BA0064A77D /* TeamDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80E82B1DD2BA0064A77D /* TeamDetailsScreenView.swift */; };
+		07BE80EE2B1DD2BA0064A77D /* ContactsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80E92B1DD2BA0064A77D /* ContactsScreenView.swift */; };
+		07BE80F02B1DD3260064A77D /* SocialSignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80EF2B1DD3260064A77D /* SocialSignViewModel.swift */; };
+		07BE80F22B1DD34D0064A77D /* TeamsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80F12B1DD34D0064A77D /* TeamsScreenView.swift */; };
+		07BE80F72B1DD6FA0064A77D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE80F62B1DD6FA0064A77D /* Application.swift */; };
+		07BE80FB2B1DD8F10064A77D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07BE80FA2B1DD8F10064A77D /* GoogleService-Info.plist */; };
 		07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */; };
 		07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */; };
 		07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DEE2312A1CE38700D8B4B5 /* RegisterViewModel.swift */; };
@@ -165,7 +174,6 @@
 		FAF8E27D2A25F23B00149D29 /* ContestingElectionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E27C2A25F23B00149D29 /* ContestingElectionScreenView.swift */; };
 		FAF8E27F2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E27E2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift */; };
 		FAF8E2812A27599600149D29 /* ContestentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E2802A27599600149D29 /* ContestentViewModel.swift */; };
-		FAF8E2842A29CABC00149D29 /* TeamsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E2832A29CABC00149D29 /* TeamsScreenView.swift */; };
 		FAF8E2862A29E88B00149D29 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E2852A29E88B00149D29 /* TabBarView.swift */; };
 		FAF8E2882A29F7A100149D29 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E2872A29F7A100149D29 /* TabBarButton.swift */; };
 		FAF8E28E2A2B8FA800149D29 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8E28D2A2B8FA800149D29 /* HomeScreen.swift */; };
@@ -228,6 +236,15 @@
 		07ADF0D82A07E7730096C82D /* MainBGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBGView.swift; sourceTree = "<group>"; };
 		07ADF0DA2A07F7CA0096C82D /* CustomTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextInput.swift; sourceTree = "<group>"; };
 		07ADF0DC2A07FFB70096C82D /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
+		07BE80E32B1DD2A70064A77D /* TeamDetailsScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamDetailsScreenView.swift; path = Campaigner/Views/Teams/TeamDetailsScreenView.swift; sourceTree = SOURCE_ROOT; };
+		07BE80E52B1DD2BA0064A77D /* AddMemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberView.swift; sourceTree = "<group>"; };
+		07BE80E72B1DD2BA0064A77D /* AddTeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamView.swift; sourceTree = "<group>"; };
+		07BE80E82B1DD2BA0064A77D /* TeamDetailsScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailsScreenView.swift; sourceTree = "<group>"; };
+		07BE80E92B1DD2BA0064A77D /* ContactsScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsScreenView.swift; sourceTree = "<group>"; };
+		07BE80EF2B1DD3260064A77D /* SocialSignViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSignViewModel.swift; sourceTree = "<group>"; };
+		07BE80F12B1DD34D0064A77D /* TeamsScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsScreenView.swift; sourceTree = "<group>"; };
+		07BE80F62B1DD6FA0064A77D /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		07BE80FA2B1DD8F10064A77D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07DEE22B2A1CB4D700D8B4B5 /* DropDownModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownModel.swift; sourceTree = "<group>"; };
 		07DEE22F2A1CDA3A00D8B4B5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		07DEE2312A1CE38700D8B4B5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -332,7 +349,6 @@
 		FAF8E27C2A25F23B00149D29 /* ContestingElectionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionScreenView.swift; sourceTree = "<group>"; };
 		FAF8E27E2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionPopUpScreenView.swift; sourceTree = "<group>"; };
 		FAF8E2802A27599600149D29 /* ContestentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestentViewModel.swift; sourceTree = "<group>"; };
-		FAF8E2832A29CABC00149D29 /* TeamsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreenView.swift; sourceTree = "<group>"; };
 		FAF8E2852A29E88B00149D29 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		FAF8E2872A29F7A100149D29 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		FAF8E28D2A2B8FA800149D29 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -511,6 +527,8 @@
 		07ADF0B22A07E4110096C82D /* Campaigner */ = {
 			isa = PBXGroup;
 			children = (
+				07BE80FA2B1DD8F10064A77D /* GoogleService-Info.plist */,
+				07BE80F52B1DD6FA0064A77D /* Utilities */,
 				FAF5B42B2AF251AB0036D37B /* SharedData */,
 				07DEE2462A1D371900D8B4B5 /* Protocols */,
 				07ADF0C12A07E42F0096C82D /* Models */,
@@ -560,6 +578,7 @@
 				FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */,
 				FAC49CCD2A52CB8E00AFAE81 /* SurveyViewModel.swift */,
 				FAC49CD52A5596BF00AFAE81 /* TeamsViewModel.swift */,
+				07BE80EF2B1DD3260064A77D /* SocialSignViewModel.swift */,
 				FAC49CDD2A5BF33100AFAE81 /* ReportingViewModel.swift */,
 				0778234B2ACFFD9A00A6F2E3 /* ProfileViewModel.swift */,
 				07488D352AD1039D0075CFAA /* NewsViewModel.swift */,
@@ -660,6 +679,14 @@
 				07488D4A2AD1AC320075CFAA /* CardView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		07BE80F52B1DD6FA0064A77D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				07BE80F62B1DD6FA0064A77D /* Application.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		07DEE2382A1CE68300D8B4B5 /* RespModels */ = {
@@ -844,7 +871,11 @@
 		FAF8E2822A29CA9C00149D29 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
-				FAF8E2832A29CABC00149D29 /* TeamsScreenView.swift */,
+				07BE80F12B1DD34D0064A77D /* TeamsScreenView.swift */,
+				07BE80E52B1DD2BA0064A77D /* AddMemberView.swift */,
+				07BE80E72B1DD2BA0064A77D /* AddTeamView.swift */,
+				07BE80E92B1DD2BA0064A77D /* ContactsScreenView.swift */,
+				07BE80E82B1DD2BA0064A77D /* TeamDetailsScreenView.swift */,
 				FAD8FF6D2A38FC7E00466533 /* AddMemberView.swift */,
 				FAD8FF6F2A38FC8800466533 /* AddTeamView.swift */,
 			);
@@ -873,6 +904,7 @@
 		FAF8E28B2A2B8A9500149D29 /* Complaints */ = {
 			isa = PBXGroup;
 			children = (
+				07BE80E32B1DD2A70064A77D /* TeamDetailsScreenView.swift */,
 				FAD8FF362A2EFD8100466533 /* ComplaintsScreenView.swift */,
 				07488D462AD1A97A0075CFAA /* AddNewComplaintView.swift */,
 				07513CBB2AED718100AB0290 /* ComplaintCommentScreenView.swift */,
@@ -981,6 +1013,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07ADF0BB2A07E4120096C82D /* Preview Assets.xcassets in Resources */,
+				07BE80FB2B1DD8F10064A77D /* GoogleService-Info.plist in Resources */,
 				07ADF0B82A07E4120096C82D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1093,7 +1126,6 @@
 				0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */,
 				FAD8FF5E2A370DFB00466533 /* CustomButton.swift in Sources */,
 				07DEE2402A1CF41400D8B4B5 /* LoginResponse.swift in Sources */,
-				FAF8E2842A29CABC00149D29 /* TeamsScreenView.swift in Sources */,
 				07513CBE2AED76D100AB0290 /* ComplaintCommentResponse.swift in Sources */,
 				FAC49CC42A51FFC800AFAE81 /* PasscodeField.swift in Sources */,
 				FAD8FF312A2E2E6600466533 /* AddReportScreenView.swift in Sources */,
@@ -1129,6 +1161,7 @@
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
 				FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */,
 				FA461D722AF11CAF009A3FCE /* CustomAlertView.swift in Sources */,
+				07BE80F22B1DD34D0064A77D /* TeamsScreenView.swift in Sources */,
 				FAD8FF7C2A3A4BAC00466533 /* SecondaryButton.swift in Sources */,
 				FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */,
 				FAE114952AF8B9C000E24CE1 /* HTMLTextView.swift in Sources */,
@@ -1138,8 +1171,10 @@
 				FAC49CD82A5596EA00AFAE81 /* TeamsResponse.swift in Sources */,
 				07513CC42AEEAABB00AB0290 /* SurveyHomeScreenView.swift in Sources */,
 				FAC49CCC2A520DA900AFAE81 /* DesignTokenField.swift in Sources */,
+				07BE80F02B1DD3260064A77D /* SocialSignViewModel.swift in Sources */,
 				07ADF0D02A07E5B20096C82D /* SplashScreenView.swift in Sources */,
 				FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */,
+				07BE80F72B1DD6FA0064A77D /* Application.swift in Sources */,
 				FAC49CDC2A5843AE00AFAE81 /* MultilineFormInput.swift in Sources */,
 				FAD8FF422A2F61B700466533 /* AlertManager.swift in Sources */,
 				0711DE2D2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift in Sources */,
@@ -1157,6 +1192,7 @@
 				074C74712A25CC88006812BD /* SideMenu.swift in Sources */,
 				FAD8FF3A2A2EFECC00466533 /* NotificationScreenView.swift in Sources */,
 				FAD8FF502A31AF4B00466533 /* ContestingElectionsResponse.swift in Sources */,
+				07BE80EA2B1DD2BA0064A77D /* AddMemberView.swift in Sources */,
 				07513CC02AEE1F6500AB0290 /* ElectionHistoryListScreenView.swift in Sources */,
 				07ADF0D62A07E5EB0096C82D /* ForgotPasswordHomeScreenView.swift in Sources */,
 				FAC49CDA2A5823D500AFAE81 /* ConfirmationAlert.swift in Sources */,
@@ -1169,6 +1205,7 @@
 				0711DE342AF9208A00CB3FB5 /* ContactUsView.swift in Sources */,
 				07DEE22C2A1CB4D700D8B4B5 /* DropDownModel.swift in Sources */,
 				07ADF0D42A07E5CB0096C82D /* RegisterScreenView.swift in Sources */,
+				07BE80ED2B1DD2BA0064A77D /* TeamDetailsScreenView.swift in Sources */,
 				07DEE2482A1D372900D8B4B5 /* BaseViewProtocol.swift in Sources */,
 				075AF3602AEA81CE00D33416 /* ComplaintsResponse.swift in Sources */,
 				FAD5DE1B2AFB843100C0C520 /* ComplaintCustomCardView.swift in Sources */,
@@ -1176,6 +1213,7 @@
 				FAF8E27F2A273FC000149D29 /* ContestingElectionPopUpScreenView.swift in Sources */,
 				FA5B5BE02A3DE5E4005AD722 /* ImageSelectorView.swift in Sources */,
 				FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */,
+				07BE80EC2B1DD2BA0064A77D /* AddTeamView.swift in Sources */,
 				FAC49CD62A5596BF00AFAE81 /* TeamsViewModel.swift in Sources */,
 				FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */,
 				FAD8FF752A39C65200466533 /* InviteMemberScreenView.swift in Sources */,
@@ -1194,6 +1232,7 @@
 				07DEE23A2A1CE69100D8B4B5 /* BaseResponse.swift in Sources */,
 				FA145A712AF3C5F500053160 /* InviteViewModel.swift in Sources */,
 				FA243E462A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift in Sources */,
+				07BE80E42B1DD2A70064A77D /* TeamDetailsScreenView.swift in Sources */,
 				FAD8FF5C2A37065000466533 /* CheckboxFieldView.swift in Sources */,
 				FAD8FF582A36624800466533 /* ShareData.swift in Sources */,
 				07513CB82AECFE3700AB0290 /* AppDelegate.swift in Sources */,
@@ -1203,6 +1242,7 @@
 				FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */,
 				07513CC62AF237CA00AB0290 /* SurveyAttemptScreenView.swift in Sources */,
 				0778234E2AD0090100A6F2E3 /* BasicProfileInfoResponse.swift in Sources */,
+				07BE80EE2B1DD2BA0064A77D /* ContactsScreenView.swift in Sources */,
 				FAF8E2952A2DBA6C00149D29 /* SearchBarView.swift in Sources */,
 				FAD8FF702A38FC8800466533 /* AddTeamView.swift in Sources */,
 				07DEE2612A1E0BC500D8B4B5 /* Constants.swift in Sources */,
@@ -1341,6 +1381,7 @@
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Campaigner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = halka;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1374,6 +1415,7 @@
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Campaigner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = halka;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
