@@ -224,6 +224,7 @@ struct TeamsScreenView: View {
             {
                 //   listTeams()
             }
+            .navigationBarHidden(true)
     }
     
     func add()

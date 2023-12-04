@@ -24,7 +24,7 @@ struct MainButton : View{
                 .foregroundColor(.white)
                 .font(.headline)
                 .cornerRadius(10)
-                .frame(maxHeight: customHeight)
+                
 
         }
     }

@@ -10,6 +10,7 @@ import Foundation
 struct DropDownModel: Equatable, Identifiable {
     var id: String = ""
     var value: String = ""
+    var value2:String? = ""
     
     static func == (lhs: DropDownModel, rhs: DropDownModel) -> Bool {
           // Define how instances of DropDownModel are compared for equality

@@ -53,7 +53,7 @@ struct CheckboxFieldView: View {
                     .foregroundColor(isChecked ? .green : .primary)
                 
                 Text(label)
-            }
+                .font(.system(size: 14))            }
         }
         .foregroundColor(.primary)
     }

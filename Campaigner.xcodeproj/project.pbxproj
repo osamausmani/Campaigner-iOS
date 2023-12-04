@@ -87,11 +87,13 @@
 		FA145A6D2AF374BC00053160 /* MobileNoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */; };
 		FA145A6F2AF39D3D00053160 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A6E2AF39D3D00053160 /* FormInputField.swift */; };
 		FA145A712AF3C5F500053160 /* InviteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA145A702AF3C5F500053160 /* InviteViewModel.swift */; };
+		FA1DC3352B1BB0D2003B61F9 /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DC3342B1BB0D2003B61F9 /* AddLocationView.swift */; };
 		FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */; };
 		FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E3D2A5E820300E7C0AB /* HelperClass.swift */; };
 		FA243E422A60273B00E7C0AB /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E412A60273B00E7C0AB /* MapScreen.swift */; };
 		FA243E442A611C3F00E7C0AB /* ReportingLcoation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */; };
 		FA243E462A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA243E452A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift */; };
+		FA4149E62B06169200B3CE88 /* HomeProButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4149E52B06169200B3CE88 /* HomeProButtons.swift */; };
 		FA461D722AF11CAF009A3FCE /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA461D712AF11CAF009A3FCE /* CustomAlertView.swift */; };
 		FA461D752AF11F86009A3FCE /* LoginCustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA461D742AF11F86009A3FCE /* LoginCustomDivider.swift */; };
 		FA461D782AF12919009A3FCE /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA461D772AF12919009A3FCE /* CustomNavBar.swift */; };
@@ -103,10 +105,21 @@
 		FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */; };
 		FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */; };
 		FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */; };
+		FA5BA8A92B15E3B3008B16C9 /* CriteriaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BA8A82B15E3B3008B16C9 /* CriteriaTableView.swift */; };
+		FA5BA8AB2B1601D1008B16C9 /* AudienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BA8AA2B1601D1008B16C9 /* AudienceView.swift */; };
 		FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */; };
 		FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C122AF4D0E500A69B5C /* MandatoryField.swift */; };
 		FA730C152AF4E91800A69B5C /* ChangePaaswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */; };
 		FA730C182AF50D5A00A69B5C /* TermOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */; };
+		FA9055D02B0F282D00FDA8CF /* UpdateScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055CF2B0F282D00FDA8CF /* UpdateScreenView.swift */; };
+		FA9055D22B1465CF00FDA8CF /* CreateNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055D12B1465CF00FDA8CF /* CreateNotificationView.swift */; };
+		FA9055D42B14662200FDA8CF /* DropDownMandatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055D32B14662200FDA8CF /* DropDownMandatory.swift */; };
+		FA9055D82B14675800FDA8CF /* MultilineInputMandatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055D72B14675800FDA8CF /* MultilineInputMandatory.swift */; };
+		FA9055DA2B1467A200FDA8CF /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055D92B1467A200FDA8CF /* ScheduleView.swift */; };
+		FA9055DC2B14690F00FDA8CF /* dividerline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055DB2B14690F00FDA8CF /* dividerline.swift */; };
+		FA9055DE2B1488D400FDA8CF /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055DD2B1488D400FDA8CF /* NotificationResponse.swift */; };
+		FA9055E02B14961F00FDA8CF /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9055DF2B14961F00FDA8CF /* NotificationViewModel.swift */; };
+		FAB8E1942B0B2FA0005838ED /* LocationField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8E1932B0B2FA0005838ED /* LocationField.swift */; };
 		FAC49CB42A498A7200AFAE81 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB32A498A7200AFAE81 /* AlertView.swift */; };
 		FAC49CB62A49937600AFAE81 /* SimpleAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */; };
 		FAC49CB82A51DE1200AFAE81 /* VerificationCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */; };
@@ -155,6 +168,7 @@
 		FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */; };
 		FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */; };
 		FAE114952AF8B9C000E24CE1 /* HTMLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */; };
+		FAE8DAD62B19B66C003AFB96 /* NotificationCustomCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8DAD52B19B66C003AFB96 /* NotificationCustomCard.swift */; };
 		FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */; };
 		FAEE762E2A3CE1070077731A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762D2A3CE1070077731A /* HomeResponse.swift */; };
 		FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5B42C2AF251C10036D37B /* UserData.swift */; };
@@ -250,11 +264,13 @@
 		FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoTextField.swift; sourceTree = "<group>"; };
 		FA145A6E2AF39D3D00053160 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
 		FA145A702AF3C5F500053160 /* InviteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewModel.swift; sourceTree = "<group>"; };
+		FA1DC3342B1BB0D2003B61F9 /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
 		FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingResponse.swift; sourceTree = "<group>"; };
 		FA243E3D2A5E820300E7C0AB /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperClass.swift; sourceTree = "<group>"; };
 		FA243E412A60273B00E7C0AB /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingLcoation.swift; sourceTree = "<group>"; };
 		FA243E452A616EC800E7C0AB /* ContestingElectionUpdateScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestingElectionUpdateScreenView.swift; sourceTree = "<group>"; };
+		FA4149E52B06169200B3CE88 /* HomeProButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProButtons.swift; sourceTree = "<group>"; };
 		FA461D712AF11CAF009A3FCE /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		FA461D742AF11F86009A3FCE /* LoginCustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCustomDivider.swift; sourceTree = "<group>"; };
 		FA461D772AF12919009A3FCE /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
@@ -266,10 +282,21 @@
 		FA5B5BEA2A41D2CA005AD722 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		FA5B5BEC2A41D2FE005AD722 /* PaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsResponse.swift; sourceTree = "<group>"; };
 		FA5B5BEE2A4452FC005AD722 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		FA5BA8A82B15E3B3008B16C9 /* CriteriaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaTableView.swift; sourceTree = "<group>"; };
+		FA5BA8AA2B1601D1008B16C9 /* AudienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceView.swift; sourceTree = "<group>"; };
 		FA730C0E2AF4C9B100A69B5C /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		FA730C122AF4D0E500A69B5C /* MandatoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandatoryField.swift; sourceTree = "<group>"; };
 		FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaaswordViewModel.swift; sourceTree = "<group>"; };
 		FA730C172AF50D5A00A69B5C /* TermOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfUseView.swift; sourceTree = "<group>"; };
+		FA9055CF2B0F282D00FDA8CF /* UpdateScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateScreenView.swift; sourceTree = "<group>"; };
+		FA9055D12B1465CF00FDA8CF /* CreateNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationView.swift; sourceTree = "<group>"; };
+		FA9055D32B14662200FDA8CF /* DropDownMandatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMandatory.swift; sourceTree = "<group>"; };
+		FA9055D72B14675800FDA8CF /* MultilineInputMandatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineInputMandatory.swift; sourceTree = "<group>"; };
+		FA9055D92B1467A200FDA8CF /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		FA9055DB2B14690F00FDA8CF /* dividerline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dividerline.swift; sourceTree = "<group>"; };
+		FA9055DD2B1488D400FDA8CF /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
+		FA9055DF2B14961F00FDA8CF /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		FAB8E1932B0B2FA0005838ED /* LocationField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationField.swift; sourceTree = "<group>"; };
 		FAC49CB32A498A7200AFAE81 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FAC49CB52A49937600AFAE81 /* SimpleAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlertView.swift; sourceTree = "<group>"; };
 		FAC49CB72A51DE1200AFAE81 /* VerificationCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeInput.swift; sourceTree = "<group>"; };
@@ -318,6 +345,7 @@
 		FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePopUpScreenView.swift; sourceTree = "<group>"; };
 		FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTextView.swift; sourceTree = "<group>"; };
+		FAE8DAD52B19B66C003AFB96 /* NotificationCustomCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCustomCard.swift; sourceTree = "<group>"; };
 		FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAEE762D2A3CE1070077731A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		FAF5B42C2AF251C10036D37B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -390,6 +418,8 @@
 				FA145A6C2AF374BC00053160 /* MobileNoTextField.swift */,
 				FA145A6E2AF39D3D00053160 /* FormInputField.swift */,
 				FA730C122AF4D0E500A69B5C /* MandatoryField.swift */,
+				FAB8E1932B0B2FA0005838ED /* LocationField.swift */,
+				FA9055D72B14675800FDA8CF /* MultilineInputMandatory.swift */,
 			);
 			path = TextInputs;
 			sourceTree = "<group>";
@@ -558,6 +588,7 @@
 				075AF35D2AEA7F2C00D33416 /* ComplaintsViewModel.swift */,
 				FA145A702AF3C5F500053160 /* InviteViewModel.swift */,
 				FA730C142AF4E91800A69B5C /* ChangePaaswordViewModel.swift */,
+				FA9055DF2B14961F00FDA8CF /* NotificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -650,6 +681,9 @@
 				FA243E412A60273B00E7C0AB /* MapScreen.swift */,
 				07488D442AD1A1530075CFAA /* NoRecordView.swift */,
 				07488D4A2AD1AC320075CFAA /* CardView.swift */,
+				FA9055D32B14662200FDA8CF /* DropDownMandatory.swift */,
+				FA9055D92B1467A200FDA8CF /* ScheduleView.swift */,
+				FA9055DB2B14690F00FDA8CF /* dividerline.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -669,6 +703,7 @@
 				FAC49CD72A5596EA00AFAE81 /* TeamsResponse.swift */,
 				FA243E3B2A5D6B1600E7C0AB /* ReportingResponse.swift */,
 				0778234D2AD0090100A6F2E3 /* BasicProfileInfoResponse.swift */,
+				FA9055DD2B1488D400FDA8CF /* NotificationResponse.swift */,
 			);
 			path = RespModels;
 			sourceTree = "<group>";
@@ -697,6 +732,7 @@
 				07DEE2502A1D50B500D8B4B5 /* HomeScreenView.swift */,
 				074C746D2A25458E006812BD /* HomeMenuButtons.swift */,
 				074C74742A25D3A2006812BD /* HomeScreenTabedView.swift */,
+				FA4149E52B06169200B3CE88 /* HomeProButtons.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -774,6 +810,10 @@
 			isa = PBXGroup;
 			children = (
 				FAD8FF392A2EFECC00466533 /* NotificationScreenView.swift */,
+				FA9055D12B1465CF00FDA8CF /* CreateNotificationView.swift */,
+				FA5BA8A82B15E3B3008B16C9 /* CriteriaTableView.swift */,
+				FA5BA8AA2B1601D1008B16C9 /* AudienceView.swift */,
+				FAE8DAD52B19B66C003AFB96 /* NotificationCustomCard.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -858,6 +898,8 @@
 				FAD8FF302A2E2E6500466533 /* AddReportScreenView.swift */,
 				FAD8FF612A385CB900466533 /* ReportingScreenView.swift */,
 				FA243E432A611C3F00E7C0AB /* ReportingLcoation.swift */,
+				FA9055CF2B0F282D00FDA8CF /* UpdateScreenView.swift */,
+				FA1DC3342B1BB0D2003B61F9 /* AddLocationView.swift */,
 			);
 			path = Reporting;
 			sourceTree = "<group>";
@@ -1055,6 +1097,7 @@
 				0702927A2A1A37730057FB33 /* Colors.swift in Sources */,
 				FAD8FF372A2EFD8100466533 /* ComplaintsScreenView.swift in Sources */,
 				FAF8E28E2A2B8FA800149D29 /* HomeScreen.swift in Sources */,
+				FA5BA8A92B15E3B3008B16C9 /* CriteriaTableView.swift in Sources */,
 				07488D4B2AD1AC320075CFAA /* CardView.swift in Sources */,
 				07DEE25F2A1DFF3300D8B4B5 /* ForgotPassSetPassScreenView.swift in Sources */,
 				FAD8FF7E2A3A512200466533 /* PayNowScreenView.swift in Sources */,
@@ -1077,15 +1120,18 @@
 				FAF8E2812A27599600149D29 /* ContestentViewModel.swift in Sources */,
 				FAD8FF3C2A2F36AF00466533 /* LogoutViewModel.swift in Sources */,
 				07DEE2372A1CE50200D8B4B5 /* NetworkManager.swift in Sources */,
+				FA4149E62B06169200B3CE88 /* HomeProButtons.swift in Sources */,
 				07488D492AD1AA690075CFAA /* EmptyNavigationView.swift in Sources */,
 				0770533A2A1C9B8C000E1327 /* DropDown.swift in Sources */,
 				FAD8FF5E2A370DFB00466533 /* CustomButton.swift in Sources */,
 				07DEE2402A1CF41400D8B4B5 /* LoginResponse.swift in Sources */,
+				FA9055D82B14675800FDA8CF /* MultilineInputMandatory.swift in Sources */,
 				FAF8E2842A29CABC00149D29 /* TeamsScreenView.swift in Sources */,
 				07513CBE2AED76D100AB0290 /* ComplaintCommentResponse.swift in Sources */,
 				FAC49CC42A51FFC800AFAE81 /* PasscodeField.swift in Sources */,
 				FAD8FF312A2E2E6600466533 /* AddReportScreenView.swift in Sources */,
 				07ADF0B62A07E4110096C82D /* ContentView.swift in Sources */,
+				FA9055E02B14961F00FDA8CF /* NotificationViewModel.swift in Sources */,
 				FA5B5BE72A406350005AD722 /* NewsDetailsModel.swift in Sources */,
 				0702927D2A1A442B0057FB33 /* FilterCnic.swift in Sources */,
 				07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */,
@@ -1094,13 +1140,16 @@
 				0711DE1E2AF6425A00CB3FB5 /* EditProfileScreenView.swift in Sources */,
 				0710C4FF2A1BB4F10035021A /* FormInput.swift in Sources */,
 				FAD8FF6A2A38A63900466533 /* PostResultsView.swift in Sources */,
+				FA5BA8AB2B1601D1008B16C9 /* AudienceView.swift in Sources */,
 				FAD8FF792A39E74800466533 /* PaymentsScreenView.swift in Sources */,
 				070292812A1A5CEA0057FB33 /* CnicTextInput.swift in Sources */,
 				07DEE23C2A1CE96900D8B4B5 /* ApiPaths.swift in Sources */,
 				07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */,
 				07DEE23E2A1CEB7300D8B4B5 /* LoginViewModel.swift in Sources */,
 				07DEE2542A1DFE7D00D8B4B5 /* ProfileMainScreenView.swift in Sources */,
+				FA9055DC2B14690F00FDA8CF /* dividerline.swift in Sources */,
 				FA5B5BE52A40590A005AD722 /* ImageView.swift in Sources */,
+				FAE8DAD62B19B66C003AFB96 /* NotificationCustomCard.swift in Sources */,
 				FA243E3E2A5E820300E7C0AB /* HelperClass.swift in Sources */,
 				07ADF0B42A07E4110096C82D /* CampaignerApp.swift in Sources */,
 				0702927F2A1A44900057FB33 /* TextFieldContainer.swift in Sources */,
@@ -1113,6 +1162,7 @@
 				FA461D752AF11F86009A3FCE /* LoginCustomDivider.swift in Sources */,
 				FA145A6B2AF3733700053160 /* TextFields.swift in Sources */,
 				FAC49CD02A532D0500AFAE81 /* SurveyResponse.swift in Sources */,
+				FA9055DE2B1488D400FDA8CF /* NotificationResponse.swift in Sources */,
 				07DEE2572A1DFEA900D8B4B5 /* ProfileSection.swift in Sources */,
 				FA5B5BED2A41D2FE005AD722 /* PaymentsResponse.swift in Sources */,
 				FA461D722AF11CAF009A3FCE /* CustomAlertView.swift in Sources */,
@@ -1132,6 +1182,7 @@
 				0711DE2D2AF7856800CB3FB5 /* ProfilePoliticalResponse.swift in Sources */,
 				07DEE2322A1CE38700D8B4B5 /* RegisterViewModel.swift in Sources */,
 				FA5B5BEB2A41D2CA005AD722 /* PaymentsViewModel.swift in Sources */,
+				FA9055DA2B1467A200FDA8CF /* ScheduleView.swift in Sources */,
 				FA461D782AF12919009A3FCE /* CustomNavBar.swift in Sources */,
 				07488D432AD1A04B0075CFAA /* ViewTabBars.swift in Sources */,
 				FAD8FF462A2F642800466533 /* AlertControlled.swift in Sources */,
@@ -1139,6 +1190,7 @@
 				FAD8FF652A385DBD00466533 /* SearchElectionScreenView.swift in Sources */,
 				FA730C152AF4E91800A69B5C /* ChangePaaswordViewModel.swift in Sources */,
 				074C74732A25CCB6006812BD /* SideMenuView.swift in Sources */,
+				FA1DC3352B1BB0D2003B61F9 /* AddLocationView.swift in Sources */,
 				FAF8E2922A2C96AC00149D29 /* CounterTabView.swift in Sources */,
 				074C74712A25CC88006812BD /* SideMenu.swift in Sources */,
 				FAD8FF3A2A2EFECC00466533 /* NotificationScreenView.swift in Sources */,
@@ -1150,6 +1202,7 @@
 				FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */,
 				FA730C0F2AF4C9B100A69B5C /* ChangePasswordView.swift in Sources */,
 				07DEE2592A1DFEBD00D8B4B5 /* ElectoralSection.swift in Sources */,
+				FA9055D02B0F282D00FDA8CF /* UpdateScreenView.swift in Sources */,
 				0710C5032A1BC00E0035021A /* Loader.swift in Sources */,
 				FA5B5BE92A41B6DB005AD722 /* CenterTitleModifier.swift in Sources */,
 				0711DE342AF9208A00CB3FB5 /* ContactUsView.swift in Sources */,
@@ -1169,8 +1222,11 @@
 				077823532AD0584900A6F2E3 /* TestContent.swift in Sources */,
 				075AF35E2AEA7F2C00D33416 /* ComplaintsViewModel.swift in Sources */,
 				FAD8FF672A386A3100466533 /* ToggleButtonView.swift in Sources */,
+				FAB8E1942B0B2FA0005838ED /* LocationField.swift in Sources */,
 				FAD8FF602A383E7C00466533 /* RadioButton.swift in Sources */,
 				074C746E2A25458E006812BD /* HomeMenuButtons.swift in Sources */,
+				FA9055D42B14662200FDA8CF /* DropDownMandatory.swift in Sources */,
+				FA9055D22B1465CF00FDA8CF /* CreateNotificationView.swift in Sources */,
 				FA730C132AF4D0E500A69B5C /* MandatoryField.swift in Sources */,
 				074C746C2A2535F9006812BD /* ImageSliderView.swift in Sources */,
 				07DEE2512A1D50B500D8B4B5 /* HomeScreenView.swift in Sources */,

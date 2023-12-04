@@ -321,7 +321,7 @@ struct ComplaintCustomCardView: View {
             .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 5)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
             
-            NavigationLink("", destination: GoogleMapView().edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
+            NavigationLink("", destination: GoogleMapView(latitude: "", longitude: "").edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
                 .isDetailLink(false)
             
         }.padding(.bottom,-20).padding(.leading,8).padding(.trailing,8)
