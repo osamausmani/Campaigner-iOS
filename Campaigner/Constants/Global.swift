@@ -14,7 +14,8 @@ public class Global {
     
     
     
-    public static var WelcomMessage = "Logged In. Welcome to Campaigner"
-    
+    public static var WelcomMessage = "Logged In. Welcome to Halka"
+    public static var LogoutMessage = "You are logged out successfully. "
+
 
 }

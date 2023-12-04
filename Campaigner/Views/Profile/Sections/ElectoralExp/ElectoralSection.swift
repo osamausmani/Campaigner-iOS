@@ -141,7 +141,7 @@ struct ElectoralSection: View {
                     
                     Button(action: {
                         SwiftAlertView.show(title: "Alert",
-                                            message: "Are you sure to delete this record?",
+                                            message: "Are you sure you want to delete this record?",
                                             buttonTitles: "Cancel", "OK")
                         .onButtonClicked { _, buttonIndex in
                             if buttonIndex == 1 {

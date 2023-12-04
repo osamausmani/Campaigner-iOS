@@ -16,6 +16,10 @@ class LoginViewModel: ObservableObject {
         NetworkManager.shared.Request(url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
+    func loginSocialRequest(parameters: [String:Any]?, completion:  @escaping (Result<LoginResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.Register
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
     
     
 }

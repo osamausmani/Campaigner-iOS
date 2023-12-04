@@ -8,6 +8,14 @@ target 'Campaigner' do
   # Pods for Campaigner
   pod 'GoogleMaps'
   pod 'SwiftAlertView', '~> 2.2.1'
+  pod 'GoogleSignIn'
+  pod 'GoogleSignInSwiftSupport'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  
 
-
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 end

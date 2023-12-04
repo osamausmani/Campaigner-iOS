@@ -7,8 +7,8 @@
 
 import SwiftUI
 import Alamofire
-import AlertToast
 import SwiftAlertView
+import AlertToast
 
 struct SideMenuView: View {
     
@@ -30,7 +30,8 @@ struct SideMenuView: View {
     
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
-    
+    @State private var showToast = false
+
     @State var alertMsg = "Alert"
     
     @State private var showSimpleAlert = false
@@ -59,6 +60,8 @@ struct SideMenuView: View {
             .frame(maxWidth: 270, maxHeight: .infinity, alignment: .leading)
             
             Spacer()
+        }.toast(isPresenting: $showToast){
+            AlertToast(displayMode: .banner(.slide), type: .regular, title: alertMsg)
         }
         .alert(isPresented: $showSimpleAlert) {
             Alert(
@@ -66,6 +69,7 @@ struct SideMenuView: View {
                 message: Text(alertMsg),
                 dismissButton: .default(Text("Ok")) {
                     // Optional completion block
+                    showToast.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -118,7 +122,7 @@ struct SideMenuView: View {
                     Text(UserDefaults.standard.string(forKey: Constants.USER_NAME) ?? "UserName")
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white).alignmentGuide(.leading) { _ in 0 }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading).padding(.bottom,0.5)
                     
                     Text(UserDefaults.standard.string(forKey: Constants.USER_PHONE) ?? "Mobile Number" )
                         .font(.system(size: 14, weight: .semibold))
@@ -257,8 +261,11 @@ struct SideMenuView: View {
                 
             case .success(let loginoutResponse):
                 if loginoutResponse.rescode == 1 {
-                    alertMsg = loginoutResponse.message!
-                    showSimpleAlert = true
+                    SwiftAlertView.show(title: "Alert", message: loginoutResponse.message!, buttonTitles: "OK")
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+
                     UserDefaults.standard.set(false, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""

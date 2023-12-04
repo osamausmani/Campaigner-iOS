@@ -6,168 +6,93 @@
 //
 
 import SwiftUI
+import SwiftAlertView
 
 struct AddMemberView: View {
     
-    @State private var fvCnic = ""
     @State private var fvName = ""
-    @State private var fvMobileNetwork = DropDownModel()
-    @State private var fvMobileNumber = ""
-    @State private var fvPassword = ""
-    @State private var fvConfirmPassword = ""
-    
-    @State private var showRegisterScreen = false
-    @State private var isShowingLoader = false
+    @State private var fvMobileNo = ""
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    @State var showStoreDropDown: Bool = false
-    
-    @StateObject private var alertService = AlertService()
-    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State var contactsScreenViewActive = false
 
-    
-    private let networkOptions: [DropDownModel] = [
-        DropDownModel(id: "1", value: "Ufone"),
-        DropDownModel(id: "2", value: "Telenor"),
-        DropDownModel(id: "3", value: "Jazz"),
-        DropDownModel(id: "4", value: "Zong"),
-        DropDownModel(id: "5", value: "Scom"),
-    ]
-    
     var body: some View {
-        
-        NavigationView {
+        VStack{
             
-            ZStack {
-                BaseView(alertService: alertService)
+            NavigationLink(destination: ContactsScreenView(), isActive: $contactsScreenViewActive) {
+            }
+            
+            CustomNavBarBack(title: "Add Member")
+            VStack {
                 
-                ZStack{
-                    
-                    Image("splash_background")
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
-                    
-                    ScrollView{
-                        headerView(heading: "Add Member", action: dismissView)
-                        VStack {
-                            
-                            
-                            FormInput(label: "CNIC", placeholder: "Enter CNIC", text: $fvCnic)
-                            FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
-                            
-                            DropDown(label: "Mobile Network", placeholder: "Select Mobile Network", selectedObj:  $fvMobileNetwork, menuOptions: networkOptions )
-                            
-                            MobileNoTextField(label: "Mobile Number", placeholder: "Mobile Number", text: $fvMobileNumber, isNumberInput: true)
-
-                            
-                            MainButton(action: {
-                                RegisterAction()
-                            }, label: "Invite").padding(.top,20)
-                            
-                            
-                        }.padding(16)
-                        
-                    }
-                    
-                    if isShowingLoader {
-                        Loader(isShowing: $isShowingLoader)
-                            .edgesIgnoringSafeArea(.all)
-                    }
+                FormInputField(label: "Name", placeholder: "Enter Name", text: $fvName)
+                MobileNoTextField(label: "Mobile Number", placeholder: "Mobile Number", text: $fvMobileNo, isNumberInput: true)
+                Divider().background(.black)
+                
+                MainButton(action: {
+                    RegisterAction()
+                }, label: "Invite").padding(20)
+                
+                Divider().background(.black)
+                Text("OR").padding(20).foregroundColor(CColors.MainThemeColor).bold()
+                
+                Text("Select From Contact List").padding(0).foregroundColor(.blue).bold().underline().onTapGesture {
+                    contactsScreenViewActive.toggle()
                 }
                 
-                
-            }
-            .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-            }
+                Spacer()
+            }.padding(16)
             
-        }.navigationBarHidden(false)
-            .navigationTitle("Sign Up")
+        }.navigationBarHidden(true).edgesIgnoringSafeArea(.top)
+        
+        
     }
     
     
-    // Add Other Swift Functions Below Here
-    
-    func dismissView()
-    {
-        self.presentationMode.wrappedValue.dismiss()
-    }
     func RegisterAction(){
-        validateInputs()
+        ValidateInputs()
     }
     
     
-    func validateInputs(){
-        if(fvCnic.isEmpty){
-            alertService.show(title: "Alert", message: "CNIC is required")
+    func ValidateInputs(){
+        if(fvName.isEmpty){
+            SwiftAlertView.show(title: "Alert", message: "Name is required", buttonTitles: "OK")
         }
-        
-        else if(fvName.isEmpty){
-            alertService.show(title: "Alert", message: "Name is required")
+        else if(fvMobileNo.isEmpty){
+            SwiftAlertView.show(title: "Alert", message: "Mobile Number is required", buttonTitles: "OK")
+
         }
-        
-        else if(fvMobileNetwork.value.isEmpty){
-            alertService.show(title: "Alert", message: "Mobile Network is required")
-        }
-        
-        else if(fvMobileNumber.isEmpty){
-            alertService.show(title: "Alert", message: "Mobile Number is required")
-        }
-        
-        else if(fvPassword.isEmpty){
-            alertService.show(title: "Alert", message: "Password is required")
-        }
-        
-//        else if(fvConfirmPassword.isEmpty){
-//            alertService.show(title: "Alert", message: "Confirm Password is required")
-//        }
-//
-//        else if(fvPassword != fvConfirmPassword){
-//            alertService.show(title: "Alert", message: "Password/Confirm Password are not same")
-//        }
+
         else{
-            doRegister()
+            SubmitAction()
         }
     }
     
     
-    func doRegister(){
-        isShowingLoader.toggle()
+    func SubmitAction(){
         
         let parameters: [String:Any] = [
-            "plattype": Global.PlatType,
-            "user_cnic": fvCnic,
-            "user_full_name": fvPassword,
-            "user_msisdn": fvMobileNumber,
-            "user_pass": fvPassword,
-            "telco_op":fvMobileNetwork.id
-
+            "plattype": Constants.PLAT_TYPE,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "user_full_name": fvName,
+            "user_msisdn": fvMobileNo,
+            
         ]
         
-        let registerViewModel = RegisterViewModel()
+        let RequestModel =  InviteViewModel()
         
-        registerViewModel.registerNewAccountRequest(parameters: parameters ) { result in
-            isShowingLoader.toggle()
-            
+        RequestModel.InviteMemberRequest(parameters: parameters ) { result in
             switch result {
-                
-            case .success(let loginResponse):
-                
-                if loginResponse.rescode == 1 {
-                    
-                    alertService.show(title: "Alert", message: loginResponse.message!)
-                    
+            case .success(let response):
+                if response.rescode == 1 {
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
                     self.presentationMode.wrappedValue.dismiss()
-                    
                 }else{
-                    alertService.show(title: "Alert", message: loginResponse.message!)
-                }
-                
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")                }
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
-            }
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            }
         }
     }
     

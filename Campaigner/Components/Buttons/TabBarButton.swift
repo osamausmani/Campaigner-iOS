@@ -17,7 +17,7 @@ struct TabBarButton: View {
         Button(action: action) {
             VStack{
                 Text(text)
-                    .font(isSelected ? .system(size: 14).bold() : .system(size: 14)) 
+                    .font(isSelected ? .system(size: 15).bold() : .system(size: 14))
                     .lineLimit(1)
                     .foregroundColor(isSelected ? CColors.MainThemeColor : .black)
                     .padding(0)
@@ -30,5 +30,6 @@ struct TabBarButton: View {
         }
     }
 }
+
 
 

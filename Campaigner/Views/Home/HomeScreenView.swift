@@ -25,15 +25,15 @@ struct HomeScreenView: View {
     @State var images2 = [String]()
     @State var label2 = [String]()
     @State private var selectedNewsIndex: Int = 0
-
+    
     var body: some View {
         NavigationView {
-//            BaseView(alertService: alertService)
+            //            BaseView(alertService: alertService)
             VStack {
                 ZStack
                 {
                     ImageSlider(images: images)
-//                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
+                    //                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
                 }.frame(width: 400, height: 320)
                 
                 ScrollView{
@@ -82,13 +82,16 @@ struct HomeScreenView: View {
                         .resizable()).padding(10)
                         .foregroundColor(.black)
                 }
+            }.onAppear
+            {
+                LoadDashBoard()
             }
             .navigationBarTitleDisplayMode(.inline)
             
             .navigationBarItems(leading: Button(action: {
                 print("im pressed")
                 presentSideMenu = true
-
+                
             }) {
                 Image(systemName: "line.3.horizontal").tint(CColors.MainThemeColor).font(.system(size: 24))
             }, trailing: Button(action: {
@@ -116,10 +119,7 @@ struct HomeScreenView: View {
                 presentSideMenu = false
             }
         }
-        .onAppear
-        {
-            LoadDashBoard()
-        }
+        
         
         
         .fullScreenCover(isPresented: $contestingScreenView) {
@@ -175,7 +175,7 @@ struct HomeScreenView: View {
         ]
         
         let homeViewModel = HomeViewModel()
-
+        
         homeViewModel.DashboardData(parameters: parameters ,headers: headers ) { result in
             // isShowingLoader.toggle()
             isLoading = false
@@ -190,6 +190,17 @@ struct HomeScreenView: View {
                     value = dashboardDataResponse.data?[0].election_id ?? "7"
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
+                   
+                    UserDefaults.standard.set(dashboardDataResponse.data?[0].election_id, forKey: Constants.USER_ELECTION_ID)
+                    
+                    if let jsonData = try? JSONEncoder().encode(dashboardDataResponse.data?[0].elections),
+                       let jsonString = String(data: jsonData, encoding: .utf8) {
+                        UserDefaults.standard.set(jsonString, forKey: Constants.USER_ELECTIONS)
+                    } else {
+                        print("Error converting array to JSON string")
+                    }
+                    
+                    
                     
                     
                     if (!slider.isEmpty){

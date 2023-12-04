@@ -14,48 +14,56 @@ struct ProfileSection: View {
     @State private var isShowingLoader = false
     @StateObject var alertService = AlertService()
     
-    @State  var userCNIC = UserDefaults.standard.string(forKey: Constants.USER_CNIC)!
+    @State  var userCNIC = ""
+    @State  var userEmail = ""
+    
     @State  var userDistrict = ""
     @State  var userCity = ""
     @State  var userNA = ""
     @State  var userPA = ""
     @State  var isEditProfileScreenActive = false
-
-    
+    @State var userType = UserDefaults.standard.integer(forKey: Constants.USER_TYPE)
     
     var body: some View {
-//        NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
-//        }
+        //        NavigationLink(destination: EditProfileScreenView(), isActive: $isEditProfileScreenActive) {
+        //        }
         VStack {
             BaseView(alertService: alertService)
             
             HStack {
-                Text(userCNIC)
-                    .font(.headline)
                 
+                if userType == 1
+                {
+                    Text(userCNIC)
+                        .font(.headline)
+                }
+                if userType == 2{
+                    Text(userEmail)
+                        .font(.headline)
+                }
                 
                 Spacer()
-//                Button(action: {
-//                    // Add your button action here
-//                }) {
-//                    HStack {
-//                        HStack{
-//                            Image(systemName: "pencil")
-//                                .font(.system(size: 16))
-//                                .foregroundColor(.white)
-//                            Text("Edit")
-//                                .font(.headline)
-//                                .foregroundColor(.white)
-//                        }.padding(4)
-//                            .onTapGesture {
-//                                isEditProfileScreenActive.toggle()
-//                            }
-//                    }.background(CColors.MainThemeColor)
-//                    
-//                        .cornerRadius(4)
-//                    
-//                    
-//                }
+                //                Button(action: {
+                //                    // Add your button action here
+                //                }) {
+                //                    HStack {
+                //                        HStack{
+                //                            Image(systemName: "pencil")
+                //                                .font(.system(size: 16))
+                //                                .foregroundColor(.white)
+                //                            Text("Edit")
+                //                                .font(.headline)
+                //                                .foregroundColor(.white)
+                //                        }.padding(4)
+                //                            .onTapGesture {
+                //                                isEditProfileScreenActive.toggle()
+                //                            }
+                //                    }.background(CColors.MainThemeColor)
+                //
+                //                        .cornerRadius(4)
+                //
+                //
+                //                }
             }.padding(.bottom,10)
             Divider()
             HStack() {
@@ -108,6 +116,8 @@ struct ProfileSection: View {
             .cornerRadius(10) // Adjust the corner radius as needed
             .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
             .onAppear {
+                
+                InitData()
                 SubmitRequest()
             }
         
@@ -118,12 +128,22 @@ struct ProfileSection: View {
         
     }
     
+    func InitData(){
+        let uC =  UserDefaults.standard.string(forKey: Constants.USER_CNIC) ?? ""
+        if uC == "" {
+            userCNIC = UserDefaults.standard.string(forKey: Constants.USER_PHONE) ?? ""
+        }else{
+            userCNIC = uC
+        }
+        
+       userEmail =  UserDefaults.standard.string(forKey: Constants.USER_EMAIL) ?? ""
+
+    }
+    
     
     
     func SubmitRequest(){
         isShowingLoader.toggle()
-        
-        
         let parameters: [String:Any] = [
             "plattype": Constants.PLAT_TYPE,
             "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!

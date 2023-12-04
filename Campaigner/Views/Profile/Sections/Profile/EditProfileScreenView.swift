@@ -38,7 +38,9 @@ struct EditProfileScreenView: View {
     @State  var selectedTehsil = DropDownModel()
     @State  var selectedNA = DropDownModel()
     @State  var selectedPA = DropDownModel()
-    
+    @State  var isPaEnabled = true
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     var body: some View {
         
@@ -97,7 +99,9 @@ struct EditProfileScreenView: View {
                                 SearchableDropDown(label: "District", placeholder: "Select District", selectedObj:  $selectedDistrict, menuOptions: districtOptions )
                                 SearchableDropDown(label: "Tehsil/City/Town", placeholder: "Select Tehsil/City/Town", selectedObj:  $selectedTehsil, menuOptions: tehsilOptions )
                                 SearchableDropDown(label: "National Assembly (NA)", placeholder: "Select National Assembly", selectedObj:  $selectedNA, menuOptions: naOptions )
-                                SearchableDropDown(label: "Provincial Assembly (PA)", placeholder: "Select Provincial Assembly", selectedObj:  $selectedPA, menuOptions: paOptions )
+                                if isPaEnabled {
+                                    SearchableDropDown(label: "Provincial Assembly (PA)", placeholder: "Select Provincial Assembly", selectedObj:  $selectedPA, menuOptions: paOptions )
+                                }
                                 MainButton(action: SubmitAction, label:  "Update").padding(.top,20)
                             }.frame(width: .infinity, height: .infinity).padding(10)
                             
@@ -138,9 +142,17 @@ struct EditProfileScreenView: View {
             }
             if userRecord?.district_id != nil {
                 selectedDistrict = districtOptions.first { $0.id == userRecord?.district_id }!
+                if (selectedDistrict.value == "Islamabad") {
+                    isPaEnabled = false
+                }
+                else{
+                    isPaEnabled = true
+
+                }
             }
             if userRecord?.tehsil_id != nil {
                 selectedTehsil = DropDownModel(id: (userRecord?.tehsil_id)!, value: (userRecord?.tehsil_name)!)
+                
             }
             if userRecord?.constituency_id_na != nil {
                 selectedNA = DropDownModel(id: (userRecord?.constituency_id_na)!, value: (userRecord?.constituency_na)!)
@@ -292,7 +304,10 @@ struct EditProfileScreenView: View {
             case .success(var response):
                 if response.rescode == 1
                 {
-                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
+                    SwiftAlertView.show(title: "Alert", message: response.message!, buttonTitles: "OK")
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 }
             case .failure(let error):
                 SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")
