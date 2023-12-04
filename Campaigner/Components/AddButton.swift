@@ -25,18 +25,12 @@ struct AddButton : View{
                         .foregroundColor(CColors.MainThemeColor)
                         
                 }
-               
                 .frame(width: 50, height: 50)
-                .background(Color.clear)
-                
-                
-                
-             
-                
-            }.padding()
+                .padding(.trailing,10)
+              
+
+            }
            
-            
-            
-        }
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }

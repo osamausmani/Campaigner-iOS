@@ -7,601 +7,272 @@
 
 import SwiftUI
 import Alamofire
+import SwiftAlertView
 
 struct TeamsScreenView: View {
-    var value: String
     
+    @State private var selectedTab = 1
+    @State var membersArray = [ElectionMembers]()
+    @State var teamsArray = [TeamsData]()
     
-    @State private var selectedTab = 0
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State private var isLoading = false
-    
-    @State private var isUpdate = false
-    
-    @State private var addMemberView = false
-    
-    @State private var addTeamView = false
-    
-    @State private var emptyViewMember = false
-    
-    @State private var emptyViewTeams = false
-    
-    @State private var emptyView = false
-    
-    @State private var selectedTeamId = ""
-    
-    @State private var selectedIndex = 0
-    
-    @State private var showAlert = false
-
-  
-    
-    @State var fin = [TeamsData]()
-    
-    
-    @StateObject private var alertService = AlertService()
-    
+    @State var addNewMemberViewIsActive = false
+    @State var addNewTeamIsActive = false
     
     var body: some View {
-        NavigationView {
+        
+        VStack{
             
-            ZStack{
-                
-                //                Image("splash_background")
-                //                    .resizable()
-                //                    .edgesIgnoringSafeArea(.all)
-                
-                VStack {
-                    
-                    
-                    // Navigation bar
-                    HStack {
-                        Button(action: {
-                            // Perform action for burger icon
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            //  Image(systemName: "arrowshape.left")
-                            //     .imageScale(.large)
-                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            
-                        }
-                        // Spacer()
-                        Text("Teams")
-                            .font(.headline)
-                            .frame(width: 250)
-                        
-                        Spacer()
-                        
-                    }.foregroundColor(CColors.MainThemeColor)
-                        .padding()
-                        .navigationBarHidden(true)
-                    
-                    Divider()
-                    
-                    HStack(spacing: 0)
-                    {
-                        Spacer()
-                        
-                        TabBarButton(text: "Members", isSelected: selectedTab == 0) {
-                            selectedTab = 0
-                               listMembers()
-                        }
-                        
-                        Spacer()
-                        
-                        TabBarButton(text: "Teams", isSelected: selectedTab == 1)
-                        {
-                            selectedTab = 1
-                            listTeams()
-                        }
-                        
-                        Spacer()
-                    }.frame(height: 40)
-                        .foregroundColor(Color.black)
-                    
-                    
+            NavigationLink(destination: AddMemberView(), isActive: $addNewMemberViewIsActive) {
+            }
+            NavigationLink(destination: AddTeamView(), isActive: $addNewTeamIsActive) {
+            }
+            CustomNavBarBack(title: "Teams")
+            
+            HStack() {
+                TabBarButton(text: "Members", isSelected: selectedTab == 1)
+                {
+                    selectedTab = 1
+                    LoadData()
+                }
+                TabBarButton(text: "Teams", isSelected: selectedTab == 2) {
+                    selectedTab = 2
+                    LoadData()
+                }
+            }.padding(.top,10)
+            
+            VStack{
+                if selectedTab == 1 &&  membersArray.count == 0 {
                     ZStack{
-                        
-                        
-                        
-                        if(emptyView == true)
-                        {
-                            Image("MembersNil")
-                                .resizable()
-                                .edgesIgnoringSafeArea(.all)
-                                .padding(20)
-                        }else
-                        {
-                            
-                            VStack {
-                                if selectedTab == 0 {
-                                    // Table view
-                                    List {
-                                        //                                    ForEach(0..<5) { index in
-                                        //                                        MembersCell(name: "name", cnic: "cnic", mobileNumber: "mobileNumber")//.padding()
-                                        //                                    }.border(Color.gray, width: 1)
-                                        
-                                        ForEach(fin.indices, id: \.self)
-                                        { index in
-                                            
-                                            
-                                        }
-                                    }
-                                    
-                                    
-                                }else {
-                                    
-                                    
-                                    List {
-                                        
-//                                        ForEach(0..<5) { index in
-//                                            TeamsCell(Team: "Support Team", TeamMessage: "This is testing...."){
-//                                                add()
-//                                            } updateAction: {
-//                                                update()
-//                                            } deleteAction: {
-//                                                delete()
-//                                            }
-//                                        }.border(Color.gray, width: 1)
-                                        
-                                        
-                                        
-                                        ForEach(fin.indices, id: \.self) { index in
-                                            TeamsCell(Team: fin[index].team_name ?? "", TeamMessage: fin[index].team_desc ?? "")
-                                            {
-                                                
-                                                add()
-                                                selectedTeamId = fin[index].team_id ?? ""
-                                                selectedIndex = index
-                                            } updateAction: {
-                                                selectedTeamId = fin[index].team_id ?? ""
-                                                update()
-                                                selectedIndex = index
-                                            } deleteAction: {
-                                                selectedTeamId = fin[index].team_id ?? ""
-                                               delete()
-                                                selectedIndex = index
-                                               
-                                            }
-
-                                        }.onTapGesture {
-                                            
-                                        }
-                                    }
-                                }
-                                
-                                // Other views...
-                            }.border(Color.gray, width: 1)
-                            
+                        VStack{
+                            Spacer()
+                            NoRecordView(recordMsg: "To ensure a sucessfull election campaign, we encourage you to add your team members to assist with outreach efforts and engage with voters.")
+                            Spacer()
                         }
-                        
-                        
-                        
-                        // Addition sign
-                        AddButton(action: addButton, label: "")
-                        // .padding(.top)
-                        
-                    }
-                    
+                    }.frame(maxWidth: .infinity, maxHeight:.infinity)
                 }
-                .navigationBarHidden(true)
-                .fullScreenCover(isPresented: $addMemberView) {
-                    AddMemberView()
+                
+                else if selectedTab == 2 && teamsArray.count == 0 {
+                    ZStack{
+                        VStack{
+                            Spacer()
+                            NoRecordView(recordMsg: "To ensure a sucessfull election campaign, we encourage you to add your teams to assist with outreach efforts and engage with voters.")
+                            Spacer()
+                        }
+                    }.frame(maxWidth: .infinity, maxHeight:.infinity)
                 }
-                .fullScreenCover(isPresented: $addTeamView) {
-                   // AddTeamView()
-                    if(isUpdate == true)
-                    {
-                        AddTeamView(isUpdate: true,title: .constant(fin[selectedIndex].team_name ?? ""), description: .constant(fin[selectedIndex].team_desc ?? ""), message: .constant(fin[selectedIndex].poll_station_name ?? ""), selected_team_id: .constant(fin[selectedIndex].team_id ?? "")).onDisappear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() )
-                            {
-                                listTeams()
+                
+                else{
+                    ScrollView{
+                        
+                        if selectedTab == 1 {
+                            ForEach(membersArray.indices, id: \.self) { index in
+                                MembersCustomCardView(item: $membersArray[index])
                             }
                         }
-                    }else
-                    {
-                        AddTeamView(isUpdate: false,title: .constant(""), description: .constant(""), message: .constant(""), selected_team_id: .constant("")).onDisappear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() )
-                            {
-                                listTeams()
+                        
+                        if selectedTab == 2 {
+                            ForEach(teamsArray.indices, id: \.self) { index in
+                                TeamsCustomCardView(item: $teamsArray[index])
                             }
                         }
+                        
+                        
                     }
                 }
-                .overlay(
-                    Group {
-                        if isLoading {
-                            ProgressHUDView()
-                        }
-                    }
-                )
-            }
-        }//.foregroundColor(CColors.MainThemeColor)
-            .onAppear
-            {
-                //   listTeams()
-            }
+                if selectedTab == 1 {
+                    AddButton(action: {addNewMemberViewIsActive.toggle()}, label:  "Add")
+                }
+                if selectedTab == 2 {
+                    AddButton(action: {addNewTeamIsActive.toggle()}, label:  "Add")
+                }
+            }.background(
+                selectedTab == 1 ? membersArray.count == 0 ? CColors.TextInputBgColor : .clear : teamsArray.count == 0 ? CColors.TextInputBgColor : .clear
+            )
+            
+            
+        }.navigationBarHidden(true).edgesIgnoringSafeArea(.top).onAppear{
+            LoadData()
+        }
+        
     }
     
-    func add()
-    {
-        print("add")
-    }
-    
-    func update()
-    {
-      
-           
-        
-        isUpdate = true
-        
-        addTeamView = true
-        
-  
+    func LoadData(){
+        if selectedTab == 1 {
+            ListMembers()
+        }
+        if selectedTab == 2 {
+            ListTeams()
+        }
 
+        
+        //        teamsArray.append(TeamsData(group_sdt: "", members: [], members_count: 0, poll_station_id: "", poll_station_name: "", sdt: "", team_desc: "team_desc", team_id: "", team_name: "team_name"))
+        //
     }
     
-    func delete()
-    {
-        print("delete")
-        // isShowingLoader.toggle()
-        isLoading = true
-        
-        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
-        let headers:HTTPHeaders = [
-            //   "Content-Type":"application/x-www-form-urlencoded",
-            "x-access-token": token!
-        ]
-        
-        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
-        
-        
-        
-        print(token!)
-        
+    
+    func ListMembers(){
         let parameters: [String:Any] = [
-            "plattype": Global.PlatType,
-            "user_id": userID!,
-            "team_id": selectedTeamId
-            
-            
+            "plattype": Constants.PLAT_TYPE,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
         ]
         
-        //let registerViewModel = RegisterViewModel()
-        
-        
-        let teamsViewModel = TeamsViewModel()
-        
-        teamsViewModel.DeleteTeam(parameters: parameters,headers: headers ) { result in
-            // isShowingLoader.toggle()
-            isLoading = false
-            print(result)
+        let RequestModel =  ContestentViewModel()
+        RequestModel.ListElectionsMembers(parameters: parameters ) { result in
             switch result {
-                
-            case .success(let Response):
-                
-                if Response.rescode == 1 {
-                    
-                    print(Response)
-                    
-                  //  fin = Response.data!
-                    alertService.show(title: "Alert", message: Response.message!)
-                  
-                    DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                        listTeams()
-                    }
-                    
-                    //  self.presentationMode.wrappedValue.dismiss()
-                    
-                    
+            case .success(let response):
+                if response.rescode == 1 {
+                    membersArray.removeAll()
+                    membersArray = response.data ?? []
                 }else{
-                   
-                    alertService.show(title: "Alert", message: Response.message!)
-                }
-                
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")                }
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
-            }
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            }
         }
-        
     }
     
-  
-    
-    
-    func listTeams(){
-        // isShowingLoader.toggle()
-        isLoading = true
-        
-        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
-        let headers:HTTPHeaders = [
-            //   "Content-Type":"application/x-www-form-urlencoded",
-            "x-access-token": token!
-        ]
-        
-        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
-        
-        
-        
-        print(token!)
-        
+    func ListTeams(){
         let parameters: [String:Any] = [
-            "plattype": Global.PlatType,
-            "user_id": userID!
-            
+            "plattype": Constants.PLAT_TYPE,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
         ]
-        
-        //let registerViewModel = RegisterViewModel()
-        
-        
-        let teamsViewModel = TeamsViewModel()
-        
-        teamsViewModel.ListTeams(parameters: parameters,headers: headers ) { result in
-            // isShowingLoader.toggle()
-            isLoading = false
-            print(result)
+        let RequestModel =  TeamsViewModel()
+        RequestModel.ListTeams(parameters: parameters ) { result in
             switch result {
-                
-            case .success(let Response):
-                
-                if Response.rescode == 1 {
-                    
-                    print(Response)
-                    
-                    fin = Response.data!
-                    
-                    if (fin.isEmpty)
-                    {
-                        emptyView = true
-                    }else
-                    {
-                        emptyView = false
-                    }
-                    
-                    //  self.presentationMode.wrappedValue.dismiss()
-                    
-                    
+            case .success(let response):
+                if response.rescode == 1 {
+                    teamsArray.removeAll()
+                    teamsArray = response.data ?? []
                 }else{
-                    emptyView = true
-                    alertService.show(title: "Alert", message: Response.message!)
-                }
-                
+                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")                }
             case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
-            }
+                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            }
         }
     }
-    
-    
-    func listMembers()
-    {
-        // isShowingLoader.toggle()
-        isLoading = true
-        
-        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
-        let headers:HTTPHeaders = [
-            //   "Content-Type":"application/x-www-form-urlencoded",
-            "x-access-token": token!
-        ]
-        
-        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
-        
-        print(token!)
-        
-        let parameters: [String:Any] =
-        [
-            "plattype": Global.PlatType,
-            "user_id": userID!,
-            "election_id": value
-            
-        ]
-        
-        //let registerViewModel = RegisterViewModel()
-        
-        
-        let teamsViewModel = TeamsViewModel()
-        
-        teamsViewModel.ListMembers(parameters: parameters,headers: headers ) { result in
-            // isShowingLoader.toggle()
-            isLoading = false
-            print(result)
-            switch result {
-                
-            case .success(let Response):
-                
-                if Response.rescode == 1 {
-                    
-                    print(Response)
-                    
-                    fin = Response.data!
-                    if (fin.isEmpty)
-                    {
-                        emptyView = true
-                    }else
-                    {
-                        emptyView = false
-                    }
-                    
-                    //  self.presentationMode.wrappedValue.dismiss()
-                    
-                    
-                }else{
-                    emptyView = true
-                    alertService.show(title: "Alert", message: Response.message!)
-                }
-                
-            case .failure(let error):
-                alertService.show(title: "Alert", message: error.localizedDescription)
-            }
-        }
-    }
-    
-    func addButton()
-    {
-        if selectedTab == 0
-        {
-            addMemberView = true
-        }else
-        {
-            isUpdate = false
+}
 
-            addTeamView = true
-       
-        }
 
-    }
-    struct MembersCell: View {
-        
-        
-        
-        var name : String
-        var cnic : String
-        var mobileNumber : String
-        
-        
-        var body: some View {
-            HStack {
+struct MembersCustomCardView: View {
+    @Binding public var item : ElectionMembers
+    var body: some View {
+        VStack{
+            VStack {
                 HStack {
+                    Text("Name")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        .frame(width: 130, alignment: .leading)
+                    Text(item.user_full_name!)
+                        .font(.body)
+                        .foregroundColor(Color.black)
                     Spacer()
                     
-                    VStack(alignment: .leading){
-                        
-                        Text("Name")
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        Text("CNIC")
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        
-                        Text("Mobile Number:")
-                            .font(.subheadline)
-                        Spacer()
-                        
-                    }.padding(10)
-                    
-                    
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity,
-                               maxHeight: .infinity,
-                               alignment: .topLeading)
+                }.padding(1)
+                HStack {
+                    Text("CNIC")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        .frame(width: 130, alignment: .leading)
+                    Text(item.user_cnic!)
+                        .font(.body)
+                        .foregroundColor(Color.black)
                     Spacer()
+                }.padding(1)
+                HStack {
+                    Text("Mobile Number")
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        .frame(width: 130, alignment: .leading)
+                    Text(item.msisdn!)
+                        .font(.body)
+                        .foregroundColor(Color.black)
                     Spacer()
-                    Spacer()
-                    VStack(alignment: .leading){
-                        
-                        Text(name)
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        Text(cnic)
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        Text(mobileNumber)
-                            .font(.subheadline)
-                        
-                        Spacer()
-                        
-                    }.padding(10)
-                    
-                        .frame(maxWidth: .infinity,
-                               maxHeight: .infinity,
-                               alignment: .topLeading)
-                        .fontWeight(.semibold)
-                    
-                }
+                }.padding(1)
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
-        }
-        
-        
-        
+            .padding(8)
+            .background(CColors.CardBGColor)
+            .cornerRadius(10)
+            .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 5)
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+        }.padding(.bottom,0).padding(.leading,8).padding(.trailing,8)
     }
-    
-    
-    struct TeamsCell: View {
-        
-        @State private var showAlert = false
-        var Team : String
-        var TeamMessage: String
-        var addAction: () -> Void
-        var updateAction: () -> Void
-        var deleteAction: () -> Void
-        
-        
-        
-        var body: some View {
-            HStack {
-                VStack{
-                    HStack {
-                        Text(Team)
-                            .font(.headline)
-                        
-                        Spacer()
-                        
-                        HStack(spacing: 20){
-                            Button(action: {}) {
-                                Image("Member")
-                                    .imageScale(.medium)
-                                    .foregroundColor(.blue)
-                                
-                            }.onTapGesture
-                            {
-                            addAction()
-                            }
-                            
-                            Button(action: {}) {
-                                Image(systemName: "pencil")
-                                    .imageScale(.medium)
-                                    .foregroundColor(.green)
-                            }.onTapGesture
-                            {
-                             updateAction()
-                            }
-                            
-                            Button(action: {}) {
-                                Image(systemName: "trash")
-                                    .imageScale(.medium)
-                                    .foregroundColor(.green)
-                            }.onTapGesture {
-                               // Alert(title: "Deleting",message: "Are you sure")
-                            deleteAction()
-                            }
-                            
-                            
-                            
-                        }
-                        
-                    }
-                    VStack(){
-                        Text(TeamMessage)
-                            .font(.subheadline)
-                            .frame(maxWidth: .infinity,
-                                   maxHeight: .infinity,
-                                   alignment: .topLeading)
-                           
-                            
-                        
-                    }
-                    
-                    
-                }
+}
+
+
+struct TeamsCustomCardView: View {
+    @Binding public var item : TeamsData
+    @State public var teamDetailsViewIsActive = false
+    var body: some View {
+        VStack{
+            NavigationLink(destination: TeamDetailsScreenView(selectedTeamName: item.team_name!, selectedTeamID: item.team_id!), isActive: $teamDetailsViewIsActive) {
             }
-            .padding(.horizontal, 5)
-            .padding(.vertical, 10)
-        }
-        
+            
+            VStack {
+                HStack {
+                    Text(item.team_name!)
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                        .frame( alignment: .leading)
+                    
+                    Spacer()
+                    HStack{
+                        VStack{
+                            HStack{
+                                Button(action: {
+                                    teamDetailsViewIsActive.toggle()
+                                }) {
+                                    Image("group")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 28, height: 28)
+                                        .foregroundColor(CColors.MainThemeColor)
+                                }
+                                Button(action: {
+                                    print("")
+                                }) {
+                                    Image("edit_black")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(CColors.MainThemeColor)
+                                }
+                                Button(action: {
+                                    print("")
+                                }) {
+                                    Image("delete_black")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(CColors.MainThemeColor)
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                    
+                }.padding(1)
+                
+                HStack {
+                    Text(item.team_desc!)
+                        .font(.body)
+                        .foregroundColor(Color.black)
+                    Spacer()
+                    
+                }.padding(1)
+                
+            }
+            .padding(8)
+            .background(CColors.CardBGColor)
+            .cornerRadius(10)
+            .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 5)
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+        }.padding(.bottom,0).padding(.leading,8).padding(.trailing,8)
     }
 }
 
 struct TeamsScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamsScreenView(value: "")
+        TeamsScreenView()
     }
 }

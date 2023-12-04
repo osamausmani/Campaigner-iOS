@@ -18,8 +18,9 @@ struct MandatoryField: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 0) {
-                Text(label)
+            HStack {
+                Text(label).padding(.trailing, -6)
+
                 Text("*")
                     .foregroundColor(.red)
             }

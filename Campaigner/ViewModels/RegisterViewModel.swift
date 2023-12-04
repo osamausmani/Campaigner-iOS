@@ -15,4 +15,5 @@ class RegisterViewModel: ObservableObject {
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
+    
 }

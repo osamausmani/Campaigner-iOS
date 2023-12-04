@@ -12,8 +12,6 @@ import Foundation
 
 struct TeamsResponse : Codable {
     
-    
-    
     let bin : [String]?
     let data : [TeamsData]?
     let extra : [String]?
@@ -21,22 +19,21 @@ struct TeamsResponse : Codable {
     let more : [String]?
     let rescode : Int?
     
-    
 }
 
 
 struct TeamsData : Codable {
     
-        let group_sdt : String?
-        let members : [Member]?
-        let members_count : Int?
-        let poll_station_id : String?
-        let poll_station_name : String?
-        let sdt : String?
-        let team_desc : String?
-        let team_id : String?
-        let team_name : String?
- 
+    let group_sdt : String?
+    let members : [Member]?
+    let members_count : Int?
+    let poll_station_id : String?
+    let poll_station_name : String?
+    let sdt : String?
+    let team_desc : String?
+    let team_id : String?
+    let team_name : String?
+    
     
 }
 

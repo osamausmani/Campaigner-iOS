@@ -35,10 +35,10 @@ class ContestentViewModel: ObservableObject {
     }
     
     
-    func listElectionsMembers(parameters: [String:Any]?,headers: HTTPHeaders? = nil, completion: @escaping (Result<ContestingElectionResponse, Error>) -> Void)
+    func ListElectionsMembers(parameters: [String:Any]?,headers: HTTPHeaders? = nil, completion: @escaping (Result<ElectionMembersResponse, Error>) -> Void)
     {
         let REQ_URL = ApiPaths.ListElectionMembers
-        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     

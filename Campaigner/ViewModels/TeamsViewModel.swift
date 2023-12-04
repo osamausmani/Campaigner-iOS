@@ -22,7 +22,7 @@ class TeamsViewModel: ObservableObject {
     func ListTeams(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<TeamsResponse, Error>) -> Void)
     {
         let REQ_URL = ApiPaths.listTeam
-        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
     
     
@@ -45,6 +45,23 @@ class TeamsViewModel: ObservableObject {
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
     
+    func UpdateTeamLead(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.UpdateTeamLead
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func AddTeamMember(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.AddTeamMember
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+    func RemoveTeamMember(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.RemoveTeamMember
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
     
     
     

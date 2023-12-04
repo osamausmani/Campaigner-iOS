@@ -26,6 +26,8 @@ struct User: Codable {
     var referral_no : String!
     var sliders : [Slider]!
     var user_role : Int!
+    var elections : [Elections]?
+
 
 
 }
@@ -115,4 +117,29 @@ public struct CommentsDatum : Codable, Hashable {
     let user_id : String?
     let is_liked : Int?
     let like_count : Int?
+}
+
+public struct Elections : Codable, Hashable {
+    let type : Int?
+    let election_type : Int?
+    let assembly_type : Int?
+    let election_id : String?
+    let sdt : String?
+    let province_id : String?
+    let province : String?
+    let district_id : String?
+    let district : String?
+    let constituency_id : String?
+    let constituency : String?
+    let refferal_no : String?
+    let party_id : String?
+    let party_name : String?
+    let constituency_id_pa : String?
+    let constituency_pa : String?
+    let constituency_id_na : String?
+    let constituency_na : String?
+    let constituency_pa_district : String?
+    let constituency_pa_province : String?
+    let constituency_na_district : String?
+    let constituency_na_province : String?
 }

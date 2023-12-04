@@ -22,7 +22,7 @@ public struct DropDown: View {
         VStack {
             HStack{
                 Text(label).alignmentGuide(.leading) { _ in 0 }
-                    .font(.system(size: 15))
+                    .font(.system(size: 15)).padding(.trailing, -6)
                 isMandatory ? Text("*").foregroundColor(.red) :nil
                 Spacer()
             }
@@ -35,14 +35,18 @@ public struct DropDown: View {
                             isPickerVisible = false
                         }, label: {
                             Text(option.value)
+                            
                         })
                     }
                 } label: {
-                    Text(!selectedObj.value.isEmpty ? selectedObj.value : placeholder ).alignmentGuide(.leading) { _ in 0 }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.system(size: 15)).foregroundColor( !selectedObj.value.isEmpty ? .black : .gray)
-                }
-                Image(systemName: "chevron.down").padding(.trailing,10)
+                    HStack{
+                        Text(!selectedObj.value.isEmpty ? selectedObj.value : placeholder ).alignmentGuide(.leading) { _ in 0 }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 15)).foregroundColor( !selectedObj.value.isEmpty ? .black : .gray)
+                        Image(systemName: "chevron.down").padding(.trailing,10)
+
+                    }
+                    }
             }.frame(height: 40)
                 .padding(.leading, 10)
                 .overlay(

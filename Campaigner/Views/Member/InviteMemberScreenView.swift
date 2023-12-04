@@ -140,7 +140,7 @@ struct InviteMemberScreenView: View {
         
         let inviteViewModel = InviteViewModel()
         
-        inviteViewModel.inviteMemberRequest(parameters: parameters ) { result in
+        inviteViewModel.InviteMemberRequest(parameters: parameters ) { result in
             isShowingLoader.toggle()
             
             switch result {

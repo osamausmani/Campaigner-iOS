@@ -8,7 +8,12 @@
 import Foundation
 public class ApiPaths {
     
+    
+    // STAGING ENVIROMENT
     public static var BasePath = "https://staging.halka.pk/api"
+    
+    
+    // LIVE ENVIROMENT
 //    public static var BasePath = "https://campaigner.syntracx.com/api"
 
     public static var VoterBasePath = "https://voter.syntracx.com/mini-process.php"
@@ -66,7 +71,7 @@ public class ApiPaths {
     public static var postElectionResult = BasePath + "/post/election/polling/result"
     
     //Invite Member Via Sms
-    public static var inviteMember = BasePath + "/add/election/member"
+    public static var InviteMember = BasePath + "/add/election/member"
     //Change Password
     public static var changePassword = BasePath + "/account/change/password"
     
@@ -90,6 +95,11 @@ public class ApiPaths {
     public static var updateTeam = BasePath + "/update/team"
     public static var deleteTeam = BasePath + "/delete/team"
     public static var listTeam = BasePath + "/list/team"
+    
+    public static var UpdateTeamLead = BasePath + "/update/team/lead"
+    public static var AddTeamMember = BasePath + "/add/team/member"
+    public static var RemoveTeamMember = BasePath + "/delete/team/member"
+
     
     //memeber
     public static var addTeamMember = BasePath + "/add/team/member"
