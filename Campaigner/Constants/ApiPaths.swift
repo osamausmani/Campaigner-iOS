@@ -126,7 +126,7 @@ public class ApiPaths {
     public static var UpdateComplaintComment = BasePath + "/update/complaint/comment"
     public static var DeleteComplaintComment = BasePath + "/delete/complaint/comment"
     public static var ListComplaintComment = BasePath + "/list/complaint/comment"
-    public static var AddComplaintEndosrement = BasePath + "add/complaint/endorsement"
+    public static var AddComplaintEndosrement = BasePath + "/add/complaint/endorsement"
 
     // Surveys
     public static var ListSurveyByUserID = BasePath + "/list/survey/userid"

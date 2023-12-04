@@ -14,38 +14,52 @@ struct AddNewComplaintView: View {
     @State private var selectedCategory = DropDownModel()
     @State private var selectedProvince = DropDownModel()
     @State private var selectedDistrict = DropDownModel()
+    @State private var selectedTehsil = DropDownModel()
+    @State private var selectedAssembly = DropDownModel()
+    @State private var selectedConstituency = DropDownModel()
 
     @State private var description = ""
     @State private var showActionSheet = false
     @State private var sourceType = 0
     @State private var showImagePicker = false
     @State var selectedImage: UIImage?
-    
-    
+    @State private var locationText = ""
+    @State private var showTeshsil = false
+    @State private var showAddress = false
+    @State private var showAssembly = false
+    @State private var showConstituency = false
     
    @State private var networkOptions: [DropDownModel] = []
     @State private var provinceOptions: [DropDownModel] = []
     @State private var districtOptions: [DropDownModel] = []
-
+    @State private var tehsilOption: [DropDownModel] = []
+    @State private var constituencyOption: [DropDownModel] = []
     @State private var isShowingLoader = false
     @State var alertMsg = "Alert"    
     @State private var showSimpleAlert = false
     @State private var canGoBack = false
+    @State private var isAddLocationView = false
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State public var isEdit = false
     @State public var item : ComplaintListDataItem?
+    @State private var selectedAssemblyType = ""
 
     
+    var assemblyList: [DropDownModel] = [
+        DropDownModel(id: "1", value: "National Assembly"),
+        DropDownModel(id: "2", value: "Provincial Assembly"),
+        
+    ]
     var body: some View {
-        NavigationView {
-            
+     
             ZStack {
-                
                 BaseView(alertService: alertService)
 
+
                 VStack{
+                    ScrollView{
                     HStack{
                         
                         VStack {
@@ -86,9 +100,38 @@ struct AddNewComplaintView: View {
                             DropDown(label: "Province", placeholder: "Select Province", selectedObj:  $selectedProvince, menuOptions: provinceOptions)
                             
                             districtOptions.count > 0 ?
-                        
+                            
+                            
                             DropDown(label: "District", placeholder: "Select District", selectedObj:  $selectedDistrict, menuOptions: districtOptions )
                             :  nil
+                            
+                            
+                            if showTeshsil {
+                                tehsilOption.count > 0 ?
+                                DropDown(label: "Tehsil", placeholder: "Select Tehsil", selectedObj:  $selectedTehsil, menuOptions: tehsilOption
+                                )
+                                : nil
+                            }
+                            if showAddress {
+                                LocationField(label: "Address", placeholder: "Address", text: $locationText, buttonAction: {
+                                    isAddLocationView = true
+                                })
+                            }
+                            
+                            
+                            if showAssembly {
+                                DropDown(label: "Assembly", placeholder: "Select Assembly", selectedObj: $selectedAssembly, menuOptions: assemblyList)
+                                    .onChange(of: selectedAssembly) { newValue in
+                                        if let index = assemblyList.firstIndex(where: { $0.id == selectedAssembly.id }) {
+                                            
+                                            selectedAssemblyType = index == 0 ? "1" : "2"
+                                        }
+                                    }
+                            }
+                            if showConstituency {
+                                DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj: $selectedConstituency, menuOptions: constituencyOption)
+                                
+                            }
                             
                             
                             MainButton(action: SubmitAction, label: isEdit ? "Update" : "Submit").padding(.top,20)
@@ -101,9 +144,13 @@ struct AddNewComplaintView: View {
                             .fill(Color.white)
                             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                     )
-                    Spacer()
                 }
-                
+                }
+                    
+                    NavigationLink(destination: AddLocationView(), isActive: $isAddLocationView) {
+                    }
+                    .navigationBarHidden(true)
+            
                 if isShowingLoader {
                     Loader(isShowing: $isShowingLoader)
                         .edgesIgnoringSafeArea(.all)
@@ -140,11 +187,36 @@ struct AddNewComplaintView: View {
             .onChange(of: selectedProvince) { newValue in
                 districtOptions.removeAll()
                 GetDistricts()
-                
+                selectedDistrict = DropDownModel()
+                selectedTehsil = DropDownModel()
+                selectedAssembly = DropDownModel()
+                selectedConstituency = DropDownModel()
+                showTeshsil = false
+                showAddress = false
+                showAssembly = false
+                showConstituency = false
+           
             }
+            .onChange(of: selectedDistrict) { newValue in
+                tehsilOption.removeAll()
+                GetTehsil()
+                showTeshsil = true
+                showAddress = true
+                showAssembly = true
+                selectedTehsil = DropDownModel()
+                selectedAssembly = DropDownModel()
+                selectedConstituency = DropDownModel()
+            }
+            .onChange(of: selectedAssemblyType) { newValue in
+                
+                showConstituency = true
+                GetConstituency()
+            }
+
             .onAppear{
                 GetComplaintsTypes()
                 GetProvinces()
+                
             }
             .padding(10)
             .sheet(isPresented: $showImagePicker)
@@ -155,7 +227,10 @@ struct AddNewComplaintView: View {
             
             
             
-        }
+        
+            .navigationBarHidden(false)
+            .navigationTitle("Post a Complain")
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     
@@ -251,6 +326,64 @@ struct AddNewComplaintView: View {
                         DropDownModel(id: (data.district_id!), value: (data.district_name!))
                     }
                     districtOptions.append(contentsOf: newOptions!)
+                    
+                }else{
+                    alertService.show(title: "Alert", message: response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+    }
+    func GetTehsil(){
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "district_id" : selectedDistrict.id
+        ]
+        
+        let ViewModel = LookupsViewModel()
+        ViewModel.ListTehsils(parameters: parameters ) { result in
+            switch result {
+            case .success(let response ):
+                
+                if response.rescode == 1 {
+                    
+                    let newOptions = response.data?.map { data in
+                        DropDownModel(id: (data.tehsil_id!), value: (data.tehsil_name!))
+                    }
+                    tehsilOption.append(contentsOf: newOptions!)
+                    
+                }else{
+                    alertService.show(title: "Alert", message: response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+    }
+  
+    func GetConstituency(){
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "assembly": selectedAssemblyType,
+            "district_id" : selectedDistrict.id
+        ]
+        
+        let ViewModel = LookupsViewModel()
+        ViewModel.ListConstituency(parameters: parameters ) { result in
+            switch result {
+            case .success(let response ):
+                
+                if response.rescode == 1 {
+                    print(response)
+                    let newOptions = response.data?.map { data in
+                        DropDownModel(id: (data.id_text!), value: (data.constituency!))
+                    }
+                    constituencyOption.append(contentsOf: newOptions!)
                     
                 }else{
                     alertService.show(title: "Alert", message: response.message!)
