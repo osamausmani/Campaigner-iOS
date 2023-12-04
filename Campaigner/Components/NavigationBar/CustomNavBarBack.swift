@@ -44,3 +44,8 @@ struct CustomNavBarBack: View {
         .edgesIgnoringSafeArea(.top)
     }
 }
+struct CustomNavBarBack_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomNavBarBack(title: "Your Title")
+    }
+}

@@ -40,12 +40,29 @@ struct HomeScreenView: View {
                     VStack{
                         
                         HomeMenuButtons(electionID: value )
+                            .padding(.bottom,5)
+                         
+                        ZStack {
+                        RoundedRectangleLabelView(text: "halka Pro")
+                            
+                            HomeProButtons(
+                                onReportsTapped: {
+                                },
+                                onNotificationTapped: {
+                                },
+                                onTeamsTapped: {
+                                }
+                            )
+                                                    
                         
-                        Spacer()
+                         }
+                     
+                 
                         
                         Text("Latest News").alignmentGuide(.leading) { _ in 0 }
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: 20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor).padding(.top,10)
+                            .font(.system(size:   20)).fontWeight(.bold).foregroundColor(CColors.MainThemeColor).padding(.top,10)
+                            .padding(.leading,20)
                         
                         // Image Selector with Labels and Horizontal Scroll Bar
                         //                        ScrollView(.horizontal, showsIndicators: true) {
@@ -77,6 +94,7 @@ struct HomeScreenView: View {
                             print("SelectedIndex ", selectedNewsIndex)
                             newsDetails()
                         } )
+                        .padding(.leading,20)
                     }
                     .background(Image("map_bg")
                         .resizable()).padding(10)
@@ -188,6 +206,7 @@ struct HomeScreenView: View {
                     
                     
                     value = dashboardDataResponse.data?[0].election_id ?? "7"
+                    Global.electionID = value
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
                    

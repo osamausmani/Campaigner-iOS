@@ -80,5 +80,6 @@ class LookupsViewModel: ObservableObject {
         let REQ_URL = ApiPaths.ContactUs
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
+
     
 }

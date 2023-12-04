@@ -23,4 +23,15 @@ class ReportingViewModel: ObservableObject
         let REQ_URL = ApiPaths.listReport
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
     }
+    func DeleteReport(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.deleteReport
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
+    }
+    func UpdateReport(parameters: [String:Any]?, headers: HTTPHeaders? = nil , completion: @escaping (Result<ReportingResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.updateReport
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!,headers: headers, completion: completion)
+    }
+    
 }

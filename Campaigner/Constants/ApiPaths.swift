@@ -114,6 +114,12 @@ public class ApiPaths {
     public static var deleteReport = BasePath + "/delete/reporting"
     public static var listReport = BasePath + "/list/reporting"
     public static var changeStatusReport = BasePath + "/change/reporting/status"
+    
+    //Notification
+    public static var addNotification = BasePath + "/add/sched/notification"
+    public static var audenceMemberCount = BasePath + "/notify/audience/count"
+    public static var addAudience = BasePath + "/add/sched/audience"
+    public static var listScheduleNotification = BasePath + "/list/sched/notification"
 
     //Complaints
     public static var ListComplaintTypes = BasePath + "/list/complaint/type"

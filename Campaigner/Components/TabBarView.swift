@@ -8,51 +8,39 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var selectedTab = 0
+    @Binding var selectedTab: Int
+    var tabNames: [String]
     
     var body: some View {
         VStack(spacing: 0) {
-            GeometryReader { geometry in
                 HStack(spacing: 20) {
                     Spacer()
                     
-                    TabBarButton(text: "Tab 1", isSelected: selectedTab == 0) {
-                        selectedTab = 0
+                    ForEach(0..<tabNames.count) { index in
+                        TabBarButton(text: tabNames[index], isSelected: selectedTab == index) {
+                            // Do nothing here, since direct tab switching is disabled
+                        }
+                        Spacer()
                     }
-                    
-                    Spacer()
-                    
-                    TabBarButton(text: "Tab 2", isSelected: selectedTab == 1) {
-                        selectedTab = 1
-                    }
-                    
-                    Spacer()
                 }
-                .frame(width: geometry.size.width, height: 50)
-                .background(Color.gray.opacity(0.2))
-            }
+                .background(.clear)
             
-//            TabView(selection: $selectedTab) {
-//                Text("Tab 1 Content")
-//                    .tabItem {
-//                        Label("Tab 1", systemImage: "1.circle")
-//                    }
-//                    .tag(0)
-//
-//                Text("Tab 2 Content")
-//                    .tabItem {
-//                        Label("Tab 2", systemImage: "2.circle")
-//                    }
-//                    .tag(1)
-//            }
         }
-       // .ignoresSafeArea(.container, edges: .top)
     }
 }
 
 
+
 struct TabBarView_Previews: PreviewProvider {
+    @State static var selectedTabIndex = 0
+    
     static var previews: some View {
-        TabBarView()
+        VStack {
+            TabBarView(selectedTab: $selectedTabIndex, tabNames: ["Basic Information", "Audience"])
+            Spacer()
+            Button("Next") {
+                selectedTabIndex += 1
+            }
+        }
     }
 }

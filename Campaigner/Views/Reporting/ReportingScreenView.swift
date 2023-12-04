@@ -9,96 +9,100 @@ import SwiftUI
 import Alamofire
 
 
-
-
 struct ReportingScreenView: View {
+    @State private var selectedReport: Reporting?
+    
     
     @State private var selectedTab = 0
     @State var showingAddReportingView = false
     @State private var isLoading = false
     @State private var showSearchBar = false
     @State private var searchText = ""
-    
+    @State private var isUpdateView = false
     @State var reportingType = [Reporting]()
     @State var finalDate = ""
-    
+    @State var reportID=""
+    @State var description=""
+    @State var reportType=""
     @StateObject private var alertService = AlertService()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @State var isComplaint = 0
+    @State var showingDeleteAlert=false
     var body: some View {
         
         
-        NavigationView {
-            ZStack {
-                BaseView(alertService: alertService)
+        ZStack {
+            BaseView(alertService: alertService)
+            
+            
+            //                    Image("splash_background")
+            //                        .resizable()
+            //                        .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                //
+                // Navigation Bar
                 
+                HStack {
+                    Button(action: {
+                        // Perform action for burger icon
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
+                        Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
+                        
+                    }
+                    // Spacer()
+                    Text("Reporting")
+                        .font(.headline)
+                        .frame(width: 250)
+                    
+                    Spacer()
+                    Button(action: {
+                        // Perform action for searchbar icon
+                        showSearchBar.toggle()
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .imageScale(.large)
+                    }
+                    
+                } .foregroundColor(CColors.MainThemeColor)
+                    .padding()
+                    .navigationBarHidden(true)
                 
-                //                    Image("splash_background")
-                //                        .resizable()
-                //                        .edgesIgnoringSafeArea(.all)
-                VStack {
-                    //
-                    // Navigation Bar
+                Divider()
+                
+                HStack(spacing: 0)
+                {
+                    Spacer()
                     
-                    HStack {
-                        Button(action: {
-                            // Perform action for burger icon
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            
-                        }
-                        // Spacer()
-                        Text("Reporting")
-                            .font(.headline)
-                            .frame(width: 250)
-                        
-                        Spacer()
-                        Button(action: {
-                            // Perform action for searchbar icon
-                            showSearchBar.toggle()
-                        }) {
-                            Image(systemName: "magnifyingglass")
-                                .imageScale(.large)
-                        }
-                        
-                    } .foregroundColor(CColors.MainThemeColor)
-                        .padding()
-                        .navigationBarHidden(true)
+                    TabBarButton(text: "Own", isSelected: selectedTab == 0) {
+                        selectedTab = 0
+                        // listMembers()
+                    }
                     
-                    Divider()
+                    Spacer()
                     
-                    HStack(spacing: 0)
+                    TabBarButton(text: "Other(s)", isSelected: selectedTab == 1)
                     {
-                        Spacer()
+                        selectedTab = 1
+                        // listTeams()
+                    }
+                    
+                    
+                    Spacer()
+                }.frame(height: 30)
+                    .foregroundColor(Color.black)
+                VStack{
+                    if showSearchBar {
+                        SearchBar(text: $searchText).onChange(of: searchText, perform: handleTextChange).frame(alignment: .top)
+                    }
+                    ZStack {
                         
-                        TabBarButton(text: "Own", isSelected: selectedTab == 0) {
-                            selectedTab = 0
-                            // listMembers()
-                        }
-                        
-                        Spacer()
-                        
-                        TabBarButton(text: "Other(s)", isSelected: selectedTab == 1)
-                        {
-                            selectedTab = 1
-                            // listTeams()
-                        }
-                        
-                        
-                        Spacer()
-                    }.frame(height: 30)
-                        .foregroundColor(Color.black)
-                    VStack{
-                        if showSearchBar {
-                            SearchBar(text: $searchText).onChange(of: searchText, perform: handleTextChange).frame(alignment: .top)
-                        }
-                        ZStack {
-                            
-                            Image("reportingNil")
-                                .resizable()
-                                .edgesIgnoringSafeArea(.all)
+                        Image("reportingNil")
+                            .resizable()
+                            .edgesIgnoringSafeArea(.all)
+                        if selectedTab == 0 {
                             
                             List {
                                 //                                ReportingCell(Status: "Pending", ReportingType: "Minor news", Description: "This is the description", Date: "12/3/1992", Name: "Asad Irfan", mapAction: {}, delete: deleteRecord, update: updateRecord, attachment: showAttachment)
@@ -112,14 +116,29 @@ struct ReportingScreenView: View {
                                         
                                         ReportingCell(Status: fin,
                                                       ReportingType: reportingType[index].type_name ?? "",
-                                                      Description: reportingType[index].loc_desc ?? "",
+                                                      Description: reportingType[index].details ?? "",
                                                       Date: formattedDate ?? "",
                                                       Name: reportingType[index].added_by?.user_full_name ?? "") {
                                             // Action closure
                                         } delete: {
-                                            // Delete closure
+                                            reportID=reportingType[index].report_id ?? ""
+                                            showingDeleteAlert=true
                                         } update: {
-                                            // Update closure
+                                            if selectedTab == 0 {
+                                                isUpdateView = true
+                                                
+                                                isComplaint = 0
+                                                reportID=reportingType[index].report_id ?? ""
+                                                reportType=reportingType[index].type_name ?? ""
+                                                description=reportingType[index].details ?? ""
+                                                
+                                            } else {
+                                                isUpdateView = true
+                                                isComplaint = 1
+                                                reportID=reportingType[index].report_id ?? ""
+                                                reportType=reportingType[index].type_name ?? ""
+                                                description=reportingType[index].details ?? ""
+                                            }
                                         } attachment: {
                                             // Action closure
                                         }
@@ -135,50 +154,82 @@ struct ReportingScreenView: View {
                                             
                                             ReportingCell(Status: fin,
                                                           ReportingType: reportingType[index].type_name ?? "",
-                                                          Description: reportingType[index].loc_desc ?? "",
+                                                          Description: reportingType[index].details ?? "",
                                                           Date: formattedDate ?? "",
                                                           Name: reportingType[index].added_by?.user_full_name ?? "") {
                                                 // Action closure
-                                              //  addRecord()
+                                                //  addRecord()
                                             } delete: {
-                                                // Delete closure
-                                                
+                                                reportID=reportingType[index].report_id ?? ""
+                                                showingDeleteAlert=true
                                             } update: {
-                                                // Update closure
+                                                if selectedTab == 0 {
+                                                    isUpdateView = true
+                                                    isComplaint=0
+                                                    reportID=reportingType[index].report_id ?? ""
+                                                    reportType=reportingType[index].type_name ?? ""
+                                                    description=reportingType[index].details ?? ""
+                                                    
+                                                } else {
+                                                    isUpdateView = true
+                                                    isComplaint=1
+                                                    reportID=reportingType[index].report_id ?? ""
+                                                    reportType=reportingType[index].type_name ?? ""
+                                                    description=reportingType[index].details ?? ""
+                                                }
                                             } attachment: {
                                                 // Action closure
                                             }
+                                            
                                         }
                                     }
                                 }
                             }
-                            
-                            if selectedTab == 0 {
-                                
+                            VStack{
+                                Spacer()
                                 AddButton(action: fin, label: "")
                                     .fullScreenCover(isPresented: $showingAddReportingView) {
-                                        AddReportScreenView()
-                                    }
-                            }else
-                            {
-                                
-                            }
-                            
-                            
-                            
+                                        AddReportScreenView(onDismiss: {
+                                            ListReport()
+                                        })
+                                    }                                }
+                        }
+                        else{
                             
                         }
+                        
+                        
+                        
+                        
                     }
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity,
-                           alignment: .topLeading)
-                    .padding()
                 }
+                .frame(maxWidth: .infinity,
+                       maxHeight: .infinity,
+                       alignment: .topLeading)
+                
+                
+            }
+            .alert(isPresented: $showingDeleteAlert) {
+                Alert(title: Text("Alert"), message: Text("Are you sure you want to delete?"), primaryButton: .default(Text("Yes")) {
+                    deleteRecord(reportId: reportID)
+                    print("Button 1 tapped")
+                }, secondaryButton: .cancel(Text("No")) {
+                    // Action for Button 2
+                    print("Button 2 tapped")
+                })
             }
             
-        }.onAppear{
+            
+//            NavigationLink("", destination: UpdateScreenView(reportId: reportID, isComplaint: isComplaint, description: description, typeReport:reportType), isActive: $isUpdateView)
+//                .hidden()
+            
+        }
+        
+        .onAppear{
             ListReport()
         }
+        .navigationBarBackButtonHidden(true)
+        
     }
     
     func fin()
@@ -196,15 +247,8 @@ struct ReportingScreenView: View {
         print("attachment")
     }
     
-    func updateRecord()
-    {
-        print("update")
-    }
     
-    func deleteRecord()
-    {
-        print("delete")
-    }
+    
     
     func handleTextChange(_ newText: String) {
         // Perform any actions based on the new text
@@ -240,15 +284,15 @@ struct ReportingScreenView: View {
             case .success(let Response):
                 
                 if Response.rescode == 1 {
-                    
-                    alertService.show(title: "Alert", message: Response.message!)
-                    
+                    //
+                    //                    alertService.show(title: "Alert", message: Response.message!)
+                    print(Response.data?.count)
                     reportingType = Response.data!
                     //  self.presentationMode.wrappedValue.dismiss()
                     //  ContestingElectionScreenView.loadContestElection()
                     
                 }else{
-                    alertService.show(title: "Alert", message: Response.message!)
+                    //                    alertService.show(title: "Alert", message: Response.message!)
                 }
                 
             case .failure(let error):
@@ -351,25 +395,27 @@ struct ReportingScreenView: View {
                             
                         }
                         
-                        Button(action: update) {
+                        Button(action: {
+                            
+                        }) {
                             Image(systemName: "pencil")
                                 .imageScale(.large)
                                 .foregroundColor(.black)
                         }
+                        
                         .onTapGesture {
                             update()
                             
                         }
                         
-                        Button(action: delete) {
-                            Image(systemName: "trash")
-                                .imageScale(.large)
-                                .foregroundColor(.black)
-                        }
-                        .onTapGesture {
-                            delete()
-                            
-                        }
+                        
+                        Image(systemName: "trash")
+                            .imageScale(.large)
+                            .foregroundColor(.black)
+                            .onTapGesture {
+                                delete()
+                            }
+                        
                         
                         //Spacer()
                         
@@ -395,9 +441,48 @@ struct ReportingScreenView: View {
                 }
                 //.frame(width: 300, height: 100)
                 
+                
             }.listRowInsets(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)) // Adjust the values to set the desired spacing
             
             
+        }
+        
+    }
+    
+    func deleteRecord(reportId: String) {
+        let token = UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+        
+        let headers: HTTPHeaders = [
+            "x-access-token": token
+        ]
+        
+        var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        
+        let parameters: [String: Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!,
+            "report_id": reportId
+        ]
+        
+        let reportingModel = ReportingViewModel()
+        
+        reportingModel.DeleteReport(parameters: parameters, headers: headers) { result in
+            switch result {
+            case .success(let response):
+                if response.rescode == 1 {
+                    // Successful deletion, update the reportingType array
+                    if let index = reportingType.firstIndex(where: { $0.report_id == reportId }) {
+                        reportingType.remove(at: index)
+                    }
+                    alertService.show(title: "Alert", message: response.message!)
+                    
+                } else {
+                    alertService.show(title: "Alert", message: response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
         }
     }
 }
@@ -409,3 +494,5 @@ struct ReportingScreenView_Previews: PreviewProvider {
         ReportingScreenView()
     }
 }
+
+
