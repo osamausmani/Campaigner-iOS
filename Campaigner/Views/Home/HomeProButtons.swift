@@ -56,7 +56,7 @@ struct HomeProButtons: View {
         }
         NavigationLink(destination: ReportingScreenView(), isActive: $reportsScreenView) {}
         NavigationLink(destination: NotificationScreenView(), isActive: $promotionsScreenView) {}
-        NavigationLink(destination: TeamsScreenView(value: ""), isActive: $teamsScreenView) {}
+        NavigationLink(destination: TeamsScreenView(), isActive: $teamsScreenView) {}
         
     }
     

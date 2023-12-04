@@ -75,9 +75,9 @@ Text(data[rowIndex][1])
 }
 }
 
-#Preview {
-CriteriaTableView(heading: "Dynamic Heading", data: [["Row 1, Col 1", "Row 1, Col 2"], ["Row 2, Col 1", "Row 2, Col 2"]]) {
-// Handle cancel action
-print("Cancel button tapped")
-}
-}
+//#Preview {
+//CriteriaTableView(heading: "Dynamic Heading", data: [["Row 1, Col 1", "Row 1, Col 2"], ["Row 2, Col 1", "Row 2, Col 2"]]) {
+//// Handle cancel action
+//print("Cancel button tapped")
+//}
+//}

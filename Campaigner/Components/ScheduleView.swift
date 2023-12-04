@@ -74,13 +74,13 @@ struct ScheduleView: View {
     }
 }
 
-#Preview {
-    ScheduleView(
-        label: "Schedule",
-        isMandatory: true,
-        showDatePicker: {},
-        showTimePicker: {},
-        selectedDate: .constant(Date()),
-        selectedTime: .constant(Date())
-    )
-}
+//#Preview {
+//    ScheduleView(
+//        label: "Schedule",
+//        isMandatory: true,
+//        showDatePicker: {},
+//        showTimePicker: {},
+//        selectedDate: .constant(Date()),
+//        selectedTime: .constant(Date())
+//    )
+//}

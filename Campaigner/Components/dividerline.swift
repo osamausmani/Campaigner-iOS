@@ -13,6 +13,6 @@ struct dividerline: View {
             .frame(height: 1)
     }
 }
-#Preview {
-    dividerline()
-}
+//#Preview {
+//    dividerline()
+//}

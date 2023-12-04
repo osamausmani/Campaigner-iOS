@@ -29,7 +29,7 @@ struct HomeMenuButtons: View {
         
         
         //        5: ["title": "Post Results", "symbol": "post-result"],
-        6: ["title": "Teams", "symbol": "teams"]
+//        6: ["title": "Teams", "symbol": "teams"]
     ]
     
     var layout = [
