@@ -239,8 +239,8 @@ struct PublicComplaintCustomCardView: View {
                     }
           
                     
-                    NavigationLink("", destination: GoogleMapView(latitude: item.loc_lat ?? "", longitude: item.loc_lng ?? "").edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
-                        .isDetailLink(false)
+//                    NavigationLink("", destination: GoogleMapView(latitude: Double(item.loc_lat ?? "0.0") ?? 0.0, longitude: Double(item.loc_lng ?? "0.0") ?? 0.0).edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
+//                        .isDetailLink(false)
                     
                 }.padding(.bottom,-20).padding(.leading,8).padding(.trailing,8)
                 

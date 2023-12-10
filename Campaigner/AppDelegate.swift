@@ -10,6 +10,7 @@ import GoogleMaps
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
+import GooglePlaces
 
 
 //class AppDelegate: ObservableObject {
@@ -33,6 +34,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject  {
         
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyCojkH-SLSkXaZgy_mywsy9AgbHqTEi-a4")
+        GMSPlacesClient.provideAPIKey("AIzaSyBzMk8HnrF5suLuEZec3bdeOyMQZ6cSeEc")
+
         return true
     }
     

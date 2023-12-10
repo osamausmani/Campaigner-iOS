@@ -25,6 +25,7 @@ public class Constants {
     public static var USER_PHONE = "USER_PHONE"
     public static var USER_NAME = "USER_NAME"
     public static var USER_IMAGE = "USER_IMAGE"
+    public static var USER_IMAGE_DATA = "USER_IMAGE_DATA"
 
     public static var USER_ELECTIONS = "USER_ELECTIONS"
     public static var USER_ELECTION_ID = "USER_ELECTION_ID"

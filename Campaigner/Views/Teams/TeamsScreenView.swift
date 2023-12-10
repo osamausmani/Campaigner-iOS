@@ -17,6 +17,7 @@ struct TeamsScreenView: View {
     
     @State var addNewMemberViewIsActive = false
     @State var addNewTeamIsActive = false
+    @State private var setCounter = 0
     
     var body: some View {
         
@@ -38,6 +39,12 @@ struct TeamsScreenView: View {
                     selectedTab = 2
                     LoadData()
                 }
+                TabBarButton(text: "Polling Stations", isSelected: selectedTab == 3) {
+                    selectedTab = 3
+                    setCounter = 0
+                    LoadData()
+                }
+                
             }.padding(.top,10)
             
             VStack{
@@ -61,6 +68,17 @@ struct TeamsScreenView: View {
                     }.frame(maxWidth: .infinity, maxHeight:.infinity)
                 }
                 
+                
+                else if selectedTab == 3 && teamsArray.count == 0 {
+                    ZStack{
+                        VStack{
+                            Spacer()
+                            NoRecordView(recordMsg: "No Record Found")
+                            Spacer()
+                        }
+                    }.frame(maxWidth: .infinity, maxHeight:.infinity)
+                }
+                
                 else{
                     ScrollView{
                         
@@ -72,8 +90,18 @@ struct TeamsScreenView: View {
                         
                         if selectedTab == 2 {
                             ForEach(teamsArray.indices, id: \.self) { index in
-                                TeamsCustomCardView(item: $teamsArray[index])
+                                TeamsCustomCardView(item: $teamsArray[index], selectedTab: $selectedTab)
                             }
+                        }
+                        
+                        if selectedTab == 3 {
+                            ForEach(teamsArray.indices, id: \.self) { index in
+                                TeamsCustomCardView(item: $teamsArray[index], selectedTab: $selectedTab)
+                            }
+                            MainButton(action: {
+                                ListTeams()
+                            }, label: "Load More")
+                            .frame(width: .infinity).padding(12)
                         }
                         
                         
@@ -103,7 +131,11 @@ struct TeamsScreenView: View {
         if selectedTab == 2 {
             ListTeams()
         }
-
+        
+        if selectedTab == 3 {
+            ListTeams()
+        }
+        
         
         //        teamsArray.append(TeamsData(group_sdt: "", members: [], members_count: 0, poll_station_id: "", poll_station_name: "", sdt: "", team_desc: "team_desc", team_id: "", team_name: "team_name"))
         //
@@ -115,6 +147,7 @@ struct TeamsScreenView: View {
             "plattype": Constants.PLAT_TYPE,
             "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
             "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
+            
         ]
         
         let RequestModel =  ContestentViewModel()
@@ -132,20 +165,38 @@ struct TeamsScreenView: View {
     }
     
     func ListTeams(){
-        let parameters: [String:Any] = [
+        var parameters: [String:Any] = [
             "plattype": Constants.PLAT_TYPE,
             "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
             "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
+            "limit": "10",
+            "set_no": String(setCounter),
         ]
+        
+        if selectedTab == 2 {
+            parameters = [
+                "plattype": Constants.PLAT_TYPE,
+                "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+                "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
+            ]
+        }
+        
+        
         let RequestModel =  TeamsViewModel()
         RequestModel.ListTeams(parameters: parameters ) { result in
             switch result {
             case .success(let response):
                 if response.rescode == 1 {
-                    teamsArray.removeAll()
-                    teamsArray = response.data ?? []
+                    if setCounter == 0 {
+                        teamsArray.removeAll()
+                    }
+                    setCounter = setCounter + 1
+                    
+                    teamsArray.append(contentsOf: response.data ?? [])
                 }else{
-                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")                }
+                    //                    SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")
+                    
+                }
             case .failure(let error):
                 SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            }
         }
@@ -202,6 +253,8 @@ struct MembersCustomCardView: View {
 
 struct TeamsCustomCardView: View {
     @Binding public var item : TeamsData
+    @Binding public var selectedTab : Int
+    
     @State public var teamDetailsViewIsActive = false
     var body: some View {
         VStack{
@@ -228,23 +281,27 @@ struct TeamsCustomCardView: View {
                                         .frame(width: 28, height: 28)
                                         .foregroundColor(CColors.MainThemeColor)
                                 }
-                                Button(action: {
-                                    print("")
-                                }) {
-                                    Image("edit_black")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24)
-                                        .foregroundColor(CColors.MainThemeColor)
-                                }
-                                Button(action: {
-                                    print("")
-                                }) {
-                                    Image("delete_black")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24)
-                                        .foregroundColor(CColors.MainThemeColor)
+                                
+                                if selectedTab == 2 {
+                                    
+                                    Button(action: {
+                                        print("")
+                                    }) {
+                                        Image("edit_black")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                            .foregroundColor(CColors.MainThemeColor)
+                                    }
+                                    Button(action: {
+                                        print("")
+                                    }) {
+                                        Image("delete_black")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                            .foregroundColor(CColors.MainThemeColor)
+                                    }
                                 }
                             }
                             Spacer()

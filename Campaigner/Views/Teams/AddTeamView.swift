@@ -228,8 +228,9 @@ struct AddTeamView: View {
             "user_id": userID!,
             "team_title": fvTeamName,
             "team_desc" : fvDescription,
-            "poll_station_id" : fin
-            
+            "poll_station_id" : fin,
+            "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
+
             
             
         ]
@@ -292,8 +293,9 @@ struct AddTeamView: View {
             "team_id": selected_team_id,
             "team_title": fvTeamName,
             "team_desc": fvDescription ,
-            "poll_station_id" : fin
-            
+            "poll_station_id" : fin,
+            "election_id": UserDefaults.standard.string(forKey: Constants.USER_ELECTION_ID)!,
+
             
         ]
         

@@ -25,7 +25,6 @@ struct ImageSelectorView: View {
                                     AsyncImage(url: url) { image in
                                         image
                                             .resizable()
-                                            .scaledToFill()
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -36,7 +35,7 @@ struct ImageSelectorView: View {
                                 }
                                 Text(text[index])
                                     .font(.caption)
-                                    .foregroundColor(.black).lineLimit(1)
+                                    .foregroundColor(.black).lineLimit(2)
                             }.padding(4)
                         }
                     }
