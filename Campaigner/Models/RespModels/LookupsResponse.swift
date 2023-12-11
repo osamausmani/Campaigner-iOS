@@ -258,3 +258,5 @@ struct ContacUsValue: Decodable {
     let type: Int
     let value: String
 }
+
+

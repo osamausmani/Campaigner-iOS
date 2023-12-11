@@ -18,6 +18,7 @@ struct ContestingElectionPopUpScreenView: View {
     @State private var cProvince = DropDownModel()
     @State private var cDistrict = DropDownModel()
     @State private var cConstituency = DropDownModel()
+    @State private var party = DropDownModel()
     @State private var fvPassword = ""
     @State private var fvConfirmPassword = ""
     
@@ -50,6 +51,8 @@ struct ContestingElectionPopUpScreenView: View {
     @State  var provinceName : [DropDownModel] = []
     @State  var districtName : [DropDownModel] = []
     @State  var constituencyName : [DropDownModel] = []
+    @State  var partiesName : [DropDownModel] = []
+    @State  var partiesList: [PartiesResponseModel] = []
     
     var body: some View {
         
@@ -68,15 +71,17 @@ struct ContestingElectionPopUpScreenView: View {
                             }  )
                             
                             
-                            
-                            DropDown(label: "Province", placeholder: "Select Province", selectedObj:  $cProvince, menuOptions: provinceName )
-                            
-                            CustomDropDown(label: "District", placeholder: "Select District", selectedObj:  $cDistrict, menuOptions: districtName, onChange: {_ in
-                                selectConstituency()
-                            }
-                            )
+//                            
+//                            DropDown(label: "Province", placeholder: "Select Province", selectedObj:  $cProvince, menuOptions: provinceName )
+//                            
+//                            CustomDropDown(label: "District", placeholder: "Select District", selectedObj:  $cDistrict, menuOptions: districtName, onChange: {_ in
+//
+//                            }
+//                            )
                             
                             DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj:  $cConstituency, menuOptions: constituencyName )
+                            DropDown(label: "Party", placeholder: "Select Party", selectedObj:  $party, menuOptions: partiesName )
+                            
                             
                             
                             Spacer()
@@ -111,6 +116,9 @@ struct ContestingElectionPopUpScreenView: View {
                             }
                         }
                     )
+            .onAppear(){
+                selectConstituency()
+            }
         
     }
     
@@ -136,6 +144,8 @@ struct ContestingElectionPopUpScreenView: View {
     func dropdownAsselblyChanged()
     {
         searchProvince()
+        getparties()
+      
        
     }
     
@@ -242,6 +252,56 @@ struct ContestingElectionPopUpScreenView: View {
             }
         }
     }
+    func getparties()
+    {
+        isLoading = true
+        var userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!,
+        
+            
+        ]
+        
+        let lookupsViewModel = LookupsViewModel()
+        
+        var newDropDownData : [DropDownModel] = []
+        
+        lookupsViewModel.ListParties(parameters: parameters ) { result in
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(var Response):
+                
+                print(Response)
+                
+                if Response.rescode == 1
+                {
+                    partiesList = Response.data!
+                    
+                    for i in partiesList {
+                        let dropDownModel = DropDownModel(id: i.id_text!, value: i.party_name!)
+                        newDropDownData.append(dropDownModel)
+                    }
+                    //  provinceName = []
+                    //districtName.append(contentsOf: newDropDownData)
+                    partiesName = newDropDownData
+                    
+                    
+                    
+                }else{
+                    alertService.show(title: "Alert", message: Response.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+                
+              //  isShowingLoader.toggle()
+            }
+        }
+    }
+
     
     func selectConstituency() {
         isLoading = true
@@ -259,9 +319,9 @@ struct ContestingElectionPopUpScreenView: View {
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_id": userID!,
-             "assembly": selectedOption + 1,
+             "assembly": selectedOption + 1
             // "na_id": cDistrict
-            "district_id": finDistrict
+//            "district_id": finDistrict
         ]
         
         let lookupsViewModel = LookupsViewModel()
@@ -275,7 +335,7 @@ struct ContestingElectionPopUpScreenView: View {
                 
             case .success(var Response):
                 
-                print(Response)
+//                print(Response)
                 
                 if Response.rescode == 1
                 {
@@ -320,16 +380,19 @@ struct ContestingElectionPopUpScreenView: View {
             alertService.show(title: "Alert", message: "Assemly is required")
         }
         
-        else if(cProvince.value.isEmpty){
-            alertService.show(title: "Alert", message: "Province is required")
-        }
-        
-        else if(cDistrict.value.isEmpty){
-            alertService.show(title: "Alert", message: "District is required")
-        }
+//        else if(cProvince.value.isEmpty){
+//            alertService.show(title: "Alert", message: "Province is required")
+//        }
+//        
+//        else if(cDistrict.value.isEmpty){
+//            alertService.show(title: "Alert", message: "District is required")
+//        }
         
         else if(cConstituency.value.isEmpty){
             alertService.show(title: "Alert", message: "Constituency is required")
+        }
+        else if(party.value.isEmpty){
+            alertService.show(title: "Alert", message: "Party is required")
         }
         
         
@@ -383,7 +446,8 @@ struct ContestingElectionPopUpScreenView: View {
             "election_province": finProvince,
             "election_district": finDistrict,
             "election_type": cAssembly.id,
-            "constituency_id":cConstituency.id
+            "constituency_id":cConstituency.id,
+            "party_id":party.id
         ]
         
         let contestentViewModel = ContestentViewModel()

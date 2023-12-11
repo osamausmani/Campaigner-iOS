@@ -66,7 +66,7 @@ struct NotificationScreenView: View {
                     ScrollView{
                         ForEach(listNotification.indices, id: \.self) { index in
                             // Calculate Status and StatusColor based on your logic
-                            let status = listNotification[index].status == 0 ? "Pending" : "Approved"
+                            let status = listNotification[index].status == 1 ? "Pending" : "Approved"
                             let statusColor = listNotification[index].status == 0 ? Color.blue : CColors.MainThemeColor
                             
                             NotificationCustomCard(
@@ -79,7 +79,7 @@ struct NotificationScreenView: View {
                                     
                                 },
                                 deleteImageTapAction: {
-                                    // Handle delete image tap action
+                                   
                                 }
                             )
                             .padding([.leading,.trailing],10)

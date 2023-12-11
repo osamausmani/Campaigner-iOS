@@ -12,7 +12,7 @@ import Alamofire
 struct ContestingElectionScreenView: View {
     
    
-    @State var isUpdate = false
+     @State var isUpdate = false
     @State var showingContestingElectionPopup = false
     @State var showingContestingElectionUpdatePopup = false
     @State private var isLoading = false
@@ -32,43 +32,30 @@ struct ContestingElectionScreenView: View {
             ZStack {
                 BaseView(alertService: alertService)
                 VStack {
-                    //
-                    // Navigation Bar
-                    
+    
                     HStack {
                         Button(action: {
-                            // Perform action for burger icon
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
-                            Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
-                            Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            
+                            Image("back_arrow")
+                                .resizable()
+                                .frame(width: 24, height: 24).tint(CColors.MainThemeColor)
+                            Spacer()
+                            Text("Manage Constituency").tint(CColors.MainThemeColor).font(.system(size: 18))
+                            Spacer()
+                            
                             
                         }
-                        //Spacer()
-                        Text("Contesting Election")
-                            .font(.headline)
-                            .frame(width: 260)
                         
-                        Spacer()
-                        Button(action: {
-                            // Perform action for bell icon
-                        }) {
-//                            Image(systemName: "bell")
-//                                .imageScale(.large)
-                            
-                        }
-                    } .foregroundColor(CColors.MainThemeColor)
-                        .padding()
-                        .navigationBarHidden(true)
-                    
-                    
-                    
-                    
+                    }
+                    .foregroundColor(.black)
+                    .padding()
+                    dividerline()
                     ZStack {
 
                         List {
 
-                            
                             ForEach(fin.indices, id: \.self) { index in
                                 CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provencial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
                                     delete()
@@ -94,22 +81,25 @@ struct ContestingElectionScreenView: View {
                             
                             
                         }
-                        AddButton(action: addContestent, label: "")
-                            .popover(isPresented: $showingContestingElectionPopup)
-                        {
+                      
+                        VStack{
+                            Spacer()
+                            AddButton(action: addContestent, label: "")
+                                .popover(isPresented: $showingContestingElectionPopup)
+                            {
                                 ContestingElectionPopUpScreenView().onDisappear
-                             {
+                                {
                                     listElection()
                                 }
+                            }
+                            
                         }
-                            .border(Color.gray, width: 1) // Add border with gray color and 1 point width
-                      
-                        
                     }
                 }
             }
             
         }
+        .navigationBarHidden(true)
         .fullScreenCover(isPresented: $showingContestingElectionUpdatePopup) {
             ContestingElectionUpdateScreenView(oAssembly: "",oProvince: "" , oDistrict: "" , oConstituency: "")
             
@@ -118,6 +108,7 @@ struct ContestingElectionScreenView: View {
         {
           listElection()
         }
+        
        
       //  .onReceive(Publisher, perform: <#T##(Publisher.Output) -> Void#>)
 //        .onReceive(dataPublisher) { newData in
@@ -525,7 +516,7 @@ struct CustomCell: View {
                     
                     
                 }
-            }.listRowInsets(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)) // Adjust the values to set the desired spacing
+            }.listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 10, trailing: 5)) // Adjust the values to set the desired spacing
         }
         
     }
@@ -534,9 +525,4 @@ struct CustomCell: View {
     
     
     
-}
-struct ContestingElectionScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContestingElectionScreenView( )
-    }
 }

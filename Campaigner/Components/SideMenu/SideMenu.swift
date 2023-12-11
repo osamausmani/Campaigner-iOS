@@ -38,11 +38,11 @@ struct SideMenu: View {
 enum SideMenuRowType: Int, CaseIterable{
     
     case profile = 0
-//    case wallet = 1
+    case wallet = 1
     case inviteMembers = 2
 //    case payments = 3
 //    case upgradeAccunt = 4
-//    case manageConstituencey = 5
+    case manageConstituencey = 5
 //    case degradeAccount = 6
     case changepassword = 7
     case termsofuse = 8
@@ -53,10 +53,14 @@ enum SideMenuRowType: Int, CaseIterable{
         switch self {
         case .profile:
             return "Profile"
+        case .wallet:
+            return "Wallet"
         case .inviteMembers:
             return "Invite Members"
 //        case .payments:
 //            return "Payments"
+        case .manageConstituencey:
+            return "Manage Constituency"
         case .changepassword:
             return "Change Password"
         case .termsofuse:
@@ -80,8 +84,12 @@ enum SideMenuRowType: Int, CaseIterable{
         switch self {
         case .profile:
             return "proifile_side"
+        case.wallet:
+            return "wallet_side"
         case .inviteMembers:
             return "invite_member_side"
+        case.manageConstituencey:
+            return "manage_cons_side"
 //        case .payments:
 //            return "payment_side"
         case .changepassword:

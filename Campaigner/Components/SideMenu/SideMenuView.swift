@@ -20,10 +20,10 @@ struct SideMenuView: View {
     @State private var paymentsScreenView = false
     
     @State private var termsOfUseScreenView = false
-    
+    @State private var isLoading = false
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
-    
+    @State private var manageConstituency = false
     @State private var ChangePasswordScreenView = false
     @State private var TermOfUseScreenView = false
     @State private var contactUsView = false
@@ -31,7 +31,7 @@ struct SideMenuView: View {
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
     @State private var showToast = false
-
+    @State var fin = [ContestingElection]()
     @State var alertMsg = "Alert"
     
     @State private var showSimpleAlert = false
@@ -40,6 +40,8 @@ struct SideMenuView: View {
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     @StateObject var userData: UserData = UserData()
+    @State var constituencyOptions = [DropDownModel(id: "0", value: "Pro Account")]
+    @State var selectedOption=DropDownModel()
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -58,7 +60,9 @@ struct SideMenuView: View {
                     )
             }
             .frame(maxWidth: 270, maxHeight: .infinity, alignment: .leading)
-            
+            .onAppear(){
+                listElection()
+            }
             Spacer()
         }.toast(isPresenting: $showToast){
             AlertToast(displayMode: .banner(.slide), type: .regular, title: alertMsg)
@@ -97,7 +101,8 @@ struct SideMenuView: View {
         
         NavigationLink(destination: ContactUsView(), isActive: $contactUsView) {
         }
-        
+        NavigationLink(destination: ContestingElectionScreenView(), isActive: $manageConstituency) {
+        }
         
         
     }
@@ -130,8 +135,11 @@ struct SideMenuView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
-            }.padding(10).frame(height: 150).padding(.top,50)
+                
+            }.padding(10).frame(height: 100).padding(.top,50)
             
+            DropDown(label: "Select Constituency", placeholder: "Select Constituency", selectedObj: $selectedOption, menuOptions: constituencyOptions,isFromMenu:true)
+                .padding([.leading,.trailing],10)
             
         }.background(CColors.MainThemeColor)
     }
@@ -186,7 +194,7 @@ struct SideMenuView: View {
             profileMainScreenView = true
         } else if number == 1
         {
-            inviteMemebersScreenView = true
+       //wallet
         }
         else if number == 2  {
             inviteMemebersScreenView = true
@@ -202,6 +210,7 @@ struct SideMenuView: View {
         }
         else if number == 5
         {
+            manageConstituency = true
             
         }
         else if number == 6
@@ -309,6 +318,63 @@ struct SideMenuView: View {
         
         
         
+    }
+    func listElection(){
+        // isShowingLoader.toggle()
+        isLoading = true
+        
+        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
+        let headers:HTTPHeaders = [
+            // "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": token!
+        ]
+        
+        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        
+        
+        
+        print(token!)
+        
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!
+            
+        ]
+        
+        //let registerViewModel = RegisterViewModel()
+        
+        
+        let contestentViewModel = ContestentViewModel()
+        
+        contestentViewModel.listElections(parameters: parameters,headers: headers ) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(let loginResponse):
+                
+                if loginResponse.rescode == 1 {
+                    fin = loginResponse.data!
+                    for i in fin {
+                        
+                        let dropDownModel = DropDownModel(id: i.constituency_id ?? "", value: i.constituency!)
+                        constituencyOptions.append(dropDownModel)
+                      
+                    }
+                 
+                    
+                    //  self.presentationMode.wrappedValue.dismiss()
+                    
+                    
+                }else{
+                    alertService.show(title: "Alert", message: loginResponse.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
     }
     
     
