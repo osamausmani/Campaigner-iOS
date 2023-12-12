@@ -27,6 +27,7 @@ struct User: Codable {
     var sliders : [Slider]!
     var user_role : Int!
     var elections : [Elections]?
+    var pro_type : Int!
 
 
 

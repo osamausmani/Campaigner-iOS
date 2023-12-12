@@ -12,6 +12,7 @@ public class Global {
     public static var userCNIC = ""
     public static var Verification_Code = ""
     public static var electionID = ""
+    public static var isProAccount = -1
     
     
     

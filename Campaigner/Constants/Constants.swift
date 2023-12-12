@@ -28,6 +28,8 @@ public class Constants {
 
     public static var USER_ELECTIONS = "USER_ELECTIONS"
     public static var USER_ELECTION_ID = "USER_ELECTION_ID"
+    public static var isProAccount = "isProAccount"
+
 
 
 }

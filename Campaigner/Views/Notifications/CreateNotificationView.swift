@@ -42,7 +42,6 @@ struct CreateNotificationView: View {
     @State var  audienceCountInput = 00
     @State private var audienceMmebers = 0
     @State private var notifyID=""
-    @State private var isSowNotificatioView=false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let CriteriaList = [
         DropDownModel(id: "0", value: "Member Type"),
@@ -291,15 +290,7 @@ struct CreateNotificationView: View {
             .shadow(color: Color.gray.opacity(0.5), radius: 4, x: 0, y: 2)
             .navigationBarHidden(true)
             
-            
-            NavigationLink(
-                destination: NotificationScreenView(),
-                isActive: $isSowNotificatioView,
-                label: {
-                    EmptyView()
-                }
-            )
-            .hidden()
+   
             
         }
         .overlay{
@@ -550,7 +541,8 @@ struct CreateNotificationView: View {
             case .success(let response):
                 if response.rescode == 1 {
                     alertMsg = response.message!
-                    isSowNotificatioView=true
+                    self.presentationMode.wrappedValue.dismiss()
+
                     
                 } else {
                     alertMsg = response.message!

@@ -27,7 +27,8 @@ struct SideMenuView: View {
     @State private var ChangePasswordScreenView = false
     @State private var TermOfUseScreenView = false
     @State private var contactUsView = false
-    
+    @State private var isUpgradeView = false
+    @State private var isDowngradeView = false
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
     @State private var showToast = false
@@ -36,7 +37,8 @@ struct SideMenuView: View {
     
     @State private var showSimpleAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    let isProAccount = UserDefaults.standard.integer(forKey: Constants.isProAccount)
+
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     @StateObject var userData: UserData = UserData()
@@ -48,11 +50,23 @@ struct SideMenuView: View {
                 ProfileImageView()
                     .padding(.bottom, 30).background(CColors.MainThemeColor)
                 ForEach(SideMenuRowType.allCases, id: \.self){ row in
-                    RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
-                        selectedSideMenuTab = row.rawValue
-                        presentSideMenu = true
-                        SideMenuBtnTapped(selectedSideMenuTab)
+                    if Global.isProAccount == 1 && row.rawValue == 4 {
+                        
                     }
+                    else if Global.isProAccount == 0 && row.rawValue == 6 {
+                        
+                    }
+                    else if Global.isProAccount == 0 && row.rawValue == 5{
+                        
+                    }
+                    else {
+                        RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
+                            selectedSideMenuTab = row.rawValue
+                            presentSideMenu = true
+                            SideMenuBtnTapped(selectedSideMenuTab)
+                        }
+                    }
+                  
                 }
                 Spacer()
                     .background(
@@ -66,6 +80,9 @@ struct SideMenuView: View {
             Spacer()
         }.toast(isPresenting: $showToast){
             AlertToast(displayMode: .banner(.slide), type: .regular, title: alertMsg)
+        }
+        .onAppear{
+            print("Account Status = \(isProAccount)")
         }
         .alert(isPresented: $showSimpleAlert) {
             Alert(
@@ -103,7 +120,10 @@ struct SideMenuView: View {
         }
         NavigationLink(destination: ContestingElectionScreenView(), isActive: $manageConstituency) {
         }
-        
+        NavigationLink(destination: UpgradeAccountView(), isActive: $isUpgradeView) {
+        }
+        NavigationLink(destination: DowngradeAccountView(), isActive: $isDowngradeView) {
+        }
         
     }
     
@@ -205,7 +225,7 @@ struct SideMenuView: View {
         }
         else if number == 4
         {
-            
+            isUpgradeView = true
             
         }
         else if number == 5
@@ -215,6 +235,7 @@ struct SideMenuView: View {
         }
         else if number == 6
         {
+          isDowngradeView = true
             
         }
         else if number == 7

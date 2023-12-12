@@ -17,7 +17,8 @@ struct NotificationScreenView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let height = UIScreen.main.bounds.height
     let width = UIScreen.main.bounds.width
-    
+    @State var showingDeleteAlert=false
+    @State var notificationID=""
     var body: some View {
         ZStack {
             BaseView(alertService: alertService)
@@ -79,7 +80,9 @@ struct NotificationScreenView: View {
                                     
                                 },
                                 deleteImageTapAction: {
-                                   
+//                                    notificationID=listNotification[index]. ?? ""
+                                    showingDeleteAlert=true
+
                                 }
                             )
                             .padding([.leading,.trailing],10)

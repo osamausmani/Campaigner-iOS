@@ -63,6 +63,19 @@ class ContestentViewModel: ObservableObject {
     }
     
     
+    func UpgradeAccount(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.upgradeAccount
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    func DegradeAccount(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void)
+    {
+        let REQ_URL = ApiPaths.degradeAccount
+        NetworkManager.shared.RequestSecure( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
+    
+
+    
     
     
     

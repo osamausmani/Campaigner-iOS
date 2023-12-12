@@ -4,11 +4,12 @@ import Alamofire
 struct HomeScreenView: View {
     
     @State  var value = ""
+    @State var pro_Type = -1
     @State private var isLoading = false
     @State private var isShowingLoader = false
     @State private var contestingScreenView = false
     @State private var presentNotificationMenu = false
-    
+
     @State private var newsDetailsScreenView = false
     @StateObject private var alertService = AlertService()
     
@@ -25,7 +26,6 @@ struct HomeScreenView: View {
     @State var images2 = [String]()
     @State var label2 = [String]()
     @State private var selectedNewsIndex: Int = 0
-    
     var body: some View {
         NavigationView {
             //            BaseView(alertService: alertService)
@@ -47,10 +47,13 @@ struct HomeScreenView: View {
                             
                             HomeProButtons(
                                 onReportsTapped: {
+                                  
                                 },
                                 onNotificationTapped: {
+                                    
                                 },
                                 onTeamsTapped: {
+                                   
                                 }
                             )
                                                     
@@ -126,7 +129,7 @@ struct HomeScreenView: View {
                     //   .padding()
                 }
             }
-            
+        
         }
         .navigationBarBackButtonHidden(true)
         .onDisappear{
@@ -207,11 +210,14 @@ struct HomeScreenView: View {
                     
                     value = dashboardDataResponse.data?[0].election_id ?? "7"
                     Global.electionID = value
+                    
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
                    
                     UserDefaults.standard.set(dashboardDataResponse.data?[0].election_id, forKey: Constants.USER_ELECTION_ID)
-                    
+                    UserDefaults.standard.set(dashboardDataResponse.data?[0].pro_type, forKey: Constants.isProAccount)
+                    pro_Type=dashboardDataResponse.data?[0].pro_type ?? 0
+                    Global.isProAccount = pro_Type ?? 0
                     if let jsonData = try? JSONEncoder().encode(dashboardDataResponse.data?[0].elections),
                        let jsonString = String(data: jsonData, encoding: .utf8) {
                         UserDefaults.standard.set(jsonString, forKey: Constants.USER_ELECTIONS)
@@ -268,10 +274,10 @@ struct HomeScreenView: View {
 
 
 
-struct HomeScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreenView(presentSideMenu: .constant(false))
-            .tag(0)
-    }
-}
+//struct HomeScreenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeScreenView(presentSideMenu: .constant(false))
+//            .tag(0)
+//    }
+//}
 

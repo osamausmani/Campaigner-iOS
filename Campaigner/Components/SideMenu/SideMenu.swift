@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SideMenu: View {
     @Binding var isShowing: Bool
+
     var content: AnyView
     var edgeTransition: AnyTransition = .move(edge: .leading)
     var body: some View {
@@ -41,9 +42,9 @@ enum SideMenuRowType: Int, CaseIterable{
     case wallet = 1
     case inviteMembers = 2
 //    case payments = 3
-//    case upgradeAccunt = 4
+    case upgradeAccunt = 4
     case manageConstituencey = 5
-//    case degradeAccount = 6
+    case degradeAccount = 6
     case changepassword = 7
     case termsofuse = 8
     case contactus = 9
@@ -71,12 +72,12 @@ enum SideMenuRowType: Int, CaseIterable{
             return "Logout"
 //        case .wallet:
 //            return "Wallet"
-//        case .upgradeAccunt:
-//            return "Upgrade Account"
+        case .upgradeAccunt:
+            return "Upgrade Account"
 //        case .manageConstituencey:
 //            return "Manage Constituencey"
-//        case .degradeAccount:
-//            return "Degrade Account"
+        case .degradeAccount:
+            return "Degrade Account"
         }
     }
     
@@ -102,12 +103,12 @@ enum SideMenuRowType: Int, CaseIterable{
             return "logout_side"
 //        case .wallet:
 //            return "wallet_side"
-//        case .upgradeAccunt:
-//            return "down_account_side"
+        case .upgradeAccunt:
+            return "update_account_side"
 //        case .manageConstituencey:
 //            return "manage_cons_side"
-//        case .degradeAccount:
-//            return "down_account_side"
+        case .degradeAccount:
+            return "down_account_side"
         }
     }
 }
