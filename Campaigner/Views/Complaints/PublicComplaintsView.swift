@@ -113,7 +113,7 @@ struct PublicComplaintCustomCardView: View {
             BaseView(alertService: alertService)
             VStack{
                 
-                VStack {
+                VStack(spacing: 0) {
                     HStack{
                         
                         if item.province?.isEmpty == false{
@@ -170,13 +170,13 @@ struct PublicComplaintCustomCardView: View {
                                 }
                             }
                         }
-                        Spacer()
+//                        Spacer()
                         
                     }
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isProvinceNavigationActive))
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isDistrictNavigationActive).isDetailLink(false))
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isTehsilNavigationActive).isDetailLink(false))
-                    Divider()
+                    dividerline()
                     
                     HStack {
                         Text(item.status == 4 ? "Pending" : "Status")
@@ -199,14 +199,14 @@ struct PublicComplaintCustomCardView: View {
                                     .font(.system(size: 16))
                                     .foregroundColor(Color.black)
                             }
-                            
-                            
-                            
-                            
-                            Text("External")
-                                .font(.headline)
-                                .foregroundColor(Color.blue)
-                                .padding(.top, 0.5)
+//                            
+//                            
+//                            
+//                            
+//                            Text("External")
+//                                .font(.headline)
+//                                .foregroundColor(Color.blue)
+//                                .padding(.top, 0.5)
                             
                             Text(item.details ?? "Description").frame(maxWidth: .infinity, alignment: .leading)
                                 .lineLimit(item.details!.count > 200 ? 1 : 0)

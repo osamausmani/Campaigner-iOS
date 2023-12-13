@@ -127,7 +127,9 @@ struct TeamsScreenView: View {
                 }else{
                     SwiftAlertView.show(title: "Alert", message: response.message, buttonTitles: "OK")                }
             case .failure(let error):
-                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            }
+            print(error)
+                /*                SwiftAlertView.show(title: "Alert", message: error.localizedDescription, buttonTitles: "OK")            */
+            }
         }
     }
     

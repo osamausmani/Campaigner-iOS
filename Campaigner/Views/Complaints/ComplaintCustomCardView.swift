@@ -33,7 +33,7 @@ struct ComplaintCustomCardView: View {
             BaseView(alertService: alertService)
         VStack{
        
-            VStack {
+            VStack(spacing: 0) {
                 HStack{
                     if item.province?.isEmpty==false{
                         VStack(alignment: .leading){
@@ -89,13 +89,14 @@ struct ComplaintCustomCardView: View {
                             }
                         }
                     }
-                    Spacer()
+              
+//                    Spacer()
                     
                 }
                 .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isProvinceNavigationActive))
                 .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isDistrictNavigationActive).isDetailLink(false))
                 .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isTehsilNavigationActive).isDetailLink(false))
-                Divider()
+                dividerline()
                 HStack {
                     Text(item.status == 4 ? "Pending" : "Status")
                         .font(.headline)
@@ -119,39 +120,38 @@ struct ComplaintCustomCardView: View {
                         }
                         
                         
-                        if selectedTab == 1 {
-                            VStack(alignment:.leading){
-                                
-                                if (item.province != nil){
-                                    HStack{
-                                        Text("Province: ")
-                                            .font(.system(size: 18)).bold()
-                                            .foregroundColor(Color.black)
-                                        Text(item.province!)
-                                            .font(.system(size: 18))
-                                            .foregroundColor(Color.black)
-                                    }
-                                }
-                                if (item.district != nil){
-                                    HStack{
-                                        Text("District: ")
-                                            .font(.system(size: 18))
-                                            .foregroundColor(Color.black).bold()
-                                        
-                                        Text(item.district!)
-                                            .font(.system(size: 18))
-                                            .foregroundColor(Color.black)
-                                    }
-                                }
-                            }.padding(0.1)
-                        }
-                        
-                        if selectedTab == 0 {
-                            Text("External")
-                                .font(.headline)
-                                .foregroundColor(Color.blue)
-                                .padding(.top, 0.5)
-                        }
+//                        if selectedTab == 1 {
+//                            VStack(alignment:.leading){
+////
+////                                if (item.province != nil){
+////                                    HStack{
+////                                        Text("Province: ")
+////                                            .font(.system(size: 18)).bold()
+////                                            .foregroundColor(Color.black)
+////                                        Text(item.province!)
+////                                            .font(.system(size: 18))
+////                                            .foregroundColor(Color.black)
+////                                    }
+////                                }
+////                                if (item.district != nil){
+////                                    HStack{
+////                                        Text("District: ")
+////                                            .font(.system(size: 18))
+////                                            .foregroundColor(Color.black).bold()
+////                                        
+////                                        Text(item.district!)
+////                                            .font(.system(size: 18))
+////                                            .foregroundColor(Color.black)
+////                                    }
+////                                }
+//                            }.padding(0.1)
+//                        }
+//                        
+//                        if selectedTab == 0 {
+//                            Text("External")
+//                                .font(.headline)
+//                                .foregroundColor(Color.blue)
+//                        }
                         Text(item.details ?? "Description").frame(maxWidth: .infinity, alignment: .leading)
                             .lineLimit(item.details!.count > 200 ? 1 : 0)
                             .font(.body)
