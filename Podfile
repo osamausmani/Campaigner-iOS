@@ -12,10 +12,12 @@ target 'Campaigner' do
   pod 'GoogleSignInSwiftSupport'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
-  
 
   pod 'FBSDKCoreKit'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
+  
+  pod 'GooglePlaces'
+
 end

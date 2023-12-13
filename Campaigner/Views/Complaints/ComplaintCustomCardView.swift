@@ -21,7 +21,9 @@ struct ComplaintCustomCardView: View {
     @State private var showingDeleteAlert = false
     
     @Binding public var item : ComplaintListDataItem
-    
+    @State private var itemLat : Double = 0.0
+    @State private var itemLng : Double = 0.0
+
     @State private var isProvinceNavigationActive = false
     @State private var isDistrictNavigationActive = false
     @State private var isTehsilNavigationActive = false
@@ -232,7 +234,7 @@ struct ComplaintCustomCardView: View {
             .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 5)
             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
             
-            NavigationLink("", destination: GoogleMapView(latitude: item.loc_lat ?? "", longitude: item.loc_lng ?? "").edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
+            NavigationLink("", destination: GoogleMapView(latitude: $itemLat, longitude: $itemLng).edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
                 .isDetailLink(false)
             
         }.padding(.bottom,-20).padding(.leading,8).padding(.trailing,8)
@@ -246,7 +248,14 @@ struct ComplaintCustomCardView: View {
                     print("Button 2 tapped")
                 })
             }
-    }
+        }.onAppear{
+            print("Button 1 tapped")
+            print(itemLat, itemLng )
+
+            itemLat = Double(item.loc_lat ?? "0.0")!
+            itemLng = Double(item.loc_lng ?? "0.0")!
+
+        }
         
         
         

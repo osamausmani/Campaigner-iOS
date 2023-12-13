@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchBarView: View
 {
-    @State private var searchText = ""
+    @Binding public var searchText:String
 
     var body: some View {
         VStack {
@@ -52,8 +52,8 @@ struct SearchBar: UIViewRepresentable {
 }
 
 
-struct SearchBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBarView()
-    }
-}
+//struct SearchBarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchBarView()
+//    }
+//}

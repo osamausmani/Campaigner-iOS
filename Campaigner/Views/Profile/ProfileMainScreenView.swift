@@ -20,7 +20,8 @@ struct ProfileMainScreenView: View {
     @State  var isEditProfileScreenActive = false
     @State var tabIndex = 0
     @State var userPhoneNumber = UserDefaults.standard.string(forKey: Constants.USER_PHONE) ?? ""
-    
+    @State var selectedImage: UIImage?
+
     var body: some View {
     
         ZStack {
@@ -28,19 +29,29 @@ struct ProfileMainScreenView: View {
             }
             BaseView(alertService: alertService)
             ZStack{
-                Image("splash_background")
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
                 
+                Image("splash_background")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+              
                 VStack{
                     VStack{
                         
                         HStack {
                             // Left Subview with Image
-                            Image("default_large_image")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(50) // Apply radius to make it circular
+    
+                            if selectedImage == nil {
+                                Image("default_large_image")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(50) 
+                            }
+                            else{
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(50)
+                            }
                             
                             // Right Subview with Labels and Icon
                             VStack(alignment: .leading) {
@@ -132,7 +143,14 @@ struct ProfileMainScreenView: View {
                 }
             }
         }.onAppear(){
-            print("userPhoneNumber: ", userPhoneNumber)
+           
+            if let base64String = UserDefaults.standard.string(forKey: Constants.USER_IMAGE_DATA),
+               let imageData = Data(base64Encoded: base64String),
+               let image = UIImage(data: imageData) {
+                // Use the 'image' as needed, for example, set it to a UIImageView
+                selectedImage = image
+            }
+            
         }
         .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
         .onTapGesture {

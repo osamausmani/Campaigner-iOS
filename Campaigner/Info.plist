@@ -37,5 +37,8 @@
    <key>NSContactsUsageDescription</key>
    <string>We need access to your contacts for inviting new halka members.</string>
    
+<key>NSCameraUsageDescription</key>
+<string>We need access to the camera to take photos for profile picture and complaints.</string>
+
 </dict>
 </plist>

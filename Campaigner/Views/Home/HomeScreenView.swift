@@ -34,7 +34,7 @@ struct HomeScreenView: View {
                 {
                     ImageSlider(images: images)
                     //                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
-                }.frame(width: 400, height: 320)
+                }.frame(width: 400, height: 350)
                 
                 ScrollView{
                     VStack{
@@ -58,9 +58,22 @@ struct HomeScreenView: View {
                             )
                                                     
                         
-                         }
-                     
-                 
+                        //                        ZStack {
+                        //                        RoundedRectangleLabelView(text: "halka Pro")
+                        //
+                        //                            HomeProButtons(
+                        //                                onReportsTapped: {
+                        //                                },
+                        //                                onNotificationTapped: {
+                        //                                },
+                        //                                onTeamsTapped: {
+                        //                                }
+                        //                            )
+                        //
+                        //
+                        //                         }
+                        
+                        
                         
                         Text("Latest News").alignmentGuide(.leading) { _ in 0 }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,7 +110,7 @@ struct HomeScreenView: View {
                             print("SelectedIndex ", selectedNewsIndex)
                             newsDetails()
                         } )
-                        .padding(.leading,20)
+                        .padding(.leading,10)
                     }
                     .background(Image("map_bg")
                         .resizable()).padding(10)
@@ -106,6 +119,7 @@ struct HomeScreenView: View {
             }.onAppear
             {
                 LoadDashBoard()
+                LoadUserData()
             }
             .navigationBarTitleDisplayMode(.inline)
             
@@ -178,6 +192,50 @@ struct HomeScreenView: View {
     }
     
     
+    func LoadUserData(){
+        let parameters: [String:Any] = [
+            "plattype": Constants.PLAT_TYPE,
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!
+        ]
+        let ProfileViewModel = ProfileViewModel()
+        
+        ProfileViewModel.GetProfileBasicInfo(parameters: parameters ) { result in
+            switch result {
+            case .success(let response):
+                if response.rescode == 1 {
+                    let imgURL = response.data![0].user_image ?? nil
+                    if imgURL != nil{
+                        downloadProfileImage(from: response.data![0].user_image!)
+                    }
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func downloadProfileImage(from urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let data = data, error == nil {
+                let base64String = data.base64EncodedString()
+                DispatchQueue.main.async {
+                    UserDefaults.standard.set(base64String, forKey: Constants.USER_IMAGE_DATA)
+                }
+            }
+        }.resume()
+    }
+    
+    func decodeBase64ToImage(_ base64String: String) -> UIImage {
+        if let data = Data(base64Encoded: base64String),
+           let image = UIImage(data: data) {
+            return image
+        }
+        return UIImage()
+    }
+    
+    
     func LoadDashBoard()
     {
         
@@ -213,7 +271,7 @@ struct HomeScreenView: View {
                     
                     slider = dashboardDataResponse.data?[0].sliders ?? []
                     news = dashboardDataResponse.data?[0].news ?? []
-                   
+                    
                     UserDefaults.standard.set(dashboardDataResponse.data?[0].election_id, forKey: Constants.USER_ELECTION_ID)
                     UserDefaults.standard.set(dashboardDataResponse.data?[0].pro_type, forKey: Constants.isProAccount)
                     pro_Type=dashboardDataResponse.data?[0].pro_type ?? 0

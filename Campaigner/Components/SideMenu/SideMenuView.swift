@@ -44,6 +44,7 @@ struct SideMenuView: View {
     @StateObject var userData: UserData = UserData()
     @State var constituencyOptions = [DropDownModel(id: "0", value: "Pro Account")]
     @State var selectedOption=DropDownModel()
+    @State var selectedImage: UIImage?
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -132,16 +133,18 @@ struct SideMenuView: View {
         VStack(alignment: .center){
             HStack{
                 Spacer()
-                
-                Image("default_large_image")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
-                //                    .overlay(
-                //                        RoundedRectangle(cornerRadius: 50)
-                //                            .stroke(.purple.opacity(0.5), lineWidth: 10)
-                //                    )
-                    .cornerRadius(40)
+                if selectedImage == nil {
+                    Image("default_large_image")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(40)
+                }
+                else{
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(40)
+                }
                 Spacer()
                 VStack{
                     Text(UserDefaults.standard.string(forKey: Constants.USER_NAME) ?? "UserName")
@@ -161,7 +164,14 @@ struct SideMenuView: View {
             DropDown(label: "Select Constituency", placeholder: "Select Constituency", selectedObj: $selectedOption, menuOptions: constituencyOptions,isFromMenu:true)
                 .padding([.leading,.trailing],10)
             
-        }.background(CColors.MainThemeColor)
+        }.background(CColors.MainThemeColor).onAppear{
+            if let base64String = UserDefaults.standard.string(forKey: Constants.USER_IMAGE_DATA),
+               let imageData = Data(base64Encoded: base64String),
+               let image = UIImage(data: imageData) {
+                // Use the 'image' as needed, for example, set it to a UIImageView
+                selectedImage = image
+            }
+        }
     }
     
     func RowView(isSelected: Bool, imageName: String, title: String, hideDivider: Bool = false, action: @escaping (()->())) -> some View{
@@ -297,6 +307,11 @@ struct SideMenuView: View {
                     UserDefaults.standard.removeObject(forKey:Constants.USER_ID )
                     userData.username = ""
                     userData.password = ""
+                    
+                    // Clear all data in UserDefaults
+                    if let bundleIdentifier = Bundle.main.bundleIdentifier {
+                        UserDefaults.standard.removePersistentDomain(forName: bundleIdentifier)
+                    }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         self.presentationMode.wrappedValue.dismiss()

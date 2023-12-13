@@ -238,6 +238,7 @@
 		0778234D2AD0090100A6F2E3 /* BasicProfileInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicProfileInfoResponse.swift; sourceTree = "<group>"; };
 		077823502AD0546800A6F2E3 /* SearchableInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableInput.swift; sourceTree = "<group>"; };
 		077823522AD0584900A6F2E3 /* TestContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContent.swift; sourceTree = "<group>"; };
+		07956D582B2041C800054FB1 /* Campaigner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Campaigner.entitlements; sourceTree = "<group>"; };
 		07ADF0B02A07E4110096C82D /* Campaigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campaigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADF0B32A07E4110096C82D /* CampaignerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignerApp.swift; sourceTree = "<group>"; };
 		07ADF0B52A07E4110096C82D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -558,6 +559,7 @@
 		07ADF0B22A07E4110096C82D /* Campaigner */ = {
 			isa = PBXGroup;
 			children = (
+				07956D582B2041C800054FB1 /* Campaigner.entitlements */,
 				07BE80FA2B1DD8F10064A77D /* GoogleService-Info.plist */,
 				07BE80F52B1DD6FA0064A77D /* Utilities */,
 				FAF5B42B2AF251AB0036D37B /* SharedData */,
@@ -1443,8 +1445,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Campaigner/Campaigner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
@@ -1465,9 +1468,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syntecx.halka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1477,8 +1483,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Campaigner/Campaigner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
@@ -1499,9 +1506,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syntecx.halka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
