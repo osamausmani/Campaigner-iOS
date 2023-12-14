@@ -77,51 +77,51 @@ struct LoginScreenView: View {
                             .padding(.horizontal,70)
                             .padding(3)
                             
-//                            LoginCustomDivider(labelText:"or connect using")
-//                                .padding(5)
-//                            HStack(spacing: 50){
-//                                Button(action: {
-//                                    // Action for Google
-//                                    print("Google tapped!")
-//                                    signInGoogle()
-//
-//                                }) {
-//                                    Image("google")
-//                                        .resizable()
-//                                        .frame(
-//                                            width: 60,
-//                                            height: 60
-//                                        )
-//                                }
-//
-//                                Button(action: {
-//                                    // Action for Facebook
-//                                    print("Facebook tapped!")
-//                                    signInFacebook()
-//                                }) {
-//                                    Image("facebook")
-//                                        .resizable()
-//                                        .frame(
-//                                            width: 60,
-//                                            height: 60
-//                                        )
-//                                }
-//
-//                                Button(action: {
-//                                    // Action for Facebook
-//                                    print("Apple tapped!")
-//                                    signInApple()
-//
-//                                }) {
-//                                    Image("facebook")
-//                                        .resizable()
-//                                        .frame(
-//                                            width: 60,
-//                                            height: 60
-//                                        )
-//                                }
-//                            }
-//                            .padding()
+                            LoginCustomDivider(labelText:"or connect using")
+                                .padding(5)
+                            HStack(spacing: 50){
+                                Button(action: {
+                                    // Action for Google
+                                    print("Google tapped!")
+                                    signInGoogle()
+
+                                }) {
+                                    Image("google")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+
+                                Button(action: {
+                                    // Action for Facebook
+                                    print("Facebook tapped!")
+                                    signInFacebook()
+                                }) {
+                                    Image("facebook")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+
+                                Button(action: {
+                                    // Action for Facebook
+                                    print("Apple tapped!")
+                                    signInApple()
+
+                                }) {
+                                    Image("apple")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+                            }
+                            .padding()
                             HStack{}.padding()
                             HStack{
                                 Text("Don't have an account?")
