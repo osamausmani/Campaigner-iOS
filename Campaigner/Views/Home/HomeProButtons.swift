@@ -16,6 +16,8 @@ struct HomeProButtons: View {
     @State private var reportsScreenView = false
     @State private var promotionsScreenView = false
     @State private var teamsScreenView = false
+    @State private var isUpgradeAppear = false
+
     var symbols = [
         1: ["title": "Reports", "symbol": "reporting"],
         2: ["title": "Promotions", "symbol": "promotion_main"],
@@ -45,7 +47,12 @@ struct HomeProButtons: View {
                         Spacer()
                         
                     }.onTapGesture {
-                        buttonTapped(id)
+                        if Global.isProAccount == 0{
+                            isUpgradeAppear = true
+                        }
+                        else{
+                            buttonTapped(id)
+                        }
                     }
                 }
             }
@@ -57,7 +64,7 @@ struct HomeProButtons: View {
         NavigationLink(destination: ReportingScreenView(), isActive: $reportsScreenView) {}
         NavigationLink(destination: NotificationScreenView(), isActive: $promotionsScreenView) {}
         NavigationLink(destination: TeamsScreenView(), isActive: $teamsScreenView) {}
-        
+        NavigationLink(destination: UpgradeAccountView(), isActive: $isUpgradeAppear) {}
     }
     
     func buttonTapped(_ number: Int) {

@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import SwiftAlertView
+import Alamofire
+import SwiftyJSON
 
 struct EditProfileScreenView: View {
     @StateObject private var alertService = AlertService()
@@ -40,7 +42,7 @@ struct EditProfileScreenView: View {
     @State  var selectedPA = DropDownModel()
     @State  var isPaEnabled = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     
     var body: some View {
         
@@ -131,6 +133,12 @@ struct EditProfileScreenView: View {
             
         }
         .onAppear{
+            if let base64String = UserDefaults.standard.string(forKey: Constants.USER_IMAGE_DATA),
+               let imageData = Data(base64Encoded: base64String),
+               let image = UIImage(data: imageData) {
+                // Use the 'image' as needed, for example, set it to a UIImageView
+                selectedImage = image
+            }
             InitUserData()
             GetDistricts()
             LoadUserData()
@@ -141,13 +149,13 @@ struct EditProfileScreenView: View {
                 selectedGender = genderOptions.first { $0.id == uGenderString }!
             }
             if userRecord?.district_id != nil {
-                selectedDistrict = districtOptions.first { $0.id == userRecord?.district_id }!
+                selectedDistrict = districtOptions.first { $0.id == userRecord?.district_id } ?? DropDownModel()
                 if (selectedDistrict.value == "Islamabad") {
                     isPaEnabled = false
                 }
                 else{
                     isPaEnabled = true
-
+                    
                 }
             }
             if userRecord?.tehsil_id != nil {
@@ -284,7 +292,11 @@ struct EditProfileScreenView: View {
     }
     
     func SubmitAction(){
-        UpdateProfile()
+        if selectedImage == nil {
+            UpdateProfile()
+        }else{
+            ProfileUpdateWithImage()
+        }
     }
     
     func UpdateProfile() {
@@ -316,6 +328,9 @@ struct EditProfileScreenView: View {
     }
     
     
+   
+    
+    
     func LoadUserData(){
         isShowingLoader.toggle()
         let parameters: [String:Any] = [
@@ -342,6 +357,56 @@ struct EditProfileScreenView: View {
     }
     
     
+    func ProfileUpdateWithImage(){
+        isShowingLoader.toggle()
+        
+        let headers:HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": UserDefaults.standard.object(forKey: Constants.USER_SESSION_TOKEN) as! String
+        ]
+        
+        let Params: [String: String] = [
+            "user_id": UserDefaults.standard.string(forKey: Constants.USER_ID)!,
+            "plattype": Global.PlatType,
+            "user_full_name": inputName,
+            "user_gender" : selectedGender.id,
+            "info_district_id" : selectedDistrict.id,
+            "info_tehsil_id" : selectedTehsil.id,
+            "user_constituency_pa" : selectedPA.id,
+            "user_constituency_na": selectedNA.id,
+        ]
+        
+        print("Updating Profile With Image:",  Params)
+        
+        var compressImage = selectedImage?.resizeWithWidth(width: 700)
+
+        let imageData = compressImage!.jpegData(compressionQuality:0.1)
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in Params {
+                multipartFormData.append(imageData!, withName: "file", fileName: "profile.jpg", mimeType: "image/jpg")
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+            }
+            
+        }, to: ApiPaths.UserProfileInfoUpdate, usingThreshold: UInt64.init(), method: .post, headers: headers)
+        .response { [self] resp in
+            let respJSON = JSON(resp.data)
+            print("respJSON",  respJSON)
+
+            
+            SwiftAlertView.show(title: "Alert", message: respJSON["message"].rawString()!, buttonTitles: "OK")
+            isShowingLoader.toggle()
+
+            if respJSON["rescode"] == 1 {
+                UserDefaults.standard.set(imageData?.base64EncodedString(), forKey: Constants.USER_IMAGE_DATA)
+            }
+            
+            
+            
+        }
+        
+    }
+    
     
     
 }
@@ -349,5 +414,31 @@ struct EditProfileScreenView: View {
 struct EditProfileScreenView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileScreenView()
+    }
+}
+
+
+extension UIImage {
+    func resizeWithPercent(percentage: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
+    }
+    func resizeWithWidth(width: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
     }
 }

@@ -61,8 +61,12 @@ struct SurveyHomeScreenView: View {
                             ScrollView{
                                 ForEach(surveyListArray.indices, id: \.self) { index in
                                     SurveyCustomCardView(selectedTab: $selectedTab, item: $surveyListArray[index]).onTapGesture {
-                                        surveyID = surveyListArray[index].survey_id_text
-                                        surveyAttemptScreenView.toggle()
+                                        let sSurvey = surveyListArray[index]
+                                        surveyID = sSurvey.survey_id_text
+                                        if (sSurvey.survey_submitted != "1" || sSurvey.survey_multi_attempt! > 0) {
+                                            surveyAttemptScreenView.toggle()
+
+                                        }
                                     }
                                 }
                             }

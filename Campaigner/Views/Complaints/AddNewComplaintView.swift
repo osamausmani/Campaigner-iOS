@@ -24,6 +24,9 @@ struct AddNewComplaintView: View {
     @State private var showImagePicker = false
     @State var selectedImage: UIImage?
     @State private var locationText = ""
+    @State private var locationLat = ""
+    @State private var locationLng = ""
+
     @State private var showTeshsil = false
     @State private var showAddress = false
     @State private var showAssembly = false
@@ -46,7 +49,9 @@ struct AddNewComplaintView: View {
     @State public var item : ComplaintListDataItem?
     @State private var selectedAssemblyType = ""
 
-    
+    @ObservedObject private var sharedLocationData = SharedLocationData()
+
+
     var assemblyList: [DropDownModel] = [
         DropDownModel(id: "1", value: "National Assembly"),
         DropDownModel(id: "2", value: "Provincial Assembly"),
@@ -113,7 +118,7 @@ struct AddNewComplaintView: View {
                                 : nil
                             }
                             if showAddress {
-                                LocationField(label: "Address", placeholder: "Address", text: $locationText, buttonAction: {
+                                LocationField(label: "Address", placeholder: "Address", text: $sharedLocationData.locationName, buttonAction: {
                                     isAddLocationView = true
                                 })
                             }
@@ -147,7 +152,7 @@ struct AddNewComplaintView: View {
                 }
                 }
                     
-                    NavigationLink(destination: AddLocationView(), isActive: $isAddLocationView) {
+                NavigationLink(destination: AddLocationView(sharedLocationData: sharedLocationData), isActive: $isAddLocationView) {
                     }
                     .navigationBarHidden(true)
             
@@ -196,6 +201,9 @@ struct AddNewComplaintView: View {
                 showAssembly = false
                 showConstituency = false
            
+            }
+            .onChange(of: sharedLocationData.longitude) { newValue in
+                print("sharedLocationData", sharedLocationData.locationName)
             }
             .onChange(of: selectedDistrict) { newValue in
                 tehsilOption.removeAll()
@@ -404,9 +412,9 @@ struct AddNewComplaintView: View {
             "complaint_type": selectedCategory.id,
             "complaint_desc": description,
             "is_internal": "0",
-            "loc_lat": "",
-            "loc_lng": "",
-            "loc_text": "",
+            "loc_lat": sharedLocationData.latitude,
+            "loc_lng": sharedLocationData.longitude,
+            "loc_text":sharedLocationData.locationName,
             "file": "",
             "province_id": selectedProvince.id,
             "district_id": selectedDistrict.id,
@@ -485,6 +493,9 @@ struct AddNewComplaintView: View {
         }
     }
     
+    func didUpdateLocation(latitude: Double, longitude: Double, locationName: String) {
+           print("Received location data: Latitude \(latitude), Longitude \(longitude), Name: \(locationName)")
+       }
     
 }
 

@@ -142,8 +142,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "addContestent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "addContestent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "addContestent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "searchProvince()"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "searchProvince()"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "searchProvince()"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "searchProvince()"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -318,8 +318,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "ContestingElectionPopUpScreenView"
             landmarkType = "14">
          </BreakpointContent>
@@ -334,8 +334,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "ContestingElectionPopUpScreenView"
             landmarkType = "14">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "ContestingElectionPopUpScreenView"
             landmarkType = "14">
          </BreakpointContent>
@@ -366,8 +366,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "selectConstituency()"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,56 +398,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "selectConstituency()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "045D56AE-F73C-401F-B752-91C595066E72"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "selectConstituency()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "942D564E-0508-48A9-BB3A-53E51BEF49D3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "selectConstituency()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C5CA8E2D-D9BF-44F1-B450-A00954B74948"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "selectConstituency()"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,8 +414,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "selectConstituency()"
             landmarkType = "7">
          </BreakpointContent>
@@ -478,8 +430,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "selectConstituency()"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +446,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "selectConstituency()"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +462,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "addContestElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +478,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "addContestElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +494,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "listElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,8 +510,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "listElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -574,8 +526,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "listElection()"
             landmarkType = "7">
             <Locations>
@@ -609,6 +561,66 @@
                   endingLineNumber = "348"
                   offsetFromSymbolStart = "171">
                </Location>
+               <Location
+                  uuid = "1CC1F18C-3FBC-43DB-B581-6ECE8048F0F1 - d3041d30edf98a9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "344"
+                  endingLineNumber = "344"
+                  offsetFromSymbolStart = "2492">
+               </Location>
+               <Location
+                  uuid = "1CC1F18C-3FBC-43DB-B581-6ECE8048F0F1 - 3beb2013369aaf55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "346"
+                  endingLineNumber = "346"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "1CC1F18C-3FBC-43DB-B581-6ECE8048F0F1 - d3041d30edf995b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "337"
+                  endingLineNumber = "337"
+                  offsetFromSymbolStart = "2492">
+               </Location>
+               <Location
+                  uuid = "1CC1F18C-3FBC-43DB-B581-6ECE8048F0F1 - 3beb2013369ab072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "339"
+                  endingLineNumber = "339"
+                  offsetFromSymbolStart = "220">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -622,10 +634,102 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
             landmarkName = "listElection()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaec9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "350"
+                  endingLineNumber = "350"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaec9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "350"
+                  endingLineNumber = "350"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaec9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "350"
+                  endingLineNumber = "350"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "343"
+                  endingLineNumber = "343"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "343"
+                  endingLineNumber = "343"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "ABE7209A-82B9-4FF2-A386-A344B4F1AA80 - 3beb2013369aaff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ContestingElectionResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionScreenView.listElection() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "343"
+                  endingLineNumber = "343"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -638,8 +742,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "listElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,8 +758,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "listElection()"
             landmarkType = "7">
          </BreakpointContent>
@@ -670,8 +774,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -686,8 +790,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "delete()"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +806,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "delete()"
             landmarkType = "7">
             <Locations>
@@ -737,6 +841,36 @@
                   endingLineNumber = "138"
                   offsetFromSymbolStart = "1398">
                </Location>
+               <Location
+                  uuid = "C606A098-D4E4-4D65-8C1C-3C4ABF5FAE7D - 4d2f8e22cd42229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "C606A098-D4E4-4D65-8C1C-3C4ABF5FAE7D - 4d2f8e22cd42342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "760">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -750,8 +884,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "delete()"
             landmarkType = "7">
             <Locations>
@@ -785,6 +919,36 @@
                   endingLineNumber = "139"
                   offsetFromSymbolStart = "1123">
                </Location>
+               <Location
+                  uuid = "3E7CC83E-F6DF-41D2-AE6F-9F7E194A917E - 4d2f8e22cd4224a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  uuid = "3E7CC83E-F6DF-41D2-AE6F-9F7E194A917E - 4d2f8e22cd42363"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "808">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -798,8 +962,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "delete()"
             landmarkType = "7">
             <Locations>
@@ -832,6 +996,36 @@
                   startingLineNumber = "141"
                   endingLineNumber = "141"
                   offsetFromSymbolStart = "1694">
+               </Location>
+               <Location
+                  uuid = "32E9557C-B210-42DC-B97B-23AAA300C23F - 4d2f8e22cd421b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+               <Location
+                  uuid = "32E9557C-B210-42DC-B97B-23AAA300C23F - 4d2f8e22cd422ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "1284">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -846,8 +1040,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "delete()"
             landmarkType = "7">
             <Locations>
@@ -881,6 +1075,36 @@
                   endingLineNumber = "141"
                   offsetFromSymbolStart = "1694">
                </Location>
+               <Location
+                  uuid = "05FBC287-2CE9-4565-AC6E-7F155B90ABB4 - 4d2f8e22cd421b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+               <Location
+                  uuid = "05FBC287-2CE9-4565-AC6E-7F155B90ABB4 - 4d2f8e22cd422ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionScreenView.delete() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "1284">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -894,8 +1118,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "searchProvince()"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,8 +1134,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -945,6 +1169,66 @@
                   endingLineNumber = "157"
                   offsetFromSymbolStart = "269">
                </Location>
+               <Location
+                  uuid = "1642ABFB-72A6-46F2-A960-CDC60DF11046 - d9f7cf9694ebe095"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+               <Location
+                  uuid = "1642ABFB-72A6-46F2-A960-CDC60DF11046 - 6751302945c8ed18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "1642ABFB-72A6-46F2-A960-CDC60DF11046 - d9f7cf9694ebe070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+               <Location
+                  uuid = "1642ABFB-72A6-46F2-A960-CDC60DF11046 - 6751302945c8ed7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "276">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -958,8 +1242,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -993,6 +1277,66 @@
                   endingLineNumber = "157"
                   offsetFromSymbolStart = "269">
                </Location>
+               <Location
+                  uuid = "04A313FC-D08C-4E35-ABA8-161E461EE1B0 - d9f7cf9694ebe095"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+               <Location
+                  uuid = "04A313FC-D08C-4E35-ABA8-161E461EE1B0 - 6751302945c8ed18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "04A313FC-D08C-4E35-ABA8-161E461EE1B0 - d9f7cf9694ebe070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+               <Location
+                  uuid = "04A313FC-D08C-4E35-ABA8-161E461EE1B0 - 6751302945c8ed7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "276">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1006,8 +1350,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -1041,6 +1385,66 @@
                   endingLineNumber = "157"
                   offsetFromSymbolStart = "269">
                </Location>
+               <Location
+                  uuid = "31D19069-00CC-4E93-9135-774B224E5687 - d9f7cf9694ebe0d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+               <Location
+                  uuid = "31D19069-00CC-4E93-9135-774B224E5687 - 6751302945c8ed18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "31D19069-00CC-4E93-9135-774B224E5687 - d9f7cf9694ebe0b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+               <Location
+                  uuid = "31D19069-00CC-4E93-9135-774B224E5687 - 6751302945c8ed7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Campaigner.ListProvinceResponse, Swift.Error&gt;) -&gt; () in Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "276">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1054,8 +1458,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -1088,6 +1492,36 @@
                   startingLineNumber = "148"
                   endingLineNumber = "148"
                   offsetFromSymbolStart = "521">
+               </Location>
+               <Location
+                  uuid = "BED79246-00F4-4E48-A67E-F275D28FF810 - d9f7cf9694ebe20e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "BED79246-00F4-4E48-A67E-F275D28FF810 - d9f7cf9694ebe3ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "288">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1102,8 +1536,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -1136,6 +1570,36 @@
                   startingLineNumber = "148"
                   endingLineNumber = "148"
                   offsetFromSymbolStart = "521">
+               </Location>
+               <Location
+                  uuid = "213ACDDF-6F85-4897-8945-E7F1FD5695F9 - d9f7cf9694ebe20e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "213ACDDF-6F85-4897-8945-E7F1FD5695F9 - d9f7cf9694ebe3ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "288">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1150,8 +1614,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "searchProvince()"
             landmarkType = "7">
             <Locations>
@@ -1185,39 +1649,37 @@
                   endingLineNumber = "148"
                   offsetFromSymbolStart = "521">
                </Location>
+               <Location
+                  uuid = "1667CB44-8B5E-403A-94EC-029A8518E056 - d9f7cf9694ebe20e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "1667CB44-8B5E-403A-94EC-029A8518E056 - d9f7cf9694ebe3ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.ContestingElectionPopUpScreenView.searchProvince() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/ContestingElections/ContestingElectionPopUpScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "288">
+               </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F4D6B501-29BB-4AA7-A44D-98A801EA27E2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "37742876-C8D7-4871-9EEB-9B5BF1203E5D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1230,8 +1692,8 @@
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1246,8 +1708,8 @@
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1256,16 +1718,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7147D1BC-DE29-4FDB-B1DD-EF70364CAA5E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "contestElection()"
-            landmarkType = "7">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7147D1BC-DE29-4FDB-B1DD-EF70364CAA5E - 5db6ea932000f572"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.HomeScreenView.body.getter : some"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Home/HomeScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1604">
+               </Location>
+               <Location
+                  uuid = "7147D1BC-DE29-4FDB-B1DD-EF70364CAA5E - 7f07bf10271ad6e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; Campaigner.ContestingElectionScreenView in Campaigner.HomeScreenView.body.getter : some"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Home/HomeScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1505,6 +1999,36 @@
                   endingLineNumber = "408"
                   offsetFromSymbolStart = "213">
                </Location>
+               <Location
+                  uuid = "782EE32B-CD54-4543-AFFB-16FC1113C86D - be30bd93d39c2a19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2812">
+               </Location>
+               <Location
+                  uuid = "782EE32B-CD54-4543-AFFB-16FC1113C86D - 2b6e12f665a622b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "228">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1552,6 +2076,36 @@
                   startingLineNumber = "408"
                   endingLineNumber = "408"
                   offsetFromSymbolStart = "213">
+               </Location>
+               <Location
+                  uuid = "B7F05444-6A1F-438E-975A-DEA5A19024C5 - be30bd93d39c2a19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "2812">
+               </Location>
+               <Location
+                  uuid = "B7F05444-6A1F-438E-975A-DEA5A19024C5 - 2b6e12f665a622b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "228">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1601,6 +2155,21 @@
                   endingLineNumber = "405"
                   offsetFromSymbolStart = "3169">
                </Location>
+               <Location
+                  uuid = "78C39AD4-A570-4A1F-9EDA-A35DDA678A54 - be30bd93d39c2a5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "405"
+                  endingLineNumber = "405"
+                  offsetFromSymbolStart = "2548">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1649,6 +2218,21 @@
                   endingLineNumber = "413"
                   offsetFromSymbolStart = "1121">
                </Location>
+               <Location
+                  uuid = "256E709F-2CF8-493A-BA0B-5A7B8DC4D51C - 2b6e12f665a62318"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "413"
+                  endingLineNumber = "413"
+                  offsetFromSymbolStart = "360">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1696,6 +2280,36 @@
                   startingLineNumber = "419"
                   endingLineNumber = "419"
                   offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "688A9115-0BB2-4051-A1B1-7E74E936E6D3 - be30bd93d39c2bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "418"
+                  endingLineNumber = "418"
+                  offsetFromSymbolStart = "3400">
+               </Location>
+               <Location
+                  uuid = "688A9115-0BB2-4051-A1B1-7E74E936E6D3 - aeb0b9e57f270916"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "419"
+                  endingLineNumber = "419"
+                  offsetFromSymbolStart = "476">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1841,6 +2455,21 @@
                   endingLineNumber = "429"
                   offsetFromSymbolStart = "2409">
                </Location>
+               <Location
+                  uuid = "CBE0BED6-F853-47E5-94CC-D20310EE266E - aeb0b9e57f270bdc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "429"
+                  endingLineNumber = "429"
+                  offsetFromSymbolStart = "1116">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1874,6 +2503,38 @@
             endingLineNumber = "422"
             landmarkName = "payFee()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "72B5F04F-9564-4766-9B33-5EBDC42F06D5 - aeb0b9e57f270ab3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "422"
+                  endingLineNumber = "422"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  uuid = "72B5F04F-9564-4766-9B33-5EBDC42F06D5 - aeb0b9e57f270ab3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Campaigner.PayNowScreenView.payFee() -&gt; ()"
+                  moduleName = "Campaigner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Documents/GitHub/Campaigner-iOS/Campaigner/Views/Payments/PayNowScreenView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "422"
+                  endingLineNumber = "422"
+                  offsetFromSymbolStart = "624">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1998,8 +2659,8 @@
             filePath = "Campaigner/Components/SideMenu/SideMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "LoginOutAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2014,8 +2675,8 @@
             filePath = "Campaigner/Views/ContestingElections/ContestingElectionScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -2024,7 +2685,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "503C6348-A8EF-467A-BD67-2C9945A2D1CA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Teams/TeamsScreenView.swift"
@@ -2032,15 +2693,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "TeamsScreenView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "17AFCBA4-A94D-4709-AD55-DE059C7682C3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Teams/TeamsScreenView.swift"
@@ -2048,8 +2709,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "ListMembers()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2064,15 +2725,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "ListMembers()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A8FE999B-A930-4C8E-AB35-9AD35BA35640"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Teams/TeamsScreenView.swift"
@@ -2080,8 +2741,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "ListMembers()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2095,9 +2756,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "358">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2111,9 +2770,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "361">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2127,9 +2784,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
-            endingLineNumber = "352"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "352">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2143,9 +2798,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "350">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2159,9 +2812,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "351">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2175,9 +2826,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "367"
-            endingLineNumber = "367"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "367">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2191,9 +2840,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "369">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2207,9 +2854,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "372">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2223,9 +2868,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "373">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2239,9 +2882,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "368"
-            endingLineNumber = "368"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "368">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2256,8 +2897,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "TeamsScreenView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2272,8 +2913,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
             endingLineNumber = "116"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "ListMembers()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2287,9 +2928,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "419"
-            endingLineNumber = "419"
-            landmarkName = "listMembers()"
-            landmarkType = "7">
+            endingLineNumber = "419">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2303,9 +2942,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "354">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2319,9 +2956,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "listTeams()"
-            landmarkType = "7">
+            endingLineNumber = "348">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2336,7 +2971,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2352,7 +2987,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2368,7 +3003,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "227"
             endingLineNumber = "227"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2384,7 +3019,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2400,7 +3035,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
             endingLineNumber = "225"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2416,7 +3051,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
-            landmarkName = "addReport()"
+            landmarkName = "listReportingType()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2424,14 +3059,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AC613DD5-1BC6-4032-8798-094FB557E76A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Campaigner/Views/Home/HomeScreenView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

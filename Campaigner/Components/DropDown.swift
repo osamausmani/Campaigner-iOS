@@ -16,6 +16,7 @@ public struct DropDown: View {
     @State private var selectedOption = ""
     @Binding var selectedObj: DropDownModel
     let menuOptions: [DropDownModel]
+    var isFromMenu : Bool?
     
     
     public var body: some View {
@@ -23,7 +24,9 @@ public struct DropDown: View {
             HStack{
                 Text(label).alignmentGuide(.leading) { _ in 0 }
                     .font(.system(size: 15)).padding(.trailing, -6)
+                    .foregroundColor(isFromMenu == true ? .white : .black)
                 isMandatory ? Text("*").foregroundColor(.red) :nil
+                
                 Spacer()
             }
             HStack{
@@ -44,15 +47,23 @@ public struct DropDown: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.system(size: 15)).foregroundColor( !selectedObj.value.isEmpty ? .black : .gray)
                         Image(systemName: "chevron.down").padding(.trailing,10)
+                            .foregroundColor(.black)
 
                     }
                     }
             }.frame(height: 40)
                 .padding(.leading, 10)
+                .background(isFromMenu == true ? Color.white : nil)
+                .cornerRadius(isFromMenu == true ? 8 : 0)
+
+        
+
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8) // Creates a rounded rectangle with a corner radius of 8
-                        .stroke(Color.black, lineWidth: 1) // Adds a border with black color and 1 point width
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(isFromMenu == true ? Color.white : .black, lineWidth: 1)
+
                 )
+//
                 .alignmentGuide(.leading) { _ in 0 }
                 .frame(maxWidth: .infinity, alignment: .leading)
         }.onAppear{

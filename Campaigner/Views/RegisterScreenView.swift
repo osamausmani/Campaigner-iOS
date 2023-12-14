@@ -18,7 +18,7 @@ struct RegisterScreenView: View {
     @State private var signupType =  "1"
     @State private var fvConfirmPassword = ""
     
-    @State private var selectedOption: String = RadioOption.CNIC.rawValue
+    @State private var selectedOption: String = RadioOption.MobileNumber.rawValue
     
     @State private var showRegisterScreen = false
     @State private var isShowingLoader = false
@@ -30,7 +30,7 @@ struct RegisterScreenView: View {
     @State private var isNavBarLinkActive = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     enum RadioOption: String {
-        case CNIC = "CNIC"
+//        case CNIC = "CNIC"
         case MobileNumber = "Mobile Number"
     }
     
@@ -68,8 +68,8 @@ struct RegisterScreenView: View {
                         
                         
                         HStack {
-                            Spacer()
-                            RadioButton(option: RadioOption.CNIC.rawValue, selectedOption: $selectedOption)
+//                            Spacer()
+//                            RadioButton(option: RadioOption.CNIC.rawValue, selectedOption: $selectedOption)
                             Spacer()
                             RadioButton(option: RadioOption.MobileNumber.rawValue, selectedOption: $selectedOption)
                             Spacer()
@@ -78,12 +78,12 @@ struct RegisterScreenView: View {
                         
                         VStack {
                             
-                            if selectedOption == RadioOption.CNIC.rawValue {
-                                
-                                FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
-                                   
-                                
-                            }
+//                            if selectedOption == RadioOption.CNIC.rawValue {
+//
+//                                FormInput(label: "CNIC", placeholder: "xxxxx-xxxxxxx-x", text: $fvCnic)
+//
+//
+//                            }
                           
                             TextFields(label: "Name", placeholder: "Name", text: $fvName)
                           
@@ -141,12 +141,12 @@ struct RegisterScreenView: View {
     
     
     func validateInputs(){
-        if selectedOption == RadioOption.CNIC.rawValue && fvCnic.isEmpty  {
-            
-               alertService.show(title: "Alert", message: "CNIC is required")
-           }
+//        if selectedOption == RadioOption.CNIC.rawValue && fvCnic.isEmpty  {
+//
+//               alertService.show(title: "Alert", message: "CNIC is required")
+//           }
       
-        else if(fvName.isEmpty){
+        if(fvName.isEmpty){
             alertService.show(title: "Alert", message: "Name is required")
         }
         
@@ -204,12 +204,12 @@ struct RegisterScreenView: View {
     
     func doRegister(){
         isShowingLoader.toggle()
-        if selectedOption == RadioOption.CNIC.rawValue {
-            signupType="1"
-        }
-        else{
+//        if selectedOption == RadioOption.CNIC.rawValue {
+//            signupType="1"
+//        }
+//        else{
             signupType="2"
-        }
+//        }
         let parameters: [String:Any] = [
            
             "plattype": Global.PlatType,

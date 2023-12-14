@@ -93,7 +93,8 @@ struct ReportingScreenView: View {
                     Spacer()
                 }.frame(height: 30)
                     .foregroundColor(Color.black)
-                VStack{
+                  
+                VStack(spacing: 0){
                     if showSearchBar {
                         SearchBar(text: $searchText).onChange(of: searchText, perform: handleTextChange).frame(alignment: .top)
                     }
@@ -145,7 +146,7 @@ struct ReportingScreenView: View {
                                     }
                                 } else {
                                     ForEach(reportingType.indices, id: \.self) { index in
-                                        if searchText.isEmpty || reportingType[index].type_name?.contains(searchText) ?? false {
+                                        if searchText.isEmpty || reportingType[index].type_name?.contains(searchText) ??  false {
                                             let formattedDate = convertDate(inputDate: reportingType[index].sdt ?? "", inputFormat: "yyyy-MM-dd HH:mm:ss", outputFormat: "dd MMM yyyy")
                                             
                                             var statusType = reportingType[index].status ?? 0
@@ -185,6 +186,7 @@ struct ReportingScreenView: View {
                                     }
                                 }
                             }
+                            
                             VStack{
                                 Spacer()
                                 AddButton(action: fin, label: "")
@@ -207,7 +209,7 @@ struct ReportingScreenView: View {
                        maxHeight: .infinity,
                        alignment: .topLeading)
                 
-                
+                Spacer()
             }
             .alert(isPresented: $showingDeleteAlert) {
                 Alert(title: Text("Alert"), message: Text("Are you sure you want to delete?"), primaryButton: .default(Text("Yes")) {
@@ -220,8 +222,8 @@ struct ReportingScreenView: View {
             }
             
             
-//            NavigationLink("", destination: UpdateScreenView(reportId: reportID, isComplaint: isComplaint, description: description, typeReport:reportType), isActive: $isUpdateView)
-//                .hidden()
+            //            NavigationLink("", destination: UpdateScreenView(reportId: reportID, isComplaint: isComplaint, description: description, typeReport:reportType), isActive: $isUpdateView)
+            //                .hidden()
             
         }
         
@@ -442,7 +444,7 @@ struct ReportingScreenView: View {
                 //.frame(width: 300, height: 100)
                 
                 
-            }.listRowInsets(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)) // Adjust the values to set the desired spacing
+            }.listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15)) // Adjust the values to set the desired spacing
             
             
         }

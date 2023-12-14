@@ -51,8 +51,15 @@ public struct CustomDropDown: View {
             }
             .frame(height: 40)
             .padding(.leading, 10)
-            .border(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke( Color.black , lineWidth: 1)
+//
+
+            )
+            .alignmentGuide(.leading) { _ in 0 }
             .frame(maxWidth: .infinity, alignment: .leading)
+    
         }
     }
 }

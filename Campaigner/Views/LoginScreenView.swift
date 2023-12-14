@@ -8,6 +8,7 @@
 import SwiftUI
 import Alamofire
 import AlertToast
+import AuthenticationServices
 
 struct LoginScreenView: View {
     
@@ -53,7 +54,7 @@ struct LoginScreenView: View {
                             
                             
                             
-                            CnicTextInput(placeholder: "CNIC or Mobile Number", text: $userData.username, imageName: "person")
+                            CnicTextInput(placeholder: "Mobile Number", text: $userData.username, imageName: "person")
                                 .padding(.bottom,12)
                             
                             CustomTextInput(placeholder: "Password", text: $userData.password, imageName: "lock", isPasswordField: true)
@@ -83,7 +84,7 @@ struct LoginScreenView: View {
                                     // Action for Google
                                     print("Google tapped!")
                                     signInGoogle()
-                                    
+
                                 }) {
                                     Image("google")
                                         .resizable()
@@ -92,13 +93,27 @@ struct LoginScreenView: View {
                                             height: 60
                                         )
                                 }
-                                
+
                                 Button(action: {
                                     // Action for Facebook
                                     print("Facebook tapped!")
                                     signInFacebook()
                                 }) {
                                     Image("facebook")
+                                        .resizable()
+                                        .frame(
+                                            width: 60,
+                                            height: 60
+                                        )
+                                }
+
+                                Button(action: {
+                                    // Action for Facebook
+                                    print("Apple tapped!")
+                                    signInApple()
+
+                                }) {
+                                    Image("apple")
                                         .resizable()
                                         .frame(
                                             width: 60,
@@ -237,7 +252,7 @@ struct LoginScreenView: View {
                         print(loginResponse.data![0])
                         let userData = loginResponse.data![0]
                         UserDefaults.standard.set(1, forKey: Constants.USER_TYPE)
-
+                        
                         UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
                         UserDefaults.standard.set(userData.cnic, forKey: Constants.USER_CNIC)
                         UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
@@ -284,10 +299,10 @@ struct LoginScreenView: View {
                 print("User successfully signed in. Email: \(userData.accessToken)")
                 SocialLoginAction(type: 4, accessToken: userData.accessToken)
                 UserDefaults.standard.set(userData.email, forKey: Constants.USER_EMAIL)
-
+                
             case .failure(let error):
                 isShowingLoader = false
-
+                
                 print("Error signing in: \(error.localizedDescription)")
             }
         }
@@ -301,14 +316,28 @@ struct LoginScreenView: View {
                 print("Facebook login successful. Email: \(data.email), Access Token: \(data.accessToken.tokenString)")
                 SocialLoginAction(type: 3, accessToken: data.accessToken.tokenString)
                 UserDefaults.standard.set(data.email, forKey: Constants.USER_EMAIL)
-
+                
             case .failure(let error):
                 isShowingLoader = false
-
+                
                 print("Error signing in with Facebook: \(error.localizedDescription)")
             }
         }
         
+    }
+    
+    func signInApple(){
+        socialSignUpVM.signInWithApple { result in
+            switch result {
+            case .success(let data):
+                print("Apple login successful. Email: \(data.email), Access Token: \(data.accessToken)")
+                // Handle the success as needed
+                
+            case .failure(let error):
+                print("Error signing in with Apple: \(error.localizedDescription)")
+                // Handle the failure as needed
+            }
+        }
     }
     
     
@@ -328,7 +357,7 @@ struct LoginScreenView: View {
         
         viewModel.loginSocialRequest(parameters: parameters ) { result in
             isShowingLoader = false
-
+            
             switch result {
                 
             case .success(let response):
@@ -339,12 +368,12 @@ struct LoginScreenView: View {
                     userData.password = ""
                     print(response)
                     let userData = response.data![0]
-
+                    
                     UserDefaults.standard.set(2, forKey: Constants.USER_TYPE)
-
+                    
                     UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
                     UserDefaults.standard.set(true, forKey: Constants.IS_USER_LOGIN)
-
+                    
                     UserDefaults.standard.set(userData.cnic, forKey: Constants.USER_CNIC)
                     UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
                     UserDefaults.standard.set(userData.phone, forKey: Constants.USER_PHONE)
@@ -354,7 +383,7 @@ struct LoginScreenView: View {
                     UserDefaults.standard.set(userData.user_image, forKey: Constants.USER_IMAGE)
                     isShowingLoader = false
                     isHomeScreenActive.toggle()
-//
+                    //
                 }else{
                     alertService.show(title: "Alert", message: response.message!)
                 }

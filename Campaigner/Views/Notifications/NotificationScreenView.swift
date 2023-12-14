@@ -17,7 +17,8 @@ struct NotificationScreenView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let height = UIScreen.main.bounds.height
     let width = UIScreen.main.bounds.width
-    
+    @State var showingDeleteAlert=false
+    @State var notificationID=""
     var body: some View {
         ZStack {
             BaseView(alertService: alertService)
@@ -66,7 +67,7 @@ struct NotificationScreenView: View {
                     ScrollView{
                         ForEach(listNotification.indices, id: \.self) { index in
                             // Calculate Status and StatusColor based on your logic
-                            let status = listNotification[index].status == 0 ? "Pending" : "Approved"
+                            let status = listNotification[index].status == 1 ? "Pending" : "Approved"
                             let statusColor = listNotification[index].status == 0 ? Color.blue : CColors.MainThemeColor
                             
                             NotificationCustomCard(
@@ -79,7 +80,9 @@ struct NotificationScreenView: View {
                                     
                                 },
                                 deleteImageTapAction: {
-                                    // Handle delete image tap action
+//                                    notificationID=listNotification[index]. ?? ""
+                                    showingDeleteAlert=true
+
                                 }
                             )
                             .padding([.leading,.trailing],10)

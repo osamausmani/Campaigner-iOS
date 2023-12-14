@@ -69,6 +69,8 @@ public class ApiPaths {
     public static var ListPollingStations = BasePath + "/list/election/polling/station"
     public static var ListPollingResult = BasePath + "/list/election/polling/result"
     public static var postElectionResult = BasePath + "/post/election/polling/result"
+    public static var upgradeAccount = BasePath + "/upgrade/pro/account"
+    public static var degradeAccount = BasePath + "/degrade/pro/account"
     
     //Invite Member Via Sms
     public static var InviteMember = BasePath + "/add/election/member"

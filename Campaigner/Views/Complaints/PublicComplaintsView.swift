@@ -113,7 +113,7 @@ struct PublicComplaintCustomCardView: View {
             BaseView(alertService: alertService)
             VStack{
                 
-                VStack {
+                VStack(spacing: 0) {
                     HStack{
                         
                         if item.province?.isEmpty == false{
@@ -170,13 +170,13 @@ struct PublicComplaintCustomCardView: View {
                                 }
                             }
                         }
-                        Spacer()
+//                        Spacer()
                         
                     }
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isProvinceNavigationActive))
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isDistrictNavigationActive).isDetailLink(false))
                     .background(NavigationLink("", destination: PublicComplaintsView(title: navigationTitle, id: id), isActive: $isTehsilNavigationActive).isDetailLink(false))
-                    Divider()
+                    dividerline()
                     
                     HStack {
                         Text(item.status == 4 ? "Pending" : "Status")
@@ -199,14 +199,14 @@ struct PublicComplaintCustomCardView: View {
                                     .font(.system(size: 16))
                                     .foregroundColor(Color.black)
                             }
-                            
-                            
-                            
-                            
-                            Text("External")
-                                .font(.headline)
-                                .foregroundColor(Color.blue)
-                                .padding(.top, 0.5)
+//                            
+//                            
+//                            
+//                            
+//                            Text("External")
+//                                .font(.headline)
+//                                .foregroundColor(Color.blue)
+//                                .padding(.top, 0.5)
                             
                             Text(item.details ?? "Description").frame(maxWidth: .infinity, alignment: .leading)
                                 .lineLimit(item.details!.count > 200 ? 1 : 0)
@@ -239,8 +239,8 @@ struct PublicComplaintCustomCardView: View {
                     }
           
                     
-                    NavigationLink("", destination: GoogleMapView(latitude: item.loc_lat ?? "", longitude: item.loc_lng ?? "").edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
-                        .isDetailLink(false)
+//                    NavigationLink("", destination: GoogleMapView(latitude: Double(item.loc_lat ?? "0.0") ?? 0.0, longitude: Double(item.loc_lng ?? "0.0") ?? 0.0).edgesIgnoringSafeArea(.bottom) , isActive: $isMapNavigationActive)
+//                        .isDetailLink(false)
                     
                 }.padding(.bottom,-20).padding(.leading,8).padding(.trailing,8)
                 

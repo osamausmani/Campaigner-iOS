@@ -20,37 +20,54 @@ struct SideMenuView: View {
     @State private var paymentsScreenView = false
     
     @State private var termsOfUseScreenView = false
-    
+    @State private var isLoading = false
     @State private var contactUsScreenView = false
     @State private var profileMainScreenView = false
-    
+    @State private var manageConstituency = false
     @State private var ChangePasswordScreenView = false
     @State private var TermOfUseScreenView = false
     @State private var contactUsView = false
-    
+    @State private var isUpgradeView = false
+    @State private var isDowngradeView = false
     @State private var showLogoutConfirmation = false
     @State private var alertOffset: CGFloat = UIScreen.main.bounds.height
     @State private var showToast = false
-
+    @State var fin = [ContestingElection]()
     @State var alertMsg = "Alert"
     
     @State private var showSimpleAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    let isProAccount = UserDefaults.standard.integer(forKey: Constants.isProAccount)
+
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     @StateObject var userData: UserData = UserData()
+    @State var constituencyOptions = [DropDownModel(id: "0", value: "Pro Account")]
+    @State var selectedOption=DropDownModel()
+    @State var selectedImage: UIImage?
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
                 ProfileImageView()
                     .padding(.bottom, 30).background(CColors.MainThemeColor)
                 ForEach(SideMenuRowType.allCases, id: \.self){ row in
-                    RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
-                        selectedSideMenuTab = row.rawValue
-                        presentSideMenu = true
-                        SideMenuBtnTapped(selectedSideMenuTab)
+                    if Global.isProAccount == 1 && row.rawValue == 4 {
+                        
                     }
+                    else if Global.isProAccount == 0 && row.rawValue == 6 {
+                        
+                    }
+                    else if Global.isProAccount == 0 && row.rawValue == 5{
+                        
+                    }
+                    else {
+                        RowView(isSelected: selectedSideMenuTab == row.rawValue, imageName: row.iconName, title: row.title) {
+                            selectedSideMenuTab = row.rawValue
+                            presentSideMenu = true
+                            SideMenuBtnTapped(selectedSideMenuTab)
+                        }
+                    }
+                  
                 }
                 Spacer()
                     .background(
@@ -58,10 +75,15 @@ struct SideMenuView: View {
                     )
             }
             .frame(maxWidth: 270, maxHeight: .infinity, alignment: .leading)
-            
+            .onAppear(){
+                listElection()
+            }
             Spacer()
         }.toast(isPresenting: $showToast){
             AlertToast(displayMode: .banner(.slide), type: .regular, title: alertMsg)
+        }
+        .onAppear{
+            print("Account Status = \(isProAccount)")
         }
         .alert(isPresented: $showSimpleAlert) {
             Alert(
@@ -97,8 +119,12 @@ struct SideMenuView: View {
         
         NavigationLink(destination: ContactUsView(), isActive: $contactUsView) {
         }
-        
-        
+        NavigationLink(destination: ContestingElectionScreenView(), isActive: $manageConstituency) {
+        }
+        NavigationLink(destination: UpgradeAccountView(), isActive: $isUpgradeView) {
+        }
+        NavigationLink(destination: DowngradeAccountView(), isActive: $isDowngradeView) {
+        }
         
     }
     
@@ -107,16 +133,18 @@ struct SideMenuView: View {
         VStack(alignment: .center){
             HStack{
                 Spacer()
-                
-                Image("default_large_image")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
-                //                    .overlay(
-                //                        RoundedRectangle(cornerRadius: 50)
-                //                            .stroke(.purple.opacity(0.5), lineWidth: 10)
-                //                    )
-                    .cornerRadius(40)
+                if selectedImage == nil {
+                    Image("default_large_image")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(40)
+                }
+                else{
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(40)
+                }
                 Spacer()
                 VStack{
                     Text(UserDefaults.standard.string(forKey: Constants.USER_NAME) ?? "UserName")
@@ -130,10 +158,20 @@ struct SideMenuView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
-            }.padding(10).frame(height: 150).padding(.top,50)
+                
+            }.padding(10).frame(height: 100).padding(.top,50)
             
+            DropDown(label: "Select Constituency", placeholder: "Select Constituency", selectedObj: $selectedOption, menuOptions: constituencyOptions,isFromMenu:true)
+                .padding([.leading,.trailing],10)
             
-        }.background(CColors.MainThemeColor)
+        }.background(CColors.MainThemeColor).onAppear{
+            if let base64String = UserDefaults.standard.string(forKey: Constants.USER_IMAGE_DATA),
+               let imageData = Data(base64Encoded: base64String),
+               let image = UIImage(data: imageData) {
+                // Use the 'image' as needed, for example, set it to a UIImageView
+                selectedImage = image
+            }
+        }
     }
     
     func RowView(isSelected: Bool, imageName: String, title: String, hideDivider: Bool = false, action: @escaping (()->())) -> some View{
@@ -186,7 +224,7 @@ struct SideMenuView: View {
             profileMainScreenView = true
         } else if number == 1
         {
-            inviteMemebersScreenView = true
+       //wallet
         }
         else if number == 2  {
             inviteMemebersScreenView = true
@@ -197,15 +235,17 @@ struct SideMenuView: View {
         }
         else if number == 4
         {
-            
+            isUpgradeView = true
             
         }
         else if number == 5
         {
+            manageConstituency = true
             
         }
         else if number == 6
         {
+          isDowngradeView = true
             
         }
         else if number == 7
@@ -268,6 +308,11 @@ struct SideMenuView: View {
                     userData.username = ""
                     userData.password = ""
                     
+                    // Clear all data in UserDefaults
+                    if let bundleIdentifier = Bundle.main.bundleIdentifier {
+                        UserDefaults.standard.removePersistentDomain(forName: bundleIdentifier)
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         self.presentationMode.wrappedValue.dismiss()
                     }
@@ -309,6 +354,63 @@ struct SideMenuView: View {
         
         
         
+    }
+    func listElection(){
+        // isShowingLoader.toggle()
+        isLoading = true
+        
+        let token = UserDefaults.standard.string(forKey: Constants.USER_SESSION_TOKEN)
+        let headers:HTTPHeaders = [
+            // "Content-Type":"application/x-www-form-urlencoded",
+            "x-access-token": token!
+        ]
+        
+        let userID = UserDefaults.standard.string(forKey: Constants.USER_ID)
+        
+        
+        
+        print(token!)
+        
+        let parameters: [String:Any] = [
+            "plattype": Global.PlatType,
+            "user_id": userID!
+            
+        ]
+        
+        //let registerViewModel = RegisterViewModel()
+        
+        
+        let contestentViewModel = ContestentViewModel()
+        
+        contestentViewModel.listElections(parameters: parameters,headers: headers ) { result in
+            // isShowingLoader.toggle()
+            isLoading = false
+            print(result)
+            switch result {
+                
+            case .success(let loginResponse):
+                
+                if loginResponse.rescode == 1 {
+                    fin = loginResponse.data!
+                    for i in fin {
+                        
+                        let dropDownModel = DropDownModel(id: i.constituency_id ?? "", value: i.constituency!)
+                        constituencyOptions.append(dropDownModel)
+                      
+                    }
+                 
+                    
+                    //  self.presentationMode.wrappedValue.dismiss()
+                    
+                    
+                }else{
+                    alertService.show(title: "Alert", message: loginResponse.message!)
+                }
+                
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
     }
     
     

@@ -180,6 +180,9 @@
 		FAD8FF802A3B8A3500466533 /* SubscribeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */; };
 		FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */; };
 		FAE114952AF8B9C000E24CE1 /* HTMLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */; };
+		FAE11B602B1EFE23000BDD8D /* DowngradeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11B5F2B1EFE23000BDD8D /* DowngradeAccountView.swift */; };
+		FAE11B622B1EFE8C000BDD8D /* UpgradeAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11B612B1EFE8C000BDD8D /* UpgradeAccountView.swift */; };
+		FAE11B642B1EFEC9000BDD8D /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11B632B1EFEC9000BDD8D /* FeatureRow.swift */; };
 		FAEE762C2A3C9DD80077731A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */; };
 		FAEE762E2A3CE1070077731A /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE762D2A3CE1070077731A /* HomeResponse.swift */; };
 		FAF5B42D2AF251C10036D37B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5B42C2AF251C10036D37B /* UserData.swift */; };
@@ -235,6 +238,7 @@
 		0778234D2AD0090100A6F2E3 /* BasicProfileInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicProfileInfoResponse.swift; sourceTree = "<group>"; };
 		077823502AD0546800A6F2E3 /* SearchableInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableInput.swift; sourceTree = "<group>"; };
 		077823522AD0584900A6F2E3 /* TestContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContent.swift; sourceTree = "<group>"; };
+		07956D582B2041C800054FB1 /* Campaigner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Campaigner.entitlements; sourceTree = "<group>"; };
 		07ADF0B02A07E4110096C82D /* Campaigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campaigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07ADF0B32A07E4110096C82D /* CampaignerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignerApp.swift; sourceTree = "<group>"; };
 		07ADF0B52A07E4110096C82D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -367,6 +371,9 @@
 		FAD8FF7F2A3B8A3500466533 /* SubscribeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeScreenView.swift; sourceTree = "<group>"; };
 		FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribePopUpScreenView.swift; sourceTree = "<group>"; };
 		FAE114942AF8B9C000E24CE1 /* HTMLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTextView.swift; sourceTree = "<group>"; };
+		FAE11B5F2B1EFE23000BDD8D /* DowngradeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DowngradeAccountView.swift; sourceTree = "<group>"; };
+		FAE11B612B1EFE8C000BDD8D /* UpgradeAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAccountView.swift; sourceTree = "<group>"; };
+		FAE11B632B1EFEC9000BDD8D /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		FAEE762B2A3C9DD80077731A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAEE762D2A3CE1070077731A /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		FAF5B42C2AF251C10036D37B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -552,6 +559,7 @@
 		07ADF0B22A07E4110096C82D /* Campaigner */ = {
 			isa = PBXGroup;
 			children = (
+				07956D582B2041C800054FB1 /* Campaigner.entitlements */,
 				07BE80FA2B1DD8F10064A77D /* GoogleService-Info.plist */,
 				07BE80F52B1DD6FA0064A77D /* Utilities */,
 				FAF5B42B2AF251AB0036D37B /* SharedData */,
@@ -626,6 +634,7 @@
 		07ADF0C42A07E4590096C82D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAE11B5E2B1EFDF8000BDD8D /* UpgradeDowngrade */,
 				0711DE302AF9205000CB3FB5 /* ContactUs */,
 				FA730C162AF4FE8C00A69B5C /* TermOfUse */,
 				FA730C0D2AF4C96E00A69B5C /* ChangePassword */,
@@ -884,6 +893,16 @@
 				FAD8FF812A3C63C000466533 /* SubscribePopUpScreenView.swift */,
 			);
 			path = Payments;
+			sourceTree = "<group>";
+		};
+		FAE11B5E2B1EFDF8000BDD8D /* UpgradeDowngrade */ = {
+			isa = PBXGroup;
+			children = (
+				FAE11B5F2B1EFE23000BDD8D /* DowngradeAccountView.swift */,
+				FAE11B612B1EFE8C000BDD8D /* UpgradeAccountView.swift */,
+				FAE11B632B1EFEC9000BDD8D /* FeatureRow.swift */,
+			);
+			path = UpgradeDowngrade;
 			sourceTree = "<group>";
 		};
 		FAF5B42B2AF251AB0036D37B /* SharedData */ = {
@@ -1148,6 +1167,7 @@
 				07ADF0D22A07E5BF0096C82D /* LoginScreenView.swift in Sources */,
 				FAD8FF822A3C63C000466533 /* SubscribePopUpScreenView.swift in Sources */,
 				FA5B5BEF2A4452FC005AD722 /* ImageUploader.swift in Sources */,
+				FAE11B622B1EFE8C000BDD8D /* UpgradeAccountView.swift in Sources */,
 				FA243E3C2A5D6B1600E7C0AB /* ReportingResponse.swift in Sources */,
 				07513CBA2AECFEA100AB0290 /* GoogleMapView.swift in Sources */,
 				FAD8FF5A2A36F63200466533 /* MultiLineTextField.swift in Sources */,
@@ -1176,11 +1196,13 @@
 				0702927D2A1A442B0057FB33 /* FilterCnic.swift in Sources */,
 				07DEE25B2A1DFED100D8B4B5 /* PoliticalSection.swift in Sources */,
 				07DEE2302A1CDA3A00D8B4B5 /* BaseView.swift in Sources */,
+				FAE11B602B1EFE23000BDD8D /* DowngradeAccountView.swift in Sources */,
 				FAD8FF2F2A2E16F100466533 /* hoverButton.swift in Sources */,
 				0711DE1E2AF6425A00CB3FB5 /* EditProfileScreenView.swift in Sources */,
 				FAD8FF6A2A38A63900466533 /* PostResultsView.swift in Sources */,
 				FAD8FF792A39E74800466533 /* PaymentsScreenView.swift in Sources */,
 				07BE81152B1DEE5B0064A77D /* NotificationCustomCard.swift in Sources */,
+				FAE11B642B1EFEC9000BDD8D /* FeatureRow.swift in Sources */,
 				070292812A1A5CEA0057FB33 /* CnicTextInput.swift in Sources */,
 				07DEE23C2A1CE96900D8B4B5 /* ApiPaths.swift in Sources */,
 				07ADF0D92A07E7730096C82D /* MainBGView.swift in Sources */,
@@ -1423,8 +1445,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Campaigner/Campaigner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
@@ -1445,9 +1468,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syntecx.halka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1457,8 +1483,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Campaigner/Campaigner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Campaigner/Preview Content\"";
 				DEVELOPMENT_TEAM = 38W3GXD597;
 				ENABLE_PREVIEWS = YES;
@@ -1479,9 +1506,12 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.syntecx.halka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
