@@ -160,10 +160,10 @@ struct SideMenuView: View {
                 
                 
             }.padding(10).frame(height: 100).padding(.top,50)
-            
-            DropDown(label: "Select Constituency", placeholder: "Select Constituency", selectedObj: $selectedOption, menuOptions: constituencyOptions,isFromMenu:true)
-                .padding([.leading,.trailing],10)
-            
+            if Global.isProAccount == 1 && constituencyOptions.count > 1{
+                DropDown(label: "Select Constituency", placeholder: "Select Constituency", selectedObj: $selectedOption, menuOptions: constituencyOptions,isFromMenu:true)
+                    .padding([.leading,.trailing],10)
+            }
         }.background(CColors.MainThemeColor).onAppear{
             if let base64String = UserDefaults.standard.string(forKey: Constants.USER_IMAGE_DATA),
                let imageData = Data(base64Encoded: base64String),

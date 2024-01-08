@@ -20,7 +20,6 @@ struct ForgotPassPinScreenView: View {
     
     
     
-    
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
@@ -74,9 +73,11 @@ struct ForgotPassPinScreenView: View {
                             
                             NavigationLink(destination: ForgotPassSetPassScreenView(), isActive: $isForgotPassSetPassScreenView) {
                                 MainButton(action: {
-                                    isForgotPassSetPassScreenView = true
-                                    
+                                    VerifyRequest()
+                                
                                 }, label: "Submit").frame(maxWidth: 200).padding(.top,20)
+                            
+
                             }
                             
                         }.padding(16)
@@ -103,6 +104,43 @@ struct ForgotPassPinScreenView: View {
     
     // Add Other Swift Functions Below Here
     
+    func VerifyRequest() {
+        isShowingLoader.toggle()
+
+        // Determine the value for user_msisdn based on the condition
+        let userMsisdn: String
+        if Global.userCNIC.hasPrefix("0") {
+            userMsisdn = "2"
+        } else {
+            userMsisdn = "1"
+        }
+
+        let parameters: [String: Any] = [
+            "plattype": Global.PlatType,
+            "user_cnic": Global.userCNIC,
+            "user_msisdn": userMsisdn,
+            "verification_code": Global.Verification_Code
+        ]
+        print(Global.userCNIC)
+        let forgotPassViewModel = ForgotPassViewModel()
+
+        forgotPassViewModel.VerifyVerificationCodeeRequest(parameters: parameters) { result in
+            isShowingLoader.toggle()
+
+            switch result {
+            case .success(let loginResponse):
+                if loginResponse.rescode == 1 {
+                    isForgotPassSetPassScreenView = true
+                } else {
+                    alertService.show(title: "Alert", message: loginResponse.message!)
+                }
+
+            case .failure(let error):
+                alertService.show(title: "Alert", message: error.localizedDescription)
+            }
+        }
+    }
+
     
     func ResendAction(){
         SubmitRequest()

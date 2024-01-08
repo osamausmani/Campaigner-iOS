@@ -57,7 +57,7 @@ struct ContestingElectionScreenView: View {
                         List {
 
                             ForEach(fin.indices, id: \.self) { index in
-                                CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provencial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
+                                CustomCell(Assembly: fin[index].assembly_type! == 1 ? "National Assembly" : "Provincial Assembly" , DistrictName: fin[index].district!, ConstituencyName: fin[index].constituency!, ReferralsCount: fin[index].refferal_no!, ProvinceName: fin[index].province!, delete: {selectedCellIndex = index
                                     delete()
                                 }, update: {
                                     selectedCellIndex = index
@@ -352,7 +352,7 @@ struct ContestingElectionScreenView: View {
                     
                     
                 }else{
-                    alertService.show(title: "Alert", message: loginResponse.message!)
+//                    alertService.show(title: "Alert", message: loginResponse.message!)
                 }
                 
             case .failure(let error):

@@ -399,6 +399,10 @@ struct EditProfileScreenView: View {
 
             if respJSON["rescode"] == 1 {
                 UserDefaults.standard.set(imageData?.base64EncodedString(), forKey: Constants.USER_IMAGE_DATA)
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+
             }
             
             

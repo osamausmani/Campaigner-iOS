@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import SwiftAlertView
 
 
 struct HomeProButtons: View {
@@ -17,7 +17,7 @@ struct HomeProButtons: View {
     @State private var promotionsScreenView = false
     @State private var teamsScreenView = false
     @State private var isUpgradeAppear = false
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var symbols = [
         1: ["title": "Reports", "symbol": "reporting"],
         2: ["title": "Promotions", "symbol": "promotion_main"],
@@ -48,7 +48,21 @@ struct HomeProButtons: View {
                         
                     }.onTapGesture {
                         if Global.isProAccount == 0{
-                            isUpgradeAppear = true
+                            SwiftAlertView.show(title: "Alert",
+                                                message: "Kindly Upgrade your halka account.",
+                                                buttonTitles:  "CANCEL", "UPGRADE")
+                            .onButtonClicked { _, buttonIndex in
+                                if buttonIndex == 1
+                                {
+                                    isUpgradeAppear = true
+                                }
+                                else{
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                                
+                            }
+                            
+                            
                         }
                         else{
                             buttonTapped(id)
@@ -85,7 +99,7 @@ struct HomeProButtons: View {
             
             teamsScreenView = true
         }
-
+        
         
         
     }
@@ -115,7 +129,7 @@ struct RoundedRectangleLabelView: View {
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.clear))
                 .frame(width:width*0.9,  height: height*0.14)
             
-          
+            
             
             Text(text)
                 .foregroundColor(.black)

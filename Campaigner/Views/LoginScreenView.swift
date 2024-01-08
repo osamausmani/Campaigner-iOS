@@ -225,6 +225,8 @@ struct LoginScreenView: View {
         }
         
         else{
+  
+  
             isShowingLoader.toggle()
             
             let parameters: [String:Any] = [
@@ -247,6 +249,7 @@ struct LoginScreenView: View {
                     
                     if loginResponse.rescode == 1 {
                         showToast.toggle()
+                     
                         userData.username = ""
                         userData.password = ""
                         print(loginResponse.data![0])
@@ -257,6 +260,7 @@ struct LoginScreenView: View {
                         UserDefaults.standard.set(userData.cnic, forKey: Constants.USER_CNIC)
                         UserDefaults.standard.set(userData.name, forKey: Constants.USER_NAME)
                         UserDefaults.standard.set(userData.phone, forKey: Constants.USER_PHONE)
+                        
                         UserDefaults.standard.set(userData.token, forKey: Constants.USER_SESSION_TOKEN)
                         UserDefaults.standard.set(userData.user_gender, forKey: Constants.USER_GENDER)
                         UserDefaults.standard.set(userData.user_id, forKey: Constants.USER_ID)

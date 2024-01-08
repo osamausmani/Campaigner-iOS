@@ -204,7 +204,7 @@ struct ComplaintCustomCardView: View {
                             
                             
                         }) {
-                            Text("Join the complaint?")
+                            Text("Join the Complaint")
                                 .foregroundColor(.white)
                             
                         }

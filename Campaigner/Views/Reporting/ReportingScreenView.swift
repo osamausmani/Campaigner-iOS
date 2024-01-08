@@ -38,25 +38,42 @@ struct ReportingScreenView: View {
             //                    Image("splash_background")
             //                        .resizable()
             //                        .edgesIgnoringSafeArea(.all)
-            
+            VStack{
+                Image("box")
+                    .resizable()
+                    .frame(width: 150,height: 150)
+                
+                if selectedTab == 0 {
+                    Text("Use this tab to report to your team within the constituency")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.gray)
+                  
+                }
+                else{
+                    Text("No reports Found")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.gray)
+                }
+            }
             VStack {
                 //
                 // Navigation Bar
                 
                 HStack {
+                   
                     Button(action: {
                         // Perform action for burger icon
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
-                        Image(systemName: "chevron.left").tint(CColors.MainThemeColor).font(.system(size: 18))
-                        Text("Back").tint(CColors.MainThemeColor).font(.system(size: 18))
+                        Image("back_arrow")
+                            .resizable()
+                            .frame(width: 24, height: 24).tint(CColors.MainThemeColor)
                         
                     }
-                    // Spacer()
+                    Spacer()
                     Text("Reporting")
                         .font(.headline)
-                        .frame(width: 250)
-                    
+                   
                     Spacer()
                     Button(action: {
                         // Perform action for searchbar icon
@@ -65,6 +82,7 @@ struct ReportingScreenView: View {
                         Image(systemName: "magnifyingglass")
                             .imageScale(.large)
                     }
+                    
                     
                 } .foregroundColor(CColors.MainThemeColor)
                     .padding()
@@ -83,7 +101,7 @@ struct ReportingScreenView: View {
                     
                     Spacer()
                     
-                    TabBarButton(text: "Other(s)", isSelected: selectedTab == 1)
+                    TabBarButton(text: "Others", isSelected: selectedTab == 1)
                     {
                         selectedTab = 1
                         // listTeams()
@@ -99,12 +117,10 @@ struct ReportingScreenView: View {
                         SearchBar(text: $searchText).onChange(of: searchText, perform: handleTextChange).frame(alignment: .top)
                     }
                     ZStack {
-                        
-                        Image("reportingNil")
-                            .resizable()
-                            .edgesIgnoringSafeArea(.all)
+                       
+                    
                         if selectedTab == 0 {
-                            
+                
                             List {
                                 //                                ReportingCell(Status: "Pending", ReportingType: "Minor news", Description: "This is the description", Date: "12/3/1992", Name: "Asad Irfan", mapAction: {}, delete: deleteRecord, update: updateRecord, attachment: showAttachment)
                                 if showSearchBar == false {
@@ -145,6 +161,7 @@ struct ReportingScreenView: View {
                                         }
                                     }
                                 } else {
+                                  
                                     ForEach(reportingType.indices, id: \.self) { index in
                                         if searchText.isEmpty || reportingType[index].type_name?.contains(searchText) ??  false {
                                             let formattedDate = convertDate(inputDate: reportingType[index].sdt ?? "", inputFormat: "yyyy-MM-dd HH:mm:ss", outputFormat: "dd MMM yyyy")

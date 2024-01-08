@@ -54,7 +54,7 @@ struct ContestingElectionUpdateScreenView: View {
      
      var assemblyType: [DropDownModel] = [
          DropDownModel(id: "1", value: "National Assembly"),
-         DropDownModel(id: "2", value: "Provencial Assembly"),
+         DropDownModel(id: "2", value: "Provincial Assembly"),
          
      ]
      

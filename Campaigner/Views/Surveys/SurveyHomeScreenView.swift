@@ -18,6 +18,7 @@ struct SurveyHomeScreenView: View {
     @State var selectedItem : SurveyListData?
     @State private var selectedTab = 1
     @State private var surveyAttemptScreenView = false
+    @State private var surveyMultiAttemptView = false
     @State private var surveyID: String? = ""
     
     var body: some View {
@@ -25,6 +26,8 @@ struct SurveyHomeScreenView: View {
         ZStack {
             BaseView(alertService: alertService)
             NavigationLink(destination: SurveyAttemptScreenView(surveyID: surveyID), isActive: $surveyAttemptScreenView) {
+            }
+            NavigationLink(destination: SurveysMultiAttemptView(surveyID: surveyID,surveyListArray:surveyListArray), isActive: $surveyMultiAttemptView) {
             }
             //
             //            NavigationLink(destination: ComplaintCommentScreenView(selectedItemID: selectedItem?.complaint_id), isActive: $isCommentsScreenViewActive) {
@@ -63,9 +66,17 @@ struct SurveyHomeScreenView: View {
                                     SurveyCustomCardView(selectedTab: $selectedTab, item: $surveyListArray[index]).onTapGesture {
                                         let sSurvey = surveyListArray[index]
                                         surveyID = sSurvey.survey_id_text
+                                        if (sSurvey.survey_multi_attempt == 0){
                                         if (sSurvey.survey_submitted != "1" || sSurvey.survey_multi_attempt! > 0) {
                                             surveyAttemptScreenView.toggle()
-
+                                            
+                                        }
+                                     
+                                    }
+                                        else if (sSurvey.survey_multi_attempt==1){
+                                            surveyID = sSurvey.survey_id_text
+                                            print("Survey Id is \(surveyID)")
+                                            surveyMultiAttemptView.toggle()
                                         }
                                     }
                                 }
@@ -102,6 +113,7 @@ struct SurveyHomeScreenView: View {
                     
                     if selectedTab == 1 {
                         let filteredSurveys = sArr.filter { $0.survey_submitted == "0" }
+                        print("SURVEYS AVAILABLE = \(filteredSurveys)")
                         surveyListArray.removeAll()
                         surveyListArray = filteredSurveys
                     }

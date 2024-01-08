@@ -43,10 +43,10 @@ struct ForgotPasswordHomeScreenView: View {
                             Image("logo")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 300, height: 250)
+                                .frame(width: 300, height: 200)
                                 .padding(.top,50)
                             
-                            Text("Enter CNIC").foregroundColor(CColors.MainThemeColor).font(.system(size:30, weight: .regular)).padding(.top,20)
+                            Text("Enter CNIC or Mobile Number").foregroundColor(CColors.MainThemeColor).font(.system(size:20, weight: .regular)).padding(.top,10)
 
                             
                             CnicTextInput(placeholder: "xxxxx-xxxxxxx-x", text: $username, imageName: "envelope")
@@ -77,7 +77,7 @@ struct ForgotPasswordHomeScreenView: View {
             
         }.navigationBarHidden(false)
             .navigationTitle("")
-        NavigationLink(destination: ForgotPassPinScreenView(), isActive: $ForgotPassPinScreen) {
+        NavigationLink(destination: ForgotPassPinScreenView( ), isActive: $ForgotPassPinScreen) {
           
         }
     }
@@ -119,11 +119,11 @@ struct ForgotPasswordHomeScreenView: View {
             case .success(let loginResponse):
                 
                 if loginResponse.rescode == 1 {
+                    Global.userCNIC = username
                     username=""
                     alertService.show(title: "Alert", message: loginResponse.message!)
                     
-                    Global.userCNIC = username
-                    
+             
                     ForgotPassPinScreen = true
                     
                   

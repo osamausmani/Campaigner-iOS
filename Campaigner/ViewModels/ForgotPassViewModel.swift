@@ -24,5 +24,9 @@ class ForgotPassViewModel: ObservableObject {
         let REQ_URL = ApiPaths.ForgotPasswordChange
         NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
     }
+    func VerifyVerificationCodeeRequest(parameters: [String:Any]?, completion: @escaping (Result<BaseResponse, Error>) -> Void) {
+        let REQ_URL = ApiPaths.VerifyVerificationCode
+        NetworkManager.shared.Request( url: REQ_URL, method: .post, parameters: parameters!, completion: completion)
+    }
     
 }
