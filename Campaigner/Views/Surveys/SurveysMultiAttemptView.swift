@@ -115,9 +115,9 @@ struct QuestionAnswerPair: Hashable {
 }
 
 
-#Preview {
-    SurveysMultiAttemptView()
-}
+//#Preview {
+//    SurveysMultiAttemptView()
+//}
 extension SurveyData {
     func getMergedQuestionAndAnswerData() -> [QuestionAnswerPair] {
         guard let questions = question_data, let answers = answer_data else {
