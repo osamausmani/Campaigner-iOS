@@ -25,6 +25,7 @@ public class ApiPaths {
     public static var ForgotPassword = BasePath + "/account/forget/password"
     public static var SendVerifitcationCode = BasePath + "/account/send/verifycode"
     public static var ForgotPasswordChange = BasePath + "/account/verify/code"
+    public static var VerifyVerificationCode = BasePath + "/account/verify/code"
     
     
     
@@ -139,7 +140,7 @@ public class ApiPaths {
     // Surveys
     public static var ListSurveyByUserID = BasePath + "/list/survey/userid"
     public static var SurveyDetails = BasePath + "/detail/survey"
-    public static var SurveySubmitAnswers = BasePath + "/add/door/answer"
+    public static var SurveySubmitAnswers = BasePath + "/add/survey/answer"
     
 
 }

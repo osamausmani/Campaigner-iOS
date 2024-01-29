@@ -49,6 +49,7 @@ struct UpgradeAccountView: View {
                                 .scaledToFit()
                                 .frame(width: geometry.size.width * 0.32)
                             Text("halka Pro")
+                                .padding(.bottom,20)
                                 .offset(y: -geometry.size.height * 0.0)
                                 .font(.title)
                         }

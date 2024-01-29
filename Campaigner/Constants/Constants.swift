@@ -22,6 +22,7 @@ public class Constants {
     public static var USER_GENDER = "USER_GENDER"
     public static var USER_SESSION_TOKEN = "USER_SESSION_TOKEN"
     public static var USER_CNIC = "USER_CNIC"
+
     public static var USER_PHONE = "USER_PHONE"
     public static var USER_NAME = "USER_NAME"
     public static var USER_IMAGE = "USER_IMAGE"

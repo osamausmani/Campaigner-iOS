@@ -44,7 +44,7 @@ struct ContestingElectionPopUpScreenView: View {
     
     var assemblyType: [DropDownModel] = [
         DropDownModel(id: "1", value: "National Assembly"),
-        DropDownModel(id: "2", value: "Provencial Assembly"),
+        DropDownModel(id: "2", value: "Provincial Assembly"),
         
     ]
     
@@ -79,7 +79,7 @@ struct ContestingElectionPopUpScreenView: View {
 //                            }
 //                            )
                             
-                            DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj:  $cConstituency, menuOptions: constituencyName )
+                            DropDown(label: "Constituency", placeholder: "Select Constituency", selectedObj:  $cConstituency, menuOptions: constituencyName)
                             DropDown(label: "Party", placeholder: "Select Party", selectedObj:  $party, menuOptions: partiesName )
                             
                             

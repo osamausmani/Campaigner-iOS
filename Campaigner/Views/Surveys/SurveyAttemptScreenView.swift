@@ -183,6 +183,7 @@ struct SurveyAttemptScreenView: View {
             "answer": Answers.joined(separator: "8C%qO"),
             "answer_option": AnswerOptions.joined(separator: "8C%qO"),
         ]
+        print(parameters)
         let ViewModel = SurveyViewModel()
         ViewModel.SubmitSurveyAnswers(parameters: parameters ) { result in
             switch result {

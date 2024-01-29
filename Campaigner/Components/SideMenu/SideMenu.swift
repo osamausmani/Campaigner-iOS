@@ -55,7 +55,7 @@ enum SideMenuRowType: Int, CaseIterable{
         case .profile:
             return "Profile"
         case .wallet:
-            return "Wallet"
+            return "My Reward Points"
         case .inviteMembers:
             return "Invite Members"
 //        case .payments:
@@ -77,7 +77,7 @@ enum SideMenuRowType: Int, CaseIterable{
 //        case .manageConstituencey:
 //            return "Manage Constituencey"
         case .degradeAccount:
-            return "Degrade Account"
+            return "Downgrade Account"
         }
     }
     

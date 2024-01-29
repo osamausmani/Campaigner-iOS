@@ -21,7 +21,7 @@ struct HomeScreenView: View {
     @State var news = [News]()
     @State  var images = [String]()
     
-    
+    @State private var isUpgradeAccount = false
     
     @State var images2 = [String]()
     @State var label2 = [String]()
@@ -29,13 +29,24 @@ struct HomeScreenView: View {
     var body: some View {
         NavigationView {
             //            BaseView(alertService: alertService)
+         
             VStack {
+             
                 ZStack
                 {
+                    
+                    
                     ImageSlider(images: images)
                     //                    hoverButton(btnText: "Contestiong Election ? ", img: "mail", action: contestElection).padding(30)
+                    if Global.isProAccount == 0{
+                        UpgradeRectangle {
+                            isUpgradeAccount = true
+                        }
+                        .padding(.top, -160)
+                    }
+                    
                 }.frame(width: 400, height: 350)
-                
+             
                 ScrollView{
                     VStack{
                         
@@ -77,6 +88,9 @@ struct HomeScreenView: View {
                             .resizable()).padding(10)
                             .foregroundColor(.black)
                     }
+                NavigationLink(destination: UpgradeAccountView(), isActive: $isUpgradeAccount) {
+                    EmptyView()
+                }
                 }.onAppear
                 {
                     LoadDashBoard()
@@ -301,3 +315,42 @@ struct HomeScreenView: View {
     //}
     
 
+struct UpgradeRectangle: View {
+    var onTap: () -> Void
+    var body: some View {
+        Button(action: {
+            onTap()
+        }) {
+            HStack {
+                Image("upgardeHome")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding([.leading, .bottom, .top], 5)
+                
+                Text("Upgrade to halka Pro")
+                    .font(.system(size: 16))
+                    .padding([.leading, .bottom, .top], 5)
+                    .padding(.trailing, 10)
+                    .bold()
+            }
+            .frame(height: 45)
+            .background(Color.yellow.lighterColor())
+            .cornerRadius(10)
+        }
+    }
+}
+
+extension Color {
+    func lighterColor() -> Color {
+        return self.opacity(0.6)
+    }
+}
+
+struct upgradeRectangle_Previews: PreviewProvider {
+    static var previews: some View {
+        UpgradeRectangle(onTap: {
+            
+        })
+           
+    }
+}

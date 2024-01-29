@@ -72,11 +72,21 @@ struct ComplaintsScreenView: View {
                     
                     
                     VStack{
-                        if complaintsList.count == 0 {
+                        if complaintsList.count == 0 && selectedTab == 0 {
                             ZStack{
                                 VStack{
                                     Spacer()
                                     NoRecordView(recordMsg: "If you are facing any issues in your area, we encourage you to file a complaint with the relevent authority.")
+                                    Spacer()
+                                    
+                                }
+                            }.frame(maxWidth: .infinity, maxHeight:.infinity)
+                        }
+                      else  if complaintsList.count == 0 && selectedTab == 1 {
+                            ZStack{
+                                VStack{
+                                    Spacer()
+                                    NoRecordView(recordMsg: "No Record Found.")
                                     Spacer()
                                     
                                 }
@@ -127,7 +137,7 @@ struct ComplaintsScreenView: View {
                 if response.rescode == 1 {
                     complaintsList.removeAll()
                     complaintsList = response.data ?? []
-                    print(complaintsList[0].details)
+                    print(complaintsList)
                 }else{
                     complaintsList.removeAll()
                     

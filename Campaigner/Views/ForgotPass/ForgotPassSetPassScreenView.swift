@@ -15,15 +15,14 @@ struct ForgotPassSetPassScreenView: View {
     @State private var confirmPassword = ""
     private var verificationCode = ""
     private var cnic = ""
-
     
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     @StateObject private var alertService = AlertService()
     @State private var isShowingLoader = false
-
     
+
     var body: some View {
         
         NavigationView {
@@ -109,16 +108,19 @@ struct ForgotPassSetPassScreenView: View {
     
     
     func SubmitRequest(){
+       
         isShowingLoader.toggle()
         
         let parameters: [String:Any] = [
             "plattype": Global.PlatType,
             "user_cnic": Global.userCNIC,
             "verification_code": Global.Verification_Code,
-            "password": password,
-            "confirm_password": confirmPassword,
+            "new_password": password,
+            "confirm_password": confirmPassword
+
         ]
-        
+        print(parameters)
+        print(Global.userCNIC)
         let forgotPassViewModel = ForgotPassViewModel()
         
         forgotPassViewModel.ForgotPasswordChangeRequest(parameters: parameters ) { result in
@@ -148,9 +150,9 @@ struct ForgotPassSetPassScreenView: View {
     
     
 }
-
-struct ForgotPassSetPassScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForgotPassSetPassScreenView()
-    }
-}
+//
+//struct ForgotPassSetPassScreenView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForgotPassSetPassScreenView()
+//    }
+//}
